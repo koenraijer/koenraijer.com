@@ -2,6 +2,11 @@
     import Socials from '$lib/components/Socials.svelte';
 </script>
 
+<svelte:head>
+	<!--Preloading-->
+	<link rel="preload" href="/ducks.webp" as="image">
+</svelte:head>
+
 <section class="grid grid-cols-1 md:grid-cols-2 bg-surface-100 dark:bg-surface-800 shadow-sm overflow-hidden">
 <div class="relative p-8 row-span-2">
     <div class="relative h-full" style="padding-bottom: 66.66%; background: url('/ducks.webp') no-repeat center / cover;"></div>

@@ -13,18 +13,17 @@
     /** Provide classes to set the dark SVG fill color. */
     export let fillDark = 'fill-surface-900';
     /** Provide classes to set width styles. */
-    export let width = 'w-8';
+    export let width = 'w-5';
     /** Provide classes to set height styles. Should be half of width. */
-    export let height = 'h-8';
+    export let height = 'h-5';
     /** Provide classes to set ring styles. */
-    export let ring = 'ring-[1px] ring-surface-200-700-token';
+    export let ring = 'border border-surface-900-50-token';
     /** Provide classes to set border radius styles. */
     export let rounded = 'rounded-none';
     // Classes
     const cTransition = `transition-all duration-[200ms]`;
     const cTrack = 'cursor-pointer';
-    const cThumb = 'aspect-square scale-[0.8] flex justify-center items-center';
-    const cIcon = 'w-5 h-5';
+    const cIcon = 'w-6 h-6';
 
 	function onToggleHandler() {
 		$modeCurrent = !$modeCurrent;
@@ -65,7 +64,7 @@
 <button 
     on:click={onToggleHandler} 
     on:keydown={onKeyDown} 
-    class="{classesTrack} transition-colors decoration-none flex justify-center items-center bg-surface-hover-token"
+    class="{classesTrack} transition-colors decoration-none flex justify-center items-center bg-surface-hover-token h-fit w-fit p-2"
     role="switch"
     aria-label="Light Switch"
     aria-checked={$modeCurrent}
