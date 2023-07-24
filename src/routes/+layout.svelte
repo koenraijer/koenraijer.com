@@ -11,28 +11,40 @@
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { AppBar } from '@skeletonlabs/skeleton';
 	import ThemeToggle from '../lib/components/ThemeToggle.svelte';
+	import PageTransition from '../lib/components/Transition.svelte';
+	export let data;
 </script>
 
-<AppShell>
-	<svelte:fragment slot="header">Header</svelte:fragment>
+	<AppShell slotPageContent="max-w-5xl mx-auto px-6">
 
-	<svelte:fragment slot="pageHeader">
-		<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-200">
-			<svelte:fragment slot="lead">
-				Hi
-			</svelte:fragment>
-				<!--(title)-->
-				Koen Raijer
-			<svelte:fragment slot="trail">
-				<!--(actions)-->
-				<ThemeToggle />
-			</svelte:fragment>
-		</AppBar>
-	</svelte:fragment>
+		<svelte:fragment slot="header">
 
-	<!-- Router Slot -->
-	<slot />
-	<!-- ---- / ---- -->
-	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
-	<!-- (footer) -->
-</AppShell>
+		</svelte:fragment>
+	
+		<svelte:fragment slot="pageHeader">
+			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token max-w-5xl mx-auto px-6">
+				<svelte:fragment slot="lead">
+					<a href="/" class="text-2xl font-bold">Koen Raijer</a>
+				</svelte:fragment>
+					<!--(title)-->
+				<svelte:fragment slot="trail">
+					<!--(actions)-->
+					<ThemeToggle />
+				</svelte:fragment>
+			</AppBar>
+		</svelte:fragment>
+	
+		<!-- Router Slot -->
+		<PageTransition url={data.url}>
+			<slot />
+		</PageTransition>
+	
+		<!-- (footer) -->
+		<svelte:fragment slot="pageFooter">
+			<div class="mx-auto w-fit">
+				Footer
+			</div>
+		</svelte:fragment>
+
+	</AppShell>
+

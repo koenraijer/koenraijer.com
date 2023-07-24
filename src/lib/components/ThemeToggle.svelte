@@ -17,9 +17,9 @@
     /** Provide classes to set height styles. Should be half of width. */
     export let height = 'h-8';
     /** Provide classes to set ring styles. */
-    export let ring = 'ring-[1px] ring-surface-500/30';
+    export let ring = 'ring-[1px] ring-surface-200-700-token';
     /** Provide classes to set border radius styles. */
-    export let rounded = 'rounded-md';
+    export let rounded = 'rounded-none';
 
     // Classes
     const cTransition = `transition-all duration-[200ms]`;
@@ -66,7 +66,7 @@
 <button 
     on:click={onToggleHandler} 
     on:keydown={onKeyDown} 
-    class="{classesTrack} transition-colors decoration-none flex justify-center items-center hover:bg-surface-hover-token"
+    class="{classesTrack} transition-colors decoration-none flex justify-center items-center bg-surface-hover-token"
     role="switch"
     aria-label="Light Switch"
     aria-checked={$modeCurrent}
