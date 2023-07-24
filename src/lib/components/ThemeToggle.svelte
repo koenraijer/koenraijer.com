@@ -20,7 +20,6 @@
     export let ring = 'ring-[1px] ring-surface-200-700-token';
     /** Provide classes to set border radius styles. */
     export let rounded = 'rounded-none';
-
     // Classes
     const cTransition = `transition-all duration-[200ms]`;
     const cTrack = 'cursor-pointer';
