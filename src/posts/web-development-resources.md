@@ -1,13 +1,10 @@
 ---
 title: Web development Resources
-subtitle: A list of resources I use frequently, mostly but not exclusively related to web development. 
+description: A list of resources I use frequently, mostly but not exclusively related to web development. 
 date: "2022-03-08"
-updated: "2022-03-09"
-tags:
+categories:
     - Computer Science
     - Web development
-category: note
-layout: post
 published: true
 ---
 

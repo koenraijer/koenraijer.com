@@ -15,7 +15,7 @@
 	export let data;
 </script>
 
-	<AppShell slotPageContent="max-w-5xl mx-auto px-6">
+	<AppShell>
 
 		<svelte:fragment slot="header">
 

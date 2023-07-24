@@ -1,12 +1,9 @@
 ---
 title: Zotero-Obsidian Quick Copy
-subtitle: External translator to improve integration between Obsidian and Zotero. 
+description: External translator to improve integration between Obsidian and Zotero. 
 date: "2022-12-31"
-tags:
+categories:
     - Computer Science
-category: note
-layout: post
-toc: false
 published: true
 ---
 

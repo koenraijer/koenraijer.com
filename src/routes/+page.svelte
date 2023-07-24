@@ -19,11 +19,11 @@
 
 </script>
 
-<div class="mt-6">
+<div class="mt-6 max-w-5xl mx-auto">
 	<Hero />
 </div>
 
-<section class="mt-8">
+<section class="mt-8 max-w-5xl mx-auto">
 	<div>
 
 	</div>

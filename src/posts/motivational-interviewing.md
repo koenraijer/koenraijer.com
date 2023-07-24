@@ -2,10 +2,8 @@
 title: "Motivational Interviewing"
 description: A brief guide to creating sustainable behavioral change.
 date: "2022-04-06"
-tags:
+categories:
     - Medicine
-category: tutorial
-layout: post
 published: true
 ---
 

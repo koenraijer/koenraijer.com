@@ -1,10 +1,12 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import { mdsvex } from 'mdsvex';
+import readingTime from 'remark-reading-time';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
+	remarkPlugins: [readingTime],
 }
 
 /** @type {import('@sveltejs/kit').Config} */
