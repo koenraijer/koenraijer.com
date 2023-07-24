@@ -24,7 +24,7 @@
 		<svelte:fragment slot="pageHeader">
 			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token max-w-5xl mx-auto px-6">
 				<svelte:fragment slot="lead">
-					<a href="/" class="text-2xl font-bold">Koen Raijer</a>
+					<a href="/" class="text-2xl font-semibold">Koen Raijer</a>
 				</svelte:fragment>
 					<!--(title)-->
 				<svelte:fragment slot="trail">
@@ -42,7 +42,7 @@
 		<!-- (footer) -->
 		<svelte:fragment slot="pageFooter">
 			<div class="mx-auto w-fit">
-				Footer
+				
 			</div>
 		</svelte:fragment>
 
