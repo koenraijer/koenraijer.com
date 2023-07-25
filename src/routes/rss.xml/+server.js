@@ -17,23 +17,25 @@ export async function GET({ fetch, setHeaders }) {
   
     // Generate the RSS feed
     const rss = `
-      <rss version="2.0">
-        <channel>
-          <title>${name}</title>
-          <link>${website}</link>
-          <description>${websiteDescription}</description>
-          ${posts.map(post => `
-            <item>
-              <title>${post.title}</title>
-              <link>${website}/${post.slug}</link>
-              <description>${post.description}</description>
-              <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-              <guid>${website}/${post.slug}</guid>
-            </item>
-          `).join('')}
-        </channel>
-      </rss>
+    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>${name}</title>
+        <link>${website}</link>
+        <description>${websiteDescription}</description>
+        <atom:link href="${website}/rss.xml" rel="self" type="application/rss+xml" />
+        ${posts.map(post => `
+        <item>
+            <title>${post.title}</title>
+            <link>${website}/${post.slug}</link>
+            <description>${post.description}</description>
+            <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+            <guid>${website}/${post.slug}</guid>
+        </item>
+        `).join('')}
+    </channel>
+    </rss>
     `
+
   
     // Return the RSS feed
     return new Response(rss);
