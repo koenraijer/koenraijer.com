@@ -1,4 +1,6 @@
 import { json } from '@sveltejs/kit'
+import readingTime from 'reading-time'
+import { parse } from 'node-html-parser'
 
 async function getPosts() {
 	let posts = []
@@ -11,7 +13,9 @@ async function getPosts() {
 
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
 			const metadata = file.metadata
-			const post = { ...metadata, slug } 
+			const content = file.default
+			const html = parse(content.render().html)
+			const post = { ...metadata, slug, readingTime: readingTime(html.structuredText).text } 
 			post.published && posts.push(post)
 		}
 	}

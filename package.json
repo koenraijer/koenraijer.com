@@ -32,6 +32,13 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"remark-reading-time": "^2.0.1"
+		"@vcarl/remark-headings": "^0.1.0",
+		"mdsvex-relative-images": "^1.0.3",
+		"node-html-parser": "^6.1.5",
+		"reading-time": "^1.5.0",
+		"rehype-autolink-headings": "^6.1.1",
+		"rehype-slug": "^5.1.0",
+		"remark-reading-time": "^2.0.1",
+		"unist-util-visit": "^5.0.0"
 	}
 }
