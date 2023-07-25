@@ -12,7 +12,7 @@ export async function GET({ fetch, setHeaders }) {
 
     // Define the base properties of your RSS feed
     const name = "Koen Raijer's personal website"
-    const website = process.env.NODE_ENV === 'production' ? 'https://www.koenraijer.io' : 'http://localhost:5173';
+    const website = process.env.NODE_ENV === 'production' ? 'https://koenraijer.io' : 'http://localhost:5173';
     const websiteDescription = `${name}'s blog`
   
     // Generate the RSS feed

@@ -41,9 +41,12 @@
 	
 		<!-- (footer) -->
 		<svelte:fragment slot="pageFooter">
-			<div class="mx-auto w-fit">
-				<a href="/">Koen Raijer</a> © {new Date().getFullYear()}.
-				<a href="/rss.xml">RSS</a>
+			<div class="mx-auto w-full py-8 max-w-xs flex justify-between text-surface-500">
+				<span>
+					© {new Date().getFullYear()} <a href="/" class="hover:underline">Koen Raijer</a>
+				</span>
+				<a href="/rss.xml" class="hover:underline">RSS</a>
+				<a href="https://github.com/koenraijer/koenraijer.2.0" class="hover:underline">Source</a>
 			</div>
 		</svelte:fragment>
 
