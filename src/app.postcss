@@ -31,3 +31,11 @@ input:focus {
 	box-shadow: none !important;
   	border-color: rgb(var(--color-surface-50)) !important;
 }
+
+.prose :not(:where(h2, h3, h4, h5, h6)) :where(a):not(:where([class~="not-prose"] *)) {
+		@apply anchor
+	}
+
+.prose :where(h2, h3, h4, h5, h6) :where(a):not(:where([class~="not-prose"] *)) {
+	@apply relative no-underline hover:underline hover:after:content-['#'] after:absolute after:w-4 after:h-4 after:text-surface-300-600-token text-surface-900-50-token after:pl-4
+}

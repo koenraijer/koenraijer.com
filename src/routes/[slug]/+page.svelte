@@ -11,7 +11,7 @@
 	<meta property="og:title" content={data.post.title} />
 </svelte:head>
 
-<article class="w-full px-6 ">
+<article class="w-full px-6">
   	<!-- Title -->
 	<hgroup class="text-surface-900-50-token max-w-[65ch] mx-auto mt-12 flex items-center">
 		<div>
@@ -26,12 +26,11 @@
 	</hgroup>
 
 
-  <!-- Post -->
-	<div class="text-surface-900-50-token mx-auto overflow-x-scroll prose prose-a:anchor">
+	<!-- Post -->
+	<div class="text-surface-900-50-token mx-auto overflow-x-scroll prose prose-headings:prose-a:no-underline relative">
 		{@html data.post.content}
 
 		<hr class="!border-surface-900-50-token border-2 flex-grow mb-4"/>
-
 	</div>
 
 	<!-- Tags -->
@@ -66,3 +65,4 @@
 		</div>
 	</div>
 </article>
+
