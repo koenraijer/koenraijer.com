@@ -15,7 +15,11 @@ module.exports = {
 		)
 	],
 	theme: {
-		extend: {}
+		extend: {
+			screens: {
+				'screen-5xl': '1024px',
+			  },
+		}
 	},
 	plugins: [forms, typography, ...skeleton()]
 };

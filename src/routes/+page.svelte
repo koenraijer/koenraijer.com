@@ -23,10 +23,7 @@
 	<Hero />
 </div>
 
-<section class="mt-8 max-w-5xl mx-auto">
-	<div>
-
-	</div>
+<section class="mt-8 max-w-5xl mx-auto px-6 sm:px-8">
 	<ul class="">
 		<div class="flex items-center mb-4">
 			<div class="mx-auto max-w-md pr-4 md:pr-8">
