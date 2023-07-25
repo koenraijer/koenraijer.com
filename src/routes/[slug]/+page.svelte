@@ -3,6 +3,8 @@
 	import HomeButton from '$lib/components/HomeButton.svelte'
 	import ToC from '$lib/components/ToC.svelte'
 	export let data
+
+	const xor = (a, b) => (a || b) && !(a && b);
 </script>
 
 <!-- SEO -->
@@ -56,7 +58,7 @@
 	</div>
 
 	<!-- Pagination -->
-	<div class="grid grid-rows-2 md:grid-rows-1 grid-cols-2 py-6 justify-between w-full col-span-full">
+	<div class="grid {xor(!data.post.previous, !data.post.next) ? 'grid-rows-1' : 'grid-rows-2'} md:grid-rows-1 grid-cols-2 py-6 justify-between w-full col-span-full">
 		{#if data.post.previous}
 		<a class="row-start-1 justify-self-start col-span-full md:col-start-1 group flex flex-wrap flex-col p-4" href={data.post.previous.slug}>
 			<div class="inline-flex align-top">
@@ -70,7 +72,7 @@
 		{/if}
 	
 		{#if data.post.next}
-		<a class="row-start-2 md:row-start-1 col-span-full md:col-start-2 justify-self-end group flex flex-wrap flex-col p-4" href={data.post.next.slug}>
+		<a class="md:row-start-1 col-span-full lg:transform lg:translate-x-24 md:col-start-2 {data.post.previous ? "row-start-2" : ""} justify-self-end group flex flex-wrap flex-col p-4" href={data.post.next.slug}>
 			<div class="inline-flex align-top">
 				<p class="font-semibold group-hover:underline">Next post&nbsp;</p>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2 self-center">
