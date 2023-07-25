@@ -47,12 +47,12 @@
 			setModeCurrent(getModeOsPrefers());
 		}
 	});
-
 	// State
 	$: trackBg = $modeCurrent === true ? bgLight : bgDark;
 	$: iconFill = $modeCurrent === true ? fillLight : fillDark;
 	// Reactive
 	$: classesTrack = `${cTrack} ${cTransition} ${width} ${height} ${ring} ${rounded} ${trackBg} ${$$props.class ?? ''}`;
+        // cursor-pointer transition-all duration-[200ms] w-5 h-5 border border-surface-900-50-token rounded-none bg-surface-50-900-token 
 	$: classesIcon = `${cIcon} ${iconFill}`;
 </script>
 

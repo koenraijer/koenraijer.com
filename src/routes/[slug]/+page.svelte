@@ -1,6 +1,6 @@
 <script lang="js">
 	import { formatDate } from '$lib/utils'
-
+	import HomeButton from '$lib/components/HomeButton.svelte'
 	export let data
 </script>
 
@@ -12,11 +12,19 @@
 </svelte:head>
 
 <article class="w-full px-6 ">
-  <!-- Title -->
-	<hgroup class="text-surface-900-50-token max-w-[65ch] mx-auto mt-12">
-		<h1 class="text-3xl font-semibold mb-4">{data.post.title}</h1>
-		<p class="uppercase mb-8 text-surface-400">{formatDate(data.post.date)} - {data.post.readingTime}</p>
+  	<!-- Title -->
+	<hgroup class="text-surface-900-50-token max-w-[65ch] mx-auto mt-12 flex items-center">
+		<div>
+			<div class="relative inline-flex gap-x-4">
+				<div class="sm:absolute sm:left-0 sm:top-0 transform sm:-translate-x-[137.5%]">
+					<HomeButton />
+				</div>
+				<h1 class="text-3xl font-semibold mb-4">{data.post.title}</h1>
+			</div>
+			<p class="uppercase mb-8 text-surface-400">{formatDate(data.post.date)} - {data.post.readingTime}</p>
+		</div>
 	</hgroup>
+
 
   <!-- Post -->
 	<div class="text-surface-900-50-token mx-auto overflow-x-scroll prose prose-a:anchor">
