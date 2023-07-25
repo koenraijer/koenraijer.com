@@ -39,10 +39,10 @@
 			{#if data.post.categories.length > 1}
 				<span class="mr-2">Categories: </span>
 			{:else }
-				<span class="mr-2">Category: </span>
+				<span class="">Category: </span>
 			{/if}
 			{#each data.post.categories as category}
-				<button class="surface-4 btn border rounded-none dark:text-surface-100 text-surface-900 mr-2 bg-surface-hover-token">{category}</button>
+				<button class="surface-4 btn border rounded-none dark:text-surface-100 text-surface-900 mr-2 mb-2 bg-surface-hover-token">{category}</button>
 			{/each}
 		</div>
 		

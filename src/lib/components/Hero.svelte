@@ -1,15 +1,35 @@
 <script>
+    import { onMount } from 'svelte';
     import Socials from '$lib/components/Socials.svelte';
+
+    let imageLoaded = false;
+  
+    onMount(() => {
+      const img = new Image();
+      img.onload = () => {
+        imageLoaded = true;
+      };
+      img.onerror = () => {
+        console.error('Error loading image');
+      };
+      img.src = '/ducks.webp'; // set src after attaching event handlers
+    });
+
+    $: console.log(imageLoaded);
 </script>
 
 <svelte:head>
-	<!--Preloading-->
-	<link rel="preload" href="/ducks.webp" as="image">
+    <!--Preloading-->
+    <link rel="preload" href="/ducks.webp" as="image">
 </svelte:head>
 
 <section class="grid grid-cols-1 md:grid-cols-2 bg-surface-100 dark:bg-surface-800 shadow-sm overflow-hidden">
 <div class="relative p-6 sm:p-8 row-span-2">
-    <div class="relative h-full" style="padding-bottom: 66.66%; background: url('/ducks.webp') no-repeat center / cover;"></div>
+    {#if !imageLoaded}
+        <div class="placeholder animate-pulse rounded-none h-full bg-surface-200"></div>
+    {:else}
+        <div class="relative h-full" style="padding-bottom: 66.66%; background: url('/ducks.webp') no-repeat center / cover;"></div>
+    {/if}
 </div>
 <div class="flex flex-col p-6 sm:p-8 md:pl-0 pt-0 md:pt-8 row-span-2 overflow-auto">
     <p class="text-xl font-normal flex-grow">
@@ -20,6 +40,3 @@
     </div>
 </div>
 </section>
-
-
-
