@@ -32,7 +32,7 @@
     <p class="text-xl font-normal flex-grow">
         I'm <b>Koen</b>, a soon to be graduated medical doctor and data scientist based in Maastricht, The Netherlands. While COVID forced me to stay at home, I started to learn how to code. This ultimately led to me studying Data Science & Society at Tilburg University. Medically speaking, I am fully comitted to the field of psychiatry, and am doing research on the crossroads of psychiatry and data science.
     </p>
-    <div class="pt-8">
+    <div class="pt-8 lg:pt-36">
         <Socials />
     </div>
 </div>
