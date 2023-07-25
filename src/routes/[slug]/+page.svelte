@@ -29,8 +29,8 @@
 
 		<!-- Post -->
 		<div class="text-surface-900-50-token mx-auto overflow-x-scroll prose prose-headings:prose-a:no-underline relative">
-			{@html data.post.content}
-
+			{@html data.post.raw.html}
+			
 			<hr class="!border-surface-900-50-token border-2 flex-grow mb-4"/>
 		</div>
 

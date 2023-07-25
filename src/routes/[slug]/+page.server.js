@@ -16,10 +16,12 @@ export async function load({ params }) {
         const html = parse(post.default.render().html)
         post.metadata.readingTime = readingTime(html.structuredText).text
 
+        console.log(post.default)
         return {
             post: {
                 ...post.metadata,
                 content: html.toString(),
+                raw: post.default.render(),
                 previous,
                 next,
             }

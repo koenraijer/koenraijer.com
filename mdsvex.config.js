@@ -7,6 +7,9 @@ import readingTime from 'remark-reading-time';
 
 export default {
   extensions: ['.svx', '.md'],
+  layout: {
+		_: './src/mdsvex.svelte'
+	},
   smartypants: {
     dashes: 'oldschool'
   },

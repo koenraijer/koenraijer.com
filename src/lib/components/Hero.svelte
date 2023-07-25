@@ -1,7 +1,6 @@
 <script>
     import { onMount } from 'svelte';
     import Socials from '$lib/components/Socials.svelte';
-
     let imageLoaded = false;
   
     onMount(() => {
@@ -14,8 +13,6 @@
       };
       img.src = '/ducks.webp'; // set src after attaching event handlers
     });
-
-    $: console.log(imageLoaded);
 </script>
 
 <svelte:head>
