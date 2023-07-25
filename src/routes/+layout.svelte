@@ -42,7 +42,8 @@
 		<!-- (footer) -->
 		<svelte:fragment slot="pageFooter">
 			<div class="mx-auto w-fit">
-				
+				<a href="/">Koen Raijer</a> © {new Date().getFullYear()}.
+				<a href="/rss.xml">RSS</a>
 			</div>
 		</svelte:fragment>
 
