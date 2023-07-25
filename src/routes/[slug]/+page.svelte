@@ -19,7 +19,7 @@
 	</hgroup>
 
   <!-- Post -->
-	<div class="text-surface-900-50-token mx-auto overflow-x-scroll prose">
+	<div class="text-surface-900-50-token mx-auto overflow-x-scroll prose prose-a:anchor">
 		{@html data.post.content}
 
 		<hr class="!border-surface-900-50-token border-2 flex-grow mb-4"/>

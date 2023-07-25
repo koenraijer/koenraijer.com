@@ -19,6 +19,15 @@ html, body {
 }
 
 input:focus {
-    outline: none;
-    box-shadow: none;
+	outline: none !important;
+	ring-width: 0 !important;
+	box-shadow: none !important;
+	border-color: rgb(var(--color-surface-900)) !important;
+}
+
+.dark input:focus {
+	outline: none !important;
+	ring-width: 0 !important;
+	box-shadow: none !important;
+  	border-color: rgb(var(--color-surface-50)) !important;
 }
