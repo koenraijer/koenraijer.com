@@ -21,7 +21,7 @@
     /** Provide classes to set border radius styles. */
     export let rounded = 'rounded-none';
     // Classes
-    const cTransition = `transition-all duration-[200ms]`;
+    const cTransition = `transition-colors duration-[200ms]`;
     const cTrack = 'cursor-pointer';
     const cIcon = 'w-6 h-6';
 
