@@ -22,7 +22,7 @@
 		</svelte:fragment>
 	
 		<svelte:fragment slot="pageHeader">
-			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token max-w-5xl mx-auto" padding="p-4 px-6 sm:px-8 screen-5xl:px-0">
+			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token max-w-5xl mx-auto" padding="p-4 px-6 screen-5xl:px-0">
 				<svelte:fragment slot="lead">
 					<a href="/" class="text-2xl font-semibold">Koen Raijer</a>
 				</svelte:fragment>
