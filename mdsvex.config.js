@@ -3,7 +3,6 @@ import autolinkHeadings from 'rehype-autolink-headings'
 import slugPlugin from 'rehype-slug'
 import relativeImages from 'mdsvex-relative-images'
 import remarkHeadings from '@vcarl/remark-headings'
-import readingTime from 'remark-reading-time';
 
 export default {
   extensions: ['.svx', '.md'],
@@ -13,7 +12,7 @@ export default {
   smartypants: {
     dashes: 'oldschool'
   },
-  remarkPlugins: [videos, relativeImages, headings, readingTime],
+  remarkPlugins: [videos, relativeImages, headings],
   rehypePlugins: [
     slugPlugin,
     [
