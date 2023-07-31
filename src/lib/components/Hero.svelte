@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';  // Import fade transition
     import Socials from '$lib/components/Socials.svelte';
     let imageLoaded = false;
   
@@ -24,9 +25,10 @@
     <div class="relative p-6 sm:p-8 row-span-2">
         <div class="relative h-full" style="padding-bottom: 66.66%;">
             {#if !imageLoaded}
-                <div class="absolute inset-0 animate-pulse rounded-none h-full bg-surface-200"></div>
+                <div class="placeholder absolute inset-0 animate-pulse rounded-none h-full bg-surface-50-900-token"></div>
             {:else}
-                <div class="absolute inset-0" style="background: url('/ducks.webp') no-repeat center / cover;"></div>
+                <!-- Apply fade transition to the image -->
+                <div class="absolute inset-0" style="background: url('/ducks.webp') no-repeat center / cover;" in:fade={{duration: 100}}></div>
             {/if}
         </div>
     </div>
@@ -39,4 +41,3 @@
         </div>
     </div>
 </section>
-    

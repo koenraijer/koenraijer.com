@@ -1,11 +1,13 @@
-import { getPosts } from '$lib/utils'
 import { error } from '@sveltejs/kit'
 import readingTime from 'reading-time'
 import { parse } from 'node-html-parser'
 
-export async function load({ params }) {
+export async function load({ params, fetch }) {
     try {
-        const allPosts = await getPosts()
+        const response = await fetch('/api/posts')
+        const { posts, categories } = await response.json()
+
+        const allPosts = posts
         const currentPostIndex = allPosts.findIndex(post => post.slug === params.slug)
 
         const previous = currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null
@@ -16,16 +18,17 @@ export async function load({ params }) {
         const html = parse(post.default.render().html)
         post.metadata.readingTime = readingTime(html.structuredText).text
 
+        console.log(categories)
         return {
             post: {
                 ...post.metadata,
+                categories,
                 content: html.toString(),
-                raw: post.default.render(),
                 previous,
                 next,
-            }
+            },
         }
     } catch (e) {
-        throw error(404, `Could not find ${params.slug}`)
+        throw error(404, `Could not find ${params.slug}, ${e}`)
     }
 }

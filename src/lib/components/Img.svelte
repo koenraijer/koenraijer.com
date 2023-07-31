@@ -10,5 +10,5 @@
 
 <figure>
     <img {src} {alt} title={alt} loading="lazy"/>
-    <figcaption class="text-base text-surface-400-600-token">{alt}</figcaption>
+    <figcaption class="text-base text-surface-400 mt-1 text-center">{alt}</figcaption>
 </figure>    
