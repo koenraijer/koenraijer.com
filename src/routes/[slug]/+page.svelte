@@ -40,7 +40,7 @@
 		<div class="text-surface-900-50-token mx-auto overflow-x-scroll prose prose-headings:prose-a:no-underline relative leading-loose">
 			{@html data.post.content}
 			
-			<hr class="!border-surface-900-50-token border-2 flex-grow mb-4"/>
+			<hr class="!border-surface-900-50-token border-2 flex-grow mb-4 mt-12"/>
 		</div>
 
 		<!-- Categories -->
