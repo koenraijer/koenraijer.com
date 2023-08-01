@@ -10,8 +10,7 @@ Further development ideas:
 
 New features: 
 - Search Functionality: Local search functionality across all blog posts. Consider libraries like Fuse.js for client-side fuzzy search.
-- Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es?
-- A service like webmention.io can help with this.
+- Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance.
 
 **Completed:**
@@ -20,3 +19,5 @@ New features:
 - Hero placeholder shows up on all screen sizes
 - Add <A> tag for in templates
 - Syntax Highlighting with two themes that switch depending on active theme
+- Add compact post list for Archive
+

@@ -2,17 +2,37 @@
 	import Hero from '../lib/components/Hero.svelte';
 	import Categories from '../lib/components/Categories.svelte';
 	import Posts from '../lib/components/Posts.svelte';
+	import Fuse from 'fuse.js';
 	export let data
     let searchQuery = '';
+	let searchedPosts = data.posts; // Define searchedPosts
 
-	$: searchedPosts = data.posts.filter((post) => {
-		let titleMatch = post.title.toLowerCase().includes(searchQuery.toLowerCase());
-		let descriptionMatch = post.description 
-			? post.description.toLowerCase().includes(searchQuery.toLowerCase()) 
-			: false;
+	// Fuse options
+	const options = {
+		keys: ['title', 'description', 'categories'],
+		includeScore: true,
+		threshold: 0.6,
+		location: 0,
+		distance: 100,
+		maxPatternLength: 32,
+		minMatchCharLength: 1,
+		shouldSort: true,
+		includeMatches: true,
+		findAllMatches: true,
+	};
 
-		return titleMatch || descriptionMatch;
-	});
+	// Create fuse instance
+	let fuse = new Fuse(data.posts, options);
+	
+	// Apply searchterm
+	$: {
+		if (searchQuery) {
+			let results = fuse.search(searchQuery);
+			searchedPosts = results.map(result => result.item);
+		} else {
+			searchedPosts = data.posts;
+		}
+	}
 
 	let categoriesArray = Object.entries(data.categories).map(([category, {count, slug}]) => ({
 		category,
@@ -68,3 +88,14 @@
 	<div class="py-4"></div>
 	<Categories categories={data.categories}/>
 </section>
+
+<section class="section">
+	<div class="flex items-center">
+		<hr class="!border-surface-900-50-token border-2 flex-grow "/>
+		<h2 class="text-lg font-semibold flex-shrink-0 md:pl-8 pl-4 transition-width duration-300 -mt-1">Archive</h2>
+	</div>
+	<div class="py-4"></div>
+	<Posts posts={data.posts} compact/>
+</section>
+
+
