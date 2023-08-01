@@ -4,7 +4,7 @@
     import HomeButton from '$lib/components/HomeButton.svelte';
 </script>
 
-<div class="mt-8 max-w-5xl mx-auto px-6 sm:px-8 screen-5xl:px-0">
+<div class="mt-12 max-w-5xl mx-auto px-6 sm:px-8 screen-5xl:px-0">
     <!-- Title -->
     <hgroup class="text-surface-900-50-token mx-auto mb-4 flex items-center">
         <div>

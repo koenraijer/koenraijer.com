@@ -25,7 +25,7 @@
 <div class="grid grid-cols-6 mx-auto max-w-[75ch] h-full relative px-6">
 	<article class="w-full lg:col-span-5 col-span-full">
 		<!-- Title -->
-		<hgroup class="text-surface-900-50-token mx-auto mt-6 flex items-center">
+		<hgroup class="text-surface-900-50-token mx-auto mt-12 flex items-center">
 			<div>
 				<div class="relative inline-flex gap-x-4">
 					<div class="screen-5xl:absolute screen-5xl:left-0 screen-5xl:top-0 transform screen-5xl:-translate-x-[137.5%]">

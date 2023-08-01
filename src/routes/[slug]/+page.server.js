@@ -7,20 +7,23 @@ export async function load({ params, fetch }) {
         const response = await fetch('/api/posts')
         const { posts, categories } = await response.json()
 
-        const allPosts = posts
-        const currentPostIndex = allPosts.findIndex(post => post.slug === params.slug)
+        const currentPostIndex = posts.findIndex(post => post.slug === params.slug)
 
-        const previous = currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null
-        const next = currentPostIndex < allPosts.length - 1 ? allPosts[currentPostIndex + 1] : null
+        const previous = currentPostIndex > 0 ? posts[currentPostIndex - 1] : null
+        const next = currentPostIndex < posts.length - 1 ? posts[currentPostIndex + 1] : null
         
-        const post = await import(`../../posts/${params.slug}.md`)
+        if(currentPostIndex < 0) {
+            throw error(404, `Could not find ${params.slug}`)
+        }
 
-        const html = parse(post.default.render().html)
-        post.metadata.readingTime = readingTime(html.structuredText).text
+        const post = posts[currentPostIndex];
+
+        const html = parse(post.content)
+        post.readingTime = readingTime(html.structuredText).text
 
         return {
             post: {
-                ...post.metadata,
+                ...post,
                 allCategories: categories,
                 content: html.toString(),
                 previous,
