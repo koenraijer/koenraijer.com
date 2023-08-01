@@ -17,16 +17,16 @@
 		link.rel = 'stylesheet';
 
 		// We'll apply the correct theme immediately on mount
-		link.href = $modeCurrent ? 'src/lib/css/prism.css' : 'src/lib/css/prismDark.css';
+		link.href = $modeCurrent ? '/css/prism.css' : '/css/prismDark.css';
 		document.head.appendChild(link);
 	});
 
 	$: {
 		if (link) { // Make sure that the link element has been created
 		if ($modeCurrent) {
-			link.href = 'src/lib/css/prism.css';
+			link.href = '/css/prism.css';
 		} else {
-			link.href = 'src/lib/css/prismDark.css';
+			link.href = '/css/prismDark.css';
 		}
 		}
 	}

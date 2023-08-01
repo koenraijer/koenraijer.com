@@ -14,11 +14,6 @@ New features:
 - A service like webmention.io can help with this.
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance.
 
-
-
-Add remark plugins:
-- rehype-external links
-
 **Completed:**
 - Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content.
 - Add tag links to posts.
