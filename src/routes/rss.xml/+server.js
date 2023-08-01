@@ -3,7 +3,7 @@ export const prerender = true
 export async function GET({ fetch, setHeaders }) {
     // Fetch posts from your API
     const response = await fetch(`/api/posts`)
-    const posts = await response.json()
+    const {posts} = await response.json()
   
     setHeaders({
         'Cache-Control': `max-age=0, s-max-age=600`,
