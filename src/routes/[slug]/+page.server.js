@@ -18,15 +18,14 @@ export async function load({ params, fetch }) {
         const html = parse(post.default.render().html)
         post.metadata.readingTime = readingTime(html.structuredText).text
 
-        console.log(categories)
         return {
             post: {
                 ...post.metadata,
-                categories,
+                allCategories: categories,
                 content: html.toString(),
                 previous,
                 next,
-            },
+            }
         }
     } catch (e) {
         throw error(404, `Could not find ${params.slug}, ${e}`)

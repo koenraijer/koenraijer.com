@@ -1,11 +1,18 @@
 <script lang="js">
 	import { formatDate } from '$lib/utils'
 	import HomeButton from '$lib/components/HomeButton.svelte'
+	import Categories from '$lib/components/Categories.svelte'
 	import ToC from '$lib/components/ToC.svelte'
 	import Category from '../../lib/components/Category.svelte';
 	export let data
 
 	const xor = (a, b) => (a || b) && !(a && b);
+
+	// Convert the object to an array of entries [key, value]
+	let categoriesArray = Object.entries(data.post.categories).map(([category, details]) => ({
+		category,
+		...details
+	}));
 </script>
 
 <!-- SEO -->
@@ -15,14 +22,13 @@
 	<meta property="og:title" content={data.post.title} />
 </svelte:head>
 
-{JSON.stringify(data.post.categories)}
-<div class="grid grid-cols-6 mx-auto max-w-[75ch] h-full relative">
-	<article class="w-full px-6 lg:col-span-5 col-span-full">
+<div class="grid grid-cols-6 mx-auto max-w-[75ch] h-full relative px-6">
+	<article class="w-full lg:col-span-5 col-span-full">
 		<!-- Title -->
 		<hgroup class="text-surface-900-50-token mx-auto mt-6 flex items-center">
 			<div>
 				<div class="relative inline-flex gap-x-4">
-					<div class="md:absolute md:left-0 md:top-0 transform md:-translate-x-[137.5%]">
+					<div class="screen-5xl:absolute screen-5xl:left-0 screen-5xl:top-0 transform screen-5xl:-translate-x-[137.5%]">
 						<HomeButton />
 					</div>
 					<h1 class="text-3xl font-semibold mb-4">{data.post.title}</h1>
@@ -39,16 +45,8 @@
 		</div>
 
 		<!-- Categories -->
-		<div class="text-surface-900-50-token max-w-[65ch] mx-auto mb-4 ">
-			{#if data.post.categories.length > 1}
-			<span class="italic mr-2">Categories: </span>
-			{:else }
-			<span class="italic">Category: </span>
-			{/if}
-			{#each data.post.categories as category, index}
-				<Category category={category} count={data.categories[category].count} slug={data.categories[category].slug}/>
-				<span class="anchor">{category}</span>{index < data.post.categories.length - 1 ? ', ' : ''}
-			{/each}
+		<div class="text-surface-900-50-token max-w-[65ch] mx-auto mb-4">
+			<Categories categories={categoriesArray}/>
 		</div>
 	  
 	</article>

@@ -2,7 +2,6 @@
 	import Hero from '../lib/components/Hero.svelte';
 	import Categories from '../lib/components/Categories.svelte';
 	import Posts from '../lib/components/Posts.svelte';
-	import { formatDate } from '$lib/utils'
 	export let data
     let searchQuery = '';
 	
@@ -17,7 +16,14 @@
 		return titleMatch || descriptionMatch;
 	});
 
+	// Convert the categories object to an array of objects
+	let categoriesArray = Object.entries(data.categories).map(([category, {count, slug}]) => ({
+		category,
+		count,
+		slug
+	}));
 
+	data.categories = categoriesArray;
 </script>
 
 <section class="mt-6 max-w-5xl mx-auto">

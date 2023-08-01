@@ -10,7 +10,7 @@
         <div>
             <p class="uppercase mb-2 text-surface-400">Category</p>
             <div class="relative inline-flex gap-x-4">
-                <div class="md:absolute md:left-0 md:top-0 transform md:-translate-x-[137.5%]">
+                <div class="screen-5xl:absolute screen-5xl:left-0 screen-5xl:top-0 transform screen-5xl:-translate-x-[137.5%]">
                     <HomeButton />
                 </div>
                 <h1 class="text-3xl font-semibold mb-4">{data.category}</h1>
