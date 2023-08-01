@@ -26,10 +26,10 @@
 	data.categories = categoriesArray;
 </script>
 
-<section class="mt-6 max-w-5xl mx-auto">
+<section class="mt-12 max-w-5xl mx-auto">
 	<Hero />
 </section>
-<section class="mt-8 max-w-5xl mx-auto px-6 sm:px-8 screen-5xl:px-0">
+<section class="mt-12 max-w-5xl mx-auto px-6 sm:px-8 screen-5xl:px-0">
 	<div class="flex items-center mb-4">
 		<div class="mx-auto max-w-md pr-4 md:pr-8">
 			<form action="" class="relative mx-auto w-max">
@@ -51,7 +51,7 @@
 	</div>
 	<Posts posts={searchedPosts} />
 </section>
-<section class="mt-8 max-w-5xl mx-auto px-6 sm:px-8 screen-5xl:px-0">
+<section class="mt-12 max-w-5xl mx-auto px-6 sm:px-8 screen-5xl:px-0">
 	<div class="flex items-center">
 		<h2 class="text-lg font-semibold flex-shrink-0 md:pr-8 pr-4 transition-width duration-300 -mt-1">Categories</h2>
 		<hr class="!border-surface-900-50-token border-2 flex-grow "/>

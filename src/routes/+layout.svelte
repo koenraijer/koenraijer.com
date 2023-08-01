@@ -41,7 +41,7 @@
 	
 		<!-- (footer) -->
 		<svelte:fragment slot="pageFooter">
-			<div class="mx-auto w-full py-8 max-w-xs flex justify-between text-surface-500">
+			<div class="mx-auto w-full py-8 max-w-lg flex justify-between text-surface-500 px-6 sm:px-8 screen-5xl:px-0 gap-x-2">
 				<span>
 					© {new Date().getFullYear()} <a href="/" class="hover:underline">Koen Raijer</a>
 				</span>
