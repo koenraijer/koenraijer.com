@@ -5,7 +5,7 @@
 
 {#each posts as post}
     <a class="group" href={"/" + post.slug}>
-        <li class="grid grid-cols-4 py-4 pb-6">
+        <li class="grid grid-cols-4 py-4 pb-6 gap-x-2">
             <p class="date col-start-1 col-end-2 text-surface-400 uppercase">
                 {formatDate(post.date)} — {post.readingTime}
             </p>

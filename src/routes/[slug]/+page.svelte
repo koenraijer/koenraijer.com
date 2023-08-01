@@ -3,7 +3,6 @@
 	import HomeButton from '$lib/components/HomeButton.svelte'
 	import Categories from '$lib/components/Categories.svelte'
 	import ToC from '$lib/components/ToC.svelte'
-	import Category from '../../lib/components/Category.svelte';
 	export let data
 
 	const xor = (a, b) => (a || b) && !(a && b);

@@ -1,12 +1,36 @@
 <script>
-	// CSS imports
-		// Custom Skeleton theme
-		import '../theme.postcss';
-		// This contains the bulk of Skeletons required styles:
-		import '@skeletonlabs/skeleton/styles/skeleton.css';
-		// Most of your app wide CSS should be put in this file
-		import '../app.postcss';
-	
+	// Custom Skeleton theme
+	import '../theme.postcss';
+	// This contains the bulk of Skeletons required styles:
+	import '@skeletonlabs/skeleton/styles/skeleton.css';
+	// Most of your app wide CSS should be put in this file
+	import '../app.postcss';
+	// Import PrismJS for syntax highlighting
+	import { onMount } from 'svelte';
+	import { modeCurrent } from '@skeletonlabs/skeleton';
+
+	let link;
+
+	// We use onMount to ensure that the DOM is ready
+	onMount(() => {
+		link = document.createElement('link');
+		link.rel = 'stylesheet';
+
+		// We'll apply the correct theme immediately on mount
+		link.href = $modeCurrent ? 'src/lib/css/prism.css' : 'src/lib/css/prismDark.css';
+		document.head.appendChild(link);
+	});
+
+	$: {
+		if (link) { // Make sure that the link element has been created
+		if ($modeCurrent) {
+			link.href = 'src/lib/css/prism.css';
+		} else {
+			link.href = 'src/lib/css/prismDark.css';
+		}
+		}
+	}
+
 	// All other imports
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { AppBar } from '@skeletonlabs/skeleton';
