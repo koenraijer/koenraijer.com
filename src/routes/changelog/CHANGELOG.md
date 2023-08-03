@@ -1,13 +1,10 @@
 ## 2023
 ### August
-- {commit message}
+- Lorem ipsum dolor sit amet, consectetur
 
 ### July
-- {commit message}
-- {commit message}
+- Lorem ipsum dolor sit amet, consectetur
 
 ## 2022
 ### December
-- {commit message}
-- {commit message}
-
+- Lorem ipsum dolor sit amet, consectetur
