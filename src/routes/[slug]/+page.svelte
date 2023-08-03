@@ -21,10 +21,10 @@
 	<meta property="og:title" content={data.post.title} />
 </svelte:head>
 
-<div class="grid grid-cols-6 mx-auto max-w-[75ch] h-full relative px-6">
-	<article class="w-full lg:col-span-5 col-span-full">
+<div class="grid grid-cols-5 mx-auto section h-full relative px-6">
+	<article class="w-full lg:col-span-3 lg:col-start-2 col-span-full">
 		<!-- Title -->
-		<hgroup class="text-surface-900-50-token mx-auto mt-12 flex items-center">
+		<hgroup class="text-surface-900-50-token mt-12 flex items-center lg:mx-0 !mx-auto">
 			<div>
 				<div class="relative inline-flex gap-x-4">
 					<div class="screen-5xl:absolute screen-5xl:left-0 screen-5xl:top-0 transform screen-5xl:-translate-x-[137.5%]">
@@ -37,7 +37,7 @@
 		</hgroup>
 
 		<!-- Post content -->
-		<div class="text-surface-900-50-token mx-auto overflow-x-scroll prose prose-headings:prose-a:no-underline relative leading-loose">
+		<div class="text-surface-900-50-token overflow-x-scroll prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token lg:mx-0 mx-auto">
 			{@html data.post.content}
 			
 			<hr class="!border-surface-900-50-token border-2 flex-grow mb-4 mt-12"/>
@@ -52,7 +52,7 @@
 
 	<!-- Table of contents -->
 	<div class="h-full col-span-1 pt-12">
-		<aside class="sticky hidden w-[15.25rem] ml-4 xl:block top-8 col-span-1" aria-label="Table of Contents">
+		<aside class="sticky hidden ml-4 xl:block top-8" aria-label="Table of Contents">
 			<ToC title={data.post.title} allowedHeadings={['h2', 'h3', 'h4']} />
 		</aside>
 	</div>
@@ -60,7 +60,7 @@
 	<!-- Pagination -->
 	<div class="grid {xor(!data.post.previous, !data.post.next) ? 'grid-rows-1' : 'grid-rows-2'} md:grid-rows-1 grid-cols-2 py-6 justify-between w-full col-span-full">
 		{#if data.post.previous}
-		<a class="row-start-1 justify-self-start col-span-full md:col-start-1 group flex flex-wrap flex-col p-4" href={data.post.previous.slug}>
+		<a class="row-start-1 justify-self-start col-span-full md:col-start-1 group flex flex-wrap flex-col p-4 pl-0" href={data.post.previous.slug}>
 			<div class="inline-flex align-top">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2 self-center">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -72,7 +72,7 @@
 		{/if}
 	
 		{#if data.post.next}
-		<a class="md:row-start-1 col-span-full lg:transform lg:translate-x-24 md:col-start-2 {data.post.previous ? "row-start-2" : ""} justify-self-end group flex flex-wrap flex-col p-4" href={data.post.next.slug}>
+		<a class="md:row-start-1 col-span-full md:col-start-2 {data.post.previous ? "row-start-2" : ""} justify-self-end group flex flex-wrap flex-col p-4 pr-0" href={data.post.next.slug}>
 			<div class="inline-flex align-top">
 				<p class="font-semibold group-hover:underline">Next post&nbsp;</p>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2 self-center">

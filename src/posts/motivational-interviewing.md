@@ -16,7 +16,7 @@ You could tell them why you think they should change, and then ask them to do so
 
 The key to sustainable behavior change is to find that small, ambivalent spark in someone's heart that knows they should change, and turn that into a raging fire. 
 
-Motivational Interviewing helps you do that.
+Motivational Interviewing helps you do that.[^1]
 
 ## What is Motivational Interviewing?
 Motivational Interviewing is a counseling method developed by Miller & Rodnick, two clinical psychologists. It promotes collaboration not confrontation, and aims to evoke someone's own thoughts and ideas, instead of imposing your perspective on them. It emphasizes autonomy, and empowers people to take responsibility for their own actions. 
@@ -63,3 +63,5 @@ Motivational Interviewing is a counseling method developed by Miller & Rodnick, 
 	- What might happen that you could move to __ (a higher number)?"
 - "What are your goals and values?" (consider using a card sort activity)
 	- "How does continuing to do *target behavior* fit in with your goals and values?"
+
+[^1]: Miller, W. R., & Rollnick, S. (2013). Motivational interviewing: Helping people change. Guilford press.

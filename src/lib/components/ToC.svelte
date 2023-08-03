@@ -87,9 +87,7 @@
         $active_heading = activeHeading.title
       }
     }
-  
-    $: console.log(headingz)
-  </script>
+    </script>
   
   <svelte:window on:scroll={setActiveHeading} />
   

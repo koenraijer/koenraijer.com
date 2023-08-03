@@ -11,9 +11,8 @@
 	const options = {
 		keys: ['title', 'description', 'categories'],
 		includeScore: true,
-		threshold: 0.6,
+		threshold: 0.4,
 		location: 0,
-		distance: 100,
 		maxPatternLength: 32,
 		minMatchCharLength: 1,
 		shouldSort: true,
@@ -51,7 +50,7 @@
 	};
 </script>
 
-<section class="mt-12 max-w-5xl mx-auto">
+<section class="mt-12 max-w mx-auto">
 	<Hero />
 </section>
 

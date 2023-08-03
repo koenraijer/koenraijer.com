@@ -5,8 +5,12 @@ html, body {
 	@apply h-full overflow-hidden bg-surface-50-900-token;
 }
 
+.max-w {
+	@apply max-w-6xl
+}
+
 .section {
-	@apply mt-12 max-w-5xl mx-auto px-6 sm:px-8 screen-5xl:px-0
+	@apply mt-12 mx-auto px-6 sm:px-8 screen-5xl:px-0 max-w
 }
 
 .social {
@@ -57,3 +61,14 @@ input:focus {
 .prose :where(h2, h3, h4, h5, h6) :where(a):not(:where([class~="not-prose"] *)) {
 	@apply relative no-underline hover:underline hover:after:content-['#'] after:absolute after:w-4 after:h-4 after:text-surface-300-600-token text-surface-900-50-token after:pl-4
 }
+
+/*Sidenotes*/
+/* Since Tailwind doesn't directly support element type selectors in combination with classes/ids, 
+you might need to extend your configuration or write custom CSS. */
+  
+.footnotes hr {
+	/* Hide the horizontal rule */
+	display: none;
+}
+  
+  
