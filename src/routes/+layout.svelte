@@ -93,7 +93,8 @@
 					</svg>
 					RSS
 				</a>
-				<a href="https://github.com/koenraijer/koenraijer.2.0" class="hover:underline">Source</a>
+				<a href="/changelog" class="hover:underline">Changelog</a>
+				<a href="https://github.com/koenraijer/koenraijer.2.0" class="hover:underline" target="_self" rel="nofollow noopener noreferrer">Source</a>
 			</div>
 		</svelte:fragment>
 
