@@ -3,6 +3,9 @@
 - https://github.com/mattjennings/sveltekit-blog-template/
 - https://journal.ghost.io/
 
+**Known bugs:**
+- RSS.xml errors on first load.
+
 **Optional new features:**
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance.

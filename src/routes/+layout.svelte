@@ -5,13 +5,24 @@
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
-	// Import PrismJS for syntax highlighting
+
+	// NProgress css
+	import 'nprogress/nprogress.css'
+
+	// All other imports
+	import { AppShell } from '@skeletonlabs/skeleton';
+	import { AppBar } from '@skeletonlabs/skeleton';
+	import ThemeToggle from '../lib/components/ThemeToggle.svelte';
+	import PageTransition from '../lib/components/Transition.svelte';
+	export let data;
 	import { onMount } from 'svelte';
 	import { modeCurrent } from '@skeletonlabs/skeleton';
+	import NProgress from 'nprogress'
+  	import {navigating} from '$app/stores'
 
 	let link;
 
-	// We use onMount to ensure that the DOM is ready
+	// Apply correct PrismJS theme based on theme
 	onMount(() => {
 		link = document.createElement('link');
 		link.rel = 'stylesheet';
@@ -31,12 +42,19 @@
 		}
 	}
 
-	// All other imports
-	import { AppShell } from '@skeletonlabs/skeleton';
-	import { AppBar } from '@skeletonlabs/skeleton';
-	import ThemeToggle from '../lib/components/ThemeToggle.svelte';
-	import PageTransition from '../lib/components/Transition.svelte';
-	export let data;
+	NProgress.configure({
+	    showSpinner: false,
+        minimum: 0.16,
+    })
+
+	$: {
+		if ($navigating) {
+		NProgress.start();
+		}
+		if (!$navigating) {
+		NProgress.done();
+		}
+	}
 </script>
 
 	<AppShell>
