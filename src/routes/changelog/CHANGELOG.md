@@ -7,4 +7,6 @@
 
 ## 2022
 ### December
-- Lorem ipsum dolor sit amet, consectetur- Test
+- Lorem ipsum dolor sit amet, consectetur
+
+- Test
