@@ -6,9 +6,6 @@
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
 
-	// NProgress css
-	import 'nprogress/nprogress.css'
-
 	// All other imports
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { AppBar } from '@skeletonlabs/skeleton';
@@ -17,8 +14,6 @@
 	export let data;
 	import { onMount } from 'svelte';
 	import { modeCurrent } from '@skeletonlabs/skeleton';
-	import NProgress from 'nprogress'
-  	import {navigating} from '$app/stores'
 
 	let link;
 
@@ -39,20 +34,6 @@
 		} else {
 			link.href = '/css/prismDark.css';
 		}
-		}
-	}
-
-	NProgress.configure({
-	    showSpinner: false,
-        minimum: 0.16,
-    })
-
-	$: {
-		if ($navigating) {
-		NProgress.start();
-		}
-		if (!$navigating) {
-		NProgress.done();
 		}
 	}
 </script>

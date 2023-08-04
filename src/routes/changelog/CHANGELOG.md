@@ -14,3 +14,5 @@
 - Add compact post list for Archive
 - Added `Fuse.js` for client-side fuzzy search
 
+
+- Added footnote support
