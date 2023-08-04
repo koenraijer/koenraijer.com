@@ -1,10 +1,12 @@
 ## 2023
 
 ### August
+- Let's see whether this line ends up in the changelog 5
 - Let's see whether this line ends up in the changelog 4
 - Ensured horizontal line width increases smoothly when search input expands
 - Added footnote support
 - Added automatic changelog at /changelog
+
 
 
 ### July
