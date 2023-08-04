@@ -3,6 +3,7 @@
 	import Categories from '../lib/components/Categories.svelte';
 	import Posts from '../lib/components/Posts.svelte';
 	import Fuse from 'fuse.js';
+	import * as info from '$lib/js/info.js';
 	export let data
     let searchQuery = "";
 	let focused = false;
@@ -60,7 +61,34 @@
 			limit += 5; // Increase the limit by 5 only if limit is less than the length of the posts
 		}
 	};
+
+	// SEO
+	const ogImage = `https://og-image.vercel.app/**${encodeURIComponent(
+    	info.name
+  	)}**?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-color-logo.svg`
 </script>
+
+<!-- SEO -->
+<svelte:head>
+  <title>{info.name}</title>
+  <meta name="description" content={info.bio} />
+  <meta name="author" content={info.name} />
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content={info.website} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={info.name} />
+  <meta property="og:description" content={info.bio} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content={info.website} />
+  <meta property="twitter:url" content={info.website} />
+  <meta name="twitter:title" content={info.name} />
+  <meta name="twitter:description" content={info.bio} />
+  <meta name="twitter:image" content={ogImage} />
+</svelte:head>
 
 <section class="mt-12 max-w mx-auto">
 	<Hero />
