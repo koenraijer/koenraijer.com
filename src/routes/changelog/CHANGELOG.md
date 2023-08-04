@@ -1,6 +1,7 @@
 ## 2023
 
 ### August
+- Updated ogImage
 - Lighthouse finishing touches
 - Lighthouse finishing touches
 - Further SEO improvements and expanded info.js for website title/description and so forth
@@ -10,6 +11,7 @@
 - Ensured horizontal line width increases smoothly when search input expands
 - Added footnote support using remark-footnotes. 
 - Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message.
+
 
 
 
