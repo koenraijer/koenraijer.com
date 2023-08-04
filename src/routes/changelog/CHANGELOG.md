@@ -2,6 +2,8 @@
 ## 2023
 
 ### August
+- Ensured horizontal line width increases smoothly when search input expands
+- Added footnote support
 - Added automatic changelog at /changelog
 
 ### July
@@ -13,6 +15,3 @@
 - Syntax Highlighting with two themes that switch depending on active theme
 - Add compact post list for Archive
 - Added `Fuse.js` for client-side fuzzy search
-
-
-- Added footnote support
