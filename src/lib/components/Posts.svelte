@@ -2,7 +2,7 @@
     export let posts; // Make this component receive 'posts' as a prop
     export let limit = Infinity; // Add a 'limit' prop with a default value of Infinity
     export let compact = false; // Add a 'compact' prop with a default value of false
-    import { formatDate } from '$lib/utils'; // import your formatDate helper function
+    import { formatDate } from '$lib/js/utils'; // import your formatDate helper function
 
     // When posts or limit change, update the displayedPosts
     let displayedPosts = [];

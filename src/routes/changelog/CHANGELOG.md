@@ -1,10 +1,12 @@
 ## 2023
 
 ### August
+- Added SEO and og image support and such
 - Archive, pagination and categories improvements
 - Ensured horizontal line width increases smoothly when search input expands
 - Added footnote support using remark-footnotes. 
 - Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message.
+
 
 
 

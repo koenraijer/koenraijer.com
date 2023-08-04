@@ -17,7 +17,18 @@ async function getPostsAndCategories() {
             const content = file.default
             const htmlContent = content.render().html; // Get the rendered HTML content
             const html = parse(htmlContent)
-            const post = { ...metadata, slug, readingTime: readingTime(html.structuredText).text, content: htmlContent } 
+            const preview = metadata.preview ? parse(metadata.preview) : html.querySelector('p') 
+
+            const post = { 
+                ...metadata, 
+                slug, 
+                readingTime: readingTime(html.structuredText).text, 
+                content: htmlContent, 
+                preview: {
+                    html: preview.toString(),
+                    text: preview.structuredText ?? preview.toString()
+                }
+            } 
 
             // If the post is published, push it to the posts array and add/update its categories in the categoriesData map
             if (post.published) {
