@@ -35,7 +35,7 @@
     </div>
     <div class="flex flex-col p-6 sm:p-8 md:pl-0 pt-0 md:pt-8 row-span-2 overflow-auto">
         <p class="text-xl font-normal flex-grow">   
-            {@html info.bio}
+            {@html info.bio.html}
         </p>
         <div class="pt-8 lg:pt-36">
             <Socials />

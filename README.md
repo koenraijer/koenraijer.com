@@ -9,7 +9,6 @@
 **Optional new features:**
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance.
-- Add semi-automated changelog? I.e., whenever a new page is added?
 
 **Completed:**
 - Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content.
@@ -19,4 +18,5 @@
 - Syntax Highlighting with two themes that switch depending on active theme
 - Add compact post list for Archive
 - Added Fuse.js for client-side fuzzy search
+- Add semi-automated changelog? I.e., whenever a new page is added?
 

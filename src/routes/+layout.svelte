@@ -14,6 +14,7 @@
 	export let data;
 	import { onMount } from 'svelte';
 	import { modeCurrent } from '@skeletonlabs/skeleton';
+	import * as info from '$lib/js/info.js'
 
 	let link;
 
@@ -38,6 +39,13 @@
 	}
 </script>
 
+<svelte:head>
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/site.webmanifest">
+</svelte:head>
+
 	<AppShell>
 
 		<svelte:fragment slot="header">
@@ -47,7 +55,7 @@
 		<svelte:fragment slot="pageHeader">
 			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token max-w-6xl mx-auto" padding="p-4 px-6 screen-5xl:px-0">
 				<svelte:fragment slot="lead">
-					<a href="/" class="text-2xl font-semibold">Koen Raijer</a>
+					<a href="/" class="text-2xl font-semibold">{info.title}</a>
 				</svelte:fragment>
 					<!--(title)-->
 				<svelte:fragment slot="trail">
@@ -64,9 +72,9 @@
 	
 		<!-- (footer) -->
 		<svelte:fragment slot="pageFooter">
-			<div class="mx-auto w-full py-8 max-w-xl flex justify-between text-surface-500 px-6 sm:px-8 screen-5xl:px-0 gap-x-2">
+			<div class="mx-auto w-full py-8 max-w-xl flex justify-between text-surface-500 px-6 sm:px-8 screen-5xl:px-0 gap-x-2 mt-4">
 				<span>
-					© {new Date().getFullYear()} <a href="/" class="hover:underline">Koen Raijer</a>
+					© {new Date().getFullYear()} <a href="/" class="hover:underline">{info.title}</a>
 				</span>
 				<a href="/rss.xml" class="hover:underline">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 inline-flex align-middle">
