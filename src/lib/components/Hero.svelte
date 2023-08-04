@@ -33,8 +33,8 @@
         </div>
     </div>
     <div class="flex flex-col p-6 sm:p-8 md:pl-0 pt-0 md:pt-8 row-span-2 overflow-auto">
-        <p class="text-xl font-normal flex-grow">
-            I'm <b>Koen</b>, a soon to be graduated medical doctor and data scientist based in Maastricht, The Netherlands. While COVID forced me to stay at home, I started to learn how to code. This ultimately led to me studying Data Science & Society at Tilburg University. Medically speaking, I am fully comitted to the field of psychiatry, and am doing research on the crossroads of psychiatry and data science.
+        <p class="text-xl font-normal flex-grow">   
+            This is the website of <b>Koen Raijer</b>. I am a medical doctor who studies data science based in Maastricht, the Netherlands. My interests lie in the field of psychiatry, and I do research on predicting when people are having intrusions from past traumatic events using physiological data and machine learning. This is where I share my thoughts on a non-specific set of topics, ranging from data science to psychiatry to philosophy. 
         </p>
         <div class="pt-8 lg:pt-36">
             <Socials />

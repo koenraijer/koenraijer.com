@@ -44,20 +44,11 @@
 		</div>
 
 		<!-- Categories -->
-		<div class="text-surface-900-50-token max-w-[65ch] mx-auto mb-4">
+		<div class="text-surface-900-50-token max-w-[65ch] mx-auto ml-0">
 			<Categories categories={categoriesArray}/>
 		</div>
 	  
-	</article>
-
-	<!-- Table of contents -->
-	<div class="h-full col-span-1 pt-12">
-		<aside class="sticky hidden ml-4 xl:block top-8" aria-label="Table of Contents">
-			<ToC title={data.post.title} allowedHeadings={['h2', 'h3', 'h4']} />
-		</aside>
-	</div>
-
-	<!-- Pagination -->
+			<!-- Pagination -->
 	<div class="grid {xor(!data.post.previous, !data.post.next) ? 'grid-rows-1' : 'grid-rows-2'} md:grid-rows-1 grid-cols-2 py-6 justify-between w-full col-span-full">
 		{#if data.post.previous}
 		<a class="row-start-1 justify-self-start col-span-full md:col-start-1 group flex flex-wrap flex-col p-4 pl-0" href={data.post.previous.slug}>
@@ -72,7 +63,7 @@
 		{/if}
 	
 		{#if data.post.next}
-		<a class="md:row-start-1 col-span-full md:col-start-2 {data.post.previous ? "row-start-2" : ""} justify-self-end group flex flex-wrap flex-col p-4 pr-0" href={data.post.next.slug}>
+		<a class="md:row-start-1 col-span-full md:col-start-2 {data.post.previous ? "row-start-2" : ""} justify-self-end group flex flex-wrap flex-col p-4 pr-0 items-end" href={data.post.next.slug}>
 			<div class="inline-flex align-top">
 				<p class="font-semibold group-hover:underline">Next post&nbsp;</p>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2 self-center">
@@ -82,5 +73,13 @@
 			<p class="">{data.post.next.title}</p>
 		</a>
 		{/if}
+	</div>
+	</article>
+
+	<!-- Table of contents -->
+	<div class="h-full col-span-1 xl:block hidden">
+		<aside class="sticky ml-4 top-8" aria-label="Table of Contents">
+			<ToC title={data.post.title} allowedHeadings={['h2', 'h3', 'h4']} />
+		</aside>
 	</div>
 </div>

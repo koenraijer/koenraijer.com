@@ -24,10 +24,8 @@
 	// Fuse options
 	const options = {
 		keys: ['title', 'description', 'categories'],
-		includeScore: true,
 		threshold: 0.4,
 		location: 0,
-		maxPatternLength: 32,
 		minMatchCharLength: 1,
 		shouldSort: true,
 		includeMatches: true,

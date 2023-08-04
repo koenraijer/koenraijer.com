@@ -10,8 +10,8 @@
 	<meta property="og:title" content="Changelog"/>
 </svelte:head>
 
-<div class="grid grid-cols-6 mx-auto max-w-[75ch] h-full relative px-6">
-	<article class="w-full lg:col-span-5 col-span-full">
+<div class="grid grid-cols-5 mx-auto section h-full relative px-6">
+	<article class="w-full lg:col-span-3 lg:col-start-2 col-span-full">
 		<!-- Title -->
 		<hgroup class="text-surface-900-50-token mx-auto mt-12 flex items-center">
 			<div>
@@ -25,7 +25,7 @@
 		</hgroup>
 
 		<!-- Post content -->
-		<div class="text-surface-900-50-token mx-auto overflow-x-scroll prose prose-headings:prose-a:no-underline relative leading-loose">
+		<div class="text-surface-900-50-token overflow-x-scroll prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token lg:mx-0 mx-auto">
 			<svelte:component this={changelog} />
 
 			<hr class="!border-surface-900-50-token border-2 flex-grow mb-4 mt-12"/>

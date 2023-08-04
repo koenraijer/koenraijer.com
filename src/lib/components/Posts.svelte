@@ -38,13 +38,13 @@
             {#each posts as post}
                 <div class="pb-2">
                     <a href={"/" + post.slug} class="group block">
-                        <span class="text-lg font-semibold group-hover:underline">{post.title}</span>
+                        <span class="text-lg group-hover:underline">{post.title}</span>
                     </a>
-                    <hr class="!border-surface-200"/>
                 </div>
             {/each}
         </div>
     </div>
+    <hr class="!border-surface-200"/>
     {/each}
 {:else}
     {#each displayedPosts as post}

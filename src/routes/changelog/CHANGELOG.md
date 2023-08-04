@@ -1,11 +1,11 @@
 ## 2023
 
 ### August
-- Let's see whether this line ends up in the changelog 5
-- Let's see whether this line ends up in the changelog 4
+- Archive, pagination and categories improvements
 - Ensured horizontal line width increases smoothly when search input expands
-- Added footnote support
-- Added automatic changelog at /changelog
+- Added footnote support using remark-footnotes. 
+- Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message.
+
 
 
 
