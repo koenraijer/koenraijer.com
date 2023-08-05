@@ -66,6 +66,10 @@
 	const ogImage = `https://og-image.vercel.app/**${encodeURIComponent(
     	info.name
   	)}**?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fwww.koenraijer.io%2Ffavicon%2Ffavicon.svg`
+
+	const imgUrl = `${info.website}/api/og?title=${info.title}`;
+	
+	console.log(imgUrl)
 </script>
 
 <!-- SEO -->

@@ -19,7 +19,7 @@
 
 <svelte:head>
     <!--Preloading-->
-    <link rel="preload" href="/ducks.webp" as="image">
+    <link rel="preload" href="/{info.avatar}" as="image">
 </svelte:head>
 
 <section class="grid grid-cols-1 md:grid-cols-2 bg-surface-100 dark:bg-surface-800 shadow-sm overflow-hidden">
