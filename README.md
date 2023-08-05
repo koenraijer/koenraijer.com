@@ -23,3 +23,6 @@
 - Added Fuse.js for client-side fuzzy search
 - Add semi-automated changelog? I.e., whenever a new page is added?
 
+Pt for post template reduce on moble
+Make pl for input standard on sm screens
+Ensure page is at top after navi
