@@ -16,6 +16,8 @@
 
 	// SEO
 	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(data.post.title)}`
+
+	const url = `${info.website}/${data.post.slug}`
 </script>
 
 <!-- SEO -->
