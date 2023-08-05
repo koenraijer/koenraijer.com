@@ -1,7 +1,7 @@
 <script lang="js">
 	import { formatDate } from '$lib/js/utils'
-	import HomeButton from '$lib/components/HomeButton.svelte'
 	import Categories from '$lib/components/Categories.svelte'
+	import PageTitle from '$lib/components/PageTitle.svelte'
 	import ToC from '$lib/components/ToC.svelte'
 	import * as info from '$lib/js/info.js'
 	export let data
@@ -18,6 +18,8 @@
 	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(data.post.title)}`
 
 	const url = `${info.website}/${data.post.slug}`
+
+	const subtitle = `${formatDate(data.post.date)} - ${data.post.readingTime}`
 </script>
 
 <!-- SEO -->
@@ -45,17 +47,7 @@
 <div class="grid grid-cols-5 mx-auto section h-full relative px-6">
 	<article class="w-full lg:col-span-3 lg:col-start-2 col-span-full">
 		<!-- Title -->
-		<hgroup class="text-surface-900-50-token mt-12 flex items-center lg:mx-0 !mx-auto">
-			<div>
-				<div class="relative inline-flex gap-x-4">
-					<div class="screen-5xl:absolute screen-5xl:left-0 screen-5xl:top-0 transform screen-5xl:-translate-x-[137.5%]">
-						<HomeButton />
-					</div>
-					<h1 class="text-3xl font-semibold mb-4">{data.post.title}</h1>
-				</div>
-				<p class="uppercase mb-8 text-surface-400">{formatDate(data.post.date)} - {data.post.readingTime}</p>
-			</div>
-		</hgroup>
+		<PageTitle title={data.post.title} {subtitle} />
 
 		<!-- Post content -->
 		<div class="text-surface-900-50-token overflow-x-scroll prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token lg:mx-0 mx-auto">

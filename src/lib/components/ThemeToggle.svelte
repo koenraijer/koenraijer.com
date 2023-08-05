@@ -1,7 +1,8 @@
 <script>
-	
     import { onMount } from 'svelte';
     import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState, getModeOsPrefers } from '@skeletonlabs/skeleton';
+    import { getContext } from 'svelte';
+    const close = getContext('close');
 
     // Props
     /** Provide classes to set the light background color. */
@@ -45,15 +46,18 @@
 		// Sync lightswitch with the theme
 		if (!('modeCurrent' in localStorage)) {
 			setModeCurrent(getModeOsPrefers());
-		}
+		} else {
+            setModeCurrent($modeCurrent);
+        }
 	});
+
 	// State
 	$: trackBg = $modeCurrent === true ? bgLight : bgDark;
 	$: iconFill = $modeCurrent === true ? fillLight : fillDark;
 	// Reactive
 	$: classesTrack = `${cTrack} ${cTransition} ${width} ${height} ${ring} ${rounded} ${trackBg} ${$$props.class ?? ''}`;
-        // cursor-pointer transition-all duration-[200ms] w-5 h-5 border border-surface-900-50-token rounded-none bg-surface-50-900-token 
-	$: classesIcon = `${cIcon} ${iconFill}`;
+        // cursor-pointer transition-all duration-[200ms] border border-surface-900-50-token rounded-none bg-surface-50-900-token transition-colors decoration-none flex justify-center items-center bg-surface-hover-token h-fit w-fit p-2
+	$: classesIcon = `${cIcon} ${iconFill} mr-2`;
 </script>
 
 <svelte:head>
@@ -62,9 +66,9 @@
 </svelte:head>
 
 <button 
-    on:click={onToggleHandler} 
+    on:click={() => {onToggleHandler(); close()}} 
     on:keydown={onKeyDown} 
-    class="{classesTrack} transition-colors decoration-none flex justify-center items-center bg-surface-hover-token h-fit w-fit p-2"
+    class="{classesTrack} transition-colors decoration-none flex justify-center items-center bg-surface-hover-token h-fit w-fit p-2 whitespace-nowrap"
     role="switch"
     aria-label="Light Switch"
     aria-checked={$modeCurrent}
@@ -91,4 +95,5 @@
         <line x1="57.3" y1="57.3" x2="51.6" y2="51.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
     </svg>
     {/if}
+    {$modeCurrent === true ? 'Dark' : 'Light'} mode
 </button>

@@ -10,12 +10,15 @@
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { AppBar } from '@skeletonlabs/skeleton';
 	import Footer from '$lib/components/Footer.svelte'
+	import Menu from '$lib/components/Menu.svelte';
 	import ThemeToggle from '../lib/components/ThemeToggle.svelte';
+	import HomeButton from '../lib/components/HomeButton.svelte';
 	import PageTransition from '../lib/components/Transition.svelte';
 	export let data;
 	import { onMount } from 'svelte';
 	import { modeCurrent } from '@skeletonlabs/skeleton';
 	import * as info from '$lib/js/info.js'
+	import BooksButton from '../lib/components/BooksButton.svelte';
 
 	let link;
 
@@ -56,12 +59,14 @@
 		<svelte:fragment slot="pageHeader">
 			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token max-w-6xl mx-auto" padding="pt-4 px-6 screen-5xl:px-0">
 				<svelte:fragment slot="lead">
-					<a href="/" class="text-2xl font-semibold whitespace-nowrap">{info.title}</a>
+					<a href="/" class="text-2xl font-semibold whitespace-nowrap hover:underline" title="Visit homepage">{info.title}</a>
 				</svelte:fragment>
-					<!--(title)-->
 				<svelte:fragment slot="trail">
-					<!--(actions)-->
-					<ThemeToggle />
+					<Menu>
+						<HomeButton />
+						<ThemeToggle />
+						<BooksButton />
+					</Menu>
 				</svelte:fragment>
 			</AppBar>
 		</svelte:fragment>

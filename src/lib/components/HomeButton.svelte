@@ -1,11 +1,15 @@
+<script>
+    import { getContext } from 'svelte';
+    const close = getContext('close');
+</script>
 <a 
-    class="cursor-pointer transition-all duration-[200ms] w-fit h-fit border border-surface-900-50-token rounded-none bg-surface-50-900-token decoration-none flex justify-center items-center bg-surface-hover-token p-2"
+    class="button"
     aria-label="Light Switch"
     title="Home button"
     tabindex="0"
     href="/"
+    on:click={close}
 >
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-    </svg>
+<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M221.56,100.85,141.61,25.38l-.16-.15a19.93,19.93,0,0,0-26.91,0l-.17.15L34.44,100.85A20.07,20.07,0,0,0,28,115.55V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V115.55A20.07,20.07,0,0,0,221.56,100.85ZM204,204H52V117.28l76-71.75,76,71.75Z"></path></svg>
+Home
 </a>

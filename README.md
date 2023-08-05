@@ -12,6 +12,7 @@
 - Change text select colour
 - Add books page
 - Mobile: reduce pt for hero, posts single column on mobile, footer 2 row layout, logo force single line, consider making search full-width
+- Add user page to show an author for each post (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s)
 
 **Completed:**
 - Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content.
@@ -25,4 +26,10 @@
 
 Pt for post template reduce on moble
 Make pl for input standard on sm screens
-Ensure page is at top after navi
+Ensure page is at top after navigating
+
+Create a menu for all options in top right 
+
+Schema.org metadata
+
+https://tailwind-ui-premium-project.github.io/components/ecommerce/components/category-filters/ 
