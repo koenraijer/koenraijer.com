@@ -15,11 +15,7 @@
 	}));
 
 	// SEO
-	const ogImage = `https://og-image.vercel.app/**${encodeURIComponent(
-    data.post.title
-  )}**?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fwww.koenraijer.io%2Ffavicon%2Ffavicon.svg`
-
-	const url = `${info.website}/${data.post.slug}`
+	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(data.post.title)}`
 </script>
 
 <!-- SEO -->
