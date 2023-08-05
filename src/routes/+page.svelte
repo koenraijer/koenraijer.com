@@ -5,20 +5,40 @@
 	import Fuse from 'fuse.js';
 	import * as info from '$lib/js/info.js';
 	export let data
-    let searchQuery = "";
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment'
+	let searchQuery = "";
 	let focused = false;
-	let hrWidth = "full"; // default value
-	let inputWidth = "2.5rem"; // default width
+	let inputBasis = "100%"; // default basis for mobile
 
-	$: {
-	if (focused) {
-		hrWidth = "25%";
-		inputWidth = "15rem"; // 3 times wider when input is focused
-	} else {
-		hrWidth = "100%";
-		inputWidth = "2.5rem"; // default width
+	const updateBasis = () => {
+		if (window.innerWidth >= 640 && window.innerWidth < 768) {
+			// Screen width between "sm:" and "md:"
+			inputBasis = focused ? "150%" : "4.75rem"; 
+		} else if (window.innerWidth >= 768) {
+			// Screen width larger than "md:"
+			inputBasis = focused ? "40%" : "4.75rem";
+		} else {
+			// Screen width less than "sm:"
+			inputBasis = "100%"; // 100% on mobile
+		}
 	}
-	}
+		
+	onMount(() => {
+		// Run once on mount
+		updateBasis();
+
+		// Update on window resize
+		window.addEventListener('resize', updateBasis);
+
+		// Cleanup when component is unmounted
+		return () => {
+			window.removeEventListener('resize', updateBasis);
+		}
+	});
+
+	// Update basis when focus changes
+	$: focused, browser ? updateBasis() : "";
 
 	let searchedPosts = data.posts; // Define searchedPosts
 
@@ -63,13 +83,8 @@
 	};
 
 	// SEO
-	const ogImage = `https://og-image.vercel.app/**${encodeURIComponent(
-    	info.name
-  	)}**?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fwww.koenraijer.io%2Ffavicon%2Ffavicon.svg`
+	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(info.name)}`
 
-	const imgUrl = `${info.website}/api/og?title=${info.title}`;
-	
-	console.log(imgUrl)
 </script>
 
 <!-- SEO -->
@@ -99,27 +114,29 @@
 </section>
 
 <section class="section">
-	<div class="flex items-center mb-4">
-		<div class="mx-auto max-w-md pr-4 md:pr-8">
-			<form action="" class="relative mx-auto w-max">
+	<div class="flex sm:flex-row items-center mb-4 w-full flex-col-reverse">
+		<div class="w-full sm:pr-8" style="flex-basis: {inputBasis}; transition: flex-basis 0.3s ease;">
+			<form action="" class="relative w-full">
 				<label for="search-input" class="sr-only">Search</label>
 				<input 
 					id="search-input"
 					bind:value={searchQuery} 
 					on:focus={() => focused = true} 
 					on:blur={() => focused = false}
-					style="width: {inputWidth};"
 					type="search" 
-					class="peer cursor-pointer relative z-10 h-10 w-10 rounded-none border border-surface-900-50-token bg-transparent pl-0 outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text focus:pl-16 focus:pr-4 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
+					class="peer cursor-pointer relative z-10 h-10 w-full rounded-none border border-surface-900-50-token bg-transparent outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text focus:pl-12 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
 				/>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="absolute inset-y-0 my-auto h-6 border-r border-transparent border-surface-900-50 px-3 peer-focus transform -translate-x-1">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="absolute inset-y-0 my-auto h-6 border-r border-transparent border-surface-900-50 peer-focus pl-2">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
 				</svg>
-			</form>			
+			</form>	
 		</div>
-		<hr style="width: {hrWidth};" class="!border-surface-900-50-token border-2 flex-grow transition-width duration-300"/>
-		<h2 class="text-lg font-semibold flex-shrink-0 md:pl-8 pl-4 transition-width duration-300 -mt-1">Recent posts</h2>
+		<div class="flex items-center w-full sm:flex-grow my-4 sm:my-0 ">
+			<hr class="!border-surface-900-50-token border-2 w-full"/>
+			<h2 class="text-lg font-semibold flex-shrink-0 md:pl-8 pl-4 -mt-1">Recent posts</h2>
+		</div>
 	</div>
+	
 	<Posts posts={searchedPosts} limit={limit}/>
 	{#if limit < searchedPosts.length}
 		<div class="w-full flex justify-center mt-8">
@@ -142,7 +159,6 @@
 		<hr class="!border-surface-900-50-token border-2 flex-grow "/>
 		<h2 class="text-lg font-semibold flex-shrink-0 md:pl-8 pl-4 transition-width duration-300 -mt-1">Archive</h2>
 	</div>
-	<div class="py-4"></div>
 	<Posts posts={data.posts} compact/>
 </section>
 

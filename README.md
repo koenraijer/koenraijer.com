@@ -10,6 +10,8 @@
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance.
 - Change text select colour
+- Add books page
+- Mobile: reduce pt for hero, posts single column on mobile, footer 2 row layout, logo force single line, consider making search full-width
 
 **Completed:**
 - Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content.

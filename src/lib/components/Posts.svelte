@@ -51,11 +51,11 @@
         {#each displayedPosts as post}
             <li>
                 <a class="group" href={"/" + post.slug}>
-                    <div class="grid grid-cols-4 py-4 pb-6 gap-x-2">
-                        <p class="date col-start-1 col-end-2 text-surface-400 uppercase">
+                    <div class="grid grid-cols-1 sm:grid-cols-4 py-4 pb-6 gap-x-2">
+                        <p class="date sm:col-start-1 sm:col-end-2 text-surface-400 uppercase">
                             {formatDate(post.date)} — {post.readingTime}
                         </p>
-                        <div class="col-start-2 col-end-5">
+                        <div class="sm:col-start-2 sm:col-end-5">
                             <span class="text-lg font-semibold group-hover:underline">{post.title}</span>
                             <p class="description pt-[0.37rem] text-surface-700-200-token">{post.description}</p>
                         </div>
@@ -66,5 +66,9 @@
             </li>
         {/each}
     </ul>
-
+    {#if displayedPosts.length < 1}
+        <p>
+            There were no results matching the search query. 
+        </p>
+    {/if}
 {/if}
