@@ -1690,5 +1690,17 @@
         "Notes":null,
         "Date Finished":null,
         "Category":"Fiction"
+    },
+    {
+        "ISBN":9781481845700,
+        "Added":1691280000000,
+        "Title":"Metro 2033",
+        "Author":"Dmitry Glukhovsky",
+        "Date Published":2002,
+        "Score (0-10)":9.0,
+        "Review":null,
+        "Notes":null,
+        "Date Finished":1689984000000,
+        "Category":"Fiction"
     }
 ]
