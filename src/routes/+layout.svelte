@@ -9,6 +9,8 @@
 	// All other imports
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { AppBar } from '@skeletonlabs/skeleton';
+	import { Modal } from '@skeletonlabs/skeleton';
+	import { Toast } from '@skeletonlabs/skeleton';
 	import Footer from '$lib/components/Footer.svelte'
 	import Menu from '$lib/components/Menu.svelte';
 	import ThemeToggle from '../lib/components/ThemeToggle.svelte';
@@ -51,6 +53,8 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 </svelte:head>
 
+	<Toast />
+	<Modal />
 
 	<AppShell>
 
