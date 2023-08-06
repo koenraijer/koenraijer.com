@@ -75,7 +75,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780804168854,
         "Added":null,
         "Title":"White Fang",
         "Subtitle":null,
@@ -499,7 +499,7 @@
         "Added":1688860800000,
         "Title":"Is God een wiskundige? ",
         "Subtitle":null,
-        "Author":null,
+        "Author":"Mario Livio",
         "Genre":null,
         "Description":null,
         "Date Published":null,
@@ -510,7 +510,7 @@
         "Category":"Nonfiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780141393391,
         "Added":1688860800000,
         "Title":"Frankenstein",
         "Subtitle":null,
@@ -990,7 +990,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780141023496,
         "Added":1674604800000,
         "Title":"Lolita",
         "Subtitle":null,
@@ -1020,7 +1020,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9789492754059,
         "Added":1674604800000,
         "Title":"Verhalen uit het gekkenhuis",
         "Subtitle":null,
@@ -1335,7 +1335,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9789023476672,
         "Added":1668643200000,
         "Title":"De avonden",
         "Subtitle":null,
@@ -1350,7 +1350,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9789400404908,
         "Added":1668643200000,
         "Title":"Sapiens: A Brief History of Humankind",
         "Subtitle":null,
@@ -1425,7 +1425,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780441569595,
         "Added":1668643200000,
         "Title":"Neuromancer (Sprawl, #1)",
         "Subtitle":null,
@@ -1590,7 +1590,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9781990973437,
         "Added":1660780800000,
         "Title":"Too white to be Coloured, Too Coloured to be Black: On the search for home and meaning",
         "Subtitle":null,
@@ -1620,7 +1620,7 @@
         "Category":"Nonfiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780307576187,
         "Added":1659225600000,
         "Title":"The Remains of the Day",
         "Subtitle":null,
@@ -1650,7 +1650,7 @@
         "Category":"Nonfiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9781526604736,
         "Added":1657065600000,
         "Title":"The Kite Runner",
         "Subtitle":null,
@@ -1680,7 +1680,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9781529034561,
         "Added":1452988800000,
         "Title":"Mostly Harmless (Hitchhiker's Guide to the Galaxy, #5)",
         "Subtitle":null,
@@ -1725,7 +1725,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9781529034530,
         "Added":1452988800000,
         "Title":"The Restaurant at the End of the Universe (Hitchhiker's Guide to the Galaxy, #2)",
         "Subtitle":null,
@@ -1740,7 +1740,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9789022582220,
         "Added":1452988800000,
         "Title":"The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy, #1)",
         "Subtitle":null,
@@ -1755,7 +1755,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780385333498,
         "Added":1452988800000,
         "Title":"The Sirens of Titan",
         "Subtitle":null,
@@ -1770,7 +1770,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780008376055,
         "Added":1452988800000,
         "Title":"The Hobbit (The Lord of the Rings, #0)",
         "Subtitle":null,
@@ -1815,7 +1815,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780241341483,
         "Added":1452988800000,
         "Title":"Tender Is the Night",
         "Subtitle":null,
@@ -1830,7 +1830,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780374534752,
         "Added":1452988800000,
         "Title":"Night (The Night Trilogy, #1)",
         "Subtitle":null,
@@ -1845,22 +1845,7 @@
         "Category":"Nonfiction"
     },
     {
-        "ISBN":null,
-        "Added":1452988800000,
-        "Title":"The Brothers Karamazov",
-        "Subtitle":null,
-        "Author":"Fyodor Dostoevsky",
-        "Genre":null,
-        "Description":null,
-        "Date Published":1880,
-        "Score (0-10)":4,
-        "Review":null,
-        "Notes":null,
-        "Date Finished":null,
-        "Category":"Fiction"
-    },
-    {
-        "ISBN":null,
+        "ISBN":9780451530806,
         "Added":1452988800000,
         "Title":"Uncle Tom's Cabin",
         "Subtitle":null,
@@ -1875,7 +1860,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780241341490,
         "Added":1452988800000,
         "Title":"The Call of the Wild",
         "Subtitle":null,
@@ -1890,7 +1875,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780141199061,
         "Added":1452988800000,
         "Title":"Robinson Crusoe",
         "Subtitle":null,
@@ -1905,7 +1890,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780393341768,
         "Added":1452988800000,
         "Title":"A Clockwork Orange",
         "Subtitle":null,
@@ -2085,7 +2070,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780141036137,
         "Added":1452988800000,
         "Title":"Animal Farm",
         "Subtitle":null,
@@ -2100,7 +2085,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780241341469,
         "Added":1452988800000,
         "Title":"The Great Gatsby",
         "Subtitle":null,
@@ -2145,7 +2130,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":null,
+        "ISBN":9780141189574,
         "Added":1452988800000,
         "Title":"Siddhartha",
         "Subtitle":null,
