@@ -52,7 +52,7 @@
         <!--
             { "ISBN": 62407805, "Added": 1672444800000, "Title": "Never Split the Difference: Negotiating As If Your Life Depended On It", "Author": "Chris Voss", "Date Published": 2016, "Score (0-10)": 4, "Review": null, "Notes": null, "Date Finished": 1688256000000, "Category": "Nonfiction" }
          -->
-        <p class="pt-4">First published in <i>{book['Date Published'] ? book['Date Published'] : "Unknown date"}</i>.</p>
+        <p class="pt-4 text-surface-600-300-token">First published in <i>{book['Date Published'] ? book['Date Published'] : "Unknown date"}</i>.</p>
     </div>
     <div class="px-6 py-4 space-y-2">
         <p>{book.Notes ? book.Notes : ""}</p>

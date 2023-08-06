@@ -1,6 +1,7 @@
 ## 2023
 
 ### August
+- Some changes
 - Further improvements to books list
 - Update books
 - Update books
@@ -17,6 +18,7 @@
 - Improved search input so that all transitions are smooth and the search input is full-width on mobile
 - Added footnote support using remark-footnotes
 - Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message
+
 
 
 

@@ -1,22 +1,23 @@
+import * as info from "$lib/js/info.js";
 export const prerender = true
 
 export async function GET({ fetch, setHeaders }) {
-    // Fetch posts from your API
-    const response = await fetch(`/api/posts`)
-    const {posts} = await response.json()
-  
     setHeaders({
         'Cache-Control': `max-age=0, s-max-age=600`,
         'Content-Type': 'application/xml'
     })
 
+    // Fetch posts from your API
+    const response = await fetch(`/api/posts`)
+    const {posts} = await response.json()
+  
     // Define the base properties of your RSS feed
-    const name = "Koen Raijer's personal website"
-    const website = process.env.NODE_ENV === 'production' ? 'https://koenraijer-2-0.vercel.app' : 'http://localhost:5173';
-    const websiteDescription = `${name}'s blog`
+    const name = info.name
+    const website = info.website
+    const websiteDescription = info.bio.text
   
     // Generate the RSS feed
-    const rss = `
+    const xml = `
     <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>${name}</title>
@@ -35,9 +36,8 @@ export async function GET({ fetch, setHeaders }) {
     </channel>
     </rss>
     `
-
-  
     // Return the RSS feed
-    return new Response(rss);
+    return new Response(xml);
   }
+  
   
