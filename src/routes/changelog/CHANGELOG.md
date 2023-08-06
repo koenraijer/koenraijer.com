@@ -2,6 +2,7 @@
 
 ### August
 - Update books
+- Update books
 - Fixed book page SEO.
 - Implemented automatic updates of the books data file based on a Python script that translates a local spreadsheet into JSON
 - Added books page with several filter options
@@ -15,6 +16,7 @@
 - Improved search input so that all transitions are smooth and the search input is full-width on mobile
 - Added footnote support using remark-footnotes
 - Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message
+
 
 
 

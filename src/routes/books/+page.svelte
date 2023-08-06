@@ -11,7 +11,8 @@
     let category = "All categories";  // New state for category
     let books = data.books;
 
-    let totalNum = books.length;
+    // copy "books" object to a new variable
+    let copiedBooks = JSON.parse(JSON.stringify(books));
 
 	// handle the 'selected' event dispatched from Filters.svelte
     function onOptionSelected(event) {
@@ -114,10 +115,20 @@
     <PageTitle title="Books">
         <p class="uppercase mb-2 text-surface-400">Collection</p>
     </PageTitle>
-    <p class="pb-4">{description} So far, I've read a total of <b>{totalNum}</b> books. Currently, {books.length} books are shown.</p>
-    <div class="!mt-0">
-    <!-- Updated Filters component -->
-    <Filters on:optionSelected="{onOptionSelected}" on:scoreSelected="{onScoreSelected}" on:categorySelected="{onCategorySelected}" />
+    <p class="pb-4">{description} So far, I've read a total of <b>{copiedBooks.length}</b> books. Currently, {books.length} books are shown.</p>
+    <p>Some facts about these books:</p>
+    <ul class="list-disc pl-8">
+        <!-- Percentage of books that are fiction -->
+        <li>There are <b>{copiedBooks.filter(book => book.Category === "Fiction").length}</b> fiction books, which is <b>{Math.round(copiedBooks.filter(book => book.Category === "Fiction").length / copiedBooks.length * 100)}%</b> of the total.</li>
+        <!-- The book with the earliest data published -->
+        <li>The book with the earliest publish date is <b>{copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0].Title}</b>, published in <b>{copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0]['Date Published'] < 0 ? Math.abs(copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0]['Date Published']) + " BC" : copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0]['Date Published']}</b>.</li>
+        <!-- The most frequently occurring rating -->
+        <li>The most frequently occurring rating is <b>{copiedBooks.map(book => book['Score (0-10)']).reduce((a, b) => a > b ? a : b)}</b>, which occurs <b>{copiedBooks.filter(book => book['Score (0-10)'] === copiedBooks.map(book => book['Score (0-10)']).reduce((a, b) => a > b ? a : b)).length}</b> times.</li>
+    </ul>
+    
+    <div class="mt-8 sm:mt-12">
+        <!-- Updated Filters component -->
+        <Filters on:optionSelected="{onOptionSelected}" on:scoreSelected="{onScoreSelected}" on:categorySelected="{onCategorySelected}" />
     </div>
     <div class="grid sm:grid-cols-2 gap-6 mt-6">
         {#each books as book}

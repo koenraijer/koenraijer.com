@@ -51,6 +51,10 @@
             <h3 class="">{book.Subtitle ? book.Subtitle : ""}</h3>
         {/if}
         <span class="description pt-[0.37rem] text-surface-700-200-token">{book.Author}</span>
+        <!--
+            { "ISBN": 62407805, "Added": 1672444800000, "Title": "Never Split the Difference: Negotiating As If Your Life Depended On It", "Author": "Chris Voss", "Date Published": 2016, "Score (0-10)": 4, "Review": null, "Notes": null, "Date Finished": 1688256000000, "Category": "Nonfiction" }
+         -->
+        <p>First published in <b>{book['Date Published'] ? book['Date Published'] : "Unknown date"}</b>.</p>
     </div>
     <div class="px-6 py-4 space-y-2">
         <p>{book.Notes ? book.Notes : ""}</p>
