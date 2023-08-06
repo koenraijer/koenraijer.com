@@ -161,7 +161,7 @@
 					</div>
 					{#if isSortOpen}
 						<div
-							class="absolute left-0 mt-2 w-fit h-fit focus:outline-none bg-surface-50-900-token border border-surface-900-50-token"
+							class="absolute left-0 mt-2 w-fit h-fit focus:outline-none bg-surface-50-900-token border border-surface-900-50-token z-40"
 							role="menu"
 							aria-orientation="vertical"
 							aria-labelledby="menu-button"
@@ -228,7 +228,7 @@
 
 					{#if isScoreOpen}
 						<div
-							class="absolute left-0 mt-2 w-[200%] h-fit focus:outline-none bg-surface-50-900-token border border-surface-900-50-token"
+							class="absolute left-0 mt-2 w-[200%] h-fit focus:outline-none bg-surface-50-900-token border border-surface-900-50-token z-40"
 							role="menu"
 							aria-orientation="vertical"
 							aria-labelledby="menu-button"
@@ -295,7 +295,7 @@
 
 					{#if isCategoryOpen}
 						<div
-							class="absolute right-0 mt-2 w-[200%] h-fit focus:outline-none bg-surface-50-900-token border border-surface-900-50-token"
+							class="absolute left-0 sm:right-0 mt-2 w-[200%] h-fit focus:outline-none bg-surface-50-900-token border border-surface-900-50-token z-40"
 							role="menu"
 							aria-orientation="vertical"
 							aria-labelledby="menu-button"

@@ -1,6 +1,7 @@
 ## 2023
 
 ### August
+- Fix mobile menus?
 - Test for bookdata.json
 - Let's test if the booksData.json is automatically updated
 - Test
@@ -21,6 +22,7 @@
 - Ensured horizontal line width increases smoothly when search input expands
 - Added footnote support using remark-footnotes. 
 - Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message.
+
 
 
 
