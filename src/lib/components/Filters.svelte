@@ -61,7 +61,7 @@
 	<h2 id="filter-heading" class="sr-only">Filters</h2>
         <!-- Rectangular box div -->
 		<div
-			class="relative z-10 bg-surface-50-900-token border border-surface-900-50-token p-4 grid grid-cols-1 sm:grid-cols-2 justify-between items-center"
+			class="relative bg-surface-50-900-token border border-surface-900-50-token p-4 grid grid-cols-1 sm:grid-cols-2 justify-between items-center"
 			use:clickOutside
 			on:outclick={() => {
 				isSortOpen = false;
@@ -189,7 +189,7 @@
 
 				<!-- @@@@@@@@@@@@@@@@@@@ 2 -->
 				<div
-					class="relative z-10 bg-transparent"
+					class="relative bg-transparent"
 					use:clickOutside
 					on:outclick={() => {
 						isScoreOpen = false;
@@ -228,7 +228,7 @@
 
 					{#if isScoreOpen}
 						<div
-							class="absolute left-0 mt-2 w-[200%] h-auto focus:outline-none bg-surface-50-900-token border border-surface-900-50-token z-40"
+							class="absolute left-0 mt-2 w-fit h-auto focus:outline-none bg-surface-50-900-token border border-surface-900-50-token z-40"
 							role="menu"
 							aria-orientation="vertical"
 							aria-labelledby="menu-button"
@@ -256,7 +256,7 @@
 
 				<!-- @@@@@@@@@@@@@@@@@@@ 3 -->
 				<div
-					class="relative z-10 bg-transparent"
+					class="relative bg-transparent"
 					use:clickOutside
 					on:outclick={() => {
 						isCategoryOpen = false;

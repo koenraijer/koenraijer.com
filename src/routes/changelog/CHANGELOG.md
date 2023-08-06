@@ -1,56 +1,25 @@
 ## 2023
 
 ### August
-- fix buttons
-- See if containers stop overlapping
-- Fix mobile menus?
-- Test for bookdata.json
-- Let's test if the booksData.json is automatically updated
-- Test
-- Fixed book filtering on mobile
-- Menu added, books page
+- Fixed book page SEO.
+- Implemented automatic updates of the books data file based on a Python script that translates a local spreadsheet into JSON
+- Added books page with several filter options
+- Added a menu for all options in top right that is fixed on mobile
 - Fixed search bar width using mostly Tailwind
-- Several UI improvements for mobile screens added: reduce pt for hero, posts single column on mobile, footer 2 row layout, logo force single line, consider making search full-width
-- Fix
-- Fixed dynamic Og Image generation
-- Test new OgImages
-- Updated ogImage
-- Lighthouse finishing touches
-- Lighthouse finishing touches
-- Further SEO improvements and expanded info.js for website title/description and so forth
-- New avatar
-- Added SEO and og image support and such
-- Archive, pagination and categories improvements
-- Ensured horizontal line width increases smoothly when search input expands
-- Added footnote support using remark-footnotes. 
-- Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Many small UI improvements for mobile screens
+- Optimised Lighthouse scores
+- New avatar image
+- Added SEO with dynamic Og Images, meta tags, and so forth
+- Archive section on homepage now shows a compact list of all posts
+- Improved search input so that all transitions are smooth and the search input is full-width on mobile
+- Added footnote support using remark-footnotes
+- Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message
 
 
 ### July
 - Let's see if this adds a new line to the changelog?
-- Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content.
-- Add category links to posts, created category cloud, and added category pages.
+- Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content
+- Add category links to posts, created category cloud, and added category pages
 - Hero placeholder shows up on all screen sizes
 - Add tag for in templates
 - Syntax Highlighting with two themes that switch depending on active theme

@@ -3,6 +3,7 @@
     import PageTitle from '$lib/components/PageTitle.svelte';
     import Filters from '$lib/components/Filters.svelte';
     import Book from '$lib/components/Book.svelte';
+    import * as info from '$lib/js/info.js';
     import { onMount } from 'svelte';
     export let data;
     let sort = "Newest";
@@ -10,7 +11,8 @@
     let category = "All categories";  // New state for category
     let books = data.books;
 
-    $: console.log(books)
+    let totalNum = books.length;
+
 	// handle the 'selected' event dispatched from Filters.svelte
     function onOptionSelected(event) {
         sort = event.detail.selectedOption;
@@ -76,13 +78,43 @@
     onMount(() => {
         filterBooks();
     });
+
+	// SEO
+    const title = "Books"
+    const description = "This page houses most of the books I've read since 2013."
+	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(title)}`
+
+	const url = `${info.website}/books`
+
 </script>
+
+<!-- SEO -->
+<svelte:head>
+  <title>{title} - {info.name}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content={info.name} />
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content={url} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content={info.website} />
+  <meta property="twitter:url" content={url} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+</svelte:head>
 
 <div class="section">
     <PageTitle title="Books">
         <p class="uppercase mb-2 text-surface-400">Collection</p>
     </PageTitle>
-    <p class="pb-4">Most of the books I've read since 2013.</p>
+    <p class="pb-4">{description} So far, I've read a total of <b>{totalNum}</b> books. Currently, {books.length} books are shown.</p>
     <div class="!mt-0">
     <!-- Updated Filters component -->
     <Filters on:optionSelected="{onOptionSelected}" on:scoreSelected="{onScoreSelected}" on:categorySelected="{onCategorySelected}" />
