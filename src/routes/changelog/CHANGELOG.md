@@ -1,6 +1,7 @@
 ## 2023
 
 ### August
+- Test
 - Fixed book filtering on mobile
 - Menu added, books page
 - Fixed search bar width using mostly Tailwind
@@ -18,6 +19,7 @@
 - Ensured horizontal line width increases smoothly when search input expands
 - Added footnote support using remark-footnotes. 
 - Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message.
+
 
 
 

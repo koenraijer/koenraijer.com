@@ -61,7 +61,7 @@
 	<h2 id="filter-heading" class="sr-only">Filters</h2>
         <!-- Rectangular box div -->
 		<div
-			class="relative z-10 bg-transparent border border-surface-900-50-token p-4 grid grid-cols-1 sm:grid-cols-2 justify-between items-center"
+			class="relative z-10 bg-surface-50-900-token border border-surface-900-50-token p-4 grid grid-cols-1 sm:grid-cols-2 justify-between items-center"
 			use:clickOutside
 			on:outclick={() => {
 				isSortOpen = false;
@@ -129,7 +129,7 @@
             </div>
             
             <!-- Div with all 3 filters -->
-			<div class="w-full flex items-center sm:justify-start gap-x-4 justify-between">
+			<div class="w-full flex items-center sm:justify-start gap-x-4 justify-start flex-wrap gap-y-2">
                 <!-- @@@@@@@@@ 1 @@@@@@@@@@@-->
 				<div class="relative text-left">
 					<div class="button">
@@ -161,7 +161,7 @@
 					</div>
 					{#if isSortOpen}
 						<div
-							class="absolute left-0 mt-2 w-[200%] h-fit focus:outline-none bg-surface-50-900-token border border-surface-900-50-token"
+							class="absolute left-0 mt-2 w-fit h-fit focus:outline-none bg-surface-50-900-token border border-surface-900-50-token"
 							role="menu"
 							aria-orientation="vertical"
 							aria-labelledby="menu-button"
