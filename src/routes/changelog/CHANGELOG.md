@@ -1,6 +1,7 @@
 ## 2023
 
 ### August
+- Fixed book filtering on mobile
 - Menu added, books page
 - Fixed search bar width using mostly Tailwind
 - Several UI improvements for mobile screens added: reduce pt for hero, posts single column on mobile, footer 2 row layout, logo force single line, consider making search full-width
@@ -17,6 +18,7 @@
 - Ensured horizontal line width increases smoothly when search input expands
 - Added footnote support using remark-footnotes. 
 - Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message.
+
 
 
 

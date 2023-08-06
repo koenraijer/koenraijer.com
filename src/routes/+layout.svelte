@@ -19,6 +19,7 @@
 	import { modeCurrent } from '@skeletonlabs/skeleton';
 	import * as info from '$lib/js/info.js'
 	import BooksButton from '../lib/components/BooksButton.svelte';
+	import ToTopButton from '../lib/components/ToTopButton.svelte';
 
 	let link;
 
@@ -50,6 +51,7 @@
 	<link rel="manifest" href="/favicon/site.webmanifest">
 </svelte:head>
 
+
 	<AppShell>
 
 		<svelte:fragment slot="header">
@@ -57,7 +59,7 @@
 		</svelte:fragment>
 	
 		<svelte:fragment slot="pageHeader">
-			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token max-w-6xl mx-auto" padding="pt-4 px-6 screen-5xl:px-0">
+			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token max-w-6xl mx-auto" padding="pt-6 px-6 screen-5xl:px-0">
 				<svelte:fragment slot="lead">
 					<a href="/" class="text-2xl font-semibold whitespace-nowrap hover:underline" title="Visit homepage">{info.title}</a>
 				</svelte:fragment>
@@ -65,6 +67,7 @@
 					<Menu>
 						<HomeButton />
 						<ThemeToggle />
+						<ToTopButton />
 						<BooksButton />
 					</Menu>
 				</svelte:fragment>
