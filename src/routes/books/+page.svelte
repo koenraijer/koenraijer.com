@@ -10,6 +10,7 @@
     let category = "All categories";  // New state for category
     let books = data.books;
 
+    $: console.log(books)
 	// handle the 'selected' event dispatched from Filters.svelte
     function onOptionSelected(event) {
         sort = event.detail.selectedOption;
