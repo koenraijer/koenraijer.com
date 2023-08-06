@@ -132,10 +132,10 @@
 			<div class="w-full flex items-center sm:justify-start gap-x-4 justify-start flex-wrap gap-y-2">
                 <!-- @@@@@@@@@ 1 @@@@@@@@@@@-->
 				<div class="relative text-left">
-					<div class="button">
+					<div class="">
 						<button
 							type="button"
-							class="group inline-flex justify-center items-center text-md text-surface-900-50-token"
+							class="button z-30"
 							id="menu-button"
 							aria-expanded="false"
 							aria-haspopup="true"
@@ -197,7 +197,7 @@
 				>
 					<button
 						type="button"
-						class="button"
+						class="button z-30"
 						aria-expanded="false"
 						on:click={() => {
 							isScoreOpen = !isScoreOpen;
@@ -264,7 +264,7 @@
 				>
 					<button
 						type="button"
-						class="button"
+						class="button z-30"
 						aria-expanded="false"
 						on:click={() => {
 							isCategoryOpen = !isCategoryOpen;
