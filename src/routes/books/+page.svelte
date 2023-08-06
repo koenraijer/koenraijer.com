@@ -117,7 +117,7 @@
     </PageTitle>
     <p class="pb-4">{description} So far, I've read a total of <b>{copiedBooks.length}</b> books. Currently, {books.length} books are shown.</p>
     <p>Some facts about these books:</p>
-    <ul class="list-disc pl-8">
+    <ul class="list-disc pl-6">
         <!-- Percentage of books that are fiction -->
         <li>There are <b>{copiedBooks.filter(book => book.Category === "Fiction").length}</b> fiction books, which is <b>{Math.round(copiedBooks.filter(book => book.Category === "Fiction").length / copiedBooks.length * 100)}%</b> of the total.</li>
         <!-- The book with the earliest data published -->

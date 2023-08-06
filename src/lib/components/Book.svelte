@@ -12,9 +12,9 @@
 
 </script>
 <div class="flex flex-col bg-transparent overflow-hidden border justify-between border-surface-900-50-token">
-    <div class="flex justify-between p-6 sm:p-8 border-b border-surface-900-50-token">
+    <div class="flex justify-between p-6 sm:p-8 border-b border-surface-900-50-token flex-wrap gap-y-2">
         <p class="date text-surface-400">
-            {book['Date Finished'] ? formatDate(book['Date Finished']) : "Unknown date"}
+           {book['Date Finished'] ? ` READ - ${formatDate(book['Date Finished'])}` : "Unknown date"}
         </p>
         <div class="w-fit">
             {#if book['Score (0-10)']}
@@ -46,26 +46,24 @@
         </div>
     </div>
     <div class="p-6 sm:p-8">
-        <h2 class="text-lg font-semibold">{book.Title ? book.Title : ""}</h2>
-        {#if book.Subtitle}
-            <h3 class="">{book.Subtitle ? book.Subtitle : ""}</h3>
-        {/if}
-        <span class="description pt-[0.37rem] text-surface-700-200-token">{book.Author}</span>
+        <h2 class="text-lg font-semibold pb-2">{book.Title ? book.Title : ""}</h2>
+
+        <span class="text-surface-700-200-token text-lg">{book.Author}</span>
         <!--
             { "ISBN": 62407805, "Added": 1672444800000, "Title": "Never Split the Difference: Negotiating As If Your Life Depended On It", "Author": "Chris Voss", "Date Published": 2016, "Score (0-10)": 4, "Review": null, "Notes": null, "Date Finished": 1688256000000, "Category": "Nonfiction" }
          -->
-        <p>First published in <b>{book['Date Published'] ? book['Date Published'] : "Unknown date"}</b>.</p>
+        <p class="pt-4">First published in <i>{book['Date Published'] ? book['Date Published'] : "Unknown date"}</i>.</p>
     </div>
     <div class="px-6 py-4 space-y-2">
         <p>{book.Notes ? book.Notes : ""}</p>
     </div>
-    <div class="px-6 py-4 flex items-center justify-between"> 
+    <div class="px-6 py-4 flex items-center justify-between flex-wrap gap-y-2"> 
         <span class="social">
             {book.Category}
         </span>
-        <span class="items-center inline-flex py-[0.05rem] px-2 rounded-full text-xs font-medium bg-surface-600-300-token text-surface-50-900-token">
+        <span class="items-center inline-flex py-[0.05rem] px-2">
             {#if book.ISBN}
-                {book.ISBN}
+                <b class="mr-2">ISBN:</b> {book.ISBN}
             {:else}
                 No ISBN
             {/if}
