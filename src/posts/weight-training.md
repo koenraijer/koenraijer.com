@@ -196,4 +196,4 @@ This is the part you can use to actually compose a training. What follows is a l
 - Technical failure - when you are unable to do another repetition with correct technique.
 
 ## Bibliography
-1. Lorenz DS, Reiman MP, Walker JC. Periodization: current review and suggested implementation for athletic rehabilitation. Sports Health. 2010 Nov;2(6):509–18.
+[^1]: Lorenz DS, Reiman MP, Walker JC. Periodization: current review and suggested implementation for athletic rehabilitation. Sports Health. 2010 Nov;2(6):509–18.
