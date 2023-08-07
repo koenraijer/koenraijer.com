@@ -1,6 +1,7 @@
 ## 2023
 
 ### August
+- Probably some changes
 - Added Metro 2033
 - Post added: A sensible guide on weight training for longevity
 - Post added: A sensible guide on weight training for longevity
@@ -21,6 +22,7 @@
 - Improved search input so that all transitions are smooth and the search input is full-width on mobile
 - Added footnote support using remark-footnotes
 - Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message
+
 
 
 
