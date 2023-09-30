@@ -1702,5 +1702,41 @@
         "Notes":null,
         "Date Finished":1689984000000,
         "Category":"Fiction"
+    },
+    {
+        "ISBN":9780399178610,
+        "Added":1696032000000,
+        "Title":"Hyperion",
+        "Author":"Dan Simmons",
+        "Date Published":1990,
+        "Score (0-10)":10.0,
+        "Review":null,
+        "Notes":null,
+        "Date Finished":1693785600000,
+        "Category":"Fiction"
+    },
+    {
+        "ISBN":9789493304932,
+        "Added":1696032000000,
+        "Title":"Smibologie: Each one teach one",
+        "Author":"Prof. Soortkill",
+        "Date Published":2023,
+        "Score (0-10)":7.0,
+        "Review":null,
+        "Notes":null,
+        "Date Finished":1694304000000,
+        "Category":"Fiction"
+    },
+    {
+        "ISBN":9780575099487,
+        "Added":1696032000000,
+        "Title":"The Fall of Hyperion",
+        "Author":"Dan Simmons",
+        "Date Published":1990,
+        "Score (0-10)":10.0,
+        "Review":null,
+        "Notes":null,
+        "Date Finished":1695945600000,
+        "Category":"Fiction"
     }
 ]

@@ -32,3 +32,5 @@ Create a menu for all options in top right
 In writing a bio i should use: what energizes me? What are you excited about? And not what do you do. 
 
 For sidenotes: add bottom drawer just like new wikipedia website has
+
+Add fixed top header like gwern has for currently active heading. 
