@@ -1,6 +1,8 @@
 ### September
 - New books added
+- New books added
 ## 2023
+
 
 ### August
 - Added book: Metro 2033

@@ -7,9 +7,6 @@ categories:
 published: true
 featured: true
 ---
-
-![Image of me in Utrecht on a city trip with Marthe. I am happy to have found the right alley on the map here.](/avatar3.webp)
-
 Say you're a doctor who wants a patient to shake a drug habit, lose weight, or stick to a diet. Or perhaps you're a manager, and your employee isn't functioning the way they should. How do you create sustainable change?
 
 You could tell them why you think they should change, and then ask them to do so. This approach will often *appear* succesful. People say they agree to change, but will soon fall back into old habits. That's because they're not convinced of change *themselves*. External motivation is not enough for sustainable change.
