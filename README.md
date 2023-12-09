@@ -12,6 +12,7 @@
 - Change text select colour
 - Add books page
 - Mobile: reduce pt for hero, posts single column on mobile, footer 2 row layout, logo force single line, consider making search full-width
+- Add icon for external links: two squares, one to the bottom right of the other
 
 **Completed:**
 - Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content.
