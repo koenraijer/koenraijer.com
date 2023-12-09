@@ -1,13 +1,15 @@
-### December
-- Books updated
-### September
-- New books added
-- New books added
 ## 2023
+### December
+- Added new books
+- Added new books
 
+
+### September
+- Added new books
+- Added new books
 
 ### August
-- Added book: Metro 2033
+- Added new books
 - Post added: A sensible guide on weight training for longevity
 - Fixed book page SEO.
 - Implemented automatic updates of the books data file based on a Python script that translates a local spreadsheet into JSON
@@ -24,7 +26,6 @@
 - Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message
 
 ### July
-- Let's see if this adds a new line to the changelog?
 - Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content
 - Add category links to posts, created category cloud, and added category pages
 - Hero placeholder shows up on all screen sizes
