@@ -5,7 +5,7 @@ import skeleton from '@skeletonlabs/skeleton/tailwind/skeleton.cjs';
 
 const fluidTypeConfig = {
 	fontSizeMin: 1, // 1.125rem === 18px
-	fontSizeMax: 1.175, // 1.25rem === 20px
+	fontSizeMax: 1.15, // 1.25rem === 20px
 	ratioMin: 1.125, // Multiplicator Min
 	ratioMax: 1.2, // Multiplicator Max
 	screenMin: 20, // 20rem === 320px
