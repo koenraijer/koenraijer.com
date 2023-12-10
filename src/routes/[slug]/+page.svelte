@@ -57,7 +57,7 @@
 		</div>
 
 		<!-- Categories -->
-		<div class="text-surface-900-50-token max-w-[65ch] mx-auto ml-0">
+		<div class="text-surface-900-50-token max-w-[70ch] mx-auto ml-0">
 			<Categories categories={categoriesArray}/>
 		</div>
 	  

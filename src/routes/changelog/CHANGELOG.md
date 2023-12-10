@@ -1,7 +1,9 @@
 ## 2023
 ### December
+- Added fluid font sizing
 - Added new books
 - Added new books
+
 
 
 ### September

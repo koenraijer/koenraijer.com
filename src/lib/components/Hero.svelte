@@ -22,7 +22,7 @@
     <link rel="preload" href="/{info.avatar}" as="image">
 </svelte:head>
 
-<section class="grid grid-cols-1 md:grid-cols-2 bg-surface-100 dark:bg-surface-800 shadow-sm overflow-hidden">
+<section class="grid grid-cols-1 lg:grid-cols-2 bg-surface-100 dark:bg-surface-800 shadow-sm overflow-hidden">
     <div class="relative p-6 sm:p-8 row-span-2">
         <div class="relative h-full" style="padding-bottom: 66.66%;">
             {#if !imageLoaded}
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="flex flex-col p-6 sm:p-8 md:pl-0 pt-0 md:pt-8 row-span-2 overflow-auto">
-        <p class="text-xl font-normal flex-grow">   
+        <p class="text-lg font-normal flex-grow">   
             {@html info.bio.html}
         </p>
         <div class="pt-8 lg:pt-36">
