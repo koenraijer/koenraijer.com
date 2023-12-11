@@ -22,14 +22,14 @@
     <link rel="preload" href="/{info.avatar}" as="image">
 </svelte:head>
 
-<section class="grid grid-cols-1 lg:grid-cols-2 bg-surface-100 dark:bg-surface-800 shadow-sm overflow-hidden">
+<section class="grid grid-cols-1 lg:grid-cols-2 bg-surface-100 dark:bg-surface-800 shadow-sm overflow-hidden rounded-container">
     <div class="relative p-6 sm:p-8 row-span-2">
         <div class="relative h-full" style="padding-bottom: 66.66%;">
             {#if !imageLoaded}
-                <div class="placeholder absolute inset-0 animate-pulse rounded-none h-full bg-surface-50-900-token"></div>
+                <div class="placeholder absolute inset-0 animate-pulse rounded-container h-full bg-surface-50-900-token"></div>
             {:else}
                 <!-- Apply fade transition to the image -->
-                <div class="absolute inset-0" style="background: url('{info.avatar}') no-repeat center / cover;" in:fade={{duration: 100}}></div>
+                <div class="absolute inset-0 rounded-container" style="background: url('{info.avatar}') no-repeat center / cover;" in:fade={{duration: 100}}></div>
             {/if}
         </div>
     </div>

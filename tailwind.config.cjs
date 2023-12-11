@@ -29,6 +29,10 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			borderRadius: {
+				base: 'var(--theme-rounded-base)',
+				container: 'var(--theme-rounded-container)',
+			  },
 			screens: {
 				'screen-5xl': '1200px',
 			  },

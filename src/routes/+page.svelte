@@ -82,8 +82,12 @@
 </section>
 
 <section class="section">
-	<div class="flex sm:flex-row items-center mb-4 w-full flex-col-reverse">
-		<div class="w-full sm:pr-8 basis-full {focused ? "sm:basis-[200%] md:basis-3/5" : "sm:basis-[4.75rem]"} transition-all duration-300 ease-in-out">
+	<div class="flex sm:flex-row items-center mb-4 w-full flex-wrap sm:flex-nowrap">
+		<div class="flex items-center w-full sm:flex-grow my-4 sm:my-0 ">
+			<h2 class="text-2xl font-semibold flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container">Recent posts</h2>
+			<hr class="!border-surface-500-400-token border-2 w-full"/>
+		</div>
+		<div class="w-full sm:pl-8 basis-full {focused ? "sm:basis-[200%] md:basis-3/5" : "sm:basis-[4.75rem]"} transition-all duration-300 ease-in-out">
 			<form action="" class="relative w-full">
 				<label for="search-input" class="sr-only">Search</label>
 				<input 
@@ -99,10 +103,6 @@
 				</svg>
 			</form>	
 		</div>
-		<div class="flex items-center w-full sm:flex-grow my-4 sm:my-0 ">
-			<hr class="!border-surface-900-50-token border-2 w-full"/>
-			<h2 class="text-lg font-semibold flex-shrink-0 md:pl-8 pl-4 -mt-1">Recent posts</h2>
-		</div>
 	</div>
 	
 	<Posts posts={searchedPosts} limit={limit}/>
@@ -115,8 +115,8 @@
 
 <section class="section">
 	<div class="flex items-center">
-		<h2 class="text-lg font-semibold flex-shrink-0 md:pr-8 pr-4 transition-width duration-300 -mt-1">Categories</h2>
-		<hr class="!border-surface-900-50-token border-2 flex-grow "/>
+		<h2 class="text-2xl font-semibold flex-shrink-0 md:pr-8 pr-4 transition-width duration-300 -mt-1">Categories</h2>
+		<hr class="!border-surface-500-400-token border-2 w-full"/>
 	</div>
 	<div class="py-4"></div>
 	<Categories categories={data.categories}/>
@@ -124,8 +124,8 @@
 
 <section class="section">
 	<div class="flex items-center">
-		<hr class="!border-surface-900-50-token border-2 flex-grow "/>
-		<h2 class="text-lg font-semibold flex-shrink-0 md:pl-8 pl-4 transition-width duration-300 -mt-1">Archive</h2>
+		<h2 class="text-2xl font-semibold flex-shrink-0 sm:pr-8 pr-4 transition-width duration-300 -mt-1">Archive</h2>
+		<hr class="!border-surface-500-400-token border-2 w-full"/>
 	</div>
 	<Posts posts={data.posts} compact/>
 </section>
