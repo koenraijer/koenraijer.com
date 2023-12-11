@@ -1,8 +1,10 @@
 ## 2023
 ### December
+- New post about Anki Remote alternative added
 - Added fluid font sizing
 - Added new books
 - Added new books
+
 
 
 

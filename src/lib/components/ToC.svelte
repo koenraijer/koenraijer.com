@@ -9,7 +9,6 @@
   
     let scrollY
     let headings = []
-    let headingz = []
 
     function updateHeadings() {
       const nodes = [

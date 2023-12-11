@@ -92,7 +92,11 @@
 	<!-- Table of contents -->
 	<div class="h-full col-span-1 xl:block hidden">
 		<aside class="sticky ml-4 top-8" aria-label="Table of Contents">
-			<ToC title={data.post.title} allowedHeadings={['h2', 'h3', 'h4']} />
+			{#if !data.post.noToC}
+				<ToC title={data.post.title} allowedHeadings={['h2', 'h3', 'h4']} />
+			{/if}
 		</aside>
 	</div>
 </div>
+
+
