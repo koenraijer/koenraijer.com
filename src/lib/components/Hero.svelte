@@ -33,7 +33,7 @@
             {/if}
         </div>
     </div>
-    <div class="flex flex-col p-6 sm:p-8 md:pl-0 pt-0 md:pt-8 row-span-2 overflow-auto">
+    <div class="flex flex-col p-6 md:p-8 md:pt-0 lg:pl-0 pt-0 lg:pt-8 row-span-2 overflow-auto">
         <p class="text-lg font-normal flex-grow">   
             {@html info.bio.html}
         </p>
