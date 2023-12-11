@@ -5,14 +5,14 @@
 
 **Known bugs:**
 - RSS.xml errors on first load.
+- Quotes have wrong text colour in dark mode
 
 **Optional new features:**
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance.
-- Change text select colour
-- Add books page
-- Mobile: reduce pt for hero, posts single column on mobile, footer 2 row layout, logo force single line, consider making search full-width
-- Add icon for external links: two squares, one to the bottom right of the other
+- Add user page to show an author for each post (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s)
+- Add page change animation such as [https://davidhellmann.com](https://davidhellmann.com)
+- Update Changelog to be like obsidian.md/changelog (with sticky years and months)
 
 **Completed:**
 - Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content.
@@ -23,15 +23,12 @@
 - Add compact post list for Archive
 - Added Fuse.js for client-side fuzzy search
 - Add semi-automated changelog? I.e., whenever a new page is added?
+- Create a menu for all options in top right 
+- Add books page
+- Change text select colour
 
-Pt for post template reduce on moble
-Make pl for input standard on sm screens
-Ensure page is at top after navigating
 
-Create a menu for all options in top right 
 
-In writing a bio i should use: what energizes me? What are you excited about? And not what do you do. 
+Schema.org metadata
 
-For sidenotes: add bottom drawer just like new wikipedia website has
-
-Add fixed top header like gwern has for currently active heading. 
+https://tailwind-ui-premium-project.github.io/components/ecommerce/components/category-filters/ 
