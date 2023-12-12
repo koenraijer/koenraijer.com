@@ -1,4 +1,32 @@
 ## 2023
 ### December
-- Version 3.0 launched
+- Version 3.0 of the website is live! 🎉
+- Version 3.0 of the website is live! 🎉
+- New post about added: [Anki Remote iOS alternative: cheap, versatile, unwasteful.](https://www.koenraijer.io/anki-remote)
+- Added [TailwindCSS fluid type plugin](https://davidhellmann.com/blog/development/tailwindcss-fluid-type-plugin)
 
+
+### August
+- Post added: A sensible guide on weight training for longevity
+- Fixed book page SEO.
+- Implemented automatic updates of the books data file based on a Python script that translates a local spreadsheet into JSON
+- Added books page with several filter options
+- Added a menu for all options in top right that is fixed on mobile
+- Fixed search bar width using mostly Tailwind
+- Many small UI improvements for mobile screens
+- Optimised Lighthouse scores
+- New avatar image
+- Added SEO with dynamic Og Images, meta tags, and so forth
+- Archive section on homepage now shows a compact list of all posts
+- Improved search input so that all transitions are smooth and the search input is full-width on mobile
+- Added footnote support using remark-footnotes
+- Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message
+
+### July
+- Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content
+- Add category links to posts, created category cloud, and added category pages
+- Hero placeholder shows up on all screen sizes
+- Add tag for in templates
+- Syntax Highlighting with two themes that switch depending on active theme
+- Add compact post list for Archive
+- Added `Fuse.js` for client-side fuzzy search
