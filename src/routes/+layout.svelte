@@ -68,12 +68,20 @@
 					<a href="/" class="text-2xl font-semibold whitespace-nowrap hover:underline" title="Visit homepage">{info.title}</a>
 				</svelte:fragment>
 				<svelte:fragment slot="trail">
-					<Menu>
-						<HomeButton />
-						<ThemeToggle />
-						<ToTopButton />
-						<BooksButton />
-					</Menu>
+						<Menu>
+							<svelte:fragment slot="small-screens">
+								<BooksButton />
+								<hr>
+								<div class="flex row-nowrap justify-between gap-x-2">
+									<ThemeToggle />
+									<ToTopButton />
+								</div>
+							</svelte:fragment>
+							<svelte:fragment slot="large-screens">
+								<a href="/library" class="whitespace-nowrap hover:underline font-semibold text-lg text-surface-900-50-token">Library</a>
+								<ThemeToggle />
+							</svelte:fragment>
+						</Menu>
 				</svelte:fragment>
 			</AppBar>
 		</svelte:fragment>

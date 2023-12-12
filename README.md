@@ -5,7 +5,6 @@
 
 **Known bugs:**
 - RSS.xml errors on first load.
-- Quotes have wrong text colour in dark mode
 
 **Optional new features:**
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.

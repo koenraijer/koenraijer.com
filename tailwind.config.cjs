@@ -29,15 +29,25 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			borderRadius: {
+				base: 'var(--theme-rounded-base)',
+				container: 'var(--theme-rounded-container)',
+			  },
 			screens: {
 				'screen-5xl': '1200px',
 			  },
 			typography: () => ({
-			DEFAULT: {
-				css: {
-				'font-size': proseFontSetting,
+				DEFAULT: {
+					css: {
+					'font-size': proseFontSetting,
+					},
 				},
-			},
+				quoteless: {
+					css: {
+					'blockquote p:first-of-type::before': { content: 'none' },
+					'blockquote p:first-of-type::after': { content: 'none' },
+					},
+				},
 			}),
 		}
 	},

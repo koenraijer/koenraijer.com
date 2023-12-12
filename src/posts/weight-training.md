@@ -4,7 +4,7 @@ description: "A flexible and efficient, science-based full-body weight training 
 date: 2023-08-06
 categories: 
     - Health
-published: true
+published: false
 ---
 
 I have taken the liberty to write an extensive guide on how I structure my own weight training. 
@@ -83,7 +83,9 @@ I encourage *active recovery* by doing cardio like cycling, running, swimming or
 
 To explain what this is, I think a proper definition of periodization will be helpful:
 
-> "Periodization is a concept of systematic progression—that is, resistance training programs that follow predictable patterns of change in training variables." - Lorenz, 2010 [^1].
+> Periodization is a concept of systematic progression—that is, resistance training programs that follow predictable patterns of change in training variables. 
+
+Lorenz, 2010 [^1].
 
 Periodization answers the question of "what's the best way of reaching my training goal over the next several weeks or months?". It says stuff about the `load` and `volume` you should use for a given training. That is important, because different rep ranges work different things. Training in the 1-8 rep range will prioritize strength, while the 8-12 rep range will prioritize hypertrophy. Higher rep ranges mostly train muscle endurance. Note that training in a lower rep range assumes you increase the weight accordingly to keep the intensity consistent.
 

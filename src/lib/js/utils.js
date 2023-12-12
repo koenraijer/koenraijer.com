@@ -1,8 +1,9 @@
-export function formatDate(date, locales = 'nl') {
+export function formatDate(date, locales = 'usa') {
     const dateObject = new Date(date);
     const day = dateObject.getDate();
-    const month = dateObject.toLocaleString(locales, { month: 'short' }).toUpperCase();
+    let month = dateObject.toLocaleString(locales, { month: 'long' });
+    month = month.charAt(0).toUpperCase() + month.slice(1);
     const year = dateObject.getFullYear();
 
-    return `${day} ${month} ${year}`;
+    return `${month} ${day}, ${year}`;
 }

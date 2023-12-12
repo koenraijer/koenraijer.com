@@ -5,7 +5,7 @@ date: "2022-03-08"
 categories:
     - Computer Science
     - Web development
-published: true
+published: false
 ---
 
 A list of resources I use frequently, mostly but not exclusively related to web development. 

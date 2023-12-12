@@ -61,7 +61,7 @@
 	<h2 id="filter-heading" class="sr-only">Filters</h2>
         <!-- Rectangular box div -->
 		<div
-			class="relative bg-surface-50-900-token border border-surface-900-50-token p-4 grid grid-cols-1 sm:grid-cols-2 justify-between items-center"
+			class="relative p-4 grid grid-cols-1 sm:grid-cols-2 justify-between items-center border border-surface-300-600-token rounded-container bg-surface-100-800-token"
 			use:clickOutside
 			on:outclick={() => {
 				isSortOpen = false;
@@ -129,7 +129,7 @@
             </div>
             
             <!-- Div with all 3 filters -->
-			<div class="w-full flex items-center sm:justify-start gap-x-4 justify-start flex-wrap gap-y-2">
+			<div class="w-full flex items-center sm:justify-start gap-x-4 justify-start flex-wrap gap-y-2 rounded-container">
                 <!-- @@@@@@@@@ 1 @@@@@@@@@@@-->
 				<div class="relative text-left">
 					<div class="">
@@ -145,7 +145,7 @@
 							<svg
 								class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-surface-700-200-token {isSortOpen
 									? 'rotate-180'
-									: 'rotate-0'} transition-transform duration-200"
+									: 'rotate-0'} transition-transform duration-200 translate-y-1"
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 20 20"
 								fill="currentColor"
@@ -161,7 +161,7 @@
 					</div>
 					{#if isSortOpen}
 						<div
-							class="absolute left-0 mt-2 w-fit h-auto focus:outline-none bg-surface-50-900-token border border-surface-900-50-token z-40"
+							class="absolute left-0 mt-2 w-fit h-auto focus:outline-none bg-surface-50-900-token border border-surface-900-50-token z-40 rounded-container"
 							role="menu"
 							aria-orientation="vertical"
 							aria-labelledby="menu-button"
@@ -172,7 +172,7 @@
 									<button
 										class="{selectedOption === option
 											? 'text-surface-50-900-token bg-surface-700-200-token'
-											: 'text-surface-900-50 border-surface-900-50-token bg-surface-50-900-token'} cursor-pointer duration-[200ms] border border-surface-900-50-token rounded-none bg-surface-50-900-token transition-colors hover:bg-surface-900-50-token hover:text-surface-50-900-token whitespace-nowrap p-2 w-full"
+											: 'text-surface-900-50 border-surface-900-50-token bg-surface-50-900-token'} cursor-pointer duration-[200ms] border border-surface-900-50-token rounded-container bg-surface-50-900-token transition-colors hover:bg-surface-900-50-token hover:text-surface-50-900-token whitespace-nowrap p-2 w-full"
 										role="menuitem"
 										tabindex="-1"
 										id={`menu-item-${i}`}
@@ -212,7 +212,7 @@
 						<svg
 							class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-surface-700-200-token {isScoreOpen
 								? 'rotate-180'
-								: 'rotate-0'} transition-transform duration-200"
+								: 'rotate-0'} transition-transform duration-200 translate-y-1"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
@@ -279,7 +279,7 @@
 						<svg
 							class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-surface-700-200-token {isCategoryOpen
 								? 'rotate-180'
-								: 'rotate-0'} transition-transform duration-200"
+								: 'rotate-0'} transition-transform duration-200 translate-y-1"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"

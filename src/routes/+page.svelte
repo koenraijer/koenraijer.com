@@ -77,13 +77,17 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<section class="mt-12 max-w mx-auto">
+<section class="mt-12 max-w mx-auto md:px-16">
 	<Hero />
 </section>
 
 <section class="section">
-	<div class="flex sm:flex-row items-center mb-4 w-full flex-col-reverse">
-		<div class="w-full sm:pr-8 basis-full {focused ? "sm:basis-[200%] md:basis-3/5" : "sm:basis-[4.75rem]"} transition-all duration-300 ease-in-out">
+	<div class="flex sm:flex-row items-center mb-4 w-full flex-wrap sm:flex-nowrap">
+		<div class="flex items-center w-full sm:flex-grow my-4 sm:my-0 ">
+			<h2 class="text-2xl font-semibold flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container">Recent posts</h2>
+			<hr class="!border-surface-500-400-token border-2 w-full"/>
+		</div>
+		<div class="w-full sm:pl-8 basis-full {focused ? "sm:basis-[200%] md:basis-3/5" : "sm:basis-[4.75rem]"} transition-all duration-300 ease-in-out">
 			<form action="" class="relative w-full">
 				<label for="search-input" class="sr-only">Search</label>
 				<input 
@@ -92,16 +96,12 @@
 					on:focus={() => focused = true} 
 					on:blur={() => focused = false}
 					type="search" 
-					class="peer cursor-pointer relative z-10 h-10 w-full rounded-none border border-surface-900-50-token bg-transparent outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text pl-12 sm:pl-0 sm:focus:pl-12 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
+					class="peer cursor-pointer relative z-10 h-10 w-full rounded-container border border-surface-900-50-token bg-transparent outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text pl-12 sm:pl-0 sm:focus:pl-12 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
 				/>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="absolute inset-y-0 my-auto h-6 border-r border-transparent border-surface-900-50 peer-focus pl-2">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
 				</svg>
 			</form>	
-		</div>
-		<div class="flex items-center w-full sm:flex-grow my-4 sm:my-0 ">
-			<hr class="!border-surface-900-50-token border-2 w-full"/>
-			<h2 class="text-lg font-semibold flex-shrink-0 md:pl-8 pl-4 -mt-1">Recent posts</h2>
 		</div>
 	</div>
 	
@@ -115,8 +115,8 @@
 
 <section class="section">
 	<div class="flex items-center">
-		<h2 class="text-lg font-semibold flex-shrink-0 md:pr-8 pr-4 transition-width duration-300 -mt-1">Categories</h2>
-		<hr class="!border-surface-900-50-token border-2 flex-grow "/>
+		<h2 class="text-2xl font-semibold flex-shrink-0 md:pr-8 pr-4 transition-width duration-300 -mt-1">Categories</h2>
+		<hr class="border-2 w-full"/>
 	</div>
 	<div class="py-4"></div>
 	<Categories categories={data.categories}/>
@@ -124,8 +124,8 @@
 
 <section class="section">
 	<div class="flex items-center">
-		<hr class="!border-surface-900-50-token border-2 flex-grow "/>
-		<h2 class="text-lg font-semibold flex-shrink-0 md:pl-8 pl-4 transition-width duration-300 -mt-1">Archive</h2>
+		<h2 class="text-2xl font-semibold flex-shrink-0 sm:pr-8 pr-4 transition-width duration-300 -mt-1">Archive</h2>
+		<hr class="!border-surface-500-400-token border-2 w-full"/>
 	</div>
 	<Posts posts={data.posts} compact/>
 </section>

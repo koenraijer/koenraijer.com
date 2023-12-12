@@ -1,20 +1,13 @@
 <script>
     import { Ratings } from '@skeletonlabs/skeleton';
+    import { formatDate } from '$lib/js/utils.js';
     export let book;
 
-    function formatDate(dateStr) {
-        const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-        "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
-        ];
-        const date = new Date(dateStr);
-        return `${date.getDate().toString().padStart(2, '0')} ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
-    }
-
 </script>
-<div class="flex flex-col bg-transparent overflow-hidden border justify-between border-surface-900-50-token">
-    <div class="flex justify-between p-6 sm:p-8 border-b border-surface-900-50-token flex-wrap gap-y-2">
-        <p class="date text-surface-400">
-           {book['Date Finished'] ? ` READ - ${formatDate(book['Date Finished'])}` : "Unknown date"}
+<div class="flex flex-col bg-transparent overflow-hidden border justify-between rounded-container border-surface-300-600-token">
+    <div class="flex justify-between p-6 sm:p-8 border-b border-surface-300-600-token flex-wrap gap-y-2">
+        <p class="date text-surface-500-400-token">
+           {book['Date Finished'] ? `${formatDate(book['Date Finished'])}` : "Unknown date"}
         </p>
         <div class="w-fit">
             {#if book['Score (0-10)']}
@@ -58,7 +51,7 @@
         <p>{book.Notes ? book.Notes : ""}</p>
     </div>
     <div class="px-6 py-4 flex items-center justify-between flex-wrap gap-y-2"> 
-        <span class="social">
+        <span class="inline-flex px-3 py-2 items-center text-token border border-surface-200-700-token rounded-container">
             {book.Category}
         </span>
         <span class="items-center inline-flex py-[0.05rem] px-2">

@@ -10,13 +10,8 @@ noToC: true
 This is a quick tip for those wanting to use Anki while being AFK (away from keyboard). It works for iPhone/Mac and uses the Remote+ app ([App Store link](https://apps.apple.com/us/app/remote-mouse-keyboard/id629019487?itsct=apps_box_badge&itscg=30200)), which is free but requires premium functionality, costing €8,- or so for lifetime subscription. For many people, this is likely the superior option to something like the Anki Remote, which costs $36 and does not ship to Europe.
 
 The final result should look something like this:
-<figure>
+![A custom keypad can be used to create buttons for most relevant keys, effectively creating your own, highly customisable Anki remote.](231210-anki-remote-1.jpeg)
 
-<img class="max-h-[50vh] mx-auto" src="231210-anki-remote-1.jpeg" alt="A custom keypad can be used to create buttons for most relevant keys, effectively creating your own, highly customisable Anki remote." title="A custom keypad can be used to create buttons for most relevant keys, effectively creating your own, highly customisable Anki remote." loading="lazy"/>
-
-<figcaption class="text-base text-surface-400 mt-1 text-center">A custom keypad can be used to create buttons for most relevant keys, effectively creating your own, highly customisable Anki remote.</figcaption>
-
-</figure>
 To create the Anki remote:
 1. Install the Remote+ app and the Mac OS helper program.
 2. Open the app, go to the keypad section (press ▶️ in bottom menu).

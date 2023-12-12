@@ -9,6 +9,10 @@ published: true
 
 This piece of code allows you to create an Obsidian link which links directly to a reference inside Zotero, simply by dragging the reference into a note. If you're processing research or simply want to reference a study in one of your notes, this is is helpful in speeding up the process. 
 
+<video controls>
+  <source src="zotero-obsidian.m4v" type="video/mp4">
+</video>
+
 **Note:** the code was adapted from another external translator made by Florian Wessling, which can be found <a href="ttps://gist.githubusercontent.com/ColdDevil/9992718/raw/71c385e68866fd55490f13c729156ae916eee12c/zotselect-link_full.js">here</a>. 
 
  Some other resources for writing Zotero translators:
