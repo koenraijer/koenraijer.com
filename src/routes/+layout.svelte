@@ -71,7 +71,7 @@
 					<Menu>
 						<BooksButton />
 						<hr>
-						<div class="flex row-nowrap justify-between">
+						<div class="flex row-nowrap justify-between gap-x-2">
 							<ThemeToggle />
 							<ToTopButton />
 						</div>
