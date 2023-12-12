@@ -91,7 +91,7 @@
   <svelte:window on:scroll={setActiveHeading} />
   
     {#if headings.length > 0}
-        <nav class="border text-sm hover:border-surface-900-50-token border-surface-200 dark:border-surface-600 rounded-none p-4 hover:text-surface-900 dark:hover:text-surface-50 dark:text-surface-600 text-surface-200 transition-colors duration-100">
+        <nav class="border text-sm hover:border-surface-900-50-token border-surface-200 dark:border-surface-600 p-4 hover:text-surface-900 dark:hover:text-surface-50 dark:text-surface-600 text-surface-200 transition-colors duration-100 rounded-container">
             <ul class="">
             {#each headings as heading}
                 <li

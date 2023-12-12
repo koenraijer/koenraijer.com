@@ -20,7 +20,7 @@ export const name = `${firstName} ${lastName}`
 export const email = 'koenrayer@gmail.com'
 
 // Used for the hero
-export const avatar = 'headshot.webp'
+export const avatar = 'avatar.webp'
 
 export const bio = { 
     text: `Hi, I'm Koen. I'm a medical doctor doing research on the crossroads of psychiatry and data science. I'm based in Sittard, the Netherlands. My research concerns predicting when people are having intrusions from past traumatic events using physiological data and machine learning. This is where I share my thoughts on a non-specific set of topics, although admittedly, it's mostly tacky programming tutorials because I can't stop myself from tweaking the website rather than writing posts.`,

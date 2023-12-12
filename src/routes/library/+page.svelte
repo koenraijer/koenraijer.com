@@ -82,7 +82,7 @@
 
 	// SEO
     const title = "Books"
-    const description = "This page houses most of the books I've read since 2013."
+    const description = "Displayed below are (almost!) all books I've read since 2013. The page is populated from a JSON file that is sourced from an Excel spreadsheet. Each time I update the website, a Python script takes the spreadsheet and updates the JSON file with the latest additions."
 	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(title)}`
 
 	const url = `${info.website}/books`
@@ -112,15 +112,18 @@
 </svelte:head>
 
 <div class="section">
-    <PageTitle title="Books">
+    <PageTitle title="Library">
     </PageTitle>
-    <p class="pb-4">{description} So far, I've read a total of <b>{copiedBooks.length}</b> books. Currently, {books.length} books are shown.</p>
+    <p class="pb-4">{description}</p>
+    <p class="pb-4">
+        So far, I've read a total of <b>{copiedBooks.length}</b> books.
+    </p>
     <p>Some facts about these books:</p>
     <ul class="list-disc pl-6">
         <!-- Percentage of books that are fiction -->
-        <li>There are <b>{copiedBooks.filter(book => book.Category === "Fiction").length}</b> fiction books, which is <b>{Math.round(copiedBooks.filter(book => book.Category === "Fiction").length / copiedBooks.length * 100)}%</b> of the total.</li>
+        <li>There are <b>{copiedBooks.filter(book => book.Category === "Fiction").length}</b> works of fiction, which is <b>{Math.round(copiedBooks.filter(book => book.Category === "Fiction").length / copiedBooks.length * 100)}%</b> of the total.</li>
         <!-- The book with the earliest data published -->
-        <li>The book with the earliest publish date is <b>{copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0].Title}</b>, published in <b>{copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0]['Date Published'] < 0 ? Math.abs(copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0]['Date Published']) + " BC" : copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0]['Date Published']}</b>.</li>
+        <li>The oldest book is <b>{copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0].Title}</b>, published in <b>{copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0]['Date Published'] < 0 ? Math.abs(copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0]['Date Published']) + " BC" : copiedBooks.sort((a, b) => a['Date Published'] - b['Date Published'])[0]['Date Published']}</b>.</li>
         <!-- The most frequently occurring rating -->
         <li>The most frequently occurring rating is <b>{copiedBooks.map(book => book['Score (0-10)']).reduce((a, b) => a > b ? a : b)}</b>, which occurs <b>{copiedBooks.filter(book => book['Score (0-10)'] === copiedBooks.map(book => book['Score (0-10)']).reduce((a, b) => a > b ? a : b)).length}</b> times.</li>
     </ul>
