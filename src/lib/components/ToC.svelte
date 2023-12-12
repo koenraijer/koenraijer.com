@@ -12,8 +12,8 @@
 
     function updateHeadings() {
       const nodes = [
-        // Exclude h1 as those should be reserved for the post title
-        ...document.querySelectorAll(`article :where(${allowedHeadings.join(', ')}):not(#__sections)`)
+        // Exclude h1 and h3 as those should be reserved for the post title and other purposes
+        ...document.querySelectorAll(`article :where(${allowedHeadings.filter(h => h !== 'h1' && h !== 'h3').join(', ')}):not(#__sections)`)
       ]
       const depths = nodes.map((node) => Number(node.nodeName[1]))
       const minDepth = Math.min(...depths)
@@ -91,7 +91,7 @@
   <svelte:window on:scroll={setActiveHeading} />
   
     {#if headings.length > 0}
-        <nav class="border hover:border-surface-900-50-token border-surface-200 dark:border-surface-600 rounded-none p-4 hover:text-surface-900 dark:hover:text-surface-50 dark:text-surface-600 text-surface-200 transition-colors duration-100">
+        <nav class="border text-sm hover:border-surface-900-50-token border-surface-200 dark:border-surface-600 rounded-none p-4 hover:text-surface-900 dark:hover:text-surface-50 dark:text-surface-600 text-surface-200 transition-colors duration-100">
             <ul class="">
             {#each headings as heading}
                 <li

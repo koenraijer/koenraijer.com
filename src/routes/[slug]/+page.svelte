@@ -44,13 +44,13 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<div class="grid grid-cols-5 mx-auto section h-full relative px-6">
+<div class="grid grid-cols-5 mx-auto h-full relative mt-12 px-6 sm:px-8 screen-5xl:px-0 max-w">
 	<article class="w-full lg:col-span-3 lg:col-start-2 col-span-full">
 		<!-- Title -->
 		<PageTitle title={data.post.title} {subtitle} />
 
 		<!-- Post content -->
-		<div class="text-surface-900-50-token overflow-x-scroll prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token lg:mx-0 mx-auto">
+		<div class="text-surface-900-50-token overflow-x-scroll prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token lg:mx-0 mx-auto prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless">
 			{@html data.post.content}
 			
 			<hr class="!border-surface-900-50-token border-2 flex-grow mb-4 mt-12"/>

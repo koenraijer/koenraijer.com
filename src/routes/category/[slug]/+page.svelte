@@ -6,7 +6,7 @@
 
 <div class="section">
     <PageTitle title={data.category}>
-            <p class="uppercase mb-2 text-surface-400">Category</p>
+            <p class="mb-2 text-surface-400">Category</p>
     </PageTitle>
     <Posts posts={data.posts} />
 </div>

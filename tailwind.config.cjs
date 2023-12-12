@@ -37,11 +37,17 @@ module.exports = {
 				'screen-5xl': '1200px',
 			  },
 			typography: () => ({
-			DEFAULT: {
-				css: {
-				'font-size': proseFontSetting,
+				DEFAULT: {
+					css: {
+					'font-size': proseFontSetting,
+					},
 				},
-			},
+				quoteless: {
+					css: {
+					'blockquote p:first-of-type::before': { content: 'none' },
+					'blockquote p:first-of-type::after': { content: 'none' },
+					},
+				},
 			}),
 		}
 	},

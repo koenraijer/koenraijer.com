@@ -18,9 +18,9 @@
     /** Provide classes to set height styles. Should be half of width. */
     export let height = 'h-5';
     /** Provide classes to set ring styles. */
-    export let ring = 'border border-surface-900-50-token';
+    export let ring = 'border border-surface-300-600-token';
     /** Provide classes to set border radius styles. */
-    export let rounded = 'rounded-none';
+    export let rounded = 'rounded-container';
     // Classes
     const cTransition = `transition-colors duration-[200ms]`;
     const cTrack = 'cursor-pointer';
@@ -57,7 +57,7 @@
 	// Reactive
 	$: classesTrack = `${cTrack} ${cTransition} ${width} ${height} ${ring} ${rounded} ${trackBg} ${$$props.class ?? ''}`;
         // cursor-pointer transition-all duration-[200ms] border border-surface-900-50-token rounded-none bg-surface-50-900-token transition-colors decoration-none flex justify-center items-center bg-surface-hover-token h-fit w-fit p-2
-	$: classesIcon = `${cIcon} ${iconFill} mr-2`;
+	$: classesIcon = `${cIcon} ${iconFill}`;
 </script>
 
 <svelte:head>
@@ -95,5 +95,5 @@
         <line x1="57.3" y1="57.3" x2="51.6" y2="51.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
     </svg>
     {/if}
-    {$modeCurrent === true ? 'Dark' : 'Light'} mode
+    <!--{$modeCurrent === true ? 'Dark' : 'Light'} mode-->
 </button>

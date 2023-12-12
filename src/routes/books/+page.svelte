@@ -113,7 +113,6 @@
 
 <div class="section">
     <PageTitle title="Books">
-        <p class="uppercase mb-2 text-surface-400">Collection</p>
     </PageTitle>
     <p class="pb-4">{description} So far, I've read a total of <b>{copiedBooks.length}</b> books. Currently, {books.length} books are shown.</p>
     <p>Some facts about these books:</p>

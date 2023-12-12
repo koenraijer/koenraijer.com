@@ -4,7 +4,7 @@
 - https://journal.ghost.io/
 
 **Known bugs:**
-- RSS.xml errors on first load.
+- RSS.xml errors on first load. --> Checkout https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
 
 **Optional new features:**
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.

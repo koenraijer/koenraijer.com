@@ -77,7 +77,7 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<section class="mt-12 max-w mx-auto">
+<section class="mt-12 max-w mx-auto md:px-16">
 	<Hero />
 </section>
 
@@ -96,7 +96,7 @@
 					on:focus={() => focused = true} 
 					on:blur={() => focused = false}
 					type="search" 
-					class="peer cursor-pointer relative z-10 h-10 w-full rounded-none border border-surface-900-50-token bg-transparent outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text pl-12 sm:pl-0 sm:focus:pl-12 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
+					class="peer cursor-pointer relative z-10 h-10 w-full rounded-container border border-surface-900-50-token bg-transparent outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text pl-12 sm:pl-0 sm:focus:pl-12 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
 				/>
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="absolute inset-y-0 my-auto h-6 border-r border-transparent border-surface-900-50 peer-focus pl-2">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -116,7 +116,7 @@
 <section class="section">
 	<div class="flex items-center">
 		<h2 class="text-2xl font-semibold flex-shrink-0 md:pr-8 pr-4 transition-width duration-300 -mt-1">Categories</h2>
-		<hr class="!border-surface-500-400-token border-2 w-full"/>
+		<hr class="border-2 w-full"/>
 	</div>
 	<div class="py-4"></div>
 	<Categories categories={data.categories}/>

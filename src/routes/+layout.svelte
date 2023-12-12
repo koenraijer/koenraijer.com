@@ -69,10 +69,12 @@
 				</svelte:fragment>
 				<svelte:fragment slot="trail">
 					<Menu>
-						<HomeButton />
-						<ThemeToggle />
-						<ToTopButton />
 						<BooksButton />
+						<hr>
+						<div class="flex row-nowrap justify-between">
+							<ThemeToggle />
+							<ToTopButton />
+						</div>
 					</Menu>
 				</svelte:fragment>
 			</AppBar>
