@@ -1,7 +1,6 @@
 ## 2023
 ### December
-- Version 3.0 of the website is live! 🎉
-- Version 3.0 of the website is live! 🎉
+- Added Vercel speed insights, removed GoatCounter
 - New post about added: [Anki Remote iOS alternative: cheap, versatile, unwasteful.](https://www.koenraijer.io/anki-remote)
 - Added [TailwindCSS fluid type plugin](https://davidhellmann.com/blog/development/tailwindcss-fluid-type-plugin)
 
