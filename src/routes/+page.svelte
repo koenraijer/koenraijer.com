@@ -77,7 +77,7 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<section class="mt-12 max-w mx-auto md:px-16">
+<section class="mt-12 max-w mx-auto md:px-8 lg:px-16">
 	<Hero />
 </section>
 
@@ -113,8 +113,7 @@
 	{/if}
 </section>
 
-<div class="grid md:grid-cols-3 mt-12 max-w mx-auto md:px-16 md:gap-x-16">
-
+<div class="grid md:grid-cols-3 mt-12 max-w mx-auto md:px-16 md:gap-x-8 lg:gap-x-16 relative">
 	<section class="md:col-span-2 px-6 sm:px-8 md:px-0">
 		<div class="flex items-center">
 			<h2 class="text-2xl font-semibold flex-shrink-0 sm:pr-8 pr-4 transition-width duration-300 -mt-1">Archive</h2>
@@ -123,13 +122,13 @@
 		<Posts posts={data.posts} compact/>
 	</section>
 	
-	<section class="w-full mt-12 md:mt-0">
-		<div class="p-6 sm:p-8 bg-surface-100-800-token shadow-sm rounded-none md:rounded-container border-t border-b md:border border-surface-200-700-token">
+	<section class="w-full mt-12 md:mt-4 h-full ">
+		<div class="p-8 md:p-6 lg:p-8 bg-surface-100-800-token shadow-sm rounded-none md:rounded-container border-t border-b md:border border-surface-200-700-token self-start sticky top-12">
 			<div class="flex items-center pb-4">
 				<h2 class="text-2xl font-semibold flex-shrink-0 md:pr-8 pr-4 transition-width duration-300 -mt-1">Categories</h2>
 			</div>
 			<Categories categories={data.categories}/>
 		</div>
-	</section>
+	</section>	
 </div>
 

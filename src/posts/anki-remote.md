@@ -2,7 +2,7 @@
 title: "Anki Remote iOS alternative: cheap, versatile, unwasteful."
 date: 2023-12-10
 categories:
-  - Personal
+  - Technology
 description: Setting up an Anki Remote using nothing but your iPhone (only for iOS)
 published: true
 noToC: true

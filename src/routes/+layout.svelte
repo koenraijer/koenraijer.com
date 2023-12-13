@@ -63,7 +63,7 @@
 		</svelte:fragment>
 	
 		<svelte:fragment slot="pageHeader">
-			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token max-w mx-auto" padding="pt-6 px-6 screen-5xl:px-0">
+			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token mx-auto" padding="pt-6 px-6 sm:px-8 sm:pt-8">
 				<svelte:fragment slot="lead">
 					<a href="/" class="text-2xl font-semibold whitespace-nowrap hover:underline" title="Visit homepage">{info.title}</a>
 				</svelte:fragment>
