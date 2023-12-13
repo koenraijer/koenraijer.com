@@ -2,26 +2,28 @@ import { visit } from 'unist-util-visit'
 import autolinkHeadings from 'rehype-autolink-headings'
 import slugPlugin from 'rehype-slug'
 import relativeImages from 'mdsvex-relative-images'
-// Import the package I just installed with this line: `npm add --save-dev remark-footnotes@2.0`
-import footnotes from 'remark-footnotes'
+import remarkMath from 'remark-math'
+import rehypeKatexSvelte from "rehype-katex-svelte";
+import footnotes from 'remark-footnotes' // `npm add --save-dev remark-footnotes@2.0`
 
 export default {
   extensions: ['.svx', '.md'],
   layout: {
 		_: './src/mdsvex.svelte'
-	},
+  },
   smartypants: {
     dashes: 'oldschool'
   },
-  remarkPlugins: [[footnotes, { inlineNotes: true }], videos, relativeImages],
+  remarkPlugins: [[footnotes, { inlineNotes: true }], videos, relativeImages, remarkMath],
   rehypePlugins: [
+    rehypeKatexSvelte,
     slugPlugin,
     [
       autolinkHeadings,
       {
         behavior: 'wrap'
       }
-    ]
+    ],
   ]
 }
 
@@ -29,22 +31,21 @@ export default {
  * Adds support to video files in markdown image links
  */
 function videos() {
-  const extensions = ['mp4', 'webm']
+  const extensions = ['mp4', 'webm', 'm4v']
   return function transformer(tree) {
     visit(tree, 'image', (node) => {
       if (extensions.some((ext) => node.url.endsWith(ext))) {
         node.type = 'html'
         node.value = `
-            <video 
-              src="${node.url}"
-              autoplay
-              muted
-              playsinline
-              loop
-              title="${node.alt}"
-            />
+            <video controls autoplay loop class="w-full" title="${node.alt}">
+              <source src="${node.url}" type="video/mp4">
+              <track kind="captions">
+            </video>
           `
       }
     })
   }
 }
+
+// Source: https://www.ryanfiller.com/blog/remark-and-rehype-plugins/
+// Source: https://github.com/pngwn/mdsvex-math/

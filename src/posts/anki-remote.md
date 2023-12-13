@@ -19,6 +19,9 @@ To create the Anki remote:
 4. Insert 4 buttons, one for each answer option in Anki, and assign them the numbers [1, 2, 3, 4] (or whatever hotkeys you have assigned to them, I believe these are the default). 
 5. Insert a button at the bottom, assigned to the space key (which reveals answers in Anki). *Optional:* make the button larger by creating another button and joining them together. 
 6. Add the Anki icon as its logo by using the Anki app as the source for the icon, or by inserting it from iCloud (assuming you don't have the iOS app and you have downloaded the logo). 
+
+<img src="wallpeper.jpg" title="title" loading="lazy" class="rounded-container mx-auto max-h-[80vh] fullbleed"/>
+
 ## Background
 Ever since selling my TV, I've been using this app to control my PC monitor while sitting on the couch. Combined with a wall mount that turns 180 degrees, it has turned my PC monitor into a multifunctional marvel. At the same time, I'm a fervent Anki user, having reviewed ~20,000 flash cards in 2023. I enjoy combining my flashcard reviews with chores - thinking and doing pair very well - but without a remote of some kind, I had to always walk back to the keyboard to a response.  A quick Google search yields the Anki Remote, but that seemed like an overkill. An extra device that requires batteries, that might break, and that I can lose.
 

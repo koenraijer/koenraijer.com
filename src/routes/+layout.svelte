@@ -22,7 +22,11 @@
 	import * as info from '$lib/js/info.js'
 	import BooksButton from '../lib/components/BooksButton.svelte';
 	import ToTopButton from '../lib/components/ToTopButton.svelte';
-
+	// Workaround for page not scrolling to top on navigation
+	import { afterNavigate } from '$app/navigation';
+	afterNavigate(() => {
+		document.getElementById('page')?.scrollTo(0, 0);
+	});
 	let link;
 
 	// Apply correct PrismJS theme based on theme
@@ -51,6 +55,7 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 	<link rel="manifest" href="/favicon/site.webmanifest">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 </svelte:head>
 
 	<Toast />

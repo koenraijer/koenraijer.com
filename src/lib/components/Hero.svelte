@@ -37,7 +37,7 @@
         <p class="text-lg font-normal flex-grow">   
             {@html info.bio.html}
         </p>
-        <div class="pt-8">
+        <div class="pt-8 text-base">
             <Socials />
         </div>
     </div>

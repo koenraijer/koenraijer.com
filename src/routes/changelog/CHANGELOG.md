@@ -1,10 +1,10 @@
 ## 2023
 ### December
+- Redesigned footer, fixed bug of pages being halfway after navigating, added support for math notation, full bleed images, added markdown video support.
 - Version 3.0 of the website is live! 🎉
 - Added Vercel speed insights, removed GoatCounter
 - New post about added: [Anki Remote iOS alternative: cheap, versatile, unwasteful.](https://www.koenraijer.io/anki-remote)
 - Added [TailwindCSS fluid type plugin](https://davidhellmann.com/blog/development/tailwindcss-fluid-type-plugin)
-
 
 
 ### August

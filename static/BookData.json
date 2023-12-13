@@ -312,7 +312,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":"978-0-434-09800-2",
+        "ISBN":9780434098002,
         "Added":1688860800000,
         "Title":"A Clockwork Orange",
         "Author":"Anthony Burgess",
@@ -912,42 +912,6 @@
         "Category":"Nonfiction"
     },
     {
-        "ISBN":9023421027,
-        "Added":1668643200000,
-        "Title":"Het leven is vurrukkulluk",
-        "Author":"Remco Campert",
-        "Date Published":1961,
-        "Score (0-10)":8.0,
-        "Review":null,
-        "Notes":null,
-        "Date Finished":null,
-        "Category":"Fiction"
-    },
-    {
-        "ISBN":9023400763,
-        "Added":1668643200000,
-        "Title":"Een ellendige nietsnut",
-        "Author":"Remco Campert",
-        "Date Published":1963,
-        "Score (0-10)":8.0,
-        "Review":null,
-        "Notes":null,
-        "Date Finished":null,
-        "Category":"Fiction"
-    },
-    {
-        "ISBN":9029010118,
-        "Added":1668643200000,
-        "Title":"Kort Amerikaans",
-        "Author":"Jan Wolkers",
-        "Date Published":1962,
-        "Score (0-10)":6.0,
-        "Review":null,
-        "Notes":null,
-        "Date Finished":null,
-        "Category":"Fiction"
-    },
-    {
         "ISBN":9029091444,
         "Added":1668643200000,
         "Title":"Een roos van vlees",
@@ -982,18 +946,6 @@
         "Notes":null,
         "Date Finished":null,
         "Category":"Fiction"
-    },
-    {
-        "ISBN":9020406124,
-        "Added":1668643200000,
-        "Title":"Overpeinzingen van een eenzame wandelaar",
-        "Author":"Jean-Jacques Rousseau",
-        "Date Published":1782,
-        "Score (0-10)":6.0,
-        "Review":null,
-        "Notes":null,
-        "Date Finished":1451606400000,
-        "Category":"Nonfiction"
     },
     {
         "ISBN":679727140,
@@ -1041,18 +993,6 @@
         "Review":null,
         "Notes":null,
         "Date Finished":null,
-        "Category":"Fiction"
-    },
-    {
-        "ISBN":9789023476672,
-        "Added":1668643200000,
-        "Title":"De avonden",
-        "Author":"Gerard Reve",
-        "Date Published":1947,
-        "Score (0-10)":8.0,
-        "Review":null,
-        "Notes":null,
-        "Date Finished":1609372800000,
         "Category":"Fiction"
     },
     {
@@ -1188,7 +1128,7 @@
         "Category":"Fiction"
     },
     {
-        "ISBN":"059309932X",
+        "ISBN":"\u200e 9780593099322",
         "Added":1668643200000,
         "Title":"Dune (Dune, #1)",
         "Author":"Frank Herbert",
@@ -1416,18 +1356,6 @@
         "Category":"Nonfiction"
     },
     {
-        "ISBN":140042598,
-        "Added":1452988800000,
-        "Title":"On the Road",
-        "Author":"Jack Kerouac",
-        "Date Published":1957,
-        "Score (0-10)":10.0,
-        "Review":null,
-        "Notes":null,
-        "Date Finished":null,
-        "Category":"Fiction"
-    },
-    {
         "ISBN":9780241341483,
         "Added":1452988800000,
         "Title":"Tender Is the Night",
@@ -1481,18 +1409,6 @@
         "Title":"Robinson Crusoe",
         "Author":"Daniel Defoe",
         "Date Published":1719,
-        "Score (0-10)":10.0,
-        "Review":null,
-        "Notes":null,
-        "Date Finished":null,
-        "Category":"Fiction"
-    },
-    {
-        "ISBN":9780393341768,
-        "Added":1452988800000,
-        "Title":"A Clockwork Orange",
-        "Author":"Anthony Burgess",
-        "Date Published":1962,
         "Score (0-10)":10.0,
         "Review":null,
         "Notes":null,
@@ -1602,30 +1518,6 @@
         "Author":"George Bernard Shaw",
         "Date Published":1914,
         "Score (0-10)":8.5,
-        "Review":null,
-        "Notes":null,
-        "Date Finished":null,
-        "Category":"Fiction"
-    },
-    {
-        "ISBN":141439475,
-        "Added":1452988800000,
-        "Title":"Frankenstein",
-        "Author":"Mary Wollstonecraft Shelley",
-        "Date Published":1818,
-        "Score (0-10)":7.75,
-        "Review":null,
-        "Notes":null,
-        "Date Finished":null,
-        "Category":"Fiction"
-    },
-    {
-        "ISBN":142000671,
-        "Added":1452988800000,
-        "Title":"Of Mice and Men",
-        "Author":"John Steinbeck",
-        "Date Published":1937,
-        "Score (0-10)":6.0,
         "Review":null,
         "Notes":null,
         "Date Finished":null,
@@ -1774,5 +1666,17 @@
         "Notes":null,
         "Date Finished":1702080000000,
         "Category":"Fiction"
+    },
+    {
+        "ISBN":9789073637634,
+        "Added":1702425600000,
+        "Title":"Psychiatertaal",
+        "Author":"Michiel W. Hengeveld",
+        "Date Published":2005,
+        "Score (0-10)":8.0,
+        "Review":null,
+        "Notes":null,
+        "Date Finished":1700265600000,
+        "Category":"Nonfiction"
     }
 ]

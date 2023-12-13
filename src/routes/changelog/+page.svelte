@@ -50,6 +50,5 @@
 
 			<hr class="!border-surface-900-50-token border-2 flex-grow mb-4 mt-12"/>
 		</div>
-	  
 	</article>
 </div>
