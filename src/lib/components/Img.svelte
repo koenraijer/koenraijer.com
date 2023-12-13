@@ -1,6 +1,7 @@
 <script>
     export let src;
     export let alt;
+    export let fullbleed;
 </script>
 
 <svelte:head>
@@ -9,6 +10,6 @@
 </svelte:head>
 
 <figure>
-    <img {src} {alt} title={alt} loading="lazy" class="rounded-container"/>
-    <figcaption class="text-base text-surface-400 mt-1 text-center">{alt}</figcaption>
+    <img {src} {alt} title={alt} loading="lazy" class="rounded-container mx-auto max-h-[80vh]" class:fullbleed/>
+    <figcaption class="text-base text-surface-500 mt-1 text-center">{alt}</figcaption>
 </figure>    

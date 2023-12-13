@@ -50,43 +50,34 @@
             prefix: prefix,
           }
       }
+
       // set first heading as active if null on page load
       if (activeHeading === null) {
         activeHeading = headings[0]
       }
     }
-    onMount(() => {
-      updateHeadings()
-      setActiveHeading()
-    })
-    if (typeof window !== 'undefined') {
-      page.subscribe(() => {
-        updateHeadings()
-        setActiveHeading()
-      })
-    }
+    export let activeHeadingScrollOffset = 100; // Default value
+
     function setActiveHeading() {
-      scrollY = window.scrollY
-      const visibleIndex =
-        headings.findIndex(
-          (heading) => heading.node.offsetTop + heading.node.clientHeight > scrollY
-        ) - 1
-      activeHeading = headings[visibleIndex]
-      const pageHeight = document.body.scrollHeight
-      const scrollProgress = (scrollY + window.innerHeight) / pageHeight
-      if (scrollProgress > 0.95) {
-        activeHeading = headings[headings.length - 1]
+      let idx = headings.length;
+      while (idx--) {
+          const { top } = headings[idx].node.getBoundingClientRect();
+
+          // Loop through headings from last to first until we find one that the viewport already scrolled past
+          if (top < activeHeadingScrollOffset || idx === 0) {
+              activeHeading = headings[idx];
+              console.log('Active heading:', activeHeading.title);
+              return;  // Exit the loop if an active heading is updated
+          }
       }
-    }
-  
-    $: if(browser) {
-        if(activeHeading === undefined || activeHeading === null) {
-        $active_heading = title ? title : headings[0].title
-      } else {
-        $active_heading = activeHeading.title
-      }
-    }
-    </script>
+  }
+
+  onMount(() => {
+      updateHeadings();
+      window.addEventListener('scroll', setActiveHeading);
+      setActiveHeading(); // Set initial active heading
+  });
+</script>
   
   <svelte:window on:scroll={setActiveHeading} />
   
@@ -111,6 +102,7 @@
       .heading {
             margin-left: calc(var(--depth, 0) * 0.75rem);
         }
+
   </style>
   
   <!--

@@ -132,7 +132,7 @@
         <!-- Updated Filters component -->
         <Filters on:optionSelected="{onOptionSelected}" on:scoreSelected="{onScoreSelected}" on:categorySelected="{onCategorySelected}" />
     </div>
-    <div class="grid sm:grid-cols-2 gap-6 mt-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {#each books as book}
             <Book {book} />
         {/each}

@@ -2,7 +2,7 @@
 /*place global styles here */
 
 html, body { 
-	@apply h-full overflow-hidden bg-surface-50-900-token selection:bg-primary-500 selection:text-surface-50 text-base;
+	@apply h-full bg-surface-50-900-token selection:bg-primary-500 selection:text-surface-50 text-base subpixel-antialiased;
 }
 
 .max-w {
@@ -10,7 +10,7 @@ html, body {
 }
 
 .section {
-	@apply mt-12 mx-auto px-6 sm:px-8 md:px-16 max-w
+	@apply mt-12 mx-auto px-6 sm:px-8 lg:px-16 max-w
 }
 
 .social {
@@ -81,4 +81,14 @@ you might need to extend your configuration or write custom CSS. */
 
 hr {
 	@apply rounded-full border-surface-500-400-token 
+}
+
+.fullbleed {
+	width: 100vw;
+	max-width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw
 }

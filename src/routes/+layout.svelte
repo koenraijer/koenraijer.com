@@ -22,7 +22,11 @@
 	import * as info from '$lib/js/info.js'
 	import BooksButton from '../lib/components/BooksButton.svelte';
 	import ToTopButton from '../lib/components/ToTopButton.svelte';
-
+	// Workaround for page not scrolling to top on navigation
+	import { afterNavigate } from '$app/navigation';
+	afterNavigate(() => {
+		document.getElementById('page')?.scrollTo(0, 0);
+	});
 	let link;
 
 	// Apply correct PrismJS theme based on theme
@@ -51,6 +55,7 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 	<link rel="manifest" href="/favicon/site.webmanifest">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 </svelte:head>
 
 	<Toast />
@@ -63,7 +68,7 @@
 		</svelte:fragment>
 	
 		<svelte:fragment slot="pageHeader">
-			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token max-w mx-auto" padding="pt-6 px-6 screen-5xl:px-0">
+			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token mx-auto" padding="pt-6 px-6 sm:px-8 sm:pt-8">
 				<svelte:fragment slot="lead">
 					<a href="/" class="text-2xl font-semibold whitespace-nowrap hover:underline" title="Visit homepage">{info.title}</a>
 				</svelte:fragment>

@@ -38,7 +38,7 @@
             {#each posts as post}
                 <div class="pb-2">
                     <a href={"/" + post.slug} class="group block">
-                        <span class="text-lg group-hover:underline">{post.title}</span>
+                        <span class="text-base group-hover:underline">{post.title}</span>
                     </a>
                 </div>
             {/each}

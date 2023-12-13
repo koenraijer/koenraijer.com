@@ -11,6 +11,7 @@
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance.
 - Add user page to show an author for each post (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s)
 - Add page change animation such as [https://davidhellmann.com](https://davidhellmann.com)
+- Site-wide cmd-K search (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s)
 - Update Changelog to be like obsidian.md/changelog (with sticky years and months)
 
 **Completed:**
