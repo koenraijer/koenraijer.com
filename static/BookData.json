@@ -1774,5 +1774,17 @@
         "Notes":null,
         "Date Finished":1702080000000,
         "Category":"Fiction"
+    },
+    {
+        "ISBN":9789073637634,
+        "Added":1702425600000,
+        "Title":"Psychiatertaal",
+        "Author":"Michiel W. Hengeveld",
+        "Date Published":2005,
+        "Score (0-10)":8.0,
+        "Review":null,
+        "Notes":null,
+        "Date Finished":1700265600000,
+        "Category":"Nonfiction"
     }
 ]
