@@ -84,11 +84,11 @@ hr {
 }
 
 .fullbleed {
-	width: 100vw;
-	max-width: 100vw;
-	position: relative;
-	left: 50%;
-	right: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw
+	@apply w-screen relative !rounded-container lg:px-[10vw] max-w left-1/2 right-1/2 -translate-x-1/2 object-contain;
 }
+  
+/*
+.fullbleed {
+	@apply w-screen max-w relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] rounded-container px-[10vw];
+  }
+*/

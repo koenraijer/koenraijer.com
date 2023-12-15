@@ -79,31 +79,31 @@
   });
 </script>
   
-  <svelte:window on:scroll={setActiveHeading} />
+<svelte:window on:scroll={setActiveHeading} />
   
-    {#if headings.length > 0}
-        <nav class="border text-sm hover:border-surface-900-50-token border-surface-200 dark:border-surface-600 p-4 hover:text-surface-900 dark:hover:text-surface-50 dark:text-surface-600 text-surface-200 transition-colors duration-100 rounded-container">
-            <ul class="">
-            {#each headings as heading}
-                <li
-                class="heading list-none"
-                class:active={activeHeading?.node === heading.node}
-                style={`--depth: ${heading.depth}`}
-                >
-                <span class="mr-1 font-semibold">{heading.prefix}</span>
-                <a class="hover:underline" href={`#${heading.node.id}`}>{heading.title}</a>
-                </li>
-            {/each}
-            </ul>
-        </nav>
-    {/if}
-  
-  <style>
-      .heading {
-            margin-left: calc(var(--depth, 0) * 0.75rem);
-        }
+{#if headings.length > 0}
+    <nav class="border text-sm border-surface-200-700-token bg-surface-100-800-token p-4 hover:text-surface-900 dark:hover:text-surface-50 dark:text-surface-600 text-surface-200 transition-colors duration-100 rounded-container">
+        <ul class="">
+        {#each headings as heading}
+            <li
+            class="heading list-none"
+            class:active={activeHeading?.node === heading.node}
+            style={`--depth: ${heading.depth}`}
+            >
+            <span class="mr-1 font-semibold">{heading.prefix}</span>
+            <a class="hover:underline" href={`#${heading.node.id}`}>{heading.title}</a>
+            </li>
+        {/each}
+        </ul>
+    </nav>
+{/if}
 
-  </style>
+<style>
+  .heading {
+        margin-left: calc(var(--depth, 0) * 0.75rem);
+    }
+
+</style>
   
   <!--
       <nav tabindex="0" class="collapse collapse-arrow bg-gray-100 text-black dark:bg-[#333] dark:text-white rounded mb-8 md:mb-12 not-prose px-4 sm:px-6 py-2 min-w-[50%]">

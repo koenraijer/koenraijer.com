@@ -49,3 +49,4 @@ function videos() {
 
 // Source: https://www.ryanfiller.com/blog/remark-and-rehype-plugins/
 // Source: https://github.com/pngwn/mdsvex-math/
+// https://github.com/pngwn/MDsveX/discussions/354

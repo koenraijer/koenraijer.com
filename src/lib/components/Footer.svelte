@@ -3,11 +3,11 @@
     import ToTop from "$lib/components/ToTopButton.svelte" 
 </script>
 
-<div class="space-y-4 gap-2 mb-6 mt-12 flex w-full mx-auto justify-between max-w px-6 sm:px-8 md:px-16">
+<div class="gap-2 mb-6 mt-12 flex w-full mx-auto justify-between max-w px-6 sm:px-8 md:px-16 items-start">
     <div class="">
         <a href="/" class="hover:underline h-fit font-semibold">Koen Raijer</a>
         <div class="flex flex-col justify-between text-surface-500 text-base">
-            <div class="flex gap-x-4">
+            <div class="flex flex-col sm:flex-row gap-x-4">
                 <a href="/library" class="hover:underline h-fit">Library</a>
                 <a href="/changelog" class="hover:underline h-fit">Changelog</a>
                 <a href="https://github.com/koenraijer/koenraijer.2.0" class="hover:underline" target="_self" rel="nofollow noopener noreferrer">Source code</a>
@@ -17,7 +17,7 @@
             </span>
         </div>
     </div>
-    <div class="text-surface-500">
+    <div class="text-surface-500 space-y-0">
         <ToTop/>
     </div>
 </div>

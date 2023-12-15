@@ -37,6 +37,8 @@ Motivational Interviewing is a counseling method developed by Miller & Rodnick, 
 - Reason. It's important to change.
 - Need. I should change. 
 
+<img src="wallpeper.jpg" title="title" loading="lazy" class="fullbleed"/>
+
 ### Signs of implementation
 - Commitment. I will make changes.
 - Activation. I am ready to change.

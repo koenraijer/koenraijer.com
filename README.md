@@ -13,6 +13,7 @@
 - Add page change animation such as [https://davidhellmann.com](https://davidhellmann.com)
 - Site-wide cmd-K search (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s)
 - Update Changelog to be like obsidian.md/changelog (with sticky years and months)
+- Update ToC: endgoal should be a fixed ToC like on gwern.net, but on scrolling, the active heading should appear as a sticky header at the top of the page, including a progress bar.
 
 **Completed:**
 - Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content.
