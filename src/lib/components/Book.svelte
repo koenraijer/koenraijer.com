@@ -41,9 +41,11 @@
         </div>
         <!--Body-->
         <div class="p-6 sm:p-8 flex flex-col justify-start w-full">
+            <!--
             <div class="mx-auto w-fit mb-2">
                 <img class="w-32 h-48 object-cover rounded-container" src={"/book_covers/" + book.ISBN + ".webp"} alt={book.Title ? book.Title : ""} />
             </div>
+            -->
             <h2 class="text-lg font-semibold pb-2">{book.Title ? book.Title : ""}</h2>
 
             <span class="text-surface-700-200-token text-lg">{book.Author}</span>
