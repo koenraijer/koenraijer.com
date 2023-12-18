@@ -5,7 +5,6 @@ categories:
   - Technology
 description: Setting up an Anki Remote using nothing but your iPhone (only for iOS)
 published: true
-noToC: true
 ---
 This is a quick tip for those wanting to use Anki while being AFK (away from keyboard). It works for iPhone/Mac and uses the Remote+ app ([App Store link](https://apps.apple.com/us/app/remote-mouse-keyboard/id629019487?itsct=apps_box_badge&itscg=30200)), which is free but requires premium functionality, costing €8,- or so for lifetime subscription. For many people, this is likely the superior option to something like the Anki Remote, which costs $36 and does not ship to Europe.
 

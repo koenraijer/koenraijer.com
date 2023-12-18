@@ -27,7 +27,7 @@
     setContext('close', close);
 </script>
 
-<div class="fixed sm:relative md:hidden z-50" use:clickOutside on:outclick={handleClickOutside}>
+<div class="relative md:hidden z-50" use:clickOutside on:outclick={handleClickOutside}>
     <button
         class="transition-colors decoration-none flex justify-center items-center hover:bg-surface-50-900-token p-2 cursor-pointer duration-[200ms] border border-surface-300-600-token hover:border-surface-900-50-token rounded-container bg-surface-100-800-token"
         on:click|stopPropagation={() => isOpen = !isOpen}

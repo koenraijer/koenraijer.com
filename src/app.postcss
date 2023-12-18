@@ -44,6 +44,7 @@ input:focus {
     --tw-text-opacity: 1;
     color: rgb(var(--color-primary-700) / var(--tw-text-opacity));
     text-decoration-line: underline;
+	
 }
 .anchor:hover {
     --tw-brightness: brightness(1.1);
@@ -62,6 +63,9 @@ input:focus {
 	@apply relative no-underline hover:underline hover:after:content-['#'] after:absolute after:w-4 after:h-4 after:text-surface-300-600-token text-surface-900-50-token after:pl-4
 }
 
+h2, h3, h4, h5, h6 {
+	@apply scroll-mt-20
+}
 .prose :where(strong) {
 	@apply text-surface-900-50-token
 }

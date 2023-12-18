@@ -5,6 +5,7 @@ import relativeImages from 'mdsvex-relative-images'
 import remarkMath from 'remark-math'
 import rehypeKatexSvelte from "rehype-katex-svelte";
 import footnotes from 'remark-footnotes' // `npm add --save-dev remark-footnotes@2.0`
+import remarkHeadings from '@vcarl/remark-headings'
 
 export default {
   extensions: ['.svx', '.md'],
@@ -14,7 +15,7 @@ export default {
   smartypants: {
     dashes: 'oldschool'
   },
-  remarkPlugins: [[footnotes, { inlineNotes: true }], videos, relativeImages, remarkMath],
+  remarkPlugins: [[footnotes, { inlineNotes: true }], videos, relativeImages, remarkMath, headings],
   rehypePlugins: [
     rehypeKatexSvelte,
     slugPlugin,
@@ -44,6 +45,28 @@ function videos() {
           `
       }
     })
+  }
+}
+
+/**
+ * Parses headings and includes the result in metadata
+ * Source: https://github.com/mattjennings/sveltekit-blog-template/blob/main/mdsvex.config.js
+ */
+function headings() {
+  return function transformer(tree, vfile) {
+    // run remark-headings plugin
+    remarkHeadings()(tree, vfile)
+
+    // include the headings data in mdsvex frontmatter
+    vfile.data.fm ??= {}
+    vfile.data.fm.headings = vfile.data.headings.map((heading) => ({
+      ...heading,
+      // slugify heading.value
+      id: heading.value
+        .toLowerCase()
+        .replace(/\s/g, '-')
+        .replace(/[^a-z0-9-]/g, '')
+    }))
   }
 }
 

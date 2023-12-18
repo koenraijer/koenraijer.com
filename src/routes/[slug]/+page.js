@@ -1,6 +1,5 @@
 export async function load({ data }) {
     let { post } = data;
-
     let categoryObject = post.categories.reduce((acc, cat) => {
         return { ...acc, [cat]: post.allCategories[cat] };
     }, {});

@@ -3,7 +3,7 @@
     import ToTop from "$lib/components/ToTopButton.svelte" 
 </script>
 
-<div class="gap-2 mb-6 mt-12 flex w-full mx-auto justify-between max-w px-6 sm:px-8 md:px-16 items-start">
+<div class="gap-2 mb-6 mt-12 flex w-full mx-auto justify-between px-6 sm:px-8 items-start">
     <div class="">
         <a href="/" class="hover:underline h-fit font-semibold">Koen Raijer</a>
         <div class="flex flex-col justify-between text-surface-500 text-base">

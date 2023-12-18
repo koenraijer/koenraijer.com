@@ -6,6 +6,7 @@ categories:
     - Medicine
 published: true
 featured: true
+ToC: true
 ---
 Say you're a doctor who wants a patient to shake a drug habit, lose weight, or stick to a diet. Or perhaps you're a manager, and your employee isn't functioning the way they should. How do you create sustainable change?
 

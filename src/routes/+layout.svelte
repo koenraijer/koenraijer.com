@@ -9,12 +9,9 @@
 	// All other imports
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { AppBar } from '@skeletonlabs/skeleton';
-	import { Modal } from '@skeletonlabs/skeleton';
-	import { Toast } from '@skeletonlabs/skeleton';
 	import Footer from '$lib/components/Footer.svelte'
 	import Menu from '$lib/components/Menu.svelte';
 	import ThemeToggle from '../lib/components/ThemeToggle.svelte';
-	import HomeButton from '../lib/components/HomeButton.svelte';
 	import PageTransition from '../lib/components/Transition.svelte';
 	export let data;
 	import { onMount } from 'svelte';
@@ -58,48 +55,32 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 </svelte:head>
 
-	<Toast />
-	<Modal />
-
-	<AppShell>
-
-		<svelte:fragment slot="header">
-
-		</svelte:fragment>
+<div class="w-full grid grid-rows-[auto_1fr_auto] grid-cols-[100%] min-h-full min-h-[100svh] bg-surface-50-900-token">
+	<div class="flex justify-between w-full place-self-center mx-auto pt-6 px-6 sm:px-8 sm:pt-8">
+		<a href="/" class="text-2xl font-semibold whitespace-nowrap hover:underline" title="Visit homepage">{info.title}</a>
+		<Menu>
+			<svelte:fragment slot="small-screens">
+				<BooksButton />
+				<hr>
+				<div class="flex row-nowrap justify-between gap-x-2">
+					<ThemeToggle />
+					<ToTopButton />
+				</div>
+			</svelte:fragment>
+			<svelte:fragment slot="large-screens">
+				<a href="/library" class="whitespace-nowrap hover:underline font-semibold text-lg text-surface-900-50-token">Library</a>
+				<ThemeToggle />
+			</svelte:fragment>
+		</Menu>
+	</div>
 	
-		<svelte:fragment slot="pageHeader">
-			<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" background="bg-surface-50-900-token mx-auto" padding="pt-6 px-6 sm:px-8 sm:pt-8">
-				<svelte:fragment slot="lead">
-					<a href="/" class="text-2xl font-semibold whitespace-nowrap hover:underline" title="Visit homepage">{info.title}</a>
-				</svelte:fragment>
-				<svelte:fragment slot="trail">
-						<Menu>
-							<svelte:fragment slot="small-screens">
-								<BooksButton />
-								<hr>
-								<div class="flex row-nowrap justify-between gap-x-2">
-									<ThemeToggle />
-									<ToTopButton />
-								</div>
-							</svelte:fragment>
-							<svelte:fragment slot="large-screens">
-								<a href="/library" class="whitespace-nowrap hover:underline font-semibold text-lg text-surface-900-50-token">Library</a>
-								<ThemeToggle />
-							</svelte:fragment>
-						</Menu>
-				</svelte:fragment>
-			</AppBar>
-		</svelte:fragment>
+	<!-- Router Slot -->
+	<PageTransition url={data.url}>
+		<slot />
+	</PageTransition>
 	
-		<!-- Router Slot -->
-		<PageTransition url={data.url}>
-			<slot />
-		</PageTransition>
-	
-		<!-- (footer) -->
-		<svelte:fragment slot="pageFooter">
-			<Footer />
-		</svelte:fragment>
+	<!-- (footer) -->
+	<Footer />
+</div>
 
-	</AppShell>
 

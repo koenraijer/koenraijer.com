@@ -4,12 +4,12 @@ import typography from '@tailwindcss/typography';
 import skeleton from '@skeletonlabs/skeleton/tailwind/skeleton.cjs';
 
 const fluidTypeConfig = {
-	fontSizeMin: 1.025, // 1.125rem === 18px
-	fontSizeMax: 1.15, // 1.25rem === 20px
+	fontSizeMin: 1.125, // 1.125rem === 18px
+	fontSizeMax: 1.25, // 1.25rem === 20px
 	ratioMin: 1.125, // Multiplicator Min
-	ratioMax: 1.20, // Multiplicator Max
+	ratioMax: 1.2, // Multiplicator Max
 	screenMin: 20, // 20rem === 320px
-	screenMax: 90, // 120rem === 1920px
+	screenMax: 96, // 120rem === 1920px
 	unit: 'rem', // default is rem but it's also possible to use 'px'
 	prefix: '', // set a prefix to use it alongside the default font sizes
 	extendValues: true, // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
@@ -68,7 +68,7 @@ module.exports = {
 				values: {
 					'xs': [-2, 1.6],
 					'sm': [-1, 1.6],
-					'base': [0.5, 1.6],
+					'base': [0, 1.6],
 					'lg': [1, 1.6],
 					'xl': [2, 1.2],
 					'2xl': [3, 1.2],

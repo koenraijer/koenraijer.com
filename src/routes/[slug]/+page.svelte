@@ -2,6 +2,7 @@
 	import { formatDate } from '$lib/js/utils'
 	import Categories from '$lib/components/Categories.svelte'
 	import PageTitle from '$lib/components/PageTitle.svelte'
+	import ActiveTracker from '$lib/components/ActiveTracker.svelte'
 	import ToC from '$lib/components/ToC.svelte'
 	import * as info from '$lib/js/info.js'
 	export let data
@@ -44,25 +45,32 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
+
 <div class="grid grid-cols-5 mx-auto relative mt-12 max-w">
 	<article class="w-full lg:col-span-3 lg:col-start-2 col-span-full px-6 sm:px-8 mx-auto">
 		<!-- Title -->
 		<PageTitle title={data.post.title} {subtitle} />
 
+		<aside class="w-fit mb-8" aria-label="Table of Contents">
+			{#if data.post.ToC}
+				<ToC post={data.post} />
+			{/if}
+		</aside>
 		<!-- Post content -->
 		<div class="text-surface-900-50-token prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless">
 			{@html data.post.content}
 		</div>
 	</article>
 
-	<!-- Table of contents -->
+	<!-- Table of contents 
 	<div class="h-full col-span-1 xl:block hidden pr-6 sm:pr-8">
 		<aside class="sticky ml-6 mb-8 top-8" aria-label="Table of Contents">
 			{#if !data.post.noToC}
-				<ToC title={data.post.title} allowedHeadings={['h2', 'h3', 'h4']} />
+				<ToC/>
 			{/if}
 		</aside>
 	</div>
+	-->
 </div>
 
 <!-- Categories -->
