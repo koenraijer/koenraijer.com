@@ -5,12 +5,8 @@
     function toTop() {
         console.log('to top');
         
-        // Scroll the main element with id "page-content" to the top
-        const mainElement = document.getElementById('page-header');
-        console.log(mainElement)
-        if (mainElement) {
-            mainElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        // Scroll to the top of the page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
 
