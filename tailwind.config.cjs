@@ -6,10 +6,10 @@ import skeleton from '@skeletonlabs/skeleton/tailwind/skeleton.cjs';
 const fluidTypeConfig = {
 	fontSizeMin: 1.125, // 1.125rem === 18px
 	fontSizeMax: 1.25, // 1.25rem === 20px
-	ratioMin: 1.125, // Multiplicator Min
-	ratioMax: 1.2, // Multiplicator Max
+	ratioMin: 1.0, // Multiplicator Min
+	ratioMax: 1.25, // Multiplicator Max
 	screenMin: 20, // 20rem === 320px
-	screenMax: 96, // 120rem === 1920px
+	screenMax: 159, // 159 rem === 2545 px (my large monitor)
 	unit: 'rem', // default is rem but it's also possible to use 'px'
 	prefix: '', // set a prefix to use it alongside the default font sizes
 	extendValues: true, // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.

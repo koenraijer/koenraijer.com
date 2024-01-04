@@ -1,3 +1,6 @@
+## 2024
+### January
+- New post added
 ## 2023
 ### December
 - Fixed footer on mobile screens, redesigned ToC

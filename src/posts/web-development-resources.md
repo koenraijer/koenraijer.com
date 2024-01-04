@@ -15,6 +15,7 @@ A list of resources I use frequently, mostly but not exclusively related to web 
 - <a href="https://kentcdodds.com/blog/aha-programming">AHA Programming</a> - Adds AHA (Avoid Hasty Abstractions) to the list of programming acronyms like DRY (Don't Repeat Yourself) and WET (Write Everything Twice).
 - <a href="https://people.apache.org/~fhanik/kiss.html">Keep It Stupid Simple, or Keep It Simple, Stupid</a> - This reads like a classic, and it sure looks like one.
 - <a href="https://moxie.org/2022/01/07/web3-first-impressions.html">@moxie's first impressions of web3</a> - This is the creator of Signal and this essay really clarified the modern web3 situation for me. 
+- [The Cult of Done Manifesto - Thomas Deneuville](https://thomasdeneuville.com/cult-of-done-manifesto/)
 
 ## (Academic) writing
 - <a href="https://hemingwayapp.com/">Hemingway Editor</a> - Teaches you to write bold and clear language. 

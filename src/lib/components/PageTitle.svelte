@@ -7,7 +7,7 @@
     <div>
         <slot></slot>
         {#if title}
-            <h1 class="text-4xl font-semibold mb-4">{title}</h1>
+            <h1 class="text-3xl font-semibold mb-4">{title}</h1>
         {/if}
         {#if subtitle}
             <p class="mb-8 text-surface-400">{subtitle}</p>
