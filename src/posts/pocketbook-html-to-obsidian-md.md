@@ -5,6 +5,7 @@ categories:
   - Technology
 description: This post uses a simple script based on BeautifulSoup to convert Pocketbook notes, which are in HTML format, to Obsidian-flavoured markdown with YAML frontmatter.
 published: true
+ToC: true
 ---
 
 I currently do most of my reading on a **Pocketbook Era** e-reader. It allows highlights, definitions of words and notes to be exported in HTML format. In order to be able to store my book notes in Obsidian without any manual formatting, I wrote a Python script that converts the HTML into Obsidian-flavoured markdown, and also fills out some YAML frontmatter fields for you. 

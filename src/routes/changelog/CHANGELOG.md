@@ -1,7 +1,9 @@
 ## 2024
 ### January
+- fixed inline code and other code formatting things
 - New post added
 ## 2023
+
 ### December
 - Fixed footer on mobile screens, redesigned ToC
 - Redesigned footer, fixed bug of pages being halfway after navigating, added support for math notation, full bleed images, added markdown video support.

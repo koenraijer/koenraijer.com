@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
   import {active_heading, active_tracker} from '$lib/js/stores'
   import {browser} from '$app/environment'
-  export let allowedHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+  export let allowedHeadings = ['h2', 'h3', 'h4', 'h5', 'h6']
 
   let scrollY
   let headings = []

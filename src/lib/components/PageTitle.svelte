@@ -7,7 +7,9 @@
     <div>
         <slot></slot>
         {#if title}
-            <h1 class="text-3xl font-semibold mb-4">{title}</h1>
+		<div class="prose-headings:text-surface-900-50-token prose-headings:font-semibold prose">
+            <h1 class="mb-4">{title}</h1>
+        </div>
         {/if}
         {#if subtitle}
             <p class="mb-8 text-surface-400">{subtitle}</p>

@@ -51,13 +51,13 @@
         {#each displayedPosts as post}
             <li>
                 <a class="group" href={"/" + post.slug}>
-                    <div class="grid grid-cols-1 sm:grid-cols-4 py-4 pb-6 gap-x-2">
-                        <p class="date sm:col-start-1 sm:col-end-2 text-surface-400">
+                    <div class="grid grid-cols-1 py-4 pb-6 gap-x-2">
+                        <p class="date sm:pb-1 text-surface-400">
                             {formatDate(post.date)} — {post.readingTime}
                         </p>
-                        <div class="sm:col-start-2 sm:col-end-5">
+                        <div class="">
                             <span class="text-lg font-semibold group-hover:underline">{post.title}</span>
-                            <p class="description pt-[0.37rem] text-surface-700-200-token">{post.description}</p>
+                            <p class="description pt-2 text-surface-700-200-token">{post.description}</p>
                         </div>
                     </div>
     

@@ -2,6 +2,7 @@
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 import skeleton from '@skeletonlabs/skeleton/tailwind/skeleton.cjs';
+const plugin = require('tailwindcss/plugin')
 
 const fluidTypeConfig = {
 	fontSizeMin: 1.125, // 1.125rem === 18px
@@ -55,6 +56,12 @@ module.exports = {
 	plugins: [
 		forms, 
 		typography, 
+		plugin(function ({addVariant}) {
+			addVariant( 
+			  'prose-inline-code',
+			  '&.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *))'
+			);
+		}),
 		...skeleton(), 
 		require('tailwindcss-fluid-type')(
 			{

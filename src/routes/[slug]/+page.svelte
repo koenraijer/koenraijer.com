@@ -50,27 +50,18 @@
 	<article class="w-full lg:col-span-3 lg:col-start-2 col-span-full px-6 sm:px-8 mx-auto">
 		<!-- Title -->
 		<PageTitle title={data.post.title} {subtitle} />
-
-		<aside class="w-fit mb-8" aria-label="Table of Contents">
-			{#if data.post.ToC}
-				<ToC post={data.post} />
-			{/if}
-		</aside>
+		
+		{#if data.post.ToC}
+			<aside class="w-fit mb-8" aria-label="Table of Contents">
+					<ToC post={data.post} />
+			</aside>
+		{/if}
 		<!-- Post content -->
-		<div class="text-surface-900-50-token prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless">
+		<div class="text-surface-900-50-token prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless prose-inline-code:text-base prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:bg-surface-100-800-token prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-code:dark:text-[0.9rem]">
 			{@html data.post.content}
 		</div>
 	</article>
 
-	<!-- Table of contents 
-	<div class="h-full col-span-1 xl:block hidden pr-6 sm:pr-8">
-		<aside class="sticky ml-6 mb-8 top-8" aria-label="Table of Contents">
-			{#if !data.post.noToC}
-				<ToC/>
-			{/if}
-		</aside>
-	</div>
-	-->
 </div>
 
 <!-- Categories -->
