@@ -1,9 +1,10 @@
 ## 2024
 ### January
-- - New post added [Boekrecensie: Het duizend eilanden experiment](https://www.koenraijer.io/boekrecensie-het-duizend-eilanden-experiment)
+- New post added [Boekrecensie: Het duizend eilanden experiment](https://www.koenraijer.io/boekrecensie-het-duizend-eilanden-experiment)
 - Fixed inline code and other code formatting things
 - New post added [Convert Pocketbook notes to Obsidian-flavoured markdown](https://www.koenraijer.io/pocketbook-html-to-obsidian-md)
 ## 2023
+
 
 
 

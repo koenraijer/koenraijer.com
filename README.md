@@ -10,6 +10,7 @@
 - Update Changelog to be like obsidian.md/changelog (with sticky years and months)
 - Update ToC: endgoal should be a fixed ToC like on gwern.net, but on scrolling, the active heading should appear as a sticky header at the top of the page, including a progress bar.
 - Proper RSS feed: https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
+- New code highlighting: https://github.com/atomiks/rehype-pretty-code 
 
 
 **Completed:**
