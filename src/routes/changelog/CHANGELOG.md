@@ -1,9 +1,11 @@
 ## 2024
 ### January
+- Font size changes on mobile
 - Added book review post
 - fixed inline code and other code formatting things
 - New post added
 ## 2023
+
 
 
 ### December
