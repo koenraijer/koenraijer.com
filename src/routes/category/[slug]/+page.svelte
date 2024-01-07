@@ -5,8 +5,8 @@
 </script>
 
 <div class="section">
-    <PageTitle title={data.category}>
-            <p class="mb-2 text-surface-400">Category</p>
+    <PageTitle title={"Category: " + data.category}>
+            
     </PageTitle>
     <Posts posts={data.posts} />
 </div>

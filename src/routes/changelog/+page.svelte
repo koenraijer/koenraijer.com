@@ -47,8 +47,6 @@
 		<!-- Post content -->
 		<div class="text-surface-900-50-token prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token lg:mx-0 mx-auto">
 			<svelte:component this={changelog} />
-
-			<hr class="!border-surface-900-50-token border-2 flex-grow mb-4 mt-12"/>
 		</div>
 	</article>
 </div>

@@ -47,10 +47,11 @@
 
 
 <div class="grid grid-cols-5 mx-auto relative mt-12 max-w">
-	<article class="w-full lg:col-span-3 lg:col-start-2 col-span-full px-6 sm:px-8 mx-auto">
+	<div class="w-full lg:col-start-2 col-span-full px-6 sm:px-8 mx-auto">
 		<!-- Title -->
 		<PageTitle title={data.post.title} {subtitle} />
-		
+	</div>
+	<article class="w-full lg:col-span-3 lg:col-start-2 col-span-full px-6 sm:px-8 mx-auto">
 		{#if data.post.ToC}
 			<aside class="w-fit mb-8" aria-label="Table of Contents">
 					<ToC post={data.post} />
@@ -86,7 +87,7 @@
 					</svg>
 					<h4 class="font-semibold text-lg group-hover:underline">&nbsp;Newer post</h4>
 				</div>
-				<p class="text-xl">{data.post.previous.title}</p>
+				<p class="text-lg">{data.post.previous.title}</p>
 			</a>
 			{:else}
 			<span class="row-start-1 col-span-full md:col-span-1 group flex flex-wrap flex-col p-4 pl-0 italic">
@@ -103,7 +104,7 @@
 						<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
 					</svg>
 				</div>
-					<p class="text-right text-xl">{data.post.next.title}</p>
+					<p class="text-right text-lg">{data.post.next.title}</p>
 			</a>
 			{:else}
 				<span class="md:row-start-1 col-span-full md:col-start-2 {data.post.previous ? "row-start-2" : ""} group flex flex-wrap flex-col p-4 pr-0 items-end italic">
