@@ -1,9 +1,8 @@
 ## 2024
 ### January
-- Font size changes on mobile
-- Added book review post
-- fixed inline code and other code formatting things
-- New post added
+- - New post added [Boekrecensie: Het duizend eilanden experiment](https://www.koenraijer.io/boekrecensie-het-duizend-eilanden-experiment)
+- Fixed inline code and other code formatting things
+- New post added [Convert Pocketbook notes to Obsidian-flavoured markdown](https://www.koenraijer.io/pocketbook-html-to-obsidian-md)
 ## 2023
 
 
