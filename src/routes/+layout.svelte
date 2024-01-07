@@ -7,8 +7,6 @@
 	import '../app.postcss';
 
 	// All other imports
-	import { AppShell } from '@skeletonlabs/skeleton';
-	import { AppBar } from '@skeletonlabs/skeleton';
 	import Footer from '$lib/components/Footer.svelte'
 	import Menu from '$lib/components/Menu.svelte';
 	import ThemeToggle from '../lib/components/ThemeToggle.svelte';

@@ -1,8 +1,10 @@
 ## 2024
 ### January
+- Added book review post
 - fixed inline code and other code formatting things
 - New post added
 ## 2023
+
 
 ### December
 - Fixed footer on mobile screens, redesigned ToC
