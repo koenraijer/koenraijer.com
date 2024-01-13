@@ -1,5 +1,6 @@
 ## 2024
 ### January
+- bugfix?
 - Bugfix?
 - Changed to [Mona Sans](https://github.com/mona-sans), replaced Favicon and made it change depending on whether light or dark mode is active.
 - Added grainy background to hero and category element
@@ -7,6 +8,7 @@
 - Fixed inline code and other code formatting things
 - New post added [Convert Pocketbook notes to Obsidian-flavoured markdown](https://www.koenraijer.io/pocketbook-html-to-obsidian-md)
 ## 2023
+
 
 
 
