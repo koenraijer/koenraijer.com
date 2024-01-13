@@ -29,3 +29,4 @@ A list of resources I use frequently, mostly but not exclusively related to web 
 ## Small tools
 - <a href="https://png-pixel.com/">PNG Pixel</a> - Generates a tiny Base64 encoded pixel that you can use as a placeholder for things like lazy loading images.
 - <a href="https://previewed.app/">Previewed</a> - Create free device mockups up to a certain resolution. 
+- https://www.autoregex.xyz/ 
