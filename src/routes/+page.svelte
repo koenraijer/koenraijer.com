@@ -42,7 +42,7 @@
 
 	data.categories = categoriesArray;
 
-	let limit = 5;
+	let limit = Number.POSITIVE_INFINITY
 
 	const loadMore = () => {
 		if (limit < searchedPosts.length) {
@@ -114,6 +114,17 @@
 			<button class="social" on:click={loadMore}>Load more posts</button>
 		</div>
 	{/if}
+	<!-- Consider using a fixed height and scrollbar like on https://robinrendle.com/ -->
+	<!--
+	<div class="h-[calc(100vh-8rem)] overflow-y-scroll border">
+		<Posts posts={searchedPosts} limit={limit}/>
+		{#if limit < searchedPosts.length}
+			<div class="w-full flex justify-center mt-8">
+				<button class="social" on:click={loadMore}>Load more posts</button>
+			</div>
+		{/if}
+	</div>
+	-->
 </section>
 
 <div class="grid md:grid-cols-3 mt-12 max-w mx-auto md:px-16 md:gap-x-8 lg:gap-x-12 relative pb-12">

@@ -3,6 +3,7 @@ import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 import skeleton from '@skeletonlabs/skeleton/tailwind/skeleton.cjs';
 const plugin = require('tailwindcss/plugin')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 const fluidTypeConfig = {
 	fontSizeMin: 1.0375, // 1.125rem === 18px
@@ -30,6 +31,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				mona: ['"Mona Sans"', ...defaultTheme.fontFamily.sans],
+			},
 			borderRadius: {
 				base: 'var(--theme-rounded-base)',
 				container: 'var(--theme-rounded-container)',
@@ -92,3 +96,4 @@ module.exports = {
 
 	]
 };
+

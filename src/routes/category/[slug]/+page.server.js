@@ -17,7 +17,9 @@ export async function load({ params, fetch }) {
         const filteredPosts = posts.filter(post => post.categories.includes(categoryName));
 
         return {
-            posts: filteredPosts,
+            posts,
+            categories,
+            categoryPosts: filteredPosts,
             category: categoryName
         }
     } catch (e) {
