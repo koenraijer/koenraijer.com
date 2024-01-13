@@ -75,14 +75,12 @@
 
 <div class="w-full grid grid-rows-[auto_1fr_auto] grid-cols-[100%] min-h-full min-h-[100svh] bg-surface-50-900-token">
 	<div class="flex justify-between w-full place-self-center mx-auto pt-6 px-6 sm:px-8 sm:pt-8">
-		<a href="/" class="text-xl w-fit flex font-normal whitespace-nowrap hover:underline h-fit" title="Visit homepage">
-			<span class="h-10 inline">
+		<a href="/" class="h-10 inline w-fit font-normal whitespace-nowrap" title="Visit homepage">
 				{#if $modeCurrent}
 					<svelte:component this={FaviconLight} />
 				{:else}
 					<svelte:component this={FaviconDark} />
 				{/if}
-			</span>
 			<!--
 				{#if $page.url.pathname === "/"}
 					Koen Raijer
