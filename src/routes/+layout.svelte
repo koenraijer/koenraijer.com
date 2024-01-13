@@ -87,20 +87,22 @@
 				{/if}
 			-->
 		</a>
-		<Menu>
-			<svelte:fragment slot="small-screens">
-				<BooksButton />
-				<hr>
-				<div class="flex row-nowrap justify-between gap-x-2">
+		<div class="w-fit">
+			<Menu>
+				<svelte:fragment slot="small-screens">
+					<BooksButton />
+					<hr>
+					<div class="flex row-nowrap justify-between gap-x-2">
+						<ThemeToggle />
+						<ToTopButton />
+					</div>
+				</svelte:fragment>
+				<svelte:fragment slot="large-screens">
+					<a href="/library" class="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Library</a>
 					<ThemeToggle />
-					<ToTopButton />
-				</div>
-			</svelte:fragment>
-			<svelte:fragment slot="large-screens">
-				<a href="/library" class="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Library</a>
-				<ThemeToggle />
-			</svelte:fragment>
-		</Menu>
+				</svelte:fragment>
+			</Menu>
+		</div>
 	</div>
 	
 	<!-- Router Slot -->
