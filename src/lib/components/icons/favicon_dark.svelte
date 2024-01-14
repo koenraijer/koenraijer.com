@@ -1,4 +1,4 @@
-<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="w-full h-full" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <path d="M0 100C1.7053e-13 44.7715 44.7715 2.27374e-12 100 2.38742e-12L924 3.18323e-12C979.228 3.29692e-12 1024 44.7715 1024 100L1024 924C1024 979.228 979.228 1024 924 1024L100 1024C44.7715 1024-3.24007e-12 979.228-3.06954e-12 924L0 100Z" id="Fill"/>
 <image height="720" id="Image" width="1080" xlink:href="data:image/jpeg;base64,

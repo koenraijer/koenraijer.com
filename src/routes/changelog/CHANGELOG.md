@@ -1,9 +1,5 @@
 ## 2024
 ### January
-- bugfix?
-- bugfix?
-- bugfix?
-- Bugfix?
 - Changed to [Mona Sans](https://github.com/mona-sans), replaced Favicon and made it change depending on whether light or dark mode is active.
 - Added grainy background to hero and category element
 - Small changes
