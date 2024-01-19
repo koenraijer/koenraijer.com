@@ -14,3 +14,11 @@ export async function load({ params, fetch }) {
         throw error(404, `Could not find ${params.slug}. ${e}`)
     }
 }
+
+/** @type {import('@sveltejs/kit').EntryGenerator} */
+export async function entries({ fetch }) {
+    const data = await fetch("/book_data.json").then(res => res.json())
+    return data.map(book => ({ slug: book.slug }));
+}
+
+export const prerender = true;
