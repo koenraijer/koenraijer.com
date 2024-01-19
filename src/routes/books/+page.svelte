@@ -1,20 +1,26 @@
 
 <script>
-    // Disable prerendering
-    export const prerender = false;
-
     import PageTitle from '$lib/components/PageTitle.svelte';
     import Filters from '$lib/components/Filters.svelte';
     import Book from '$lib/components/Book.svelte';
     import * as info from '$lib/js/info.js';
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
+    import { browser } from '$app/environment';
     import { goto } from '$app/navigation';
 
     export let data;
-    let sort = $page.url.searchParams.get('sort') || "Newest";
-    let score = $page.url.searchParams.get('score') || "All scores";
-    let status = $page.url.searchParams.get('status') || "All";
+    let sort, score, status;
+
+    if (browser) {
+        sort = $page.url.searchParams.get('sort') || "Newest";
+        score = $page.url.searchParams.get('score') || "All scores";
+        status = $page.url.searchParams.get('status') || "All";
+    } else {
+        sort = "Newest";
+        score = "All scores";
+        status = "All";
+    }
     let books = data.books;
 
     // copy "books" object to a new variable
