@@ -1,5 +1,8 @@
 
 <script>
+    // Disable prerendering
+    export const prerender = false;
+
     import PageTitle from '$lib/components/PageTitle.svelte';
     import Filters from '$lib/components/Filters.svelte';
     import Book from '$lib/components/Book.svelte';
