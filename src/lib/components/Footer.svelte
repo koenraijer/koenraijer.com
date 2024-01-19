@@ -8,7 +8,7 @@
         <a href="/" class="hover:underline h-fit font-semibold">Koen Raijer</a>
         <div class="flex flex-col justify-between text-surface-500 text-base">
             <div class="flex flex-col sm:flex-row gap-x-4">
-                <a href="/library" class="hover:underline h-fit">Library</a>
+                <a href="/books" class="hover:underline h-fit">Books</a>
                 <a href="/changelog" class="hover:underline h-fit">Changelog</a>
                 <a href="https://github.com/koenraijer/koenraijer.2.0" class="hover:underline" target="_self" rel="nofollow noopener noreferrer">Source code</a>
             </div>
