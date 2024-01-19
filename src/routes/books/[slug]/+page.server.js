@@ -16,7 +16,7 @@ export async function load({ params, fetch }) {
 }
 
 /** @type {import('@sveltejs/kit').EntryGenerator} */
-export async function entries({ fetch }) {
+export async function entries() {
     const data = await fetch("/book_data.json").then(res => res.json())
     return data.map(book => ({ slug: book.slug }));
 }
