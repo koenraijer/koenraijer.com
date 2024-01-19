@@ -16,9 +16,10 @@ export async function load({ params, fetch }) {
 }
 
 /** @type {import('@sveltejs/kit').EntryGenerator} */
+/* https://kit.svelte.dev/docs/page-options#prerender-troubleshooting
 export async function entries() {
     const data = await fetch("/book_data.json").then(res => res.json())
     return data.map(book => ({ slug: book.slug }));
 }
-
-export const prerender = true;
+ */
+export const prerender = false;
