@@ -14,19 +14,18 @@
 </script>
 
 <!--Body-->
-<button class="flex flex-col justify-start w-full group" on:click|preventDefault={() => navigateToBookDetails(book)}>
-
-    <div class="w-fit mb-2 transform group-hover:-translate-y-1 transition-transform mx-auto sm:ml-0">
+<button class="flex flex-col sm:justify-start justify-center w-full group" on:click|preventDefault={() => navigateToBookDetails(book)}>
+    <div class="mb-2 transform group-hover:-translate-y-1 transition-transform">
         {#if book.cover_downloaded}
-            <img class="w-auto h-64 object-cover rounded-container" src={"/book_covers/" + book["Book Id"] + ".webp"} alt={book.Title ? book.Title : ""} style:--tag="book-{book["Book Id"]}" />
+            <img class="w-auto mx-auto h-64 object-cover rounded-container" src={"/book_covers/" + book["Book Id"] + ".webp"} alt={book.Title ? book.Title : ""} style:--tag="book-{book["Book Id"]}" />
         {:else}
             <div class="placeholder w-48 h-64 animate-pulse rounded-container bg-primary-200-700-token"></div>
         {/if}
     </div>
-    <h2 class="font-semibold mb-0 pb-0 group-hover:underline title_div sm:text-left text-center" style:--tag="title-{book["Book Id"]}" >{book.Title ? book.Title : ""}</h2>
-    <span class="text-surface-700-200-token author_div sm:text-left text-center" style:--tag="author-{book["Book Id"]}">{book.Author}</span>
+    <h2 class="font-semibold mb-0 pb-0 group-hover:underline title_div" style:--tag="title-{book["Book Id"]}" >{book.Title ? book.Title : ""}</h2>
+    <span class="text-surface-700-200-token author_div" style:--tag="author-{book["Book Id"]}">{book.Author}</span>
     {#if !compact}
-        <div class="py-2 rating_div mx-auto sm:ml-0" style:--tag="rating-{book["Book Id"]}">
+        <div class="py-2 rating_div mx-auto" style:--tag="rating-{book["Book Id"]}">
             {#if book['My Rating']}
                 <Ratings value={book['My Rating']} max={5} justify>
                     <svelte:fragment slot="empty">
@@ -58,7 +57,7 @@
                 </Ratings>
             {/if}
         </div>
-        <div class="status_div mx-auto sm:ml-0" style:--tag="status-{book["Book Id"]}">
+        <div class="status_div mx-auto" style:--tag="status-{book["Book Id"]}">
             {#if book['Exclusive Shelf'] === "read"}
                 <div class="group text-sm py-1 px-2 w-fit relative transition-colors rounded-full border border-surface-200-700-token text-surface-700-200-token">
                     Finished {book['Date Read'] ? ("on " + formatDate(book['Date Read'])) : ""}
