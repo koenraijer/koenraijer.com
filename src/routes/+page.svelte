@@ -1,7 +1,8 @@
 <script>
-	import Hero from '../lib/components/Hero.svelte';
-	import Categories from '../lib/components/Categories.svelte';
-	import Posts from '../lib/components/Posts.svelte';
+	import Hero from '$lib/components/Hero.svelte';
+	import Categories from '$lib/components/Categories.svelte';
+	import Posts from '$lib/components/Posts.svelte';
+	import Book from '$lib/components/Book.svelte';
 	import Fuse from 'fuse.js';
 	import * as info from '$lib/js/info.js';
 	export let data
@@ -127,6 +128,17 @@
 	-->
 </section>
 
+<section class="section flex flex-col">
+	<div class="flex items-center w-full sm:flex-grow my-4 pb-4">
+		<h2 class="text-2xl font-semibold flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container">Currently reading</h2>
+		<hr class="!border-surface-500-400-token border-2 w-full"/>
+	</div>
+	<div class=" grid md:grid-cols-3">
+		{#each data.current_books as book}
+			<Book book={book} compact/>
+		{/each}
+	</div>
+</section>
 <div class="grid md:grid-cols-3 mt-12 max-w mx-auto md:px-16 md:gap-x-8 lg:gap-x-12 relative pb-12">
 	<section class="md:col-span-2 px-6 sm:px-8 md:px-0">
 		<div class="flex items-center">

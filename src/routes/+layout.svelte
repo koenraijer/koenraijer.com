@@ -7,6 +7,7 @@
 	import '../app.postcss';
 
 	// All other imports
+	import {preparePageTransition} from '$lib/js/page_transition.js';
 	import Footer from '$lib/components/Footer.svelte'
 	import Menu from '$lib/components/Menu.svelte';
 	import ThemeToggle from '../lib/components/ThemeToggle.svelte';
@@ -17,12 +18,11 @@
 	import * as info from '$lib/js/info.js'
 	import BooksButton from '../lib/components/BooksButton.svelte';
 	import ToTopButton from '../lib/components/ToTopButton.svelte';
-	import FaviconDark from '$lib/components/icons/favicon_dark.svelte'
-	import FaviconLight from '$lib/components/icons/favicon_light.svelte'
+
 	// Workaround for page not scrolling to top on navigation
 	import { afterNavigate } from '$app/navigation';
-	import {page} from '$app/stores';
 
+	preparePageTransition();
 	afterNavigate(() => {
 		document.getElementById('page')?.scrollTo(0, 0);
 	});
@@ -75,7 +75,7 @@
 
 <div class="w-full grid grid-rows-[auto_1fr_auto] grid-cols-[100%] min-h-full min-h-[100svh] bg-surface-50-900-token">
 	<div class="flex justify-between w-full place-self-center mx-auto pt-6 px-6 sm:px-8 sm:pt-8">
-		<a href="/" class="text-lg font-semibold inline w-fit font-normal whitespace-nowrap text-start" title="Visit homepage">
+		<a href="/" class="text-lg font-semibold inline w-fit hover:underline whitespace-nowrap text-start" title="Visit homepage">
 				Koen Raijer
 			<!--
 				{#if $modeCurrent}
@@ -99,7 +99,7 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="large-screens">
-					<a href="/library" class="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Library</a>
+					<a href="/books" class="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Books</a>
 					<ThemeToggle />
 				</svelte:fragment>
 			</Menu>

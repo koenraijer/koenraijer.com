@@ -2,13 +2,14 @@
 	import { onMount } from 'svelte';
 	import { clickOutside } from '$lib/js/click_outside.js';
 	import { createEventDispatcher } from 'svelte';
+	export let score, status, sort
 
 	// <!-- @@@@@@@@@ 1 @@@@@@@@@@@-->
 
 	const dispatch = createEventDispatcher();
 
 	$: options = ['Highest', 'Lowest', 'Oldest', 'Newest', 'Title A-Z', 'Title Z-A'];
-	let selectedOption = 'Newest';
+	$: selectedOption = sort ? sort : 'Newest';
 
 	onMount(() => {
 		dispatch('optionSelected', { selectedOption });
@@ -21,12 +22,11 @@
 	}
 
 	let isSortOpen = false;
-	// <!-- @@@@@@@@@ 1 @@@@@@@@@@@-->
 
 	// <!-- @@@@@@@@@ 2 @@@@@@@@@@@-->
 	let isScoreOpen = false;
-	$: scoreOptions = ['All scores', '> 4', '> 5', '> 6', '> 7', '> 8', '> 9'];
-	let selectedScoreOption = 'All scores';
+	$: scoreOptions = ['All scores', '> 1', '> 2', '> 3', '> 4'];
+	$: selectedScoreOption = score ? score : 'All scores';
 
 	onMount(() => {
 		dispatch('scoreOptionSelected', { selectedScoreOption });
@@ -41,8 +41,8 @@
 
 	// <!-- @@@@@@@@@ 3 @@@@@@@@@@@-->
 	let isCategoryOpen = false;
-	$: categoryOptions = ['Fiction', 'Nonfiction', 'Unknown', 'All categories'];
-	let selectedCategoryOption = 'All categories';
+	$: categoryOptions = ['Finished', 'Reading now', 'On wishlist', 'All'];
+	$: selectedCategoryOption = status ? status : 'All';
 
 	onMount(() => {
 		dispatch('categoryOptionSelected', { selectedCategoryOption });
@@ -61,7 +61,7 @@
 	<h2 id="filter-heading" class="sr-only">Filters</h2>
         <!-- Rectangular box div -->
 		<div
-			class="relative p-4 grid grid-cols-1 sm:grid-cols-2 justify-between items-center border border-surface-300-600-token rounded-container bg-surface-100-800-token"
+			class="card-shimmer relative px-6 sm:px-4 p-4 grid grid-cols-1 sm:grid-cols-2 justify-between items-center border-b border-t md:border border-surface-200-700-token shadow-sm rounded-none md:rounded-container bg-surface-100-800-token"
 			use:clickOutside
 			on:outclick={() => {
 				isSortOpen = false;
@@ -104,17 +104,17 @@
                             </div>
                         </div>
                     {/if}
-                    {#if selectedCategoryOption !== 'All categories'}
+                    {#if selectedCategoryOption !== 'All'}
                         <div class="ml-2">
                             <div class="flex flex-wrap items-center">
                                 <span
                                     class="inline-flex px-3 py-2 items-center transition-colors text-token border border-surface-200-700-token bg-surface-100-800-token"
                                 >
-                                    <span>{selectedCategoryOption}</span>
+									<span>{selectedCategoryOption === 'read' ? 'Finished' : selectedCategoryOption === 'currently-reading' ? 'Reading now' : selectedCategoryOption === 'to-read' ? 'On wishlist' : ''}</span>
                                     <button
                                         type="button"
                                         class="flex-shrink-0 ml-1 h-4 w-4 p-1 rounded-full inline-flex text-gray-400 hover:bg-gray-200 hover:text-gray-500"
-                                        on:click={() => handleCategorySelection('All categories')}
+                                        on:click={() => handleCategorySelection('All')}
                                     >
                                         <span class="sr-only">Remove filter for Category</span>
                                         <svg class="h-2 w-2" stroke="currentColor" fill="none" viewBox="0 0 8 8">
@@ -274,7 +274,7 @@
 							}
 						}}
 					>
-						<span>Category</span>
+						<span>Status</span>
 						<!-- Heroicon name: solid/chevron-down -->
 						<svg
 							class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-surface-700-200-token {isCategoryOpen
