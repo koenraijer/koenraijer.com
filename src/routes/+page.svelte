@@ -133,7 +133,7 @@
 		<h2 class="text-2xl font-semibold flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container">Currently reading</h2>
 		<hr class="!border-surface-500-400-token border-2 w-full"/>
 	</div>
-	<div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+	<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
 		{#each data.current_books as book}
 			<Book book={book} compact/>
 		{/each}

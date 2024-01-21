@@ -38,7 +38,7 @@
         if (score !== "All scores" && status === "to-read" || status === "currently-reading") {
             status = "read";
         }
-        status = status;
+        status = status
         filterBooks()
     }
 
@@ -46,7 +46,7 @@
     function onCategorySelected(event) {
         status = event.detail.selectedCategoryOption;
         // If the category "On wishlist" is selected, reset the score filter
-        if (score !== "All scores" && status === "Reading now" || status === "On wishlist") {
+        if (score !== "All scores" && status === "currently-reading" || status === "to-read") {
             score = "All scores";
         }
         score = score
@@ -66,12 +66,6 @@
 
         // Filter by category
         if (status !== "All") {
-            if (status === "Finished")
-                status = "read";
-            else if (status === "Reading now")
-                status = "currently-reading";
-            else if (status === "On wishlist")
-                status = "to-read";
             filteredBooks = filteredBooks.filter(book => book["Exclusive Shelf"] === status);
         }
 
@@ -167,7 +161,7 @@
 </div>
 
 <div class="section">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {#each books as book}
             <Book {book} />
         {/each}

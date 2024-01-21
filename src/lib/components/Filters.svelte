@@ -42,14 +42,21 @@
 	// <!-- @@@@@@@@@ 3 @@@@@@@@@@@-->
 	let isCategoryOpen = false;
 	$: categoryOptions = ['Finished', 'Reading now', 'On wishlist', 'All'];
-	$: selectedCategoryOption = status ? status : 'All';
+	$: selectedCategoryOption = status ? status === 'read' ? 'Finished' : status === 'currently-reading' ? 'Reading now' : status === 'to-read' ? 'On wishlist' : 'All' : 'All';
 
 	onMount(() => {
 		dispatch('categoryOptionSelected', { selectedCategoryOption });
 	});
 
 	function handleCategorySelection(option) {
-		selectedCategoryOption = option;
+		if (option === 'Finished')
+			selectedCategoryOption = 'read'
+		else if (option === 'Reading now')
+			selectedCategoryOption = 'currently-reading'
+		else if (option === 'On wishlist')
+			selectedCategoryOption = 'to-read'
+		else 
+			selectedCategoryOption = option;
 		dispatch('categorySelected', { selectedCategoryOption });
 		isCategoryOpen = false;
 	}
@@ -61,7 +68,7 @@
 	<h2 id="filter-heading" class="sr-only">Filters</h2>
         <!-- Rectangular box div -->
 		<div
-			class="card-shimmer relative px-6 sm:px-4 p-4 grid grid-cols-1 sm:grid-cols-2 justify-between items-center border-b border-t md:border border-surface-200-700-token shadow-sm rounded-none md:rounded-container bg-surface-100-800-token"
+			class="card-shimmer relative px-6 sm:px-4 p-4 grid grid-cols-1 sm:grid-cols-2 justify-between items-center border-b border-t sm:border border-surface-200-700-token shadow-sm rounded-none sm:rounded-container bg-surface-100-800-token"
 			use:clickOutside
 			on:outclick={() => {
 				isSortOpen = false;
@@ -70,13 +77,13 @@
 			}}
 		>
             <!-- Active filters -->
-            <div class="w-full order-2 md:order-1">
+            <div class="w-full order-2 md:order-1 text-sm flex content-center h-full">
                 <div class="flex flex-wrap items-center justify-start sm:justify-end gap-y-2 w-full pt-4 sm:pt-0">
                         <!-- Sort option-->
                         <div class="">
                             <div class="flex flex-wrap items-center w-fit">
                                 <span
-                                    class="inline-flex px-3 py-2 items-center transition-colors text-token border border-surface-200-700-token bg-surface-100-800-token"
+                                    class="inline-flex px-3 py-2 items-center transition-colors text-token border border-surface-200-700-token rounded-container"
                                 >
                                     <span>{selectedOption}</span>
                                 </span>
@@ -87,7 +94,7 @@
                         <div class="ml-2">
                             <div class="flex flex-wrap items-center">
                                 <span
-                                    class="inline-flex px-3 py-2 items-center transition-colors text-token border border-surface-200-700-token bg-surface-100-800-token"
+                                    class="rounded-container inline-flex px-3 py-2 items-center transition-colors text-token border border-surface-200-700-token"
                                 >
                                     <span>{selectedScoreOption}</span>
                                     <button
@@ -108,9 +115,9 @@
                         <div class="ml-2">
                             <div class="flex flex-wrap items-center">
                                 <span
-                                    class="inline-flex px-3 py-2 items-center transition-colors text-token border border-surface-200-700-token bg-surface-100-800-token"
+                                    class="rounded-container inline-flex px-3 py-2 items-center transition-colors text-token border border-surface-200-700-token"
                                 >
-									<span>{selectedCategoryOption === 'read' ? 'Finished' : selectedCategoryOption === 'currently-reading' ? 'Reading now' : selectedCategoryOption === 'to-read' ? 'On wishlist' : ''}</span>
+									<span>{selectedCategoryOption}</span>
                                     <button
                                         type="button"
                                         class="flex-shrink-0 ml-1 h-4 w-4 p-1 rounded-full inline-flex text-gray-400 hover:bg-gray-200 hover:text-gray-500"
@@ -129,13 +136,13 @@
             </div>
             
             <!-- Div with all 3 filters -->
-			<div class="w-full flex items-center sm:justify-start gap-x-4 justify-start flex-wrap gap-y-2 rounded-container">
-                <!-- @@@@@@@@@ 1 @@@@@@@@@@@-->
+			<div class="w-full flex items-center sm:justify-start justify-start gap-y-2 flex-nowrap">
+                <!-- @@@@@@@@@ Sort @@@@@@@@@@@-->
 				<div class="relative text-left">
 					<div class="">
 						<button
 							type="button"
-							class="button z-30"
+							class="cursor-pointer duration-[200ms] border-l border-t border-b border-surface-300-600-token rounded-l-container bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit p-2 z-30"
 							id="menu-button"
 							aria-expanded="false"
 							aria-haspopup="true"
@@ -161,18 +168,18 @@
 					</div>
 					{#if isSortOpen}
 						<div
-							class="absolute left-0 mt-2 w-fit h-auto focus:outline-none bg-surface-50-900-token border border-surface-900-50-token z-40 rounded-container"
+							class="absolute left-0 mt-3 w-fit h-auto focus:outline-none bg-surface-100-800-token border border-surface-200-700-token z-40 rounded-container py-2"
 							role="menu"
 							aria-orientation="vertical"
 							aria-labelledby="menu-button"
 							tabindex="-1"
 						>
-							<div class="w-full h-full flex flex-col gap-2 p-2" role="none">
+							<div class="w-full h-full flex flex-col" role="none">
 								{#each options as option, i}
 									<button
 										class="{selectedOption === option
-											? 'text-surface-50-900-token bg-surface-700-200-token'
-											: 'text-surface-900-50 border-surface-900-50-token bg-surface-50-900-token'} cursor-pointer duration-[200ms] border border-surface-900-50-token rounded-container bg-surface-50-900-token transition-colors hover:bg-surface-900-50-token hover:text-surface-50-900-token whitespace-nowrap p-2 w-full"
+											? 'bg-secondary-500-400-token'
+											: 'text-surface-900-50'} text-sm cursor-pointer duration-[200ms] border-t {i === options.length - 1 ? "border-b" : ""} border-surface-200-700-token transition-colors hover:bg-surface-200-700-token whitespace-nowrap p-2 px-4 w-full"
 										role="menuitem"
 										tabindex="-1"
 										id={`menu-item-${i}`}
@@ -185,9 +192,8 @@
 						</div>
 					{/if}
 				</div>
-				<!-- @@@@@@@@@ 1 @@@@@@@@@@@-->
 
-				<!-- @@@@@@@@@@@@@@@@@@@ 2 -->
+				<!-- @@@@@@@@@ Rating @@@@@@@@@@@-->
 				<div
 					class="relative bg-transparent"
 					use:clickOutside
@@ -197,7 +203,7 @@
 				>
 					<button
 						type="button"
-						class="button z-30"
+						class="cursor-pointer duration-[200ms] border-t border-b border-l border-surface-300-600-token bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit p-2 z-30"
 						aria-expanded="false"
 						on:click={() => {
 							isScoreOpen = !isScoreOpen;
@@ -228,18 +234,18 @@
 
 					{#if isScoreOpen}
 						<div
-							class="absolute left-0 mt-2 w-fit h-auto focus:outline-none bg-surface-50-900-token border border-surface-900-50-token z-40"
+							class="absolute left-0 mt-3 w-fit h-auto focus:outline-none bg-surface-100-800-token border border-surface-200-700-token z-40 rounded-container py-2"
 							role="menu"
 							aria-orientation="vertical"
 							aria-labelledby="menu-button"
 							tabindex="-1"
 						>
-							<form class="w-full h-full flex flex-col gap-2 p-2">
+							<form class="w-full h-full flex flex-col">
 								{#each scoreOptions as option, i}
 									<button
 										class="{selectedScoreOption === option
-											? 'text-surface-50-900-token bg-surface-700-200-token'
-											: 'text-surface-900-50 border-surface-900-50-token bg-surface-50-900-token'} cursor-pointer duration-[200ms] border border-surface-900-50-token rounded-none bg-surface-50-900-token transition-colors hover:bg-surface-900-50-token hover:text-surface-50-900-token whitespace-nowrap p-2 w-full"
+											? 'bg-secondary-500-400-token'
+											: 'text-surface-900-50'} text-sm cursor-pointer duration-[200ms] border-t {i === options.length - 1 ? "border-b" : ""} border-surface-200-700-token transition-colors hover:bg-surface-200-700-token whitespace-nowrap p-2 px-4 w-full"
 										role="menuitem"
 										tabindex="-1"
 										id={`menu-item-${i}`}
@@ -252,9 +258,8 @@
 						</div>
 					{/if}
 				</div>
-				<!-- @@@@@@@@@@@@@@@@@@@ 2 -->
 
-				<!-- @@@@@@@@@@@@@@@@@@@ 3 -->
+				<!-- @@@@@@@@@ Status @@@@@@@@@@@-->
 				<div
 					class="relative bg-transparent"
 					use:clickOutside
@@ -264,7 +269,7 @@
 				>
 					<button
 						type="button"
-						class="button z-30"
+						class="cursor-pointer relative duration-[200ms] border border-surface-300-600-token rounded-r-container bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit p-2 z-30"
 						aria-expanded="false"
 						on:click={() => {
 							isCategoryOpen = !isCategoryOpen;
@@ -295,18 +300,18 @@
 
 					{#if isCategoryOpen}
 						<div
-							class="absolute left-0 sm:right-0 mt-2 w-[200%] h-auto focus:outline-none bg-surface-50-900-token border border-surface-900-50-token z-40"
+							class="absolute sm:left-0 right-0 mt-3 w-[200%] h-auto focus:outline-none bg-surface-100-800-token border border-surface-200-700-token z-40 rounded-container py-2"
 							role="menu"
 							aria-orientation="vertical"
 							aria-labelledby="menu-button"
 							tabindex="-1"
 						>
-							<form class="w-full h-fit flex flex-col gap-2 p-2">
+							<form class="w-full h-fit flex flex-col">
 								{#each categoryOptions as option, i}
 									<button
-										class="{selectedCategoryOption === option
-											? 'text-surface-50-900-token bg-surface-700-200-token'
-											: 'text-surface-900-50 border-surface-900-50-token bg-surface-50-900-token'} cursor-pointer duration-[200ms] border border-surface-900-50-token rounded-none bg-surface-50-900-token transition-colors hover:bg-surface-900-50-token hover:text-surface-50-900-token whitespace-nowrap p-2 w-full"
+									class="{selectedCategoryOption === option
+										? 'bg-secondary-500-400-token'
+										: 'text-surface-900-50'} text-sm cursor-pointer duration-[200ms] border-t {i === options.length - 1 ? "border-b" : ""} border-surface-200-700-token transition-colors hover:bg-surface-200-700-token whitespace-nowrap p-2 px-4 w-full"
 										role="menuitem"
 										tabindex="-1"
 										id={`menu-item-${i}`}
@@ -319,7 +324,6 @@
 						</div>
 					{/if}
 				</div>
-				<!-- @@@@@@@@@@@@@@@@@@@ 3 -->
 			</div>
 		</div>
 </section>

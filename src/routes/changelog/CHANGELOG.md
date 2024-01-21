@@ -1,5 +1,6 @@
 ## 2024
 ### January
+- UI/UX improvements to book filtering options and menus
 - Refurbished library page, added Currently
  reading to homepage, added book pages, redesigned backend
 - Changed to [Mona Sans](https://github.com/mona-sans), replaced Favicon and made it change depending on whether light or dark mode is active.
@@ -9,6 +10,7 @@
 - New post added [Convert Pocketbook notes to Obsidian-flavoured markdown](https://www.koenraijer.io/pocketbook-html-to-obsidian-md)
 - 
 ## 2023
+
 
 ### December
 - Fixed footer on mobile screens, redesigned ToC

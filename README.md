@@ -10,6 +10,7 @@
 - Update Changelog to be like obsidian.md/changelog (with sticky years and months)
 - Proper RSS feed: https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
 - New code highlighting: https://github.com/atomiks/rehype-pretty-code 
+- https://www.skeleton.dev/utilities/codeblocks <-- replace codeblocks
 
 
 **Completed:**
