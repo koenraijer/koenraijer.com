@@ -1,21 +1,14 @@
 ## 2024
 ### January
-- Sitemap addeed
-- Implemented lazy loading based on intersection observer API on books page
+- Added lazy loading to [Books](/books) based on intersection observer API ([src](https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479))
 - UI/UX improvements to book filtering options and menus
-- Refurbished library page, added Currently
- reading to homepage, added book pages, redesigned backend
-- Changed to [Mona Sans](https://github.com/mona-sans), replaced Favicon and made it change depending on whether light or dark mode is active.
+- Refurbished library page: added book covers, redesigned book cards, added pages for individual books, added Currently Reading item to homepage.
+- Changed to [Mona Sans](https://github.com/mona-sans), replaced Favicon and made it dependent whether light or dark mode is active.
 - Added grainy background to hero and category element
-- Small changes
 - Fixed inline code and other code formatting things
 - New post added [Convert Pocketbook notes to Obsidian-flavoured markdown](https://www.koenraijer.io/pocketbook-html-to-obsidian-md)
-- 
+
 ## 2023
-
-
-
-
 ### December
 - Fixed footer on mobile screens, redesigned ToC
 - Redesigned footer, fixed bug of pages being halfway after navigating, added support for math notation, full bleed images, added markdown video support.

@@ -161,7 +161,7 @@
 </div>
 
 <div class="section">
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6">
         {#each books as book (book["Book Id"])}
             <Book {book} />
         {/each}

@@ -2,6 +2,7 @@
     import lazyLoad from "$lib/js/lazy_load_modifier";
     export let src;
     export let classes = "";
+    export let parentClasses = "";
     export let alt = "";
     export let style = "";
     export let styleTag = "";
@@ -22,7 +23,7 @@
     }
 </script >
 
-<div use:lazyLoad on:isVisible={() => (load = true)}>
+<div use:lazyLoad on:isVisible={() => (load = true)} class={parentClasses}>
     {#if load}
         {#await loadImage()}
             <div class="placeholder w-full h-full animate-pulse rounded-container bg-surface-200-700-token"></div>
