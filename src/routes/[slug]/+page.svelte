@@ -2,7 +2,6 @@
 	import { formatDate } from '$lib/js/utils'
 	import Categories from '$lib/components/Categories.svelte'
 	import PageTitle from '$lib/components/PageTitle.svelte'
-	import ActiveTracker from '$lib/components/ActiveTracker.svelte'
 	import ToC from '$lib/components/ToC.svelte'
 	import * as info from '$lib/js/info.js'
 	export let data
@@ -58,7 +57,7 @@
 			</aside>
 		{/if}
 		<!-- Post content -->
-		<div class="text-surface-900-50-token prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless prose-inline-code:text-base prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:bg-surface-100-800-token prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-code:dark:text-[0.9rem]">
+		<div class="text-surface-900-50-token prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless prose-inline-code:text-base prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:bg-surface-100-800-token prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-code:dark:text-[0.9rem] prose-ul:mt-0 prose-li:my-0 prose-a:my-0 prose-p:mb-0 prose-ol:mt-0">
 			{@html data.post.content}
 		</div>
 	</article>

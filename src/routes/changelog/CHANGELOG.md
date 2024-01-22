@@ -1,5 +1,6 @@
 ## 2024
 ### January
+- Changed link component so icons for external links are added automatically, changed menus
 - Added lazy loading to [Books](/books) based on intersection observer API ([src](https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479))
 - UI/UX improvements to book filtering options and menus
 - Refurbished library page: added book covers, redesigned book cards, added pages for individual books, added Currently Reading item to homepage.
@@ -9,6 +10,7 @@
 - New post added [Convert Pocketbook notes to Obsidian-flavoured markdown](https://www.koenraijer.io/pocketbook-html-to-obsidian-md)
 
 ## 2023
+
 ### December
 - Fixed footer on mobile screens, redesigned ToC
 - Redesigned footer, fixed bug of pages being halfway after navigating, added support for math notation, full bleed images, added markdown video support.

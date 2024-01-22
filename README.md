@@ -12,8 +12,9 @@
 - Site-wide cmd-K search (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s)
 - Update Changelog to be like obsidian.md/changelog (with sticky years and months)
 - Proper RSS feed: https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
+- Proper sitemap: https://kylenazario.com/blog/sveltekit-blog-sitemap 
 - New code highlighting: https://github.com/atomiks/rehype-pretty-code 
-- https://www.skeleton.dev/utilities/codeblocks <-- replace codeblocks
+- https://www.skeleton.dev/utilities/codeblocks <-- replace codeblocks, or: https://github.com/pngwn/MDsveX/issues/385 
   
 
 **Completed:**

@@ -11,13 +11,12 @@ This piece of code allows you to create an Obsidian link which links directly to
 
 ![Video showing the Zotero-Obsidian Quick Copy in action.](zotero-obsidian.m4v)
 
-**Note:** the code was adapted from another external translator made by Florian Wessling, which can be found <a href="ttps://gist.githubusercontent.com/ColdDevil/9992718/raw/71c385e68866fd55490f13c729156ae916eee12c/zotselect-link_full.js">here</a>. 
+**Note:** the code was adapted from another external translator made by Florian Wessling, which can be found [here](https://gist.githubusercontent.com/ColdDevil/9992718/raw/71c385e68866fd55490f13c729156ae916eee12c/zotselect-link_full.js). 
 
- Some other resources for writing Zotero translators:
-
-- <a href="https://www.zotero.org/support/dev/translators/coding">dev:translators:coding [Zotero Documentation]</a>
-- <a href="https://www.zotero.org/support/dev/translators/functions">dev:translators:functions [Zotero Documentation]</a>
-- <a href="https://www.zotero.org/support/kb/item_types_and_fields">kb:item types and fields [Zotero Documentation]</a>
+Some other resources for writing Zotero translators:
+- [dev:translators:coding [Zotero Documentation]](https://www.zotero.org/support/dev/translators/coding)
+- [dev:translators:functions [Zotero Documentation]](https://www.zotero.org/support/dev/translators/functions)
+- [kb:item types and fields [Zotero Documentation]](https://www.zotero.org/support/kb/item_types_and_fields)
 
 Save the code as a `.js` file at `/Users/YOURNAME/Zotero/translators`.
 

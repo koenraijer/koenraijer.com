@@ -16,9 +16,9 @@
 	import { onMount } from 'svelte';
 	import { modeCurrent } from '@skeletonlabs/skeleton';
 	import * as info from '$lib/js/info.js'
-	import BooksButton from '../lib/components/BooksButton.svelte';
+	import MenuButton from '../lib/components/MenuButton.svelte';
 	import ToTopButton from '../lib/components/ToTopButton.svelte';
-
+	import A from '$lib/components/A.svelte';
 	// Workaround for page not scrolling to top on navigation
 	import { afterNavigate } from '$app/navigation';
 
@@ -91,7 +91,9 @@
 		<div class="w-fit">
 			<Menu>
 				<svelte:fragment slot="small-screens">
-					<BooksButton />
+					<MenuButton href="/books">Books</MenuButton>
+					<MenuButton href="/changelog">Changelog</MenuButton>
+					<MenuButton href="https://github.com/koenraijer/koenraijer.2.0">Source</MenuButton>
 					<hr>
 					<div class="flex row-nowrap justify-between gap-x-2">
 						<ThemeToggle />
@@ -99,7 +101,9 @@
 					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="large-screens">
-					<a href="/books" class="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Books</a>
+					<A href="/books" classes="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Books</A>
+					<A href="/changelog" classes="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Changelog</A>
+					<A href="https://github.com/koenraijer/koenraijer.2.0" classes="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Source</A>
 					<ThemeToggle />
 				</svelte:fragment>
 			</Menu>
