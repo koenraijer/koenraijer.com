@@ -34,7 +34,11 @@
 }
 
 html, body { 
-	@apply h-full bg-surface-50-900-token selection:bg-primary-500 selection:text-surface-50 text-base subpixel-antialiased font-mona;
+	@apply h-full selection:bg-primary-500 selection:text-surface-50 text-base subpixel-antialiased font-mona /*overscroll-y-none;*/;
+}
+
+body {
+	@apply bg-surface-50-900-token
 }
 
 .max-w {
