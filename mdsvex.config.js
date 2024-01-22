@@ -6,11 +6,13 @@ import remarkMath from 'remark-math'
 import rehypeKatexSvelte from "rehype-katex-svelte";
 import footnotes from 'remark-footnotes' // `npm add --save-dev remark-footnotes@2.0`
 import remarkHeadings from '@vcarl/remark-headings'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 
 export default {
   extensions: ['.svx', '.md'],
   layout: {
-		_: './src/mdsvex.svelte'
+		_: dirname(fileURLToPath(import.meta.url)) + '/src/mdsvex.svelte'
   },
   smartypants: {
     dashes: 'oldschool'

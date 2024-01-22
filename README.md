@@ -3,6 +3,9 @@
 - https://github.com/mattjennings/sveltekit-blog-template/
 - https://journal.ghost.io/
 
+**BUGS:**
+- Fix the white vertical stroke on mobile on books page. --> Related to Book.svelte!!!
+
 **Optional new features:**
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance. --> Keep track of Svelte image (currently experimental!)
@@ -11,7 +14,7 @@
 - Proper RSS feed: https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
 - New code highlighting: https://github.com/atomiks/rehype-pretty-code 
 - https://www.skeleton.dev/utilities/codeblocks <-- replace codeblocks
-
+- https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479 <-- lazy loading (sitewide, but at least on the books page). 
 
 **Completed:**
 - Update ToC: endgoal should be a fixed ToC like on gwern.net, but on scrolling, the active heading should appear as a sticky header at the top of the page, including a progress bar.

@@ -1,6 +1,7 @@
 <script>
     import { Ratings } from '@skeletonlabs/skeleton';
     import { formatDate } from '$lib/js/utils.js';
+    import LazyImg from '$lib/components/LazyImg.svelte';
     import { goto } from '$app/navigation';
     export let compact = false
     export let book;
@@ -14,12 +15,12 @@
 </script>
 
 <!--Body-->
-<button class="flex flex-col w-full group" on:click|preventDefault={() => navigateToBookDetails(book)}>
-    <div class="mb-2 transform group-hover:-translate-y-1 transition-transform w-full">
+<button class="overflow-hidden flex flex-col w-full group" on:click|preventDefault={() => navigateToBookDetails(book)}>
+    <div class="mb-2 transform group-hover:-translate-y-1 transition-transform ml-0 sm:mx-auto w-32 h-48 sm:w-44 sm:h-[17rem] overflow-hidden h-42 z-50 rounded-container">
         {#if book.cover_downloaded}
-            <img class="w-auto ml-0 sm:mx-auto max-h-48 sm:h-64 object-cover rounded-container" src={"/book_covers/" + book["Book Id"] + ".webp"} alt={book.Title ? book.Title : ""} style:--tag="book-{book["Book Id"]}" />
+            <LazyImg src={"/book_covers/" + book["Book Id"] + ".webp"} styleTag="book-{book["Book Id"]}" alt={book.Title ? book.Title : ""} classes="object-cover w-full h-full rounded-container"/>
         {:else}
-            <div class="placeholder ml-0 sm:mx-auto max-h-48 max-w-32 sm:w-48 sm:h-64 animate-pulse rounded-container bg-primary-200-700-token"></div>
+            <div class="placeholder w-full h-full rounded-container bg-secondary-300-600-token"></div>
         {/if}
     </div>
     <h2 class="font-semibold mb-0 pb-0 group-hover:underline title_div sm:text-center text-left" style:--tag="title-{book["Book Id"]}" >{book.Title ? book.Title : ""}</h2>
