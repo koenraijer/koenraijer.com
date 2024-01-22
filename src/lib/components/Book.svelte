@@ -16,7 +16,7 @@
 
 <!--Body-->
 <button class="overflow-hidden flex flex-col w-full group" on:click|preventDefault={() => navigateToBookDetails(book)}>
-    <div class="mb-2 transform group-hover:-translate-y-1 transition-transform ml-0 sm:mx-auto w-32 h-48 sm:w-44 sm:h-[17rem] overflow-hidden h-42 z-50 rounded-container">
+    <div class="mb-2 transform group-hover:-translate-y-1 transition-transform ml-0 sm:mx-auto w-32 h-48 sm:w-44 sm:h-[17rem] overflow-hidden h-42 rounded-container">
         {#if book.cover_downloaded}
             <LazyImg src={"/book_covers/" + book["Book Id"] + ".webp"} styleTag="book-{book["Book Id"]}" alt={book.Title ? book.Title : ""} classes="object-cover w-full h-full rounded-container"/>
         {:else}
