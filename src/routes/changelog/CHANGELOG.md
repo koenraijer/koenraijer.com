@@ -1,5 +1,6 @@
 ## 2024
 ### January
+- Sitemap addeed
 - Implemented lazy loading based on intersection observer API on books page
 - UI/UX improvements to book filtering options and menus
 - Refurbished library page, added Currently
@@ -11,6 +12,7 @@
 - New post added [Convert Pocketbook notes to Obsidian-flavoured markdown](https://www.koenraijer.io/pocketbook-html-to-obsidian-md)
 - 
 ## 2023
+
 
 
 

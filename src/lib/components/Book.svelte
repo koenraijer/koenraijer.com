@@ -77,7 +77,7 @@
 </button>
 
 <style>
-    img, .title_div, .author_div, .rating_div, .status_div {
+    .title_div, .author_div, .rating_div, .status_div {
         view-transition-name: var(--tag);
     }
 </style>

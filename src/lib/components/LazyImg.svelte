@@ -22,7 +22,7 @@
     }
 </script >
 
-<a use:lazyLoad on:isVisible={() => (load = true)}>
+<div use:lazyLoad on:isVisible={() => (load = true)}>
     {#if load}
         {#await loadImage()}
             <div class="placeholder w-full h-full animate-pulse rounded-container bg-surface-200-700-token"></div>
@@ -32,6 +32,12 @@
             </figure>    
         {/await}
     {/if}
-</a>
+</div>
 
 <!-- src: https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479 -->
+
+<style>
+    img {
+        view-transition-name: var(--tag);
+    }
+</style>
