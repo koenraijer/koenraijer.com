@@ -1,5 +1,6 @@
 ## 2024
 ### January
+- sth
 - Added post [Links and resources](https://www.koenraijer.io/links-and-resources)
 - Changed link component so icons for external links are added automatically, changed menus
 - Added lazy loading to [Books](/books) based on intersection observer API ([src](https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479))
@@ -11,6 +12,7 @@
 - New post added [Convert Pocketbook notes to Obsidian-flavoured markdown](https://www.koenraijer.io/pocketbook-html-to-obsidian-md)
 
 ## 2023
+
 
 
 ### December

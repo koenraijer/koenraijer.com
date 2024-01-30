@@ -5,7 +5,7 @@ date: 2022-03-08
 categories:
   - Computer Science
   - Web development
-published: true
+published: false
 ---
 ## Nice articles
 - <a href="https://kentcdodds.com/blog/aha-programming">AHA Programming</a> - Adds AHA (Avoid Hasty Abstractions) to the list of programming acronyms like DRY (Don't Repeat Yourself) and WET (Write Everything Twice).
