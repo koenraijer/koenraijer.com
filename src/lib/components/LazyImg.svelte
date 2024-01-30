@@ -1,8 +1,9 @@
 <script >
     import lazyLoad from "$lib/js/lazy_load_modifier";
     export let src;
-    export let classes = "";
+    export let imgClasses = "";
     export let parentClasses = "";
+    export let placeholderClasses = "";
     export let alt = "";
     export let style = "";
     export let styleTag = "";
@@ -24,15 +25,15 @@
 </script >
 
 <div use:lazyLoad on:isVisible={() => (load = true)} class={parentClasses}>
+    <figure>
     {#if load}
         {#await loadImage()}
-            <div class="placeholder w-full h-full animate-pulse rounded-container bg-surface-200-700-token"></div>
+            <div class={placeholderClasses + " placeholder w-full h-full animate-pulse rounded-container bg-surface-200-700-token"}></div>
         {:then data}
-            <figure>
-                <img src={data} {alt} title={alt} loading="lazy" class={classes} {style} style:--tag={styleTag}/>
-            </figure>    
+            <img src={data} {alt} title={alt} loading="lazy" class={imgClasses} {style} style:--tag={styleTag}/> 
         {/await}
     {/if}
+    </figure>   
 </div>
 
 <!-- src: https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479 -->
