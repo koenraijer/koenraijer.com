@@ -5,8 +5,11 @@ date: 2022-03-08
 categories:
   - Computer Science
   - Web development
-published: false
+published: true
 ---
+
+A semi-random collection of links I thought may be of interest to you. Will be updated, sometimes...
+
 ## Nice articles
 - <a href="https://kentcdodds.com/blog/aha-programming">AHA Programming</a> - Adds AHA (Avoid Hasty Abstractions) to the list of programming acronyms like DRY (Don't Repeat Yourself) and WET (Write Everything Twice).
 - <a href="https://people.apache.org/~fhanik/kiss.html">Keep It Stupid Simple, or Keep It Simple, Stupid</a> - classic. 

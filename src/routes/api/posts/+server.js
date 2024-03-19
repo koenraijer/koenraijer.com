@@ -17,8 +17,7 @@ async function getPostsAndCategories() {
             const content = file.default
             const htmlContent = content.render().html; // Get the rendered HTML content
             const html = parse(htmlContent)
-            const preview = metadata.preview ? parse(metadata.preview) : html.querySelector('p') 
-
+            const preview = metadata.preview ? parse(metadata.preview) : html.querySelector('p') ? html.querySelector('p') : ""
             const post = { 
                 ...metadata, 
                 slug, 

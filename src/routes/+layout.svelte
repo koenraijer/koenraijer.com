@@ -92,6 +92,7 @@
 			<Menu>
 				<svelte:fragment slot="small-screens">
 					<MenuButton href="/books">Books</MenuButton>
+					<MenuButton href="/projects">Projects</MenuButton>
 					<MenuButton href="/changelog">Changelog</MenuButton>
 					<MenuButton href="https://github.com/koenraijer/koenraijer.2.0">Source</MenuButton>
 					<hr>
@@ -102,6 +103,7 @@
 				</svelte:fragment>
 				<svelte:fragment slot="large-screens">
 					<A href="/books" classes="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Books</A>
+					<A href="/projects" classes="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Projects</A>
 					<A href="/changelog" classes="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Changelog</A>
 					<A href="https://github.com/koenraijer/koenraijer.2.0" classes="whitespace-nowrap hover:underline font-normal text-lg text-surface-900-50-token">Source</A>
 					<ThemeToggle />
