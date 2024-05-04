@@ -1,6 +1,6 @@
 ## 2024
 ### May
-- Added [Projects](/projects), improved UI of hero and [Books](/books)
+- Added [Projects](/projects), improved UI of hero and [Books](/books).
 ### January
 - Added post [Links and resources](https://www.koenraijer.io/links-and-resources)
 - Changed link component so icons for external links are added automatically, changed menus
