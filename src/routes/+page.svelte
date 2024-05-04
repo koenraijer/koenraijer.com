@@ -85,7 +85,7 @@
 <section class="section">
 	<div class="flex sm:flex-row items-center mb-4 w-full flex-wrap sm:flex-nowrap">
 		<div class="flex items-center w-full sm:flex-grow my-4 sm:my-0 ">
-			<h2 class="text-2xl font-semibold flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container">Recent posts</h2>
+			<h2 id="recent_posts" class="text-2xl font-semibold flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Recent posts</a></h2>
 			<hr class="!border-surface-500-400-token border-2 w-full"/>
 		</div>
 		<div class="w-full sm:pl-8 basis-full {focused ? "sm:basis-[200%] md:basis-3/5" : "sm:basis-[4.75rem]"} transition-all duration-300 ease-in-out">

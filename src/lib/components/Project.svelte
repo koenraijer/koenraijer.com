@@ -35,7 +35,7 @@
         <div class="pb-8">
             <p class="text-base">{project.description}</p>
         </div>
-        <div class="flex items-center gap-x-4">
+        <div class="flex items-center gap-x-4 mb-6 lg:mb-0">
             <a  href={project.link} 
                 class="button-secondary" target="_blank">
                 Open App

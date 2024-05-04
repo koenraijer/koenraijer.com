@@ -156,7 +156,7 @@
         <li>The most frequently occurring rating is <b>{copiedBooks.map(book => book['My Rating']).reduce((a, b) => a > b ? a : b)}</b>, which occurs <b>{copiedBooks.filter(book => book['My Rating'] === copiedBooks.map(book => book['My Rating']).reduce((a, b) => a > b ? a : b)).length}</b> times.</li>
     </ul>
 </div>
-<div class="mt-12 mx-auto px-0 sm:px-6 lg:px-16 ">
+<div class="mt-12 mx-auto px-0 sm:px-8 lg:px-16 max-w">
     <!-- Updated Filters component -->
     <Filters {score} {sort} {status} on:optionSelected="{onOptionSelected}" on:scoreSelected="{onScoreSelected}" on:categorySelected="{onCategorySelected}" />
 </div>

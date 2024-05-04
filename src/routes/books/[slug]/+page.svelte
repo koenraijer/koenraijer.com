@@ -10,7 +10,6 @@
     function goBack() {
         // Check if there's a previous URL stored in sessionStorage
         const previousUrl = sessionStorage.getItem('previousUrl');
-        console.log(previousUrl)
         if (browser && previousUrl && previousUrl.includes("books")) {
             // If so, navigate back to the previous URL
             goto(previousUrl, { replaceState: false });
@@ -112,8 +111,8 @@
                 </tbody>
             </table>    
         </div>
-        <div class="w-fit mb-2 transform group-hover:-translate-y-1 transition-transform">
-            <img class="w-auto h-[65vh] object-cover rounded-container" src={"/book_covers/" + (book["Book Id"] ? book["Book Id"] : "") + ".webp"} alt={book.Title ? book.Title : ""} style:--tag="book-{book["Book Id"]}" />
+        <div class="w-full mb-2 transform group-hover:-translate-y-1 transition-transform">
+            <img class="w-full h-auto object-fit rounded-container" src={"/book_covers/" + (book["Book Id"] ? book["Book Id"] : "") + ".webp"} alt={book.Title ? book.Title : ""} style:--tag="book-{book["Book Id"]}" />
         </div>
     </div>
 </div>
