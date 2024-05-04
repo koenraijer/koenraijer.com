@@ -1,6 +1,6 @@
+## 2024
 ### May
 - Added [Projects](/projects), improved UI of hero and [Books](/books)
-## 2024
 ### January
 - Added post [Links and resources](https://www.koenraijer.io/links-and-resources)
 - Changed link component so icons for external links are added automatically, changed menus
@@ -13,8 +13,6 @@
 - New post added [Convert Pocketbook notes to Obsidian-flavoured markdown](https://www.koenraijer.io/pocketbook-html-to-obsidian-md)
 
 ## 2023
-
-
 
 ### December
 - Fixed footer on mobile screens, redesigned ToC
