@@ -21,11 +21,12 @@
         score = "All scores";
         status = "All";
     }
+
     let books = data.books;
 
     // copy "books" object to a new variable
     let copiedBooks = JSON.parse(JSON.stringify(books));
-
+    
 	// handle the 'selected' event dispatched from Filters.svelte
     function onOptionSelected(event) {
         sort = event.detail.selectedOption;

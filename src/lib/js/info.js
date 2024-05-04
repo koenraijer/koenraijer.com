@@ -32,7 +32,7 @@ export const projects = {
         "title": "ReAsset",
         "time_period" : "2023",
         "description": "A web app to help you rebalance assets your investment portfolio with the minimum amount of transactions, saving you time and money.",
-        "image": "project_reasset.png",
+        "image": "reasset.app.png",
         "link": "https://reasset.vercel.app/", 
         "code" : "https://github.com/koenraijer/reasset",
         "languages": [ "Javscript", "SvelteKit", "TailwindCSS"],

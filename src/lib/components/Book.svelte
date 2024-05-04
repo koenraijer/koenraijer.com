@@ -5,7 +5,7 @@
     import { goto } from '$app/navigation';
     export let compact = false
     export let book;
-
+    
     function navigateToBookDetails(book) {
         // Store the current URL in sessionStorage
         sessionStorage.setItem('previousUrl', window.location.href);

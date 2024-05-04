@@ -7,6 +7,7 @@ export async function load({ params, fetch }) {
         // Match slug to slug in data
         const book = data.find(book => book.slug === params.slug)
         
+        console.log("+page.server.js data", book)
         return {
             book
         }

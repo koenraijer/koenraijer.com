@@ -8,7 +8,7 @@
         <slot></slot>
         {#if title}
 		<div class="text-surface-900-50-token font-semibold">
-            <h2 class="text-3xl mb-4">{title}</h2>
+            <h2 class="text-3xl mb-12">{title}</h2>
         </div>
         {/if}
         {#if subtitle}

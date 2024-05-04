@@ -9,13 +9,13 @@
 **Optional new features:**
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance. --> Keep track of Svelte image (currently experimental!)
-- Site-wide cmd-K search (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s)
+- Site-wide cmd-K search (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s) - Use flexsearch like here? https://joyofcode.xyz/blazing-fast-sveltekit-search
 - Update Changelog to be like obsidian.md/changelog (with sticky years and months)
 - Proper RSS feed: https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
 - Proper sitemap: https://kylenazario.com/blog/sveltekit-blog-sitemap 
 - New code highlighting: https://github.com/atomiks/rehype-pretty-code 
 - https://www.skeleton.dev/utilities/codeblocks <-- replace codeblocks, or: https://github.com/pngwn/MDsveX/issues/385 
-  
+- Use floating ui for filters
 
 **Completed:**
 - Update ToC: endgoal should be a fixed ToC like on gwern.net, but on scrolling, the active heading should appear as a sticky header at the top of the page, including a progress bar.
@@ -32,4 +32,3 @@
 - Change text select colour
 - https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479 <-- lazy loading (sitewide, but at least on the books page). 
 - Bug fix: white vertical stroke on mobile on books page removed.
-- 
