@@ -5,6 +5,7 @@
 
 **BUGS:**
 - Ensure that images are rounded on mobile screens
+- Search bar closes on enter without removing the text, squishing the text that was entered. 
 
 **Optional new features:**
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
