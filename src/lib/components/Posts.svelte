@@ -31,14 +31,14 @@
 {#if compact}
     {#each Object.entries(groupedPosts).sort((a, b) => b[0] - a[0]) as [year, posts], i}
     <div class="grid grid-cols-4 py-4 pb-6 gap-x-2">
-        <p class="date col-start-1 col-end-2 text-surface-400 uppercase text-sm">
+        <p class="date col-start-1 col-end-2 text-surface-400 uppercase">
             {year}
         </p>
         <div class="col-start-2 col-end-5">
             {#each posts as post}
                 <div class="pb-2">
                     <a href={"/" + post.slug} class="group block">
-                        <span class="text-sm group-hover:underline">{post.title}</span>
+                        <h4 class="group-hover:underline">{post.title}</h4>
                     </a>
                 </div>
             {/each}
@@ -52,14 +52,14 @@
     <ul>
         {#each displayedPosts as post, i}
             <li>
-                <a class="group" href={"/" + post.slug}>
+                <a class="group font-sans" href={"/" + post.slug}>
                     <div class="grid grid-cols-1 py-4 pb-4 gap-x-2">
-                        <p class="date sm:pb-1 text-surface-400 text-sm">
+                        <p class="date sm:pb-1 text-surface-400 text-sm font-sans">
                             {formatDate(post.date)} — {post.readingTime}
                         </p>
                         <div class="">
-                            <span class="text-base font-semibold group-hover:underline">{post.title}</span>
-                            <p class="description text-sm pt-1 text-surface-700-200-token">{post.description}</p>
+                            <h4 class="text-base font-semibold group-hover:underline">{post.title}</h4>
+                            <p class="description pt-1 text-surface-700-200-token">{post.description}</p>
                         </div>
                     </div>
                     {#if i !== displayedPosts.length - 1}

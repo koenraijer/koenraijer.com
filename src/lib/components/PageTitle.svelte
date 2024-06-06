@@ -8,11 +8,11 @@
         <slot></slot>
         {#if title}
 		<div class="text-surface-900-50-token font-semibold">
-            <h2 class="text-3xl mb-12">{title}</h2>
+            <h2 class="text-3xl my-4">{title}</h2>
         </div>
         {/if}
         {#if subtitle}
-            <p class="mb-8 text-base text-surface-400">{subtitle}</p>
+            <p class="mb-8 text-base text-surface-400 font-sans">{subtitle}</p>
         {/if}
     </div>
 </hgroup>

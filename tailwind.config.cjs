@@ -32,7 +32,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				mona: ['"Mona Sans"', ...defaultTheme.fontFamily.sans],
+				sans: ['"Mona Sans"', ...defaultTheme.fontFamily.sans],
+				serif: ["Source Serif", ...defaultTheme.fontFamily.serif],
 			},
 			borderRadius: {
 				base: 'var(--theme-rounded-base)',
@@ -77,10 +78,10 @@ module.exports = {
 				// This are the default settings and analog to the tailwindcss defaults
 				// Each `lineHeight` is set unitless and we think that's the way to go especially in context with fluid type.
 				values: {
-					'xs': [-2, 1.6],
-					'sm': [-1, 1.6],
-					'base': [0, 1.6],
-					'lg': [1, 1.6],
+					'xs': [-2, 1.8],
+					'sm': [-1, 1.8],
+					'base': [0, 1.8],
+					'lg': [1, 1.8],
 					'xl': [2, 1.2],
 					'2xl': [3, 1.2],
 					'3xl': [4, 1.2],

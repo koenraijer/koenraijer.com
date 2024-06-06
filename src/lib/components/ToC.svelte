@@ -92,19 +92,19 @@ function setActiveHeading() {
 }
 </script>
 
-<nav class="fixed top-0 left-1/2 right-1/2 z-10 -translate-x-1/2 w-screen bg-surface-100-800-token border-surface-200-700-token border-b transition-transform duration-300 ease-out {$active_tracker ? "translate-y-0" : "translate-y-[-100%]"}">
-  <div class="text-sm p-4 mx-auto w-fit"> {$active_heading.title} </div>
+<nav class="fixed font-sans top-0 left-1/2 right-1/2 z-10 -translate-x-1/2 w-screen bg-surface-100-800-token border-surface-200-700-token border-b transition-transform duration-300 ease-out {$active_tracker ? "translate-y-0" : "translate-y-[-100%]"}">
+  <div class="text-sm p-2 mx-auto w-fit"> {$active_heading.title} </div>
   <div id="progressBar" class="absolute top-full h-0.5 bg-secondary-500" bind:this={progressBar}></div>
 </nav>
 
 <svelte:window on:load={setProgressBar} on:scroll={setActiveHeading} bind:scrollY={scrollY} />
 
 {#if headings.length > 0}
-    <nav class="border border-surface-200-700-token bg-surface-100-800-token p-4 text-surface-900-50-token transition-colors duration-100 rounded-container">
+    <nav class="border font-sans border-surface-200-700-token bg-surface-100 dark:bg-surface-900 p-4 text-surface-900-50-token transition-colors duration-100 rounded-container">
       <ul class="collapse-content">
         {#each headings as heading}
             <li
-            class="heading list-none my-1 text-sm font-normal transition-all"
+            class="heading list-none my-1 text-sm font-normal dark:font-thin dark:text-surface-100 font-sans transition-all"
             style={`--depth: ${heading.depth}`}
             >
             <span class="font-bold">{heading.prefix}</span>

@@ -18,10 +18,12 @@ async function getPostsAndCategories() {
             const htmlContent = content.render().html; // Get the rendered HTML content
             const html = parse(htmlContent)
             const preview = metadata.preview ? parse(metadata.preview) : html.querySelector('p') ? html.querySelector('p') : ""
+            const stats = readingTime(html.structuredText)
             const post = { 
                 ...metadata, 
                 slug, 
-                readingTime: readingTime(html.structuredText).text, 
+                readingTime: stats.text, 
+                wordCount: stats.words,
                 content: htmlContent, 
                 preview: {
                     html: preview.toString(),

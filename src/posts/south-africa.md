@@ -1,9 +1,9 @@
 ---
-title: "Adventures in a hospital in South Africa"
-description: "I spent three months working in a rural hospital in Limpopo, the poorest province of South Africa."
-date: "2022-11-14"
+title: Adventures in a hospital in South Africa
+description: I spent three months working in a rural hospital in Limpopo, the poorest province of South Africa.
+date: 2022-11-14
 categories:
-    - Medicine
+  - Personal
 published: true
 ---
 

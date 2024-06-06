@@ -23,8 +23,8 @@ export const email = 'koenrayer@gmail.com'
 export const avatar = 'avatar.webp'
 
 export const bio = { 
-    text: `Hi! Welcome to this always-changing and never-finished hobby project. I work in clinical psychiatry as a medical doctor and am doing research at the intersection of psychiatry and data science. This is where I would like to share my thoughts and report back to the world, although, admittedly, most posts are short programming tidbits because I can't stop myself from tweaking the website rather than doing any proper writing.`,
-    html: `Hi! Welcome to this always-changing and never-finished hobby project. I work in clinical psychiatry as a medical doctor and am doing research at the intersection of psychiatry and data science. This is where I <i>would like</i> to share my thoughts and report back to the world, although, admittedly, most <a href="#recent_posts" class="anchor">posts</a> are short programming tidbits because I can't stop myself from tweaking the website rather than doing any proper writing.`
+    text: `Hi! Welcome to this always-changing and never-finished hobby project. I work in clinical psychiatry as a medical doctor and am doing research at the intersection of psychiatry and data science. This is where I would like to share my thoughts and report back to the world, although, admittedly, most posts are short programming tidbits because I can't stop myself from tweaking the website rather than doing proper writing.`,
+    html: `Hi! Welcome to this always-changing and never-finished hobby project. I work in clinical psychiatry as a medical doctor and am doing research at the intersection of psychiatry and data science. This is where I <i>would like</i> to share my thoughts and report back to the world, although, admittedly, most <a href="#recent_posts" class="anchor">posts</a> are short programming tidbits because I can't stop myself from tweaking the website rather than doing proper writing.`
 }
 
 // export const bio = { 

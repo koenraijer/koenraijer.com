@@ -1,9 +1,9 @@
 ---
 title: "Boekrecensie: Het duizend eilanden experiment"
 date: 2024-01-07
-categories: 
-- Books
-- Nederlands
+categories:
+  - Dutch
+  - Books
 description: "Een boekrecensie van Frank van Dongens sciencefictionroman: Het duizend eilanden experiment."
 published: true
 ---

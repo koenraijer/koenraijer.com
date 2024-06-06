@@ -43,7 +43,7 @@
 
 	data.categories = categoriesArray;
 
-	let limit = Number.POSITIVE_INFINITY
+	let limit = 5 // Number.POSITIVE_INFINITY
 
 	const loadMore = () => {
 		if (limit < searchedPosts.length) {
@@ -96,7 +96,7 @@
 						id="search-input"
 						bind:value={searchQuery} 
 						on:focus={() => focused = true} 
-						on:blur={() => focused = false}
+						on:blur={() => { focused = false; searchQuery = ""; }}
 						type="search" 
 						class="peer cursor-pointer relative z-10 h-10 w-full rounded-container border border-surface-900-50-token bg-transparent outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text pl-12 sm:pl-0 sm:focus:pl-12 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
 					/>
@@ -112,7 +112,13 @@
 	<Posts posts={searchedPosts} limit={limit}/>
 	{#if limit < searchedPosts.length}
 		<div class="w-full flex justify-center mt-8">
-			<button class="social" on:click={loadMore}>Load more posts</button>
+			<button class="social" on:click={loadMore}>
+				Load more posts &nbsp;
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline">
+					<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+				  </svg>
+				  
+			</button>
 		</div>
 	{/if}
 	<!-- Consider using a fixed height and scrollbar like on https://robinrendle.com/ -->
@@ -133,11 +139,13 @@
 		<h2 id="currently_reading" class="text-xl font-semibold flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Currently reading</a></h2>
 		<hr class="!border-surface-500-400-token border-2 w-full"/>
 	</div>
-	<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+	<div class="flex flex-row w-fit gap-6 flex-wrap">
 		{#each data.current_books as book}
 			<Book book={book} compact/>
 		{/each}
 	</div>
+	<a href="/books" class="button text-sm w-fit mx-auto mt-8">View all books
+	</a>
 </section>
 <div class="grid md:grid-cols-3 mt-12 max-w mx-auto md:px-16 md:gap-x-8 lg:gap-x-12 relative pb-12">
 	<section class="md:col-span-2 px-6 sm:px-8 md:px-0">

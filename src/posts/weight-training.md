@@ -1,10 +1,10 @@
 ---
-title: A sensible guide on weight training for longevity 
-description: "A flexible and efficient, science-based full-body weight training program for busy people who seek long-term health, based on my own training experience, medical background, and knowledge of scientific literature."
+title: A sensible guide on weight training for longevity
+description: A flexible and efficient, science-based full-body weight training program for busy people who seek long-term health, based on my own training experience, medical background, and knowledge of scientific literature.
 date: 2023-08-06
-categories: 
-    - Health
-published: false
+categories:
+  - Health
+published: true
 ---
 
 I have taken the liberty to write an extensive guide on how I structure my own weight training. 

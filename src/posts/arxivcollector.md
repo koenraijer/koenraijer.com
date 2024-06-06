@@ -2,8 +2,8 @@
 title: Introducing arXivCollector
 date: 2024-05-04
 categories:
-  - Technology
   - Research
+  - Tools
 description: Export arXiv searches as neatly formatted BibTex files.
 published: true
 ToC: true

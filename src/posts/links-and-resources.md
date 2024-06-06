@@ -3,8 +3,7 @@ title: Nice links and resources
 description: Nice links and resources.
 date: 2022-03-08
 categories:
-  - Computer Science
-  - Web development
+  - Tools
 published: true
 ---
 

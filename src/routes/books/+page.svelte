@@ -110,7 +110,7 @@
 
 	// SEO
     const title = "Books"
-    const description = "Displayed below are (almost!) all books I've read since 2013. The page is populated from a JSON file that is sourced from an Excel spreadsheet. Each time I update the website, a Python script takes the spreadsheet and updates the JSON file with the latest additions."
+    const description = "Explore (almost!) every book I've read since 2013. Currently sourced from a GoodReads export and updated whenever I update the website using a Python script."
 	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(title)}`
 
 	const url = `${info.website}/books`
@@ -144,9 +144,8 @@
     </PageTitle>
     <p class="pb-4">{description}</p>
     <p class="pb-4">
-        So far, I've read a total of <b>{copiedBooks.filter(book => book['Exclusive Shelf'] === "read").length}</b> books.
+        So far, I've read a total of <b>{copiedBooks.filter(book => book['Exclusive Shelf'] === "read").length}</b> books:
     </p>
-    <p>Some facts about these books:</p>
     <ul class="list-disc pl-6">
         <!-- Percentage of books that are fiction -->
         <li>There are <b>{copiedBooks.filter(book => book["Exclusive Shelf"] === "to-read").length}</b> books on <a href="/books?sort=Newest&score=All%20scores&status=to-read" class="anchor" target="_self">my wishlist</a>, which is <b>{Math.round(copiedBooks.filter(book => book["Exclusive Shelf"] === "to-read").length / copiedBooks.length * 100)}%</b> of the total.</li>
@@ -162,7 +161,7 @@
 </div>
 
 <div class="section">
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6">
+    <div class="grid gap-4 sm:gap-6 mt-4 sm:mt-6">
         {#each books as book (book["Book Id"])}
             <Book {book} />
         {/each}

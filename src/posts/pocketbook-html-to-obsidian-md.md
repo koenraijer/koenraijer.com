@@ -2,7 +2,7 @@
 title: Convert Pocketbook notes to Obsidian-flavoured markdown
 date: 2024-01-04
 categories:
-  - Technology
+  - Tools
 description: This post uses a simple script based on BeautifulSoup to convert Pocketbook notes, which are in HTML format, to Obsidian-flavoured markdown with YAML frontmatter.
 published: true
 ToC: true

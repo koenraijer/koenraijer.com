@@ -19,6 +19,12 @@
 	import MenuButton from '../lib/components/MenuButton.svelte';
 	import ToTopButton from '../lib/components/ToTopButton.svelte';
 	import A from '$lib/components/A.svelte';
+
+	// Floating UI
+	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
+	
 	// Workaround for page not scrolling to top on navigation
 	import { afterNavigate } from '$app/navigation';
 
@@ -74,7 +80,7 @@
 	<link rel="preload" href="/fonts/Mona Sans/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
 </svelte:head>
 
-<div class="w-full grid grid-rows-[auto_1fr_auto] grid-cols-[100%] min-h-full min-h-[100svh] bg-surface-50-900-token">
+<div class="w-full grid grid-rows-[auto_1fr_auto] grid-cols-[100%] min-h-[100svh] bg-surface-50 dark:bg-surface-800">
 	<div class="flex justify-between w-full place-self-center mx-auto pt-6 px-6 sm:px-8 sm:pt-8">
 		<a href="/" class="text-lg font-semibold inline w-fit hover:underline whitespace-nowrap text-start" title="Visit homepage">
 				Koen Raijer

@@ -1,5 +1,6 @@
 <script lang="js">
 	import { formatDate } from '$lib/js/utils'
+	import { popup } from '@skeletonlabs/skeleton';
 	import Categories from '$lib/components/Categories.svelte'
 	import PageTitle from '$lib/components/PageTitle.svelte'
 	import ToC from '$lib/components/ToC.svelte'
@@ -19,7 +20,18 @@
 
 	const url = `${info.website}/${data.post.slug}`
 
-	const subtitle = `${formatDate(data.post.date)} - ${data.post.readingTime}`
+	// Popups
+	const wordCountPopup = {
+		event: 'hover',
+		target: 'wordCountPopup',
+		placement: 'bottom'
+	};
+	const updatedPopup = {
+		event: 'hover',
+		target: 'updatedPopup',
+		placement: 'bottom'
+	};
+						
 </script>
 
 <!-- SEO -->
@@ -48,16 +60,42 @@
 <div class="grid grid-cols-5 mx-auto relative mt-12 max-w">
 	<div class="w-full lg:col-start-2 col-span-full px-6 sm:px-8 mx-auto">
 		<!-- Title -->
-		<PageTitle title={data.post.title} {subtitle} />
+		<hgroup class="text-surface-900-50-token lg:mx-0 w-full !mx-auto">
+			<div>
+				{#if data.post.title}
+				<div class="text-surface-900-50-token font-semibold">
+					<h2 class="text-3xl my-4">{data.post.title}</h2>
+				</div>
+				{/if}
+				<p class="mb-8 text-base text-surface-400 font-sans">
+					{#if data.post.date}
+						{#if data.post.updated}
+							<span use:popup={updatedPopup}>{formatDate(data.post.date)}</span> - 
+							<div class="bg-surface-700 dark:bg-surface-700 rounded-container p-2 z-20 text-xs relative"  data-popup="updatedPopup">
+								<p class="font-sans text-surface-50 dark:text-surface-200"><span class="font-semibold">Updated:</span> {formatDate(data.post.updated)}</p>
+							</div>
+						{:else}
+							<span>{formatDate(data.post.date)}</span> - 
+						{/if}
+					{/if}
+					{#if data.post.readingTime}
+						<span use:popup={wordCountPopup}>{data.post.readingTime}</span>
+						<div class="bg-surface-700 dark:bg-surface-700 rounded-container p-2 z-20 text-xs relative"  data-popup="wordCountPopup">
+							<p class="font-sans text-surface-50 dark:text-surface-200">{data.post.wordCount} words</p>
+						</div>
+					{/if}
+				</p>
+			</div>
+		</hgroup>
 	</div>
 	<article class="w-full lg:col-span-3 lg:col-start-2 col-span-full px-6 sm:px-8 mx-auto">
 		{#if data.post.ToC}
-			<aside class="w-fit mb-8" aria-label="Table of Contents">
-					<ToC post={data.post} />
+			<aside class="w-fit font-sans md:pt-2 pt-0 md:mb-4 mb-8 mr-8 md:float-left z-10" aria-label="Table of Contents">
+					<ToC post={data.post}/>
 			</aside>
 		{/if}
 		<!-- Post content -->
-		<div class="text-surface-900-50-token prose prose-headings:prose-a:no-underline relative leading-loose prose-code:text-surface-900-50-token prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless prose-inline-code:text-base prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:bg-surface-100-800-token prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-code:dark:text-[0.9rem] prose-ul:mt-0 prose-li:my-0 prose-a:my-0 prose-p:mb-0 prose-ol:mt-0">
+		<div class="text-surface-900-50-token !max-w-none md:prose-p:pl-4 dark:prose-p:font-thin font-serif prose-headings:font-sans prose-inline-code:overflow-x-scroll prose prose-headings:prose-a:no-underline relative prose-code:text-surface-900-50-token prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless prose-code:text-sm prose-code:text-wrap prose-inline-code:text-wrap prose-inline-code:text-sm prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:bg-surface-100-800-token prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-code:dark:text-[0.9rem] prose-ul:mt-0 prose-li:my-0 prose-a:my-0 prose-p:mb-0 prose-ol:mt-0">
 			{@html data.post.content}
 		</div>
 	</article>
@@ -77,20 +115,20 @@
 <!-- Pagination -->
 <div class="w-screen mx-auto relative max-w">
 	<div class="w-full px-6 sm:px-8 md:px-16 mx-auto">
-		<div class="grid {xor(!data.post.previous, !data.post.next) ? 'grid-rows-1' : 'grid-rows-2'} md:grid-rows-1 grid-cols-2 py-6 justify-between">
+		<div class="grid {xor(!data.post.previous, !data.post.next) ? 'grid-rows-1' : 'grid-rows-2'} md:grid-rows-1 grid-cols-2 py-4 md:py-6 justify-between text-sm md:text-base">
 			{#if data.post.previous}
 			<a class="row-start-1 col-span-full md:col-span-1 group flex flex-wrap flex-col p-4 pl-0" href={data.post.previous.slug}>
 				<div class="inline-flex align-top">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2 self-center">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
 					</svg>
-					<h4 class="font-semibold text-lg group-hover:underline">&nbsp;Newer post</h4>
+					<h4 class="font-semibold group-hover:underline font-sans">&nbsp;Newer post</h4>
 				</div>
-				<p class="text-lg">{data.post.previous.title}</p>
+				<p class="">{data.post.previous.title}</p>
 			</a>
 			{:else}
-			<span class="row-start-1 col-span-full md:col-span-1 group flex flex-wrap flex-col p-4 pl-0 italic">
-				No post more recent than this one!
+			<span class="row-start-1 col-span-full md:col-span-1 group flex flex-wrap flex-col p-4 pl-0 italic ">
+				No post newer than this!
 			</span>
 			{/if}
 			<!-- Add vertical divider-->
@@ -98,12 +136,12 @@
 			{#if data.post.next}
 			<a class="md:row-start-1 col-span-full md:col-start-2 {data.post.previous ? "row-start-2" : ""} group flex flex-wrap flex-col p-4 pr-0 items-end" href={data.post.next.slug}>
 				<div class="inline-flex align-top">
-					<p class="font-semibold text-lg group-hover:underline">Older post&nbsp;</p>
+					<p class="font-semibold group-hover:underline font-sans">Older post&nbsp;</p>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2 self-center">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
 					</svg>
 				</div>
-					<p class="text-right text-lg">{data.post.next.title}</p>
+					<p class="text-right">{data.post.next.title}</p>
 			</a>
 			{:else}
 				<span class="md:row-start-1 col-span-full md:col-start-2 {data.post.previous ? "row-start-2" : ""} group flex flex-wrap flex-col p-4 pr-0 items-end italic">
