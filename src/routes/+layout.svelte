@@ -82,7 +82,7 @@
 
 <div class="w-full grid grid-rows-[auto_1fr_auto] grid-cols-[100%] min-h-[100svh] bg-surface-50 dark:bg-surface-800">
 	<div class="flex justify-between w-full place-self-center mx-auto pt-6 px-6 sm:px-8 sm:pt-8">
-		<a href="/" class="text-lg font-medium dark:font-normal inline w-fit hover:underline whitespace-nowrap text-start !z-50" title="Visit homepage">
+		<a href="/" class="text-lg font-medium dark:font-normal inline w-fit hover:underline whitespace-nowrap text-start" title="Visit homepage">
 				Koen Raijer
 		</a>
 		<div class="w-fit flex flex-row flex-nowrap gap-x-4 md:flex-row-reverse">

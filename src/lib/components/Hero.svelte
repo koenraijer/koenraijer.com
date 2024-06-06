@@ -22,7 +22,7 @@
     <link rel="preload" href="/{info.avatar}" as="image">
 </svelte:head>
 
-<section class="card-shimmer z-0 grid grid-cols-1 md:grid-cols-3 bg-surface-100-800-token border-t border-b md:border border-surface-200-700-token shadow-sm overflow-hidden md:rounded-container rounded-none md:gap-4">
+<section class="card-shimmer z-0 grid grid-cols-1 md:grid-cols-3 border-t border-b md:border border-surface-200-700-token shadow-sm overflow-hidden md:rounded-container rounded-none md:gap-4">
     <div class="flex flex-col p-6 md:p-8 md:pr-0 pt-0 overflow-auto col-span-2 row-start-2 md:row-start-1">
         <h2 class="text-2xl font-semibold pb-4">{info.name}</h2>
         <p class="text-base flex-grow">   
@@ -32,8 +32,9 @@
             <Socials />
         </div>
     </div>
-    <div class="relative p-6 lg:p-8 block md:flex-col md:justify-center"> <!-- Added flex utilities here -->
-        <div class="relative aspect-square ml-0 mr-auto md:mx-auto h-36 md:h-auto">
+    <div class="relative p-6 lg:p-8 block md:flex-col place-content-start"> 
+        
+        <div class="relative aspect-square ml-0 mr-auto md:mx-auto h-24 md:h-auto">
             {#if !imageLoaded}
                 <div class="placeholder absolute inset-0 animate-pulse rounded-container h-full bg-surface-200/30 dark:bg-surface-700/30"></div>
             {:else}
