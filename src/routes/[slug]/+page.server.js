@@ -19,7 +19,8 @@ export async function load({ params, fetch }) {
         const post = posts[currentPostIndex];
 
         const html = parse(post.content)
-        post.readingTime = readingTime(html.structuredText).text
+
+        post.readingTime = readingTime(html.structuredText, { wordsPerMinute: 250 }).text
 
         return {
             post: {

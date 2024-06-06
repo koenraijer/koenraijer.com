@@ -1,12 +1,13 @@
-### June
-- Spring cleaning (font, lay-out, book cards) and new post added: [Experience sampling](https://www.koenraijer.io/experience-sampling).
 ## 2024
+### June
+- Spring cleaning (font, lay-out, book cards) and new post added: [Experience sampling](/experience-sampling).
+
 ### May
 - Added [Projects](/projects), improved UI of hero and [Books](/books).
 - 📝 New post [Introducing arXivCollector](arxivcollector)
 
 ### January
-- 📝 Updated post [Links and resources](https://www.koenraijer.io/links-and-resources)
+- 📝 Updated post [Links and resources](links-and-resources)
 - Changed link component so icons for external links are added automatically, changed menus
 - Added lazy loading to [Books](/books) based on intersection observer API ([src](https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479))
 - UI/UX improvements to book filtering options and menus
@@ -14,7 +15,7 @@
 - Changed to [Mona Sans](https://github.com/mona-sans), replaced Favicon and made it dependent whether light or dark mode is active.
 - Added grainy background to hero and category element
 - Fixed inline code and other code formatting things
-- 📝 New post: [Convert Pocketbook notes to Obsidian-flavoured markdown](https://www.koenraijer.io/pocketbook-html-to-obsidian-md)
+- 📝 New post: [Convert Pocketbook notes to Obsidian-flavoured markdown](/pocketbook-html-to-obsidian-md)
 
 ## 2023
 ### December
@@ -22,7 +23,7 @@
 - Redesigned footer, fixed bug of pages being halfway after navigating, added support for math notation, full bleed images, added markdown video support.
 - Version 3.0 of the website is live! 🎉
 - Added Vercel speed insights, removed GoatCounter
-- 📝 New post: [Anki Remote iOS alternative: cheap, versatile, unwasteful.](https://www.koenraijer.io/anki-remote)
+- 📝 New post: [Anki Remote iOS alternative: cheap, versatile, unwasteful.](/anki-remote)
 - Added [TailwindCSS fluid type plugin](https://davidhellmann.com/blog/development/tailwindcss-fluid-type-plugin)
 
 ### August
