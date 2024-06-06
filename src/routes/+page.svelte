@@ -139,7 +139,7 @@
 		<h2 id="currently_reading" class="text-xl font-semibold flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Currently reading</a></h2>
 		<hr class="!border-surface-500-400-token border-2 w-full"/>
 	</div>
-	<div class="flex w-full gap-6 flex-wrap">
+	<div class="flex w-full gap-6 flex-wrap relative">
 		{#each data.current_books as book}
 			<Book book={book} compact/>
 		{/each}
