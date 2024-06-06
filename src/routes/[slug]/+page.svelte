@@ -103,7 +103,7 @@
 </div>
 
 <!-- Categories -->
-<div class="w-full bg-surface-100-800-token border-t border-b border-surface-200-700-token rounded-none mt-12">
+<div class="w-full card-shimmer border-t border-b border-surface-200-700-token rounded-none mt-12">
 	<div class="w-full mx-auto relative max-w px-6 sm:px-8 md:px-16">
 		<div class="text-surface-900-50-token flex gap-x-2 place-items-center my-6 mx-auto w-fit">
 			<b>Filed under:</b> 
@@ -115,7 +115,7 @@
 <!-- Pagination -->
 <div class="w-screen mx-auto relative max-w">
 	<div class="w-full px-6 sm:px-8 md:px-16 mx-auto">
-		<div class="grid {xor(!data.post.previous, !data.post.next) ? 'grid-rows-1' : 'grid-rows-2'} md:grid-rows-1 grid-cols-2 py-4 md:py-6 justify-between text-sm md:text-base">
+		<div class="grid {xor(!data.post.previous, !data.post.next) ? 'grid-rows-1' : 'grid-rows-2'} md:grid-rows-1 grid-cols-2 py-4 md:py-6 justify-between text-base">
 			{#if data.post.previous}
 			<a class="row-start-1 col-span-full md:col-span-1 group flex flex-wrap flex-col p-4 pl-0" href={data.post.previous.slug}>
 				<div class="inline-flex align-top">
