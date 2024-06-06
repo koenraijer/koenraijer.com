@@ -29,7 +29,12 @@ module.exports = {
 			'../**/*.{html,js,svelte,ts}'
 		)
 	],
-	theme: {
+	theme: 
+		{
+		screens: {
+			'xs': '475px',
+			...defaultTheme.screens,
+			},
 		extend: {
 			fontFamily: {
 				sans: ['"Mona Sans"', ...defaultTheme.fontFamily.sans],

@@ -49,12 +49,12 @@
 	});
 
 	function handleCategorySelection(option) {
-		if (option === 'Finished')
-			selectedCategoryOption = 'read'
-		else if (option === 'Reading now')
-			selectedCategoryOption = 'currently-reading'
-		else if (option === 'On wishlist')
-			selectedCategoryOption = 'to-read'
+		if (option === 'Finished' || option === 'read')
+			selectedCategoryOption = 'Finished'
+		else if (option === 'Reading now' || option === 'currently-reading')
+			selectedCategoryOption = 'Reading now'
+		else if (option === 'On wishlist' || option === 'to-read')
+			selectedCategoryOption = 'On wishlist'
 		else 
 			selectedCategoryOption = option;
 		dispatch('categorySelected', { selectedCategoryOption });
@@ -83,7 +83,7 @@
                         <div class="">
                             <div class="flex flex-wrap items-center w-fit">
                                 <span
-                                    class="inline-flex px-3 py-2 items-center transition-colors text-token border border-surface-200-700-token rounded-container"
+                                    class="inline-flex px-3 py-1 items-center transition-colors text-token border border-surface-200-700-token rounded-full"
                                 >
                                     <span>{selectedOption}</span>
                                 </span>
@@ -94,7 +94,7 @@
                         <div class="ml-2">
                             <div class="flex flex-wrap items-center">
                                 <span
-                                    class="rounded-container inline-flex px-3 py-2 items-center transition-colors text-token border border-surface-200-700-token"
+                                    class="rounded-full inline-flex px-3 py-1 items-center transition-colors text-token border border-surface-200-700-token"
                                 >
                                     <span>{selectedScoreOption}</span>
                                     <button
@@ -115,7 +115,7 @@
                         <div class="ml-2">
                             <div class="flex flex-wrap items-center">
                                 <span
-                                    class="rounded-container inline-flex px-3 py-2 items-center transition-colors text-token border border-surface-200-700-token"
+                                    class="rounded-full inline-flex px-3 py-1 items-center transition-colors text-token border border-surface-200-700-token"
                                 >
 									<span>{selectedCategoryOption}</span>
                                     <button
@@ -150,9 +150,9 @@
 						>
 							Sort
 							<svg
-								class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-surface-700-200-token {isSortOpen
+								class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 {isSortOpen
 									? 'rotate-180'
-									: 'rotate-0'} transition-transform duration-200 translate-y-1"
+									: 'rotate-0'} transition-transform duration-200 translate-y-2"
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 20 20"
 								fill="currentColor"
@@ -216,9 +216,9 @@
 						<span>Rating</span>
 						<!-- Heroicon name: solid/chevron-down -->
 						<svg
-							class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-surface-700-200-token {isScoreOpen
+							class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 {isScoreOpen
 								? 'rotate-180'
-								: 'rotate-0'} transition-transform duration-200 translate-y-1"
+								: 'rotate-0'} transition-transform duration-200 translate-y-2"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
@@ -282,9 +282,9 @@
 						<span>Status</span>
 						<!-- Heroicon name: solid/chevron-down -->
 						<svg
-							class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-surface-700-200-token {isCategoryOpen
+							class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 {isCategoryOpen
 								? 'rotate-180'
-								: 'rotate-0'} transition-transform duration-200 translate-y-1"
+								: 'rotate-0'} transition-transform duration-200 translate-y-2"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"

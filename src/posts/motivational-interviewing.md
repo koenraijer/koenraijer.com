@@ -2,8 +2,7 @@
 title: Motivational Interviewing
 description: A brief guide to creating sustainable behavioral change.
 date: 2022-04-06
-categories:
-  - Psychiatry
+categories: []
 published: true
 ToC: true
 ---
@@ -61,4 +60,5 @@ Motivational Interviewing is a counseling method developed by Miller & Rodnick, 
 - "What are your goals and values?" (consider using a card sort activity)
 	- "How does continuing to do *target behavior* fit in with your goals and values?"
 
+## Bibliography
 [^1]: Miller, W. R., & Rollnick, S. (2013). Motivational interviewing: Helping people change. Guilford press.

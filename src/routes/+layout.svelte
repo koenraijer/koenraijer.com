@@ -82,36 +82,21 @@
 
 <div class="w-full grid grid-rows-[auto_1fr_auto] grid-cols-[100%] min-h-[100svh] bg-surface-50 dark:bg-surface-800">
 	<div class="flex justify-between w-full place-self-center mx-auto pt-6 px-6 sm:px-8 sm:pt-8">
-		<a href="/" class="text-lg font-semibold inline w-fit hover:underline whitespace-nowrap text-start" title="Visit homepage">
+		<a href="/" class="text-lg font-medium dark:font-normal inline w-fit hover:underline whitespace-nowrap text-start !z-50" title="Visit homepage">
 				Koen Raijer
-			<!--
-				{#if $modeCurrent}
-					<svelte:component this={FaviconLight} />
-				{:else}
-					<svelte:component this={FaviconDark} />
-				{/if}
-				{#if $page.url.pathname === "/"}
-					Koen Raijer
-				{/if}
-			-->
 		</a>
-		<div class="w-fit">
+		<div class="w-fit flex flex-row flex-nowrap gap-x-4 md:flex-row-reverse">
+			<ThemeToggle />
 			<Menu>
 				<svelte:fragment slot="small-screens">
 					{#each menuItems as item}
 						<MenuButton href={item.href}>{item.title}</MenuButton>
 					{/each}
-					<hr>
-					<div class="flex row-nowrap justify-between gap-x-2">
-						<ThemeToggle />
-						<ToTopButton />
-					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="large-screens">
 					{#each menuItems as item}
-						<A href={item.href} classes="whitespace-nowrap hover:underline font-normal text-base text-surface-900-50-token">{item.title}</A>
+						<A href={item.href} classes="whitespace-nowrap hover:underline font-normal text-base text-surface-900-50-token dark:font-thin font-normal">{item.title}</A>
 					{/each}
-					<ThemeToggle />
 				</svelte:fragment>
 			</Menu>
 		</div>

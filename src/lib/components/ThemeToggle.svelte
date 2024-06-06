@@ -18,13 +18,13 @@
     /** Provide classes to set height styles. Should be half of width. */
     export let height = 'h-5';
     /** Provide classes to set ring styles. */
-    export let ring = 'border border-surface-300-600-token';
+    export let ring = 'border border-surface-200-700-token';
     /** Provide classes to set border radius styles. */
     export let rounded = 'rounded-container';
     // Classes
     const cTransition = `transition-colors duration-[200ms]`;
     const cTrack = 'cursor-pointer';
-    const cIcon = 'w-6 h-6';
+    const cIcon = 'w-5 h-5';
 
 	function onToggleHandler() {
 		$modeCurrent = !$modeCurrent;
@@ -68,7 +68,7 @@
 <button 
     on:click={() => {onToggleHandler(); close()}} 
     on:keydown={onKeyDown} 
-    class="{classesTrack} transition-colors decoration-none flex justify-center items-center bg-surface-hover-token h-fit w-fit p-2 whitespace-nowrap"
+    class="{classesTrack} !z-50 transition-colors decoration-none flex justify-center items-center bg-surface-hover-token h-fit w-fit p-2 whitespace-nowrap"
     role="switch"
     aria-label="Light Switch"
     aria-checked={$modeCurrent}

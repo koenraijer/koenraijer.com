@@ -45,7 +45,17 @@
 
     // New function to handle category selection
     function onCategorySelected(event) {
-        status = event.detail.selectedCategoryOption;
+        let displayValue = event.detail.selectedCategoryOption;
+        // Map the display value to the internal status value
+        if (displayValue === 'Finished') {
+            status = 'read';
+        } else if (displayValue === 'Reading now') {
+            status = 'currently-reading';
+        } else if (displayValue === 'On wishlist') {
+            status = 'to-read';
+        } else {
+            status = 'All';
+        }
         // If the category "On wishlist" is selected, reset the score filter
         if (score !== "All scores" && status === "currently-reading" || status === "to-read") {
             score = "All scores";

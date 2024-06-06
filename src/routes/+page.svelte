@@ -78,7 +78,7 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<section class="mt-12 max-w mx-auto md:px-8 lg:px-16">
+<section class="mt-8 sm:mt-12 max-w mx-auto md:px-8 lg:px-16">
 	<Hero />
 </section>
 

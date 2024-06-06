@@ -55,7 +55,7 @@ p, li {
 }
 
 .section {
-	@apply mt-12 mx-auto px-6 sm:px-8 lg:px-16 max-w
+	@apply mt-8 sm:mt-12 mx-auto px-6 sm:px-8 lg:px-16 max-w
 }
 
 .social {
@@ -124,7 +124,11 @@ you might need to extend your configuration or write custom CSS. */
 	/* Hide the horizontal rule */
 	display: none;
 }
-  
+
+.menu-button {
+	@apply cursor-pointer duration-[200ms] border border-surface-200-700-token rounded-container bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit p-2 text-surface-900-50-token
+}
+
 .button {
 	@apply cursor-pointer duration-[200ms] border border-surface-300-600-token rounded-container bg-surface-50-900-token transition-colors flex justify-start bg-surface-hover-token h-fit p-2
 }
