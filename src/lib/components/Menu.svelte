@@ -1,5 +1,6 @@
 <script>
     import { clickOutside } from '$lib/js/click_outside.js';
+    import { onMount } from 'svelte';
     import { setContext } from 'svelte';
     let isOpen = false;
     let hoverTimeout; // variable to store the timeout
@@ -26,12 +27,30 @@
         clearTimeout(hoverTimeout);
     }
 
+    onMount(() => {
+        const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+        function checkViewport(e) {
+            if (e.matches) {
+                isOpen = false;
+            }
+        }
+
+        mediaQuery.addEventListener('change', checkViewport);
+        checkViewport(mediaQuery); // Check immediately on page load
+
+        return () => {
+            // Cleanup when component is unmounted
+            mediaQuery.removeEventListener('change', checkViewport);
+        };
+    });
+
     setContext('close', close);
 </script>
 
 <div class="relative md:hidden z-50" use:clickOutside on:outclick={handleClickOutside}>
     <button
-        class="transition-all decoration-none flex justify-center items-center p-2 cursor-pointer duration-[200ms] border {isOpen ? "border-surface-50-900-token shadow-lg" : "border-surface-200-700-token"} shadow-white dark:shadow-black rounded-container bg-transparent bg-surface-hover-token"
+        class="transition-all decoration-none flex justify-center items-center p-2 cursor-pointer duration-[200ms] border border-surface-200-700-token {isOpen ? "shadow-lg" : ""} shadow-white dark:shadow-black rounded-container bg-transparent bg-surface-hover-token"
         on:click|stopPropagation={() => isOpen = !isOpen}
         on:mouseleave={handleMouseLeave}
     > <!-- on:mouseenter={handleMouseEnter} -->

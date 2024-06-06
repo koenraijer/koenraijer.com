@@ -21,11 +21,11 @@
 
 </script>
 
-<div class="section">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-8">
-        <div class="col-span-2">
+<div class="section !mt-0 h-full flex place-content-center w-full">
+    <div class="grid gap-x-16 gap-y-8 w-full md:grid-cols-3 place-self-center">
+        <div class="w-full md:col-span-2">
             <div class="flex items-center group mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline group-hover:-translate-x-1 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline group-hover:-translate-x-1 transition-transform pr-1">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
                 <button on:click={goBack} class="group-hover:underline">
@@ -33,7 +33,7 @@
                 </button>
             </div>
 
-            <h1 class="text-xl font-bold pb-2 title_div" style:--tag="title-{book["Book Id"]}">{book?.Title}</h1>
+            <h1 class="text-xl font-bold pb-2 title_div w-full" style:--tag="title-{book["Book Id"]}">{book?.Title}</h1>
             <h2 class="text-xl author_div" style:--tag="author-{book["Book Id"]}">{book?.Author}</h2>
             <div class="py-4 rating_div" style:--tag="rating-{book["Book Id"]}">
                 {#if book['My Rating']}
@@ -69,7 +69,7 @@
             </div>
             <div class="status_div" style:--tag="status-{book["Book Id"]}">
                 {#if book['Exclusive Shelf'] === "read"}
-                    <div class="group py-1 px-2 w-fit relative transition-colors rounded-full border border-surface-200-700-token text-surface-700-200-token">
+                    <div class="group py-1 px-4 w-fit relative transition-colors rounded-full border border-surface-200-700-token text-surface-700-200-token">
                         Finished {book['Date Read'] ? ("on " + formatDate(book['Date Read'])) : ""}
                     </div>
                 {:else if book['Exclusive Shelf'] === "currently-reading"}
@@ -111,8 +111,8 @@
                 </tbody>
             </table>    
         </div>
-        <div class="w-full mb-2 transform group-hover:-translate-y-1 transition-transform">
-            <img class="w-full h-auto object-fit rounded-container" src={"/book_covers/" + (book["Book Id"] ? book["Book Id"] : "") + ".webp"} alt={book.Title ? book.Title : ""} style:--tag="book-{book["Book Id"]}" />
+        <div class="mb-2 ml-0 w-full aspect-square place-self-center flex items-center justify-center dark:bg-surface-900 bg-surface-100 rounded-container !z-20 p-4 relative">
+            <img class="w-auto scale-100 group-hover:scale-105 transition-transform duration-75 ease-out !z-0 h-3/4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src={"/book_covers/" + (book["Book Id"] ? book["Book Id"] : "") + ".webp"} alt={book.Title ? book.Title : ""} style:--tag="book-{book["Book Id"]}" />
         </div>
     </div>
 </div>

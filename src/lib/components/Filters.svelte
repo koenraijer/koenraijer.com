@@ -142,7 +142,7 @@
 					<div class="">
 						<button
 							type="button"
-							class="cursor-pointer duration-[200ms] border-l border-t border-b border-surface-300-600-token rounded-l-container bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit p-2 z-30"
+							class="cursor-pointer duration-[200ms] border-l border-t border-b border-surface-300-600-token rounded-l-container bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit py-1 px-4 z-30"
 							id="menu-button"
 							aria-expanded="false"
 							aria-haspopup="true"
@@ -203,7 +203,7 @@
 				>
 					<button
 						type="button"
-						class="cursor-pointer duration-[200ms] border-t border-b border-l border-surface-300-600-token bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit p-2 z-30"
+						class="cursor-pointer duration-[200ms] border-t border-b border-l border-surface-300-600-token bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit py-1 px-4 z-30"
 						aria-expanded="false"
 						on:click={() => {
 							isScoreOpen = !isScoreOpen;
@@ -269,7 +269,7 @@
 				>
 					<button
 						type="button"
-						class="cursor-pointer relative duration-[200ms] border border-surface-300-600-token rounded-r-container bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit p-2 z-30"
+						class="cursor-pointer relative duration-[200ms] border border-surface-300-600-token rounded-r-container bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit py-1 px-4 z-30"
 						aria-expanded="false"
 						on:click={() => {
 							isCategoryOpen = !isCategoryOpen;

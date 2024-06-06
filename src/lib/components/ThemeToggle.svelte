@@ -6,9 +6,9 @@
 
     // Props
     /** Provide classes to set the light background color. */
-    export let bgLight = 'bg-surface-50';
+    export let bgLight = 'bg-transparent';
     /** Provide classes to set the dark background color. */
-    export let bgDark = 'bg-surface-900';
+    export let bgDark = '';
     /** Provide classes to set the light SVG fill color. */
     export let fillLight = 'fill-surface-50';
     /** Provide classes to set the dark SVG fill color. */
