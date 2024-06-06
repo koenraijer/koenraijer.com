@@ -1,3 +1,5 @@
+### June
+- Spring cleaning (font, lay-out, book cards) and new post added: [Experience sampling](https://www.koenraijer.io/experience-sampling).
 ## 2024
 ### May
 - Added [Projects](/projects), improved UI of hero and [Books](/books).
