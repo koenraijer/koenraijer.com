@@ -95,7 +95,7 @@
 			</aside>
 		{/if}
 		<!-- Post content -->
-		<div class="text-surface-900-50-token !max-w-none md:prose-p:pl-4 dark:prose-p:font-thin font-serif prose-headings:font-sans prose-inline-code:overflow-x-scroll prose prose-headings:prose-a:no-underline relative prose-code:text-surface-900-50-token prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless prose-code:text-sm prose-code:text-wrap prose-inline-code:text-wrap prose-inline-code:text-sm prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:bg-surface-100-800-token prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-code:dark:text-[0.9rem] prose-ul:mt-0 prose-li:my-0 prose-a:my-0 prose-p:mb-0 prose-ol:mt-0">
+		<div class="text-surface-900-50-token break-words !max-w-none md:prose-p:pl-4 dark:prose-p:font-thin font-serif prose-headings:font-sans prose-inline-code:overflow-x-scroll prose prose-headings:prose-a:no-underline relative prose-code:text-surface-900-50-token prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless prose-code:text-sm prose-code:text-wrap prose-inline-code:text-wrap prose-inline-code:text-sm prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:bg-surface-100-800-token prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-code:dark:text-[0.9rem] prose-ul:mt-0 prose-li:my-0 prose-a:my-0 prose-p:mb-0 prose-ol:mt-0">
 			{@html data.post.content}
 		</div>
 	</article>

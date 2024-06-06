@@ -16,7 +16,7 @@
 </script>
 
 <!--Body-->
-<button class="overflow-hidden flex flex-row w-full group justify-start gap-x-4" on:click|preventDefault={() => navigateToBookDetails(book)}>
+<button class="overflow-hidden flex flex-row {compact ? "w-fit" : "w-full"} group gap-x-4" on:click|preventDefault={() => navigateToBookDetails(book)}>
     {#if compact}
         <div use:popup={{ event: 'hover', target: 'titleAuthorPopup-' + book["Book Id"], placement: 'bottom'}} class="[&>*]:pointer-events-none mb-2 ml-0 w-36 h-36 sm:w-48 sm:h-48 flex items-center justify-center dark:bg-surface-900 bg-surface-100 rounded-container !z-20 p-4">
             {#if book.cover_downloaded}
@@ -27,23 +27,21 @@
         </div>
         <div class="bg-surface-700 dark:bg-surface-700 rounded-container p-2 z-20 text-xs relative"  data-popup="titleAuthorPopup-{book["Book Id"]}">
             <p class="font-sans text-surface-50 dark:text-surface-200 flex flex-col">
-                <span class="font-semibold" style:--tag="title-{book["Book Id"]}" >{book.Title ? book.Title : ""}</span>
+                <span class="font-semibold truncate" style:--tag="title-{book["Book Id"]}" >{book.Title ? book.Title : ""}</span>
                 <span class="" style:--tag="author-{book["Book Id"]}">{book.Author}</span>
             </p>
         </div>
     {:else}
-    <div class="mb-2 transform transition-transform ml-0 w-36 h-36 sm:w-48 sm:h-48 flex items-center justify-center dark:bg-surface-900 bg-surface-100 rounded-container">
+    <div class="mb-2 transform transition-transform ml-0 w-36 h-36 sm:w-48 sm:h-48 flex items-center justify-center dark:bg-surface-900 bg-surface-100 rounded-container shrink-0">
         {#if book.cover_downloaded}
             <LazyImg src={"/book_covers/" + book["Book Id"] + ".webp"} styleTag="book-{book["Book Id"]}" alt={book.Title ? book.Title : ""} imgClasses="object-contain h-48 w-auto p-4 aspect-auto transform group-hover:scale-105 transition-transform duration-75 ease-out" placeholderClasses="object-fill z-0" parentClasses=""/>
         {:else}
             <div class="placeholder w-full h-full bg-secondary-300-600-token"></div>
         {/if}
     </div>
-    {/if}
-    {#if !compact}
     <div class="flex flex-col flex-grow-0">
-        <h2 class="font-semibold mb-0 pb-0 group-hover:underline title_div text-left" style:--tag="title-{book["Book Id"]}" >{book.Title ? book.Title : ""}</h2>
-        <span class="text-surface-700-200-token author_div text-left" style:--tag="author-{book["Book Id"]}">{book.Author}</span>
+        <h2 class="font-semibold mb-0 pb-0 group-hover:underline title_div text-left truncate" style:--tag="title-{book["Book Id"]}" >{book.Title ? book.Title : ""}</h2>
+        <span class="text-surface-700-200-token author_div text-left truncate" style:--tag="author-{book["Book Id"]}">{book.Author}</span>
         {#if book['My Rating']}
             <div class="py-2 rating_div ml-0" style:--tag="rating-{book["Book Id"]}">
                     <Ratings value={book['My Rating']} max={5} justify>

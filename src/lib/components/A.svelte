@@ -18,7 +18,7 @@
 </script>
 
 
-<a class={classes + " inline-flex my-0"} href={href} {target} {rel}>
+<a class={classes + " inline-flex my-0 break-all"} href={href} {target} {rel}>
     <slot/>
     {#if isExternal && !isWikipedia}
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 inline-flex self-start text-inherit stroke-2 mt-1">
