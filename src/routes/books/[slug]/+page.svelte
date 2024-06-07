@@ -21,7 +21,7 @@
 
 </script>
 
-<div class="section !mt-0 h-full flex place-content-center w-full">
+<div class="section sm:!mt-0 h-full flex place-content-center w-full">
     <div class="grid gap-x-16 gap-y-8 w-full md:grid-cols-3 place-self-center">
         <div class="w-full md:col-span-2">
             <div class="flex items-center group mb-2">
@@ -32,7 +32,6 @@
                     Books 
                 </button>
             </div>
-
             <h1 class="text-xl font-bold pb-2 title_div w-full" style:--tag="title-{book["Book Id"]}">{book?.Title}</h1>
             <h2 class="text-xl author_div" style:--tag="author-{book["Book Id"]}">{book?.Author}</h2>
             <div class="py-4 rating_div" style:--tag="rating-{book["Book Id"]}">

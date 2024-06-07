@@ -34,13 +34,13 @@
         </div>
     </div>
     <div class="relative p-6 lg:p-8 block md:flex-col place-content-start col-span-2"> 
-        <div class="relative aspect-square ml-0 mr-auto md:mx-auto h-24 md:h-auto group transition-all shadow-sm shadow-white dark:shadow-black">
+        <div class="relative aspect-square ml-0 mr-auto md:mx-auto h-36 md:h-auto group transition-all shadow-sm shadow-white dark:shadow-black">
             {#if !imageLoaded}
                 <div class="placeholder absolute inset-0 animate-pulse rounded-container h-full bg-surface-200/30 dark:bg-surface-700/30"></div>
             {:else}
-                <div class="absolute inset-0 rounded-container bg-primary-500 mix-blend-difference group-hover:mix-blend-normal transition-colors" in:fade={{duration: 100}}></div>
-                <div class="absolute inset-0 rounded-container mix-blend-difference group-hover:mix-blend-normal " style="background: url('/avatar_pixelbg2.png') no-repeat center / cover;" in:fade={{duration: 100}}></div>
-                <div class="absolute inset-0 rounded-container group-hover:mix-blend-normal" style="background: url('{info.avatar}') no-repeat center / cover;" in:fade={{duration: 100}}></div>
+                <div class="absolute inset-0 rounded-full sm:rounded-container bg-[#2989FF] mix-blend-difference group-hover:mix-blend-normal transition-colors" in:fade={{duration: 100}}></div>
+                <div class="absolute inset-0 rounded-full sm:rounded-container mix-blend-difference group-hover:mix-blend-normal" style="background: url('/avatar_pixelbg2.png') no-repeat center / cover;" in:fade={{duration: 100}}></div>
+                <div class="absolute inset-0 rounded-full sm:rounded-container group-hover:mix-blend-normal" style="background: url('{info.avatar}') no-repeat center / cover;" in:fade={{duration: 100}}></div>
             {/if}
         </div>
     </div>

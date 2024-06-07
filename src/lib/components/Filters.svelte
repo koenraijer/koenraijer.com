@@ -8,6 +8,7 @@
 
 	const dispatch = createEventDispatcher();
 
+	let groupNames = ['By score', 'By date', 'By title'];
 	$: options = ['Highest', 'Lowest', 'Oldest', 'Newest', 'Title A-Z', 'Title Z-A'];
 	$: selectedOption = sort ? sort : 'Newest';
 
@@ -168,25 +169,32 @@
 					</div>
 					{#if isSortOpen}
 						<div
-							class="absolute left-0 mt-3 w-fit h-auto focus:outline-none bg-surface-100-800-token border border-surface-200-700-token z-40 rounded-container py-2"
+							class="absolute left-0 mt-3 w-fit h-auto focus:outline-none bg-surface-100-800-token border border-surface-200-700-token z-40 rounded-container shadow-white dark:shadow-black shadow-lg"
 							role="menu"
 							aria-orientation="vertical"
 							aria-labelledby="menu-button"
 							tabindex="-1"
 						>
 							<div class="w-full h-full flex flex-col" role="none">
-								{#each options as option, i}
-									<button
-										class="{selectedOption === option
-											? 'bg-secondary-500-400-token'
-											: 'text-surface-900-50'} text-sm cursor-pointer duration-[200ms] border-t {i === options.length - 1 ? "border-b" : ""} border-surface-200-700-token transition-colors hover:bg-surface-200-700-token whitespace-nowrap p-2 px-4 w-full"
-										role="menuitem"
-										tabindex="-1"
-										id={`menu-item-${i}`}
-										on:click={() => handleSelection(option)}
-									>
-										<div class="">{option}</div>
-									</button>
+								{#each groupNames as groupName, i}
+									<div class="group">
+										<span class="text-sm italic px-2">{groupName}</span>
+										<div class="flex justify-between">
+											{#each options.slice(i * 2, i * 2 + 2) as option, j}
+												<button
+													class="{selectedOption === option
+														? 'bg-secondary-500 text-white'
+														: 'text-surface-900-50'} text-sm border-t {j % 2 === 0 ? "border-r" : ""} {i * 2 + j < options.length - 2 ? 'border-b' : ''} cursor-pointer duration-[200ms] border-surface-200-700-token transition-colors hover:bg-surface-200-700-token whitespace-nowrap p-2 px-4 w-full"
+													role="menuitem"
+													tabindex="-1"
+													id={`menu-item-${i}-${j}`}
+													on:click={() => handleSelection(option)}
+												>
+													<div class="">{option}</div>
+												</button>
+											{/each}
+										</div>
+									</div>
 								{/each}
 							</div>
 						</div>
@@ -244,7 +252,7 @@
 								{#each scoreOptions as option, i}
 									<button
 										class="{selectedScoreOption === option
-											? 'bg-secondary-500-400-token'
+											? 'bg-secondary-500 text-white'
 											: 'text-surface-900-50'} text-sm cursor-pointer duration-[200ms] border-t {i === options.length - 1 ? "border-b" : ""} border-surface-200-700-token transition-colors hover:bg-surface-200-700-token whitespace-nowrap p-2 px-4 w-full"
 										role="menuitem"
 										tabindex="-1"
@@ -310,7 +318,7 @@
 								{#each categoryOptions as option, i}
 									<button
 									class="{selectedCategoryOption === option
-										? 'bg-secondary-500-400-token'
+										? 'bg-secondary-500 text-white'
 										: 'text-surface-900-50'} text-sm cursor-pointer duration-[200ms] border-t {i === options.length - 1 ? "border-b" : ""} border-surface-200-700-token transition-colors hover:bg-surface-200-700-token whitespace-nowrap p-2 px-4 w-full"
 										role="menuitem"
 										tabindex="-1"

@@ -37,7 +37,7 @@ export const menuItems = [
     { href: "/projects", title: "Projects" },
     { href: "/changelog", title: "Changelog" },
     { href: "/240504_resume.pdf", title: "CV" },
-    { href: "https://github.com/koenraijer/koenraijer.2.0", title: "Source" }
+    { href: "https://github.com/koenraijer/koenraijer.io", title: "Source" }
 ];
 
 export const projects = {
