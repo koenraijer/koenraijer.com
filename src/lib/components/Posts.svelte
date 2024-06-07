@@ -54,12 +54,12 @@
             <li>
                 <a class="group font-sans" href={"/" + post.slug}>
                     <div class="grid grid-cols-1 py-4 pb-4 gap-x-2">
-                        <p class="date sm:pb-1 text-surface-400 text-sm font-sans">
+                        <p class="date sm:pb-1 text-surface-600-300-token text-sm font-sans">
                             {formatDate(post.date)} — {post.readingTime}
                         </p>
                         <div class="">
                             <h4 class="text-base font-semibold group-hover:underline">{post.title}</h4>
-                            <p class="description pt-1 text-surface-700-200-token">{post.description}</p>
+                            <p class="description pt-1 text-surface-600-300-token dark:font-light font-[350]">{post.description}</p>
                         </div>
                     </div>
                     {#if i !== displayedPosts.length - 1}

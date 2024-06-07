@@ -7,9 +7,6 @@ categories:
 description: "Een boekrecensie van Frank van Dongens sciencefictionroman: Het duizend eilanden experiment."
 published: true
 ---
-
-**SPOILER ALERT**
-
 *Het duizend eilanden experiment* van Frank van Dongen is een Nederlandse scifiroman waarin genationaliseerde social mediagiganten een wereldwijd aandachtsmonopolie op het met automatische medicatie-implantaten in toom gehouden volk hebben. Elke vorm van zelfexpressie -- een eigen zaak hebben, een feestje houden, er überhaupt ideeën op nahouden -- wordt ontmoedigd of is verboden. Met de magisch-realistische connectie tussen de hoofdpersoon en zijn eeneiige tweelingbroer ontvouwt zich een mysterieuze verhaallijn op een andere planeet, waarbij de dreiging van intelligent buitenaards leven als een rode draad door het verhaal blijft lopen.
 
 In dit boek komen in de eerste plaats *veel* verschillende sciencefictionthema's aan bod. Een aantal daarvan zijn klassiekers: de expansie van de mensheid tussen de sterren, een dreigende alieninvasie, en de Frankenstein-achtige experimenten van Jack, de hoofdpersoon. Tegelijkertijd behandelt de schrijver ook meer eigentijdse thema's. Zoals SoNet, het almachtige staatsmediabedrijf, dat de levens van de massa's volledig in hun greep heeft, en ze dag en nacht voedt met VR-amusement en VR-porno. We zijn er nog ver van verwijderd, en toch voel ik (en ik ben niet de enige) een vergelijkbaar gevoel van vervreemding en versplintering ten gevolge van de digitalisering van ons sociale leven. En ook een vergelijkbare strijd om me daartegen te weren, als Jack zegt dat hij zich "met fysieke maatregelen tegen de verleidingen van SoNet moet beschermen, om te voorkomen dat hij er in momenten van zwakte en verlangen weer aan toegeeft". 

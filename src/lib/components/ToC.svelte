@@ -1,6 +1,6 @@
 <script>
-  import { onMount } from 'svelte'
-  import {active_heading, active_tracker} from '$lib/js/stores'
+  import { onMount, onDestroy } from 'svelte'
+  import {active_heading, active_tracker, toggle_sticky} from '$lib/js/stores'
   import {browser} from '$app/environment'
   export let allowedHeadings = ['h2', 'h3', 'h4', 'h5', 'h6']
 
@@ -8,6 +8,7 @@
   let headings = []
   let scrollDirection = 'down';
   let progressBar;
+  let isLargeScreen = false;
 
   // Store the previous scroll position
   let lastScrollY = scrollY;
@@ -17,12 +18,34 @@
     scrollY = window.scrollY;
     scrollDirection = scrollY > lastScrollY ? 'down' : 'up';
     lastScrollY = scrollY;
+    const mediaQueryList = window.matchMedia("(min-width: 1024px)");
+    isLargeScreen = mediaQueryList.matches;
+
+    // Function to update isLargeScreen when the screen size changes
+    function checkScreenSize() {
+      isLargeScreen = mediaQueryList.matches;
+    }
+
+    // Add the event listener when the component is mounted
+    onMount(() => {
+      window.addEventListener('resize', checkScreenSize);
+    });
+
+    // Remove the event listener when the component is destroyed
+    onDestroy(() => {
+      window.removeEventListener('resize', checkScreenSize);
+    });
   }
 
   onMount(() => {
     updateHeadings()
     setActiveHeading()
   })
+
+  // Function to toggle the sticky setting
+  function toggleSticky() {
+    toggle_sticky.update(value => !value);
+  }
 
   function updateHeadings() {
     const nodes = [
@@ -92,7 +115,7 @@ function setActiveHeading() {
 }
 </script>
 
-<nav class="fixed font-sans top-0 left-1/2 right-1/2 z-10 -translate-x-1/2 w-screen bg-surface-100-800-token border-surface-200-700-token border-b transition-transform duration-300 ease-out {$active_tracker ? "translate-y-0" : "translate-y-[-100%]"}">
+<nav class="fixed font-sans top-0 left-1/2 right-1/2 -translate-x-1/2 w-screen bg-surface-100-800-token border-surface-200-700-token border-b transition-transform duration-300 ease-out !z-40 {$active_tracker ? "translate-y-0" : "translate-y-[-100%]"}">
   <div class="text-sm p-2 mx-auto w-fit"> {$active_heading.title} </div>
   <div id="progressBar" class="absolute top-full h-0.5 bg-secondary-500" bind:this={progressBar}></div>
 </nav>
@@ -100,11 +123,19 @@ function setActiveHeading() {
 <svelte:window on:load={setProgressBar} on:scroll={setActiveHeading} bind:scrollY={scrollY} />
 
 {#if headings.length > 0}
-    <nav class="border font-sans border-surface-200-700-token bg-surface-100 dark:bg-surface-900 p-4 text-surface-900-50-token transition-colors duration-100 rounded-container">
+    <nav class="border font-sans border-surface-200-700-token bg-surface-100 dark:bg-surface-900 p-4 pt-3 text-surface-900-50-token transition-colors duration-100 rounded-container z-10 {$toggle_sticky && isLargeScreen ? "lg:sticky top-1/4 lg:hover:opacity-100 opacity-50 transition-opacity" : "relative"}">
+      <button on:click={toggleSticky} class="absolute lg:block hidden top-0 right-0 cursor-pointer duration-[200ms] border-b border-l border-surface-300-600-token rounded-container bg-surface-50-900-token transition-colors bg-surface-hover-token h-fit p-2">
+        {#if !$toggle_sticky}
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="w-5 h-5" viewBox="0 0 256 256"><path d="M235.32,81.37,174.63,20.69a16,16,0,0,0-22.63,0L98.37,74.49c-10.66-3.34-35-7.37-60.4,13.14a16,16,0,0,0-1.29,23.78L85,159.71,42.34,202.34a8,8,0,0,0,11.32,11.32L96.29,171l48.29,48.29A16,16,0,0,0,155.9,224c.38,0,.75,0,1.13,0a15.93,15.93,0,0,0,11.64-6.33c19.64-26.1,17.75-47.32,13.19-60L235.33,104A16,16,0,0,0,235.32,81.37ZM224,92.69h0l-57.27,57.46a8,8,0,0,0-1.49,9.22c9.46,18.93-1.8,38.59-9.34,48.62L48,100.08c12.08-9.74,23.64-12.31,32.48-12.31A40.13,40.13,0,0,1,96.81,91a8,8,0,0,0,9.25-1.51L163.32,32,224,92.68Z"></path></svg>
+        {:else}
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="w-5 h-5" viewBox="0 0 256 256"><path d="M53.92,34.62A8,8,0,1,0,42.08,45.38L67.37,73.2A69.82,69.82,0,0,0,38,87.63a16,16,0,0,0-1.29,23.78L85,159.71,42.34,202.34a8,8,0,0,0,11.32,11.32L96.29,171l48.29,48.29A16,16,0,0,0,155.9,224c.38,0,.75,0,1.13,0a15.93,15.93,0,0,0,11.64-6.33,89.75,89.75,0,0,0,11.58-20.27l21.84,24a8,8,0,1,0,11.84-10.76ZM155.9,208,48,100.08C58.23,91.83,69.2,87.72,80.66,87.81l87.16,95.88C165.59,193.56,160.24,202.23,155.9,208Zm79.42-104-44.64,44.79a8,8,0,1,1-11.33-11.3L224,92.7,163.32,32,122.1,73.35a8,8,0,0,1-11.33-11.29L152,20.7a16,16,0,0,1,22.63,0l60.69,60.68A16,16,0,0,1,235.32,104Z"></path></svg>
+        {/if}
+      </button>
+      <span class="text-sm font-medium">Table of Contents</span>
       <ul class="collapse-content">
         {#each headings as heading}
             <li
-            class="heading list-none my-1 text-sm font-normal dark:font-thin dark:text-surface-100 font-sans transition-all"
+            class="heading list-none my-1 text-sm lg:text-xs font-normal dark:font-thin dark:text-surface-100 font-sans transition-all"
             style={`--depth: ${heading.depth}`}
             >
             <span class="font-bold">{heading.prefix}</span>

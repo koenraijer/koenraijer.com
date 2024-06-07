@@ -85,8 +85,8 @@
 <section class="section">
 	<div class="flex sm:flex-row items-center mb-4 w-full flex-wrap sm:flex-nowrap">
 		<div class="flex items-center w-full sm:flex-grow my-4 sm:my-0 ">
-			<h2 id="recent_posts" class="text-xl font-semibold flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Recent posts</a></h2>
-			<hr class="!border-surface-500-400-token border-2 w-full"/>
+			<h2 id="recent_posts" class="text-xl font-medium flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Recent posts</a></h2>
+			<hr class="!border-dotted !border-t-2 w-full !bg-transparent !border-surface-400"/>
 		</div>
 		<div class="w-full sm:pl-8 basis-full {focused ? "sm:basis-[200%] md:basis-3/5" : "sm:basis-[4.75rem]"} transition-all duration-300 ease-in-out">
 			<search class="relative w-full">
@@ -98,14 +98,13 @@
 						on:focus={() => focused = true} 
 						on:blur={() => { focused = false; searchQuery = ""; }}
 						type="search" 
-						class="peer cursor-pointer relative z-10 h-10 w-full rounded-container border border-surface-900-50-token bg-transparent outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text pl-12 sm:pl-0 sm:focus:pl-12 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
+						class="peer cursor-pointer relative z-10 h-10 w-full rounded-container border border-surface-200-700-token bg-transparent outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text pl-12 sm:pl-0 sm:focus:pl-12 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
 					/>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="absolute inset-y-0 my-auto h-6 border-r border-transparent border-surface-900-50 peer-focus pl-2">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="absolute inset-y-0 my-auto h-5 border-r border-transparent border-surface-900-50 peer-focus pl-[0.625rem]">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
 					</svg>
 				</form>	
 			</search>
-
 		</div>
 	</div>
 	
@@ -136,8 +135,8 @@
 
 <section class="section flex flex-col">
 	<div class="flex items-center w-full sm:flex-grow my-4 pb-4">
-		<h2 id="currently_reading" class="text-xl font-semibold flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Currently reading</a></h2>
-		<hr class="!border-surface-500-400-token border-2 w-full"/>
+		<h2 id="currently_reading" class="text-xl font-medium flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Currently reading</a></h2>
+		<hr class="!border-dotted !border-t-2 w-full !bg-transparent !border-surface-400"/>
 	</div>
 	<div class="grid grid-cols-2 md:grid-cols-3 w-fit gap-6 relative place-content-start">
 		{#each data.current_books as book}
@@ -150,8 +149,8 @@
 <div class="grid md:grid-cols-3 mt-12 max-w mx-auto md:px-16 md:gap-x-8 lg:gap-x-12 relative pb-12">
 	<section class="md:col-span-2 px-6 sm:px-8 md:px-0">
 		<div class="flex items-center">
-			<h2 id="archive" class="text-xl font-semibold flex-shrink-0 sm:pr-8 pr-4 transition-width duration-300 -mt-1"><a href="#archive">Archive</a></h2>
-			<hr class="!border-surface-500-400-token border-2 w-full"/>
+			<h2 id="archive" class="text-xl font-medium flex-shrink-0 sm:pr-8 pr-4 transition-width duration-300 -mt-1"><a href="#archive">Archive</a></h2>
+			<hr class="!border-dotted !border-t-2 w-full !bg-transparent !border-surface-400"/>
 		</div>
 		<Posts posts={data.posts} compact/>
 	</section>

@@ -8,3 +8,5 @@ export const page_offset = writable({})
 export const selectedSort = localStorageStore('selectedSort', 'Newest');
 
 export const active_tracker = writable(false)
+
+export const toggle_sticky = writable(false)
