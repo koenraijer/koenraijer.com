@@ -66,7 +66,7 @@
 </svelte:head>
 
 <button 
-    on:click={() => {onToggleHandler(); close()}} 
+    on:click={() => {onToggleHandler();}} 
     on:keydown={onKeyDown} 
     class="{classesTrack} !z-50 transition-colors decoration-none flex justify-center items-center bg-surface-hover-token h-fit w-fit p-2 whitespace-nowrap"
     role="switch"

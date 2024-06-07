@@ -18,7 +18,7 @@
 <!--Body-->
 <button class="flex flex-col sm:flex-row {compact ? "w-fit" : "w-full"} group gap-x-4 overflow-hidden" on:click|preventDefault={() => navigateToBookDetails(book)}>
     {#if compact}
-        <div use:popup={{ event: 'hover', target: 'titleAuthorPopup-' + book["Book Id"], placement: 'bottom'}} class="[&>*]:pointer-events-none mb-2 ml-0 w-36 h-36 sm:w-48 sm:h-48 flex items-center justify-center dark:bg-surface-900 bg-surface-100 rounded-container !z-20 p-4 relative">
+        <div use:popup={{ event: 'hover', target: 'titleAuthorPopup-' + book["Book Id"], placement: 'bottom'}} class="[&>*]:pointer-events-none mb-2 ml-0 w-28 h-28 xs:w-36 xs:h-36 sm:w-48 sm:h-48 flex items-center justify-center dark:bg-surface-900 bg-surface-100 rounded-container !z-20 p-4 relative">
             {#if book.cover_downloaded}
                 <LazyImg src={"/book_covers/" + book["Book Id"] + ".webp"} styleTag="book-{book["Book Id"]}" alt={book.Title ? book.Title : ""} imgClasses="w-auto transform scale-100 group-hover:scale-105 transition-transform duration-75 ease-out !z-0 h-3/4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" placeholderClasses="object-fill z-0" parentClasses=""/>
             {:else}
@@ -32,7 +32,7 @@
             </p>
         </div>
     {:else}
-    <div class="mb-2 transform transition-transform mx-auto sm:ml-0 w-36 h-36 sm:w-48 sm:h-48 flex items-center justify-center dark:bg-surface-900 bg-surface-100 rounded-container shrink-0">
+    <div class="mb-2 transform transition-transform mx-auto sm:ml-0 xs:w-36 xs:h-36 sm:w-48 sm:h-48 flex items-center justify-center dark:bg-surface-900 bg-surface-100 rounded-container shrink-0">
         {#if book.cover_downloaded}
             <LazyImg src={"/book_covers/" + book["Book Id"] + ".webp"} styleTag="book-{book["Book Id"]}" alt={book.Title ? book.Title : ""} imgClasses="w-auto transform scale-100 group-hover:scale-105 transition-transform duration-75 ease-out !z-0 h-3/4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" placeholderClasses="object-fill z-0" parentClasses=""/>
         {:else}
