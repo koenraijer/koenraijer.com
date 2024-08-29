@@ -1,5 +1,5 @@
 ---
-title: "Tracking emotions: my experience with experience sampling"
+title: A self-experiment on experience sampling
 date: 2024-06-01
 updated: 2024-06-06
 categories:

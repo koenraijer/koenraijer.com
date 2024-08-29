@@ -16,7 +16,7 @@
 - New code highlighting: https://github.com/atomiks/rehype-pretty-code 
 - https://www.skeleton.dev/utilities/codeblocks <-- replace codeblocks, or: https://github.com/pngwn/MDsveX/issues/385 
 - Use floating ui for filters
-- Improve menu 
+- Short links 
 
 **Completed:**
 - Update ToC: endgoal should be a fixed ToC like on gwern.net, but on scrolling, the active heading should appear as a sticky header at the top of the page, including a progress bar.
@@ -33,3 +33,4 @@
 - Change text select colour
 - https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479 <-- lazy loading (sitewide, but at least on the books page). 
 - Bug fix: white vertical stroke on mobile on books page removed.
+- Improve menu 

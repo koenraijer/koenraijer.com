@@ -17,7 +17,7 @@
 	import { modeCurrent } from '@skeletonlabs/skeleton';
 	import * as info from '$lib/js/info.js'
 	import MenuButton from '../lib/components/MenuButton.svelte';
-	import ToTopButton from '../lib/components/ToTopButton.svelte';
+	import CopyButton from '$lib/components/CopyButton.svelte';
 	import A from '$lib/components/A.svelte';
 
 	// Floating UI
@@ -29,8 +29,35 @@
 	import { afterNavigate } from '$app/navigation';
 
 	preparePageTransition();
+
 	afterNavigate(() => {
 		document.getElementById('page')?.scrollTo(0, 0);
+		for (const node of document.querySelectorAll('pre > code')) {
+			const preElement = node.parentElement;
+			preElement.style.position = 'relative'; // Set position relative to the <pre> element
+			preElement.style.overflow = 'auto'; // Set overflow to auto to allow scrolling
+			
+			const buttonContainer = document.createElement('div');
+			buttonContainer.style.position = 'absolute'; // Position absolutely relative to <pre>
+			// Width and height of pre element
+			buttonContainer.style.bottom = '0';
+			buttonContainer.style.top = '0';
+			buttonContainer.style.right = '0';
+			buttonContainer.style.height = '100%'; // Adjust height as needed for the button
+			buttonContainer.style.backgroundColor = 'transparent';
+			buttonContainer.style.zIndex = '10';
+			
+			node.style.overscrollBehaviorX = 'auto'; // Set overscroll-x to auto
+
+			new CopyButton({ // Use any desired Svelte component here
+				target: buttonContainer,
+				props: {
+					content: node.textContent ?? '',
+				},
+			});
+
+			preElement.appendChild(buttonContainer);
+		}
 	});
 
 	let menuItems = info.menuItems;

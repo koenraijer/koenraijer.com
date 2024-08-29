@@ -40,7 +40,7 @@ function videos() {
       if (extensions.some((ext) => node.url.endsWith(ext))) {
         node.type = 'html'
         node.value = `
-            <video controls autoplay loop class="w-full" title="${node.alt}">
+            <video controls class="w-full" title="${node.alt}">
               <source src="${node.url}" type="video/mp4">
               <track kind="captions">
             </video>
