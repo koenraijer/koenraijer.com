@@ -8,6 +8,7 @@
 - Search bar closes on enter without removing the text, squishing the text that was entered. 
 
 **Optional new features:**
+- Backlinks (see: [https://szymonkaliski.com)](https://szymonkaliski.com/writing/2024-07-01-building-a-static-site-generator/#backlinking)
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance. --> Keep track of Svelte image (currently experimental!)
 - Site-wide cmd-K search (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s) - Use flexsearch like here? https://joyofcode.xyz/blazing-fast-sveltekit-search
