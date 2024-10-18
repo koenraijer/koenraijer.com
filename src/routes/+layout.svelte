@@ -47,7 +47,7 @@
 			buttonContainer.style.backgroundColor = 'transparent';
 			buttonContainer.style.zIndex = '10';
 			
-			node.style.overscrollBehaviorX = 'auto'; // Set overscroll-x to auto
+			node.style.overscrollBehaviorX = 'hide'; // Set overscroll-x to auto TO MAKE COPYBUTTON APPEAR AGAIN
 
 			new CopyButton({ // Use any desired Svelte component here
 				target: buttonContainer,
