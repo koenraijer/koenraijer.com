@@ -28,7 +28,7 @@
 	// Workaround for page not scrolling to top on navigation
 	import { afterNavigate } from '$app/navigation';
 
-	preparePageTransition();
+	// preparePageTransition(); // View transitions API
 
 	afterNavigate(() => {
 		document.getElementById('page')?.scrollTo(0, 0);
