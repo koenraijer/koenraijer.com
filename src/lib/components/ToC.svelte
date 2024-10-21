@@ -305,7 +305,7 @@ function setActiveHeading() {
     </button>
   {/if}
   {#if open || (desktop && headings.length >= minItems)}
-    <nav transition:blur={blurParams} bind:this={nav}>
+    <nav transition:blur|global={blurParams} bind:this={nav}>
       {#if title}
         <slot name="title">
           <svelte:element this={titleTag} class="toc-title toc-exclude">

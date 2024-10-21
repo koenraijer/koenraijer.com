@@ -21,7 +21,7 @@
         }, 200);
     }
     */
-
+    
     function handleMouseLeave() {
         // Clear the timeout if the cursor leaves the button before 200ms
         clearTimeout(hoverTimeout);

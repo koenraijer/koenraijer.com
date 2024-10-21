@@ -20,7 +20,7 @@
 <svelte:window on:load={setProgressBar} on:scroll={setProgressBar} bind:scrollY={y} />
 
 {#if $active_tracker} 
-    <nav in:fly={{ duration: 150 }} out:fly={{ duration: 150 }} class="fixed top-0 z-10 w-full bg-surface-100-800-token border-surface-200-700-token border-b">
+    <nav in:fly|global={{ duration: 150 }} out:fly|global={{ duration: 150 }} class="fixed top-0 z-10 w-full bg-surface-100-800-token border-surface-200-700-token border-b">
         <div class="text-sm p-4 mx-auto w-fit"> {$active_heading.title} </div>
         <div id="progressBar" class="absolute top-full h-0.5 bg-secondary-500" bind:this={progressBar}></div>
     </nav>

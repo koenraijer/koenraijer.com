@@ -38,9 +38,9 @@
             {#if !imageLoaded}
                 <div class="placeholder absolute inset-0 animate-pulse rounded-full md:rounded-container h-full bg-surface-200/30 dark:bg-surface-700/30"></div>
             {:else}
-                <div class="absolute inset-0 rounded-full md:rounded-container bg-[#2989FF] mix-blend-difference group-hover:mix-blend-normal transition-colors" in:fade={{duration: 100}}></div>
-                <div class="absolute inset-0 rounded-full md:rounded-container mix-blend-difference group-hover:mix-blend-normal" style="background: url('/avatar_pixelbg2.png') no-repeat center / cover;" in:fade={{duration: 100}}></div>
-                <div class="absolute inset-0 rounded-full md:rounded-container group-hover:mix-blend-normal" style="background: url('{info.avatar}') no-repeat center / cover;" in:fade={{duration: 100}}></div>
+                <div class="absolute inset-0 rounded-full md:rounded-container bg-[#2989FF] mix-blend-difference group-hover:mix-blend-normal transition-colors" in:fade|global={{duration: 100}}></div>
+                <div class="absolute inset-0 rounded-full md:rounded-container mix-blend-difference group-hover:mix-blend-normal" style="background: url('/avatar_pixelbg2.png') no-repeat center / cover;" in:fade|global={{duration: 100}}></div>
+                <div class="absolute inset-0 rounded-full md:rounded-container group-hover:mix-blend-normal" style="background: url('{info.avatar}') no-repeat center / cover;" in:fade|global={{duration: 100}}></div>
             {/if}
         </div>
     </div>
