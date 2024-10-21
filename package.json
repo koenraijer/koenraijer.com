@@ -4,12 +4,12 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"dev": "node --trace-warnings ./node_modules/vite/bin/vite.js dev",
-		"build": "node --trace-warnings ./node_modules/vite/bin/vite.js build",
-		"preview": "node --trace-warnings ./node_modules/vite/bin/vite.js preview",
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."
-	  },
+	},
 	"devDependencies": {
 		"@floating-ui/dom": "^1.6.5",
 		"@skeletonlabs/skeleton": "^1.10.0",
