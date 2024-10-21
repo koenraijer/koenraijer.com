@@ -9,7 +9,7 @@ published: true
 ToC: true
 ---
 ## Introduction
-Here’s my blueprint for tackling a second literature review in 2025, having learned from past mistakes so you won't have to! 😉 The approach is heavy on tools, high on automation, and emphasises minimising the potential for human error. I value open-science principles, and prefer open-source software. I try to adhere to the **four-eyes principles**, which says that all work should be done twice, independently of each other. This includes: peer reviewing the search strategy, title and abstract screening, full-text screening and data extraction. I also try limiting copy-pasting actions as much as possible, because every time you copy-paste, you can introduce an error. The most important tools and frameworks I use are: [PRISMA](https://www.prisma-statement.org/), [OSF](https://osf.io/), [ASReview](https://asreview.nl/), [Zotero](https://www.zotero.org/), and [Google Drive](https://drive.google.com/). If anything, the main take-away of this post should be that *you need to think your workflow through before you start*. 
+Here’s my blueprint for tackling a second literature review in 2025, having learned from past mistakes so you won't have to! The approach is heavy on tools, high on automation, and emphasises minimising the potential for human error. I value open-science principles, and prefer open-source software. I try to adhere to the *four-eyes principles*, which says that all work should be done twice, independently of each other. This includes: peer reviewing the search strategy, title and abstract screening, full-text screening and data extraction. I also try limiting copy-pasting actions as much as possible, because every time you copy-paste, you can introduce an error. The most important tools and frameworks I used are: [PRISMA](https://www.prisma-statement.org/), [OSF](https://osf.io/), [ASReview](https://asreview.nl/), [Zotero](https://www.zotero.org/), and [Google Drive](https://drive.google.com/). While you may not agree with all of my points, the take-away is that it is important to thoroughly plan your workflow before you start.
 ### Tools & Frameworks
 - [PRISMA](https://www.prisma-statement.org/). PRISMA guidelines help you write clear and complete systematic reviews, meta-analyses, and also scoping reviews (see [PRISMA-ScR](https://www.prisma-statement.org/scoping)) by providing a structured reporting framework. 
 - [OSF](https://osf.io/). The Open Science Framework is a free and open-source platform for preregistering research, project management, and much more. A commonly used alternative is [PROSPERO](https://www.crd.york.ac.uk/PROSPERO/) (systematic reviews and meta-analyses only). 
@@ -28,43 +28,61 @@ I would include the following headings:
 
 It is important that you search the literature for existing reviews, immediately after you formulated the *research question*. If a review has already been done, ask yourself whether enough has changed since then to justify doing another one. 
 
-The *databases* I searched were: PubMed, CINAHL, Embase Ovid, Scopus and ACM Digital Library. Decide which one will be your primary database. It is most convenient to choose the database that you're most comfortable with. You'll use it to construct the initial search query, which will then be translated into the other databases. Decide whether you're going to peer review your search strategy (see [Literature Search](/literature-review#literature-search)).
+The *databases* I searched were: PubMed, CINAHL, Embase Ovid, Scopus and ACM Digital Library. Decide which one will be your primary database. It is most convenient to choose the database that you're most comfortable with. You'll use it to construct the initial search query, which will then be translated into the other databases. Decide whether you're going to peer review your search strategy (see [Literature Search](/literature-review#literature-search)). 
 
 Define *inclusion and exclusion criteria* based on your research question, but also think of things like publication language, publication year, being peer-reviewed, and publication types you might not want to include (e.g., conference papers). 
 
-Decide whether you're going to *preregister* your review, and on which platform. One benefit is the fact that you'll be able to cite it on grant applications or resumés, even when it's far from being finished. I preregistered my scoping review on OSF. It's viewable here: [https://doi.org/10.17605/OSF.IO/CR5F8](https://doi.org/10.17605/OSF.IO/CR5F8). 
+Decide whether you're going to *preregister* your review, and on which platform. One benefit is the fact that you'll be able to cite it on grant applications or resumés, even when it's far from being finished. I preregistered [my scoping review](https://doi.org/10.17605/OSF.IO/CR5F8) on OSF.
 
 Construct a *timeline* for when you'll want to have the protocol finished and published, when you want to start screening, etc. A review requires a significant time investment for all collaborators. Reaching agreement on the timeline will reduce the chance of delays. 
 ### Protocol
-This is a document that outlines the entire procedure of conducting the review, in as much detail as possible. If you decided to preregister your review, this is the document you'll upload there. Its structure depends on the review methodology. I wrote a scoping review, and used this protocol as an example https://osf.io/fkxev. I might be stating the obvious here, but the protocol should be written and published before you actually do the literature search. 
+This is a document that outlines the entire procedure of conducting the review, in as much detail as possible. If you decided to preregister your review, this is the document you'll upload there. Its structure depends on the review methodology. I wrote a scoping review, and used [this protocol](https://osf.io/fkxev) as an example. I might be stating the obvious here, but the protocol should be written and published before you actually do the literature search. 
 
 The rest of this post was written with two goals in mind:
-- To help you guide the writing of your protocol;
-- To give advice for the actual execution part of the review.
+1. To help you guide the writing of your protocol;
+2. To give advice for the actual execution part of the review.
 
 ---
 ## Literature Search
-First thing you'll want to perfect is the search query for the primary database: the index query. That means seeking agreement among collaborators *before translation to other databases*. Only after you're sure the index query is perfect, you start the translation process. At this point, you might want to involve your university library for advice on your literature search ([free literature search advice for UM personnel](https://library.maastrichtuniversity.nl/research/research-essentials/literature-search-systematic-reviews/)). Translation of search queries is tedious and error-prone. There are many differences between databases. For example, they use different *controlled vocabularies*. Examples of controlled vocabularies are MeSH terms in PubMed/MedLine, EMTREE in Embase, and Headings in CINAHL. These do not match one-to-one. There is a [translation tool](https://sr-accelerator.com/#/polyglot) for search queries, but I cannot account for its accuracy because I only found out about it after having translated my queries. I found [this guide](https://guides.library.utoronto.ca/c.php?g=577919&p=4305874) especially useful for navigating these different databases. For peer reviewing the search strategy, I used the PRESS (Peer Review of Electronic Search Strategies) guidelines ([direct link to the checklist](https://ars.els-cdn.com/content/image/1-s2.0-S0895435616000585-mmc1.docx)).  
-## Exporting and Deduplicating References 
-You should now have all your search queries executed and lined up. Assuming you've got Zotero downloaded and installed, the next step is exporting your search queries. Generally speaking, the `RIS` format is a good file format. Here is a guide on exporting references from different databases for use in Zotero: https://osf.io/3nsep. 
+The first thing you'll want to do is perfect the search query for your primary database: the index query. That means seeking agreement among collaborators *before you translate the index query to the language of other databases*. Only when the index query is perfect, you start the translation process. At this point, you might want to involve your university library for advice on your literature search ([UM Library support](https://library.maastrichtuniversity.nl/research/research-essentials/literature-search-systematic-reviews/)). In deciding how broad or narrow you want to search the literature, the number of hits is often an important contributing factor. If you decide to [screen titles and abstracts with ASReview](/literature-review#title-and-abstract-screening-with-asreview), it is helpful to realise that the proportion of time you save increases with the number of hits. In my case, 63% remained unseen with 1339 total hits. With more references, this can increase to 92% [^1]. 
 
-After you have your different queries imported into Zotero, you'll want to remove duplicate references. Because there is a lot of overlap between databases, there will be many. Zotero identifies possible duplicates automatically for you, but it remains up to you to decide which one you'll keep. I used this guide on deduplication in Zotero: https://osf.io/yh3xe. *Always keep the reference with the abstract*, otherwise, keep the reference with most metadata. Having the abstract will make your life much easier during title and abstract screening. 
+Translation of search queries is tedious and error-prone. There are many differences between databases. For example, they use different *controlled vocabularies*. Examples of controlled vocabularies are MeSH terms in PubMed/MedLine, EMTREE in Embase, and Headings in CINAHL. These do not match one-to-one. There is a [translation tool](https://sr-accelerator.com/#/polyglot) for search queries, but I cannot account for its accuracy because I only found out about it after having translated my queries. I found [this guide](https://guides.library.utoronto.ca/c.php?g=577919&p=4305874) especially useful for navigating these different databases. For peer reviewing the search strategy, I used the PRESS (Peer Review of Electronic Search Strategies) guidelines ([direct link to the checklist](https://ars.els-cdn.com/content/image/1-s2.0-S0895435616000585-mmc1.docx)).
+## Exporting and Deduplicating References 
+You should now have all your search queries executed and lined up. Assuming you've got Zotero downloaded and installed, the next step is exporting your search queries. Generally speaking, the `RIS` format is a good file format. [Here](https://osf.io/3nsep) is a guide on exporting references from different databases for use in Zotero. 
+
+After you have your different queries imported into Zotero, you'll want to remove duplicate references. Because there is a lot of overlap between databases, there will be many. Zotero identifies possible duplicates automatically for you, but it remains up to you to decide which one you'll keep. I used [this guide on deduplication in Zotero](https://osf.io/yh3xe). *Always keep the reference with the abstract*, otherwise, keep the reference with most metadata. Having the abstract will make your life much easier during title and abstract screening. 
 
 Deduplication reduced the number of references with 60% for me. You should now have a single Zotero collection with all of your references in one place. 
 ## The Importance of Calibration
-Calibration involves planning a moment early on in a given step (e.g., title and abstract screening) where you discuss disagreements between collaborators. 
+Calibration involves strategic planning of checkpoints where you meet and discuss disagreements between collaborators. Disagreements can occur in any step along the way that is done twice, which is most of the steps. Such disagreements are unavoidable, and discussing them can reveal implicit assumptions about the review's aim that can be scrutinised *en groupe* during calibration sessions. The overall goal of calibration is to align the perspectives of collaborators. This must happen in any review at the end of each step. However, ironing out teething problems at the *start* of a step can save you a lot of time (at the expense of [some degree of blinding](/literature-review#collaboration-and-blinding)). 
 
-It has multiple purposes:
+Some ways in which calibration can benefit your review:
 - Reveal unclear phrasing of eligibility criteria; 
-- Force you to motivate eligibility criteria; 
+- Force you to motivate eligibility criteria in light of the review's aim;
 - Align different interpretations of eligibility criteria among collaborators; 
-- Discuss categorical ambiguity (also known as the boundary problem). 
+- Discuss categorical ambiguity (also known as the boundary problem), e.g., does a particular edge case fall just inside or just outside of an eligibility criterium? 
 
-At every step of the process, I planned two calibration meetings. During title and abstract screening, all collaborators looked at 15 titles and abstracts. After title and abstract screening, disagreements were resolved. During full-text screening, both screeners looked at 30 full-texts. After full-text screening, disagreements were resolved again. During data-extraction, both screeners looked at 15 references. After data-extraction, disagreements were resolved.
+Implementing calibration can be done in many different ways. I will first outline some general principles I would adhere to, and then describe the way I did it. 
 
-Each calibration session involves detailed discussion about disagreements. Sometimes, it took two sessions to resolve all disagreements.
+General principles:
+- Calibration should be part of each step where you go over many references. It should be part of: title and abstract screening, full-text screening, and data extraction.
+- Spend as little time as possible not being calibrated with collaborators. Calibration should be planned early on in a given step, so enough references remain for processing, for you to benefit from the calibration. 
+- Calibration should not be done *too early* in a given step, because you must also have *caught* enough disagreements for you to discuss during the calibration session.
+- Before calibration, screeners should be blinded to each other's decisions. After screening, disagreements are discussed and consensus is reached for those references. Until the next calibration session, screeners should again be blinded to each other's decisions.  
+
+This is how I implemented calibration in my review:
+- During title and abstract screening, I asked all collaborators to look at 15 titles and abstracts and decide on whether they would want to keep them or not, and why. We then discussed disagreements and made a shared final decision. These 15 decisions then served as *prior knowledge* for [ASReview](/literature-review#title-and-abstract-screening-with-asreview). We calibrated again at the end of title and abstract screening, the specifics of which are different than other calibrations for reasons specific to ASReview [^2]. 
+- During full-text screening, both screeners looked at 30 full-texts. Before continuing with the rest of full-text screening, disagreements were discussed and resolved. At the end of full-text screening, another calibration session resolved all disagreements that had arisen since the last session. 
+- During data extraction, both screeners performed data extraction for 15 references. Disagreements were then resolved. At the end of data extraction, all new disagreements were resolved again. 
+
+The exact numbers are arbitrary, and are only shown to serve as an example. 
+
+Each calibration session involves detailed discussion about disagreements. Sometimes, it took two sessions to resolve all disagreements. To respect the time your collaborators invest in your review, it is important to prepare for these sessions. Highlight disagreements. Read through disagreements and form an opinion about them. Resolve minor disagreements where you agreed with the other screener's viewpoint. 
 
 Note that calibration sessions may lead to new insights, that may or may not require you to revise previous steps. This is normal. Don't cut corners, just redo those steps. Quality trumps speed.
+### Collaboration and Blinding
+There is a trade-off between collaboration and blinding. The more you collaborate — by calibrating your interpretation of the eligibility criteria, or by seeing other people's highlights and comments in PDF files — the less blinded you are to the other screener's viewpoint. This may hamper your ability to independently assess a reference's relevance. On the other hand, eligibility criteria can be ambiguous and edge cases are unavoidable. Reaching some consensus on their interpretation before doing the bulk of the work can lead to more consistency and shared understanding. This can save you a lot of time and effort. I believe that this calibration method does not substantially compromise blinding. Screeners are blind to each other's decision unless they are calibrating, after which any decision on a reference's relevance is final. 
+
 ## Making Your Life Easier For Full-Text Screening
 
 Before jumping into the full-text screening, there are several things I'd do in my next review at this point. All of them will make your life easier at a later step in the process, automate something for you, and reduce the probability of making mistakes. 
@@ -75,7 +93,7 @@ You'll need to modify the way Zotero exports references in the `.ris` format. Wh
 
 - [Locate the Zotero data directory](https://www.zotero.org/support/zotero_data) on your computer. This can be found in different locations depending on your operating system. 
 - Inside the Zotero data directory, there is a folder named `translators`. Locate the file names `RIS.js`. *Duplicate it in some safe location in case something goes wrong*.
-- Download the modified `RIS.js` file [here](https://gist.github.com/koenraijer/5e3a220e559e59a50489ea7e947a5f46).  
+- Download the modified `RIS.js` file [here](https://gist.github.com/koenraijer/5e3a220e559e59a50489ea7e947a5f46). I've added a single line to the original file: `if (item.key) addTag('LB', item.key)`. 
 - Delete the original `RIS.js` file. Paste the downloaded `RIS.js` inside the `translators` folder. 
 - Restart Zotero. 
 - Verify that it worked by exporting any collection to the `.ris` file format: right-click on a collection $\to$ Export Collection ... $\to$ Choose `RIS` as Format $\to$ click OK. Save the file.
@@ -102,9 +120,10 @@ An overview of how I would use ASReview the second time:
 3. Export your references from Zotero in the `.ris` file format. This ensures you will be able to get your references back into Zotero without doing any coding. Although this may not be necessary, there appear to be only upsides to doing it this way. 
 4. Create a new ASReview project, load your `.ris` file, and add the prior knowledge you agreed upon. 
 5. Export the ASReview project for use by the second screener(s), choose the `Project` option. Rename it by appending something like `_2nd`. This file can be imported by collaborators and enables them to continue where the previous person stopped.
-6. Have both the first and second screeners review references until the stopping criterion has been met. Have both screeners export both the `Project` files and the `Dataset` file with both labeled and unlabeled records. Use the `.csv` format or the `.xlsx` format if you don't want to re-import your references. Store these files away neatly for future reference. Realise that separate screeners might not have screened all the same articles. That is because the algorithm learns from each subsequent decision, which is likely to differ considerably between screeners. That's why the two datasets will have references you agree on, references you disagree on, references that only the first screener saw, and references that only the second screener saw. 
-7. Do a calibration session to discuss references you disagree on, references that only the first screener saw, and references that only the second screener saw. The way I went about that is by writing a Python script, but there are ways to [merge these datasets in Excel](https://www.exceldemy.com/merge-datasets-in-excel/). 
-8. Duplicate your dataset, and retain only the references that you agree to include. These will be used for the full-text screening. 
+6. Have both the first and second screeners review references until the stopping criterion has been met. At this point you can do two things. You can go over the titles and abstracts with a different active learning algorithm. With more prior knowledge (you have screened many references by now), you can train a more complex algorithm (e.g. *BERT*) that can find relevant references based on subtler cues. This is what ASReview advises you to do, and is what I would do the second time around. If you decide against this or have already gone through the process multiple times, continue to step 7. 
+7. Have both screeners export both the `Project` files and the `Dataset` file with both labelled and unlabelled records. Use the `.csv` format or the `.xlsx` format if you don't want to re-import your references. Store these files away neatly for future reference. Realise that separate screeners might not have screened all the same articles. That is because the algorithm learns from each subsequent decision, which is likely to differ considerably between screeners. That's why the two datasets will have references you agree on, references you disagree on, references that only the first screener saw, and references that only the second screener saw. 
+8. Do a calibration session to discuss references you disagree on, references that only the first screener saw, and references that only the second screener saw. The way I went about that is by writing a Python script, but there are ways to [merge these datasets in Excel](https://www.exceldemy.com/merge-datasets-in-excel/). 
+9. Duplicate your dataset, and retain only the references that you agree to include. These will be used for the full-text screening. 
 ## Full-Text Screening in Google Drive and Zotero
 You should now have a list of references in Excel that are ready for the full-text screening phase. If you decided to make your life easier for full-text screening, now is the time to reap the fruits of your labour. Verify that the Excel file contains a column named `label` that has the item key that we added to the `.ris` export. 
 ### Setting up URLs to PDFs in Google Drive
@@ -121,19 +140,24 @@ This is how I would set-up for full-text screening:
 What this does it create a URL that leads you to the correct PDF (assuming there is one). 
 
 ### Modifying the Google Drive
-Before you can start screening, you need to add columns to your spreadsheet that assign references to screeners, allow logging screeners' decision (include or exclude), allow logging reasons for exclusion and additional comments for discussion. 
+Before you can start screening, you need to add columns to your spreadsheet that assign references to screeners, allow logging screeners' decision (include or exclude), allow logging reasons for exclusion and additional comments for discussion. In the spirit of *blinding*, it may be wise to duplicate the spreadsheet, or at least duplicate the sheet in the same spreadsheet, so that screener's cannot see the other's decisions. 
 
-These are the columns I would add to the spreadsheet:
+These are the columns I would add to the first (spread)sheet:
 - `1st_screener` - initials of the first screener for these references;
 - `1st_included` - whether the first screener wants to include the reference (`TRUE` or `FALSE`)
 - `1st_criterion` - the reason the first screener may want to exclude the reference;
 - `1st_comments`;
+
+And to the second (spread)sheet:
 - `2nd_screener` - initials of the second screener for these references;
 - `2nd_included` - whether the second screener wants to include the reference (`TRUE` or `FALSE`);
 - `2nd_criterion` - the reason the second screener may want to exclude the reference;
 - `2nd_comments`;
 
 With these comments in place, calibration simply involves filtering columns for rows where there is disagreement (in Google Drive: select all cells $\to$ `Data` $\to$ `Create a filter`). 
+
+### Discussing PDF highlighting
+As I briefly mentioned in [Collaboration and Blinding](/literature-review#collaboration-and-blinding), seeing other people's highlights and comments in PDF files is subject to the *calibration-blinding trade-off*. As such, it may be wise to agree on some kind of highlighting policy. The benefit of seeing other people's PDF highlights is that information that collaborators found helpful is likely to be helpful to you, too. However, if collaborators write extensive comments on their reasons for including or excluding some reference, you compromise blinding. So, prohibiting comments may be an appropriate middle ground. 
 
 ## Data Extraction
 Data extraction requires a data extraction table. Each row will be a paper. Each column is a piece of information that you'll need. This is highly dependent on the question you're trying to answer, but some things may come in handy in most cases:
@@ -142,4 +166,9 @@ Data extraction requires a data extraction table. Each row will be a paper. Each
 - Quality appraisal: generally required for systematic reviews, not for scoping reviews;
 - Diagnostic instrument.
 
-It might also be useful to search OSF for data extraction tables other studies used.
+It might also be useful to search OSF for data extraction tables other studies used. Realise that data extraction is probably the most labour-intensive of all, and definitely the most labour-intensive step *per study*. You don't want to forget any columns, because going over all studies again will be very burdensome. At the same time, you don't want to be collecting information you won't need for the review. Sadly, data extraction is still manual labor. 
+
+---
+## References & footnotes
+[^1]: van de Schoot, R., de Bruin, J., Schram, R. _et al._ An open source machine learning framework for efficient and transparent systematic reviews. _Nat Mach Intell_ **3**, 125–133 (2021). https://doi.org/10.1038/s42256-020-00287-7
+[^2]: This is described in more detail in [Title and Abstract Screening with ASReview](/literature-review#title-and-abstract-screening-with-asreview). Whereas other calibrations involve only references that screeners disagree on, the calibration that occurred after completing title and abstract screening with ASReview also involves references that *one screener included while the other did not see the reference before*. This occurs because the active learning algorithm in ASReview learns differently based on your earlier choices. 
