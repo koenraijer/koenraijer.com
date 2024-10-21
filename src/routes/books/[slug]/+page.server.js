@@ -11,7 +11,7 @@ export async function load({ params, fetch }) {
             book
         }
     } catch (e) {
-        throw error(404, `Could not find ${params.slug}. ${e}`)
+        error(404, `Could not find ${params.slug}. ${e}`);
     }
 }
 

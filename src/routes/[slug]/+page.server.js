@@ -13,7 +13,7 @@ export async function load({ params, fetch }) {
         const next = currentPostIndex < posts.length - 1 ? posts[currentPostIndex + 1] : null
         
         if(currentPostIndex < 0) {
-            throw error(404, `Could not find ${params.slug}`)
+            error(404, `Could not find ${params.slug}`);
         }
 
         const post = posts[currentPostIndex];
@@ -32,6 +32,6 @@ export async function load({ params, fetch }) {
             }
         }
     } catch (e) {
-        throw error(404, `Could not find ${params.slug}, ${e}`)
+        error(404, `Could not find ${params.slug}, ${e}`);
     }
 }

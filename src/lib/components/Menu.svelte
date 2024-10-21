@@ -48,7 +48,7 @@
     setContext('close', close);
 </script>
 
-<div class="relative md:hidden z-50" use:clickOutside on:outclick={handleClickOutside}>
+<div class="relative md:hidden z-50" use:clickOutside on:outclick={handleClickOutside} role="navigation">
     <button
         class="transition-all decoration-none flex justify-center items-center p-2 cursor-pointer duration-[200ms] border border-surface-200-700-token {isOpen ? "shadow-lg" : ""} shadow-white dark:shadow-black rounded-container bg-transparent bg-surface-hover-token"
         on:click|stopPropagation={() => isOpen = !isOpen}
@@ -73,8 +73,8 @@
 
 <!-- Overlay -->
 {#if isOpen}
-    <div
-        class="fixed inset-0 bg-white dark:bg-black opacity-75 z-40"
+    <button
+        class="fixed inset-0 bg-white dark:bg-black opacity-75 z-40 cursor-default"
         on:click={handleClickOutside}
-    ></div>
+    ></button>
 {/if}

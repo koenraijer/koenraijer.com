@@ -2,7 +2,6 @@
     // CopyButton.svelte
 
     export let content;
-    export let style;
   
     let copied = false;
   
