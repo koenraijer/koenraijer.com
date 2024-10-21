@@ -59,14 +59,14 @@
 <!-- SEO -->
 <svelte:head>
   <title>{info.name}</title>
-  <meta name="description" content={info.bio} />
+  <meta name="description" content={info.bio.text} />
   <meta name="author" content={info.name} />
 
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content={info.website} />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={info.name} />
-  <meta property="og:description" content={info.bio} />
+  <meta property="og:description" content={info.bio.text} />
   <meta property="og:image" content={ogImage} />
 
   <!-- Twitter Meta Tags -->
@@ -74,7 +74,7 @@
   <meta property="twitter:domain" content={info.website} />
   <meta property="twitter:url" content={info.website} />
   <meta name="twitter:title" content={info.name} />
-  <meta name="twitter:description" content={info.bio} />
+  <meta name="twitter:description" content={info.bio.text} />
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
