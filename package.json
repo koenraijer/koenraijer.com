@@ -39,7 +39,7 @@
 		"directory-tree": "^3.5.1",
 		"fuse.js": "^6.6.2",
 		"katex": "^0.13.24",
-		"mdsvex": "^0.9.8",
+		"mdsvex": "^0.12.3",
 		"mdsvex-relative-images": "^1.0.3",
 		"node-html-parser": "^6.1.5",
 		"reading-time": "^1.5.0",
