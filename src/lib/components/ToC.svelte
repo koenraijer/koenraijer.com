@@ -115,7 +115,7 @@ function setActiveHeading() {
 }
 </script>
 
-<nav class="fixed font-sans top-0 left-1/2 right-1/2 -translate-x-1/2 w-screen bg-surface-100-800-token border-surface-200-700-token border-b transition-transform duration-300 ease-out !z-40 {$active_tracker ? "translate-y-0" : "translate-y-[-100%]"}">
+<nav class="fixed font-sans top-0 left-1/2 right-1/2 -translate-x-1/2 w-screen bg-surface-100-800-token border-surface-200-700-token border-b transition-transform duration-300 ease-out !z-30 {$active_tracker ? "translate-y-0" : "translate-y-[-100%]"}">
   <div class="text-sm p-2 mx-auto sm:w-fit truncate"> {$active_heading.title} </div>
   <div id="progressBar" class="absolute top-full h-0.5 bg-secondary-500" bind:this={progressBar}></div>
 </nav>

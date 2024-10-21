@@ -35,6 +35,7 @@
 		"xmlbuilder2": "^3.1.1"
 	},
 	"dependencies": {
+		"@microflash/remark-callout-directives": "^4.3.1",
 		"@vcarl/remark-headings": "^0.1.0",
 		"directory-tree": "^3.5.1",
 		"fuse.js": "^6.6.2",
@@ -47,8 +48,10 @@
 		"rehype-katex": "^5.0.0",
 		"rehype-katex-svelte": "^1.2.0",
 		"rehype-slug": "^5.1.0",
+		"remark-directive": "^3.0.0",
 		"remark-parse": "^11.0.0",
 		"tailwindcss-fluid-type": "^2.0.3",
-		"unist-util-visit": "^5.0.0"
+		"unist-util-visit": "^5.0.0",
+		"set-cookie-parser": "^2.6.0"
 	}
 }

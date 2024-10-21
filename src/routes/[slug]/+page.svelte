@@ -3,8 +3,11 @@
 	import { popup } from '@skeletonlabs/skeleton';
 	import Categories from '$lib/components/Categories.svelte'
 	import PageTitle from '$lib/components/PageTitle.svelte'
+	import ToTopButton from '$lib/components/ToTopButton.svelte'
 	import ToC from '$lib/components/ToC.svelte'
 	import * as info from '$lib/js/info.js'
+	import { onMount } from 'svelte'
+	import { writable } from 'svelte/store'
 	export let data
 
 	const xor = (a, b) => (a || b) && !(a && b);
@@ -31,7 +34,30 @@
 		target: 'updatedPopup',
 		placement: 'bottom'
 	};
-						
+				
+	// Scroll to top
+	let isScrollingUp = writable(false);
+	let lastScrollY = 0;
+	let scrollOffset = writable(0);
+	function handleScroll() {
+		const currentScrollY = window.scrollY;
+		scrollOffset.set(currentScrollY);
+
+		if (currentScrollY < lastScrollY && currentScrollY > 750) {
+		isScrollingUp.set(true);
+		} else {
+		isScrollingUp.set(false);
+		}
+		lastScrollY = currentScrollY;
+	}
+
+	onMount(() => {
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	});
+
 </script>
 
 <!-- SEO -->
@@ -56,7 +82,9 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-
+{#if $isScrollingUp}
+	<ToTopButton absolute />
+{/if}
 <div class="grid grid-cols-5 mx-auto relative mt-12 max-w gap-x-8">
 	<div class="w-full {data.post.ToC ? "col-start-1" : "col-start-2"} col-span-full px-6 sm:px-8 mx-auto">
 		<!-- Title -->
