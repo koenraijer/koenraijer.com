@@ -1,6 +1,8 @@
-### October
-- 📝 New post: [How I would write a literature review in 2025](/literature-review)
 ## 2024
+### October
+- ⬆️ Migrated to SvelteKit 2.0
+- 📝 New post: [How I would write a literature review in 2025](/literature-review)
+
 ### June
 - Spring cleaning (font, lay-out, book cards) and new post added: [Experience sampling](/experience-sampling).
 
