@@ -13,11 +13,11 @@
 		"@floating-ui/dom": "^1.6.5",
 		"@skeletonlabs/skeleton": "^1.10.0",
 		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.5.0",
+		"@sveltejs/kit": "^1.30.4",
 		"@tailwindcss/forms": "^0.5.4",
 		"@tailwindcss/typography": "^0.5.9",
 		"autoprefixer": "^10.4.14",
-		"eslint": "^8.28.0",
+		"eslint": "^9.13.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.26.0",
 		"highlight.js": "^11.8.0",
@@ -46,6 +46,7 @@
 		"rehype-katex": "^5.0.0",
 		"rehype-katex-svelte": "^1.2.0",
 		"rehype-slug": "^5.1.0",
+		"remark-parse": "^11.0.0",
 		"tailwindcss-fluid-type": "^2.0.3",
 		"unist-util-visit": "^5.0.0"
 	}

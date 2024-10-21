@@ -1,4 +1,5 @@
 import { visit } from 'unist-util-visit'
+import remarkParse from 'remark-parse'
 import autolinkHeadings from 'rehype-autolink-headings'
 import slugPlugin from 'rehype-slug'
 import relativeImages from 'mdsvex-relative-images'
@@ -17,7 +18,7 @@ export default {
   smartypants: {
     dashes: 'oldschool'
   },
-  remarkPlugins: [[footnotes, { inlineNotes: true }], videos, relativeImages, remarkMath, headings],
+  remarkPlugins: [remarkParse, [footnotes, { inlineNotes: true }], videos, relativeImages, remarkMath, headings],
   rehypePlugins: [
     rehypeKatexSvelte,
     slugPlugin,
