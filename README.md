@@ -3,22 +3,24 @@
 - https://github.com/mattjennings/sveltekit-blog-template/
 - https://journal.ghost.io/
 
-**BUGS:**
-- Ensure that images are rounded on mobile screens
-- Search bar closes on enter without removing the text, squishing the text that was entered. 
+**To Do:**
+- Move away from .io domain (towards .com?)
+- 🆙 Upgrade Skeleton to using layouts and using persistedstore (https://github.com/skeletonlabs/skeleton/issues/2383)
+- 🐞 Images not showing on /books. 
+- 🐞 Search bar closes on enter without removing the text, squishing the text that was entered. 
 
 **Optional new features:**
 - Update OG Image: https://vercel.com/koenraijers-projects/koenraijer-og/deployments 
 - Backlinks (see: [https://szymonkaliski.com)](https://szymonkaliski.com/writing/2024-07-01-building-a-static-site-generator/#backlinking)
 - Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
 - Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance. --> Keep track of Svelte image (currently experimental!)
-- Site-wide cmd-K search (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s) - Use flexsearch like here? https://joyofcode.xyz/blazing-fast-sveltekit-search
+- Site-wide cmd-K search (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s) - Use flexsearch like here? https://joyofcode.xyz/blazing-fast-sveltekit-search (flexsearch appears to be best: https://github.com/nextapps-de/flexsearch)
 - Proper RSS feed: https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
 - Proper sitemap: https://kylenazario.com/blog/sveltekit-blog-sitemap 
 - New code highlighting: https://github.com/atomiks/rehype-pretty-code 
 - https://www.skeleton.dev/utilities/codeblocks <-- replace codeblocks, or: https://github.com/pngwn/MDsveX/issues/385 
 - Use floating ui for filters
-- Short links 
+- Link shortener for my own domain?
 
 **Completed:**
 - Update ToC: endgoal should be a fixed ToC like on gwern.net, but on scrolling, the active heading should appear as a sticky header at the top of the page, including a progress bar.

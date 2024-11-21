@@ -17,7 +17,7 @@ export const firstName = 'Koen'
 export const lastName = 'Raijer'
 export const name = `${firstName} ${lastName}`
 
-export const email = 'koenrayer@gmail.com'
+export const email = 'hello@koenraijer.com'
 
 // Used for the hero
 export const avatar = 'avatar_nobg.png' //'avatar.webp'

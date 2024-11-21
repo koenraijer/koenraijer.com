@@ -1,3 +1,5 @@
+### November
+- 📍 New domain: [https://koenraijer.com](https://koenraijer.com).
 ## 2024
 ### October
 - ⬆️ Migrated to SvelteKit 2.0
