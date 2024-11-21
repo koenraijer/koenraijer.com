@@ -1,5 +1,5 @@
 <script>
-    import { info } from '$lib/js/info.js';
+    import * as info from '$lib/js/info.js';
 </script>
 
 <div class="flex flex-row flex-wrap gap-2">
