@@ -1,12 +1,36 @@
 <script>
 	import Hero from '$lib/components/Hero.svelte';
-	import Categories from '$lib/components/Categories.svelte';
+	import { Link2 } from 'lucide-svelte';
 	import Posts from '$lib/components/Posts.svelte';
 	import Book from '$lib/components/Book.svelte';
 	import * as info from '$lib/js/info.js';
+	import A from '$lib/components/A.svelte';
+	// @ts-ignore
+	import { fade, slide } from 'svelte/transition';
+	
+	/**
+	 * @param {Element} node
+	 * @param {import("svelte/transition").SlideParams | undefined} options
+	 */
+	// @ts-ignore
+	function fadeSlide(node, options) {
+        const slideTrans = slide(node, options);
+        return {
+            // @ts-ignore
+            duration: options.duration,
+            css: (/** @type {number} */ t) => `
+				${slideTrans ? 
+				// @ts-ignore
+				slideTrans.css(t, options) : ''}
+                opacity: ${t};
+            `
+        };
+    }
+	
+	// @ts-ignore
 	export let data
 
-	let searchedPosts = data.posts; // Define searchedPosts
+	let isHovered = false;
 
 	let categoriesArray = Object.entries(data.categories).map(([category, {count, slug}]) => ({
 		category,
@@ -15,8 +39,6 @@
 	}));
 
 	data.categories = categoriesArray;
-
-	let limit = 5 // Number.POSITIVE_INFINITY
 
 	// SEO
 	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(info.name)}`
@@ -45,44 +67,55 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<section class="mt-8 sm:mt-12 max-w mx-auto md:px-8 lg:px-16">
+<section class="section">
 	<Hero />
 </section>
 
 <section class="section">
-	<h2 id="recent_posts" class="text-base font-medium text-muted-foreground"><a href="#recent_posts">Writing</a></h2>
-	<Posts posts={searchedPosts}/>
+	<h2 id="now" class="text-sm font-normal text-muted-foreground/80 mb-2">Now</h2>
+	<p class="text-sm">
+		<span>Working at Zuyderland Mental Health Service. Writing </span>
+		<A classes="text-sm anchor" href="https://doi.org/10.17605/OSF.IO/CR5F8">a scoping review</A> on ambulatory assessment in PTSD. Learning Firebase by working on <A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>. <br>Previously: finished MSc in Data Science & Society at Tilburg University.
+	</p>	
 </section>
 
-<section class="section flex flex-col">
-	<div class="flex items-center w-full sm:flex-grow my-4 pb-4">
-		<h2 id="currently_reading" class="text-xl font-medium flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Currently reading</a></h2>
-		<hr class="!border-dotted !border-t-2 w-full !bg-transparent !border-surface-400"/>
-	</div>
-	<div class="grid grid-cols-2 md:grid-cols-3 w-fit gap-6 relative place-content-start">
+<section class="section">
+	<h2 id="writing" class="text-sm font-normal text-muted-foreground/80 mb-2">Writing</h2>
+	<Posts posts={data.posts}/>
+</section>
+
+<section class="section">
+	<h2 
+		id="reading" 
+		class="text-sm font-normal text-muted-foreground/80 mb-2"
+		on:mouseenter={() => isHovered = true}
+		on:mouseleave={() => isHovered = false}
+	>
+		<a href="/books" class="inline-flex items-center">
+			Reading 
+			<Link2 class="w-4 h-4 text-muted-foreground/40 dark:text-muted-foreground/70 inline rotate-45 ml-1"/>
+			{#if isHovered}
+				<span
+				class="overflow-hidden whitespace-nowrap text-muted-foreground/50 dark:text-muted-foreground/80 pl-2 text-xs"
+                transition:fadeSlide={{ axis: "x", duration: 200 }}
+				>
+				visit /books
+				</span>
+			{/if}
+		</a>
+	</h2>
+
+	<div class="">
 		{#each data.current_books as book}
 			<Book book={book} compact/>
 		{/each}
 	</div>
-	<a href="/books" class="button text-sm w-fit mx-auto mt-8">View all books
-	</a>
 </section>
-<div class="grid md:grid-cols-3 mt-12 max-w mx-auto md:px-16 md:gap-x-8 lg:gap-x-12 relative pb-12">
-	<section class="md:col-span-2 px-6 sm:px-8 md:px-0">
-		<div class="flex items-center">
-			<h2 id="archive" class="text-xl font-medium flex-shrink-0 sm:pr-8 pr-4 transition-width duration-300 -mt-1"><a href="#archive">Archive</a></h2>
-			<hr class="!border-dotted !border-t-2 w-full !bg-transparent !border-surface-400"/>
-		</div>
-		<Posts posts={data.posts} />
-	</section>
-	
-	<section class="w-full mt-12 md:mt-4 h-full ">
-		<div class="card-shimmer p-8 md:p-6 lg:p-8 bg-surface-100-800-token shadow-sm rounded-none md:rounded-container border-t border-b md:border border-surface-200-700-token self-start sticky top-12">
-			<div class="flex items-center pb-4">
-				<h2 class="text-lg font-semibold flex-shrink-0 md:pr-8 pr-4 transition-width duration-300 -mt-1">Categories</h2>
-			</div>
-			<Categories categories={data.categories}/>
-		</div>
-	</section>	
-</div>
 
+<section class="section no-un">
+	<h2 id="categories" class="text-sm font-normal text-muted-foreground/80 mb-2">Projects</h2>
+	<div class="flex flex-col gap-2">
+		<A href="https://reasset.koenraijer.com/" classes="no-underline hover:underline text-sm">ReAsset</A>
+		<A href="https://outline-labs.web.app/" classes="no-underline hover:underline text-sm">Outline Labs</A>
+	</div>
+</section>

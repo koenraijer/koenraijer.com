@@ -1,50 +1,29 @@
 <script>
-    export let posts; // Make this component receive 'posts' as a prop
-    export let limit = Infinity; // Add a 'limit' prop with a default value of Infinity
-
-    // When posts or limit change, update the displayedPosts
-    let displayedPosts = [];
-
-    // @ts-ignore
-    $: displayedPosts = posts.slice(0, limit);
-
-    // Group posts by year
+    export let posts;
+    import { CornerDownRight } from 'lucide-svelte';
+    
     /**
-	 * @param {any[]} posts
+	 * @param {string | number | Date} dateString
 	 */
-    function groupPostsByYear(posts) {
-    let groupedPosts = {};
-
-    posts.forEach((/** @type {{ date: string | number | Date; }} */ post) => {
-        const year = new Date(post.date).getFullYear();
-
-        // @ts-ignore
-        if (!groupedPosts[year]) {
-            // @ts-ignore
-            groupedPosts[year] = [];
-        }
-
-        // @ts-ignore
-        groupedPosts[year].push(post);
-    });
-
-    return groupedPosts;
-}
-
-    let groupedPosts = groupPostsByYear(posts);
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-GB', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        }).replace(/\//g, '-');
+    }
 </script>
 
-{#each Object.entries(groupedPosts).sort((a, b) => Number(b[0]) - Number(a[0])) as [year, posts], i}
-    <div class="grid grid-cols-6 py-3 gap-x-2">
-        <p class="date col-start-1 text-sm">
-            {year}
-        </p>
-        <div class="col-start-2 col-end-7 flex flex-col">
-            {#each posts as post}
-                <a href={"/" + post.slug} class="hover:underline text-base">
-                    {post.title}
-                </a>
-            {/each}
+<div class="flex flex-col gap-y-2">
+    {#each posts as post}
+        <div class="inline">
+            <a href={"/" + post.slug} class="text-sm anchor">
+                {post.title}
+            </a>
+            <span class="text-muted-foreground/70 text-xs">
+                <CornerDownRight class="w-3 h-3 inline"/> {formatDate(post.date)}
+            </span>
         </div>
-    </div>
-{/each}
+    {/each}
+</div>

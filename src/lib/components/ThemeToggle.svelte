@@ -172,7 +172,7 @@
 		</svg>
 	  </div>
 		<div
-		class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-200 bg-background"
+		class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-200"
 		style="transform: translate(-50%, -50%) rotate({$rotation + $hoverRotation}deg); opacity: {$moonOpacity}"
 		>
 		<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 256 256">

@@ -11,7 +11,8 @@
 	import MenuButton from '../lib/components/MenuButton.svelte';
 	import CopyButton from '$lib/components/CopyButton.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
-	
+	import { ScrollArea } from '$lib/shadcn/ui/scroll-area/';
+
 	// All other imports
 	import { Toaster } from "$lib/shadcn/ui/sonner";
 	import { ModeWatcher, mode } from "mode-watcher";
@@ -106,28 +107,19 @@
 <ModeWatcher />
 <Toaster />
 
-<!-- Header -->
-<div class="w-full grid grid-rows-[auto_1fr_auto] grid-cols-[100%] min-h-[100svh] bg-surface-50 dark:bg-surface-800">
-	<header class="flex justify-end w-full place-self-center mx-auto pt-6 px-6 sm:px-8 sm:pt-8">
-		<div class="w-fit flex flex-row flex-nowrap gap-x-4 md:flex-row-reverse">
-			<ThemeToggle />
-			<Menu>
-					{#each menuItems as item}
-						<MenuButton href={item.href}>{item.title}</MenuButton>
-					{/each}
-			</Menu>
-		</div>
-	</header>
+<ScrollArea orientation="both" class="!m-0 !p-0 w-screen h-screen">
+	<div class="grid grid-rows-[auto_1fr_auto] grid-cols-[100%] min-h-[100svh] w-screen">
+		<!-- Header -->
 
-	<!-- Router Slot -->
-	<PageTransition url={data.url}>
-			<main>
-				<slot />
-			</main>
-	</PageTransition>
+		<!-- Router Slot -->
+		<PageTransition url={data.url}>
+				<main class="col-span-full pt-6 sm:pt-12 md:pt-16">
+					<slot />
+				</main>
+		</PageTransition>
 
-	<!-- (footer) -->
-	<Footer />
-</div>
+		<!-- Footer -->
+		<Footer />
 
-
+	</div>
+</ScrollArea>
