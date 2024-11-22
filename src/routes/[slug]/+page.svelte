@@ -1,6 +1,5 @@
 <script lang="js">
-	import { formatDate } from '$lib/js/utils'
-	import { popup } from '@skeletonlabs/skeleton';
+	import { formatDate } from '$lib/js/utils.js'
 	import Categories from '$lib/components/Categories.svelte'
 	import PageTitle from '$lib/components/PageTitle.svelte'
 	import ToTopButton from '$lib/components/ToTopButton.svelte'
@@ -34,7 +33,7 @@
 		target: 'updatedPopup',
 		placement: 'bottom'
 	};
-				
+
 	// Scroll to top
 	let isScrollingUp = writable(false);
 	let lastScrollY = 0;
@@ -98,19 +97,19 @@
 				<p class="mb-8 text-base text-surface-400 font-sans">
 					{#if data.post.date}
 						{#if data.post.updated}
-							<span use:popup={updatedPopup}>{formatDate(data.post.date)}</span> - 
+							<!-- <span use:popup={updatedPopup}>{formatDate(data.post.date)}</span> -
 							<div class="bg-surface-700 dark:bg-surface-700 rounded-container p-2 z-20 text-xs relative"  data-popup="updatedPopup">
 								<p class="font-sans text-surface-50 dark:text-surface-200"><span class="font-semibold">Updated:</span> {formatDate(data.post.updated)}</p>
-							</div>
+							</div> -->
 						{:else}
-							<span>{formatDate(data.post.date)}</span> - 
+							<span>{formatDate(data.post.date)}</span> -
 						{/if}
 					{/if}
 					{#if data.post.readingTime}
-						<span use:popup={wordCountPopup}>{data.post.readingTime}</span>
+						<!-- <span use:popup={wordCountPopup}>{data.post.readingTime}</span>
 						<div class="bg-surface-700 dark:bg-surface-700 rounded-container p-2 z-20 text-xs relative"  data-popup="wordCountPopup">
 							<p class="font-sans text-surface-50 dark:text-surface-200">{data.post.wordCount} words</p>
-						</div>
+						</div> -->
 					{/if}
 				</p>
 			</div>
@@ -139,7 +138,7 @@
 <div class="w-full card-shimmer border-t border-b border-surface-200-700-token rounded-none mt-12">
 	<div class="w-full mx-auto relative max-w px-6 sm:px-8 md:px-16">
 		<div class="text-surface-900-50-token flex gap-x-2 place-items-center my-6 mx-auto w-fit">
-			<b>Filed under:</b> 
+			<b>Filed under:</b>
 			<Categories categories={categoriesArray}/>
 		</div>
 	</div>

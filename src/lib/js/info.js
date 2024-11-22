@@ -1,6 +1,10 @@
 import { dev } from '$app/environment';
 
+/**
+ * @type {string}
+ */
 export let website;
+
 // Root URL of your website
 if (dev) {
     website = 'http://localhost:5173' 
@@ -46,7 +50,17 @@ export const projects = {
         "image": "reasset.app.png",
         "link": "https://reasset.koenraijer.io/", 
         "code" : "https://github.com/koenraijer/reasset",
-        "languages": [ "Javscript", "SvelteKit", "TailwindCSS"],
+        "languages": [ "Javascript", "SvelteKit", "TailwindCSS"],
         "finished" : false
     },
+    "Outline Labs": {
+        "title": "Outline Labs",
+        "time_period" : "2024",
+        "description": "A web app for creating schemas that enable quick medical note-taking.",
+        "image": "",
+        "link": "https://outline-labs.web.app/", 
+        "code" : "",
+        "languages": [ "Typescript", "SvelteKit", "TailwindCSS", "Firebase"],
+        "finished" : false
+    }
 }

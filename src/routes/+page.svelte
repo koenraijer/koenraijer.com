@@ -3,37 +3,10 @@
 	import Categories from '$lib/components/Categories.svelte';
 	import Posts from '$lib/components/Posts.svelte';
 	import Book from '$lib/components/Book.svelte';
-	import Fuse from 'fuse.js';
 	import * as info from '$lib/js/info.js';
 	export let data
-	let searchQuery = "";
-	let focused = false;
 
 	let searchedPosts = data.posts; // Define searchedPosts
-
-	// Fuse options
-	const options = {
-		keys: ['title', 'description', 'categories'],
-		threshold: 0.4,
-		location: 0,
-		minMatchCharLength: 1,
-		shouldSort: true,
-		includeMatches: true,
-		findAllMatches: true,
-	};
-
-	// Create fuse instance
-	let fuse = new Fuse(data.posts, options);
-	
-	// Apply searchterm
-	$: {
-		if (searchQuery) {
-			let results = fuse.search(searchQuery);
-			searchedPosts = results.map(result => result.item);
-		} else {
-			searchedPosts = data.posts;
-		}
-	}
 
 	let categoriesArray = Object.entries(data.categories).map(([category, {count, slug}]) => ({
 		category,
@@ -44,12 +17,6 @@
 	data.categories = categoriesArray;
 
 	let limit = 5 // Number.POSITIVE_INFINITY
-
-	const loadMore = () => {
-		if (limit < searchedPosts.length) {
-			limit += 5; // Increase the limit by 5 only if limit is less than the length of the posts
-		}
-	};
 
 	// SEO
 	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(info.name)}`
@@ -83,54 +50,8 @@
 </section>
 
 <section class="section">
-	<div class="flex sm:flex-row items-center mb-4 w-full flex-wrap sm:flex-nowrap">
-		<div class="flex items-center w-full sm:flex-grow my-4 sm:my-0 ">
-			<h2 id="recent_posts" class="text-xl font-medium flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Recent posts</a></h2>
-			<hr class="!border-dotted !border-t-2 w-full !bg-transparent !border-surface-400"/>
-		</div>
-		<div class="w-full sm:pl-8 basis-full {focused ? "sm:basis-[200%] md:basis-3/5" : "sm:basis-[4.75rem]"} transition-all duration-300 ease-in-out">
-			<search class="relative w-full">
-				<form>
-					<label for="search-input" class="sr-only">Search</label>
-					<input 
-						id="search-input"
-						bind:value={searchQuery} 
-						on:focus={() => focused = true} 
-						on:blur={() => { focused = false; searchQuery = ""; }}
-						type="search" 
-						class="peer cursor-pointer relative z-10 h-10 w-full rounded-container border border-surface-200-700-token bg-transparent outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text pl-12 sm:pl-0 sm:focus:pl-12 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
-					/>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="absolute inset-y-0 my-auto h-5 border-r border-transparent border-surface-900-50 peer-focus pl-[0.625rem]">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-					</svg>
-				</form>	
-			</search>
-		</div>
-	</div>
-	
-	<Posts posts={searchedPosts} limit={limit}/>
-	{#if limit < searchedPosts.length}
-		<div class="w-full flex justify-center mt-8">
-			<button class="social" on:click={loadMore}>
-				Load more posts &nbsp;
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline">
-					<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-				  </svg>
-				  
-			</button>
-		</div>
-	{/if}
-	<!-- Consider using a fixed height and scrollbar like on https://robinrendle.com/ -->
-	<!--
-	<div class="h-[calc(100vh-8rem)] overflow-y-scroll border">
-		<Posts posts={searchedPosts} limit={limit}/>
-		{#if limit < searchedPosts.length}
-			<div class="w-full flex justify-center mt-8">
-				<button class="social" on:click={loadMore}>Load more posts</button>
-			</div>
-		{/if}
-	</div>
-	-->
+	<h2 id="recent_posts" class="text-base font-medium text-muted-foreground"><a href="#recent_posts">Writing</a></h2>
+	<Posts posts={searchedPosts}/>
 </section>
 
 <section class="section flex flex-col">
@@ -152,7 +73,7 @@
 			<h2 id="archive" class="text-xl font-medium flex-shrink-0 sm:pr-8 pr-4 transition-width duration-300 -mt-1"><a href="#archive">Archive</a></h2>
 			<hr class="!border-dotted !border-t-2 w-full !bg-transparent !border-surface-400"/>
 		</div>
-		<Posts posts={data.posts} compact/>
+		<Posts posts={data.posts} />
 	</section>
 	
 	<section class="w-full mt-12 md:mt-4 h-full ">

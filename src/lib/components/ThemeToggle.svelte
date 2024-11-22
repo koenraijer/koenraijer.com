@@ -1,99 +1,184 @@
-<script>
-    import { onMount } from 'svelte';
-    import { modeCurrent, setModeUserPrefers, setModeCurrent, setInitialClassState, getModeOsPrefers } from '@skeletonlabs/skeleton';
-    import { getContext } from 'svelte';
-    const close = getContext('close');
-
-    // Props
-    /** Provide classes to set the light background color. */
-    export let bgLight = 'bg-transparent';
-    /** Provide classes to set the dark background color. */
-    export let bgDark = '';
-    /** Provide classes to set the light SVG fill color. */
-    export let fillLight = 'fill-surface-50';
-    /** Provide classes to set the dark SVG fill color. */
-    export let fillDark = 'fill-surface-900';
-    /** Provide classes to set width styles. */
-    export let width = 'w-5';
-    /** Provide classes to set height styles. Should be half of width. */
-    export let height = 'h-5';
-    /** Provide classes to set ring styles. */
-    export let ring = 'border border-surface-200-700-token';
-    /** Provide classes to set border radius styles. */
-    export let rounded = 'rounded-container';
-    // Classes
-    const cTransition = `transition-colors duration-[200ms]`;
-    const cTrack = 'cursor-pointer';
-    const cIcon = 'w-5 h-5';
-
+<script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
+	import { tweened } from 'svelte/motion';
+	import { writable } from 'svelte/store';
+	import { elasticOut, cubicInOut } from 'svelte/easing';
+	import { toggleMode, mode } from 'mode-watcher';
+  
+	let isAnimating = false;
+	const rayOpacities = writable(Array(8).fill(1));
+  
+	const rotation = tweened(0, {
+	  duration: 200,
+	  easing: elasticOut
+	});
+  
+	const sunScale = tweened(1, {
+	  duration: 150,
+	  easing: elasticOut
+	});
+  
+	const moonOpacity = tweened(0, {
+	  duration: 300,
+	  easing: cubicInOut
+	});
+  
+	const rayScale = tweened(1, {
+	  duration: 150,
+	  easing: elasticOut
+	});
+  
+	const hoverRotation = tweened(0, {
+	  duration: 100,
+	  easing: elasticOut
+	});
+  
+	let sunHoverTimeout: NodeJS.Timeout;
+	let moonBounceInterval: NodeJS.Timeout;
+  
+	function animateRays(show: boolean) {
+	  const currentOpacities = Array(8).fill(show ? 0 : 1);
+	  for(let i = 0; i < 8; i++) {
+		setTimeout(() => {
+		  currentOpacities[i] = show ? 1 : 0;
+		  rayOpacities.set(currentOpacities);
+		}, i * 50 + (show ? 200 : 0));
+	  }
+	}
+  
+	function handleMouseEnter() {
+	  if ($mode === 'light') {
+		clearInterval(moonBounceInterval);
+		let bounceCount = 0;
+		let direction = 1;
+  
+		const bounce = () => {
+		  if (bounceCount >= 4) {
+			clearInterval(moonBounceInterval);
+			hoverRotation.set(0);
+			return;
+		  }
+		  hoverRotation.set(45 * direction);
+		  direction *= -1;
+		  bounceCount++;
+		};
+  
+		bounce();
+		moonBounceInterval = setInterval(bounce, 150);
+	  } else {
+		rayScale.set(1.2).then(() => {
+		  rayScale.set(1, { duration: 300, easing: elasticOut });
+		});
+		sunScale.set(0.85).then(() => {
+		  sunScale.set(1, { duration: 300, easing: elasticOut });
+		});
+	  }
+	}
+  
 	function onToggleHandler() {
-		$modeCurrent = !$modeCurrent;
-		setModeUserPrefers($modeCurrent);
-		setModeCurrent($modeCurrent);
-	}
+		if (!isAnimating) {
+			isAnimating = true;
+			toggleMode();
+			
+			if ($mode === 'light') {
+			const sunOpacity = tweened(1, { duration: 200, easing: cubicInOut });
+			sunOpacity.set(0);
+			moonOpacity.set(0);
+			animateRays(false);
+			rotation.set(-440)
+				.then(() => {
+				moonOpacity.set(1);
+				rotation.set(0);
+				});
+			} else {
+			moonOpacity.set(0);
+			rotation.set(0);
+			animateRays(true);
+			}
 
-	// A11y Input Handlers
-	function onKeyDown(event) {
-		// Enter/Space triggers selection event
-		if (['Enter', 'Space'].includes(event.code)) {
-			event.preventDefault();
-			event.currentTarget.click();
+			setTimeout(() => isAnimating = false, 500);
 		}
+		}
+  
+	function handleMouseLeave() {
+	  if ($mode === 'dark') {
+		clearInterval(moonBounceInterval);
+		hoverRotation.set(0);
+	  } else {
+		rayScale.set(1, { duration: 300, easing: elasticOut });
+		sunScale.set(1, { duration: 300, easing: elasticOut });
+	  }
 	}
-
-	// Lifecycle
+  
 	onMount(() => {
-		// Sync lightswitch with the theme
-		if (!('modeCurrent' in localStorage)) {
-			setModeCurrent(getModeOsPrefers());
-		} else {
-            setModeCurrent($modeCurrent);
-        }
+	  rotation.set($mode === 'dark' ? 0 : 0, { duration: 0 });
+	  moonOpacity.set($mode === 'dark' ? 0 : 1, { duration: 0 });
+	  rayOpacities.set(Array(8).fill($mode === 'dark' ? 1 : 0));
+	});
+  
+	onDestroy(() => {
+	  clearInterval(moonBounceInterval);
+	  clearTimeout(sunHoverTimeout);
 	});
 
-	// State
-	$: trackBg = $modeCurrent === true ? bgLight : bgDark;
-	$: iconFill = $modeCurrent === true ? fillLight : fillDark;
-	// Reactive
-	$: classesTrack = `${cTrack} ${cTransition} ${width} ${height} ${ring} ${rounded} ${trackBg} ${$$props.class ?? ''}`;
-        // cursor-pointer transition-all duration-[200ms] border border-surface-900-50-token rounded-none bg-surface-50-900-token transition-colors decoration-none flex justify-center items-center bg-surface-hover-token h-fit w-fit p-2
-	$: classesIcon = `${cIcon} ${iconFill}`;
-</script>
-
-<svelte:head>
-	<!-- Workaround for a svelte parsing error: https://github.com/sveltejs/eslint-plugin-svelte/issues/492 -->
-	{@html `<\u{73}cript nonce="%sveltekit.nonce%">(${setInitialClassState.toString()})();</script>`}
-</svelte:head>
-
-<button 
-    on:click={() => {onToggleHandler();}} 
-    on:keydown={onKeyDown} 
-    class="{classesTrack} !z-50 transition-colors decoration-none flex justify-center items-center bg-surface-hover-token h-fit w-fit p-2 whitespace-nowrap"
-    role="switch"
-    aria-label="Light Switch"
-    aria-checked={$modeCurrent}
-    title="Toggle {$modeCurrent === true ? 'Dark' : 'Light'} Mode"
-    tabindex="0"
->
-    {#if $modeCurrent}
-    <!--Show moon-->
-    <svg xmlns="http://www.w3.org/2000/svg" class="{classesIcon}" fill="currentColor" viewBox="0 0 256 256">
-        <rect width="256" height="256" fill="none"></rect>
-        <path d="M216.7,152.6A91.9,91.9,0,0,1,103.4,39.3h0A92,92,0,1,0,216.7,152.6Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></path>
-    </svg>
-    {:else}
-    <svg xmlns="http://www.w3.org/2000/svg" class="{classesIcon}" fill="currentColor" viewBox="0 0 256 256">
-        <rect width="256" height="256" fill="none"></rect>
-        <circle cx="128" cy="128" r="60" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></circle>
-        <line x1="128" y1="28" x2="128" y2="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-        <line x1="198.7" y1="57.3" x2="204.4" y2="51.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-        <line x1="228" y1="128" x2="236" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-        <line x1="198.7" y1="198.7" x2="204.4" y2="204.4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-        <line x1="128" y1="228" x2="128" y2="236" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-        <line x1="57.3" y1="198.7" x2="51.6" y2="204.4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-        <line x1="28" y1="128" x2="20" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-        <line x1="57.3" y1="57.3" x2="51.6" y2="51.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></line>
-    </svg>
-    {/if}
-    <!--{$modeCurrent === true ? 'Dark' : 'Light'} mode-->
-</button>
+  </script>
+  
+  <button
+	on:click={onToggleHandler}
+	on:mouseenter={handleMouseEnter}
+	on:mouseleave={handleMouseLeave}
+	class="transition-colors decoration-none flex justify-center items-center rounded-full h-7 w-7 group relative hover:bg-muted hover:text-foreground text-muted-foreground"
+	role="switch"
+	aria-checked={$mode === 'dark'}
+	aria-label="Theme Toggle"
+	title="Toggle theme"
+  >
+	<div class="relative w-4 h-4 flex justify-center items-center">
+	  <div
+		class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-200"
+		style="transform: translate(-50%, -50%) rotate({$rotation}deg)"
+	  >
+		<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 256 256">
+		  <rect width="256" height="256" fill="none"></rect>
+		  <g
+			class="origin-center transition-all duration-150 ease-out"
+			style="transform: scale({$sunScale}); opacity: {$moonOpacity === 1 ? 0 : 1}"
+		  >
+			<circle
+			  cx="128"
+			  cy="128"
+			  r="60"
+			  fill="none"
+			  stroke="currentColor"
+			  stroke-linecap="round"
+			  stroke-linejoin="round"
+			  stroke-width="24"
+			/>
+		  </g>
+		  {#each Array(8) as _, i (i)}
+			<line
+			  style="opacity: {$rayOpacities[i]}; transform: rotate({i * 45}deg) scale({$rayScale}); transform-origin: 128px 128px; transition: transform 150ms ease-out"
+			  x1="128"
+			  y1="28"
+			  x2="128"
+			  y2="20"
+			  fill="none"
+			  stroke="currentColor"
+			  stroke-linecap="round"
+			  stroke-linejoin="round"
+			  stroke-width="24"
+			></line>
+		  {/each}
+		</svg>
+	  </div>
+		<div
+		class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-200 bg-background"
+		style="transform: translate(-50%, -50%) rotate({$rotation + $hoverRotation}deg); opacity: {$moonOpacity}"
+		>
+		<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 256 256">
+			<rect width="256" height="256" fill="none"></rect>
+			<path d="M216.7,152.6A91.9,91.9,0,0,1,103.4,39.3h0A92,92,0,1,0,216.7,152.6Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></path>
+		</svg>
+		</div>
+	</div>
+  </button>

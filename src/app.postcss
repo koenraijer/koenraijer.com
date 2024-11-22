@@ -1,4 +1,81 @@
-/*Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+ 
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+ 
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+ 
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+ 
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+ 
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+ 
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+ 
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+ 
+    --ring: 0 0% 3.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+ 
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+ 
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+ 
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+ 
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+ 
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+ 
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+ 
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+ 
+    --ring: 0 0% 83.1%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /*Write your global styles here, in PostCSS syntax */
 /*place global styles here */
 /* Only do the FLIP-style animations when no reduced-motion preference */
 @media (prefers-reduced-motion: no-preference) {
@@ -6,7 +83,7 @@
 	  view-transition-name: var(--tag);
 	}
   }
-  
+
 :root {
 	--pixellated: url('/pixellatedbg.png');
 	--grain: url('data:image/png;base64,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');
@@ -33,6 +110,22 @@
 	font-style: normal;
   }
 
+@font-face {
+	 font-family: "General Sans";
+	 src: url('/fonts/General_Sans/GeneralSans-Variable.ttf') format("truetype-variations");
+	 font-weight: 1 900;
+	 font-display: swap;
+	 font-style: normal;
+}
+
+@font-face {
+	 font-family: "General Sans";
+	 src: url('/fonts/General_Sans/GeneralSans-VariableItalic.ttf') format("truetype-variations");
+	 font-weight: 1 900;
+	 font-display: swap;
+	 font-style: italic;
+}
+
 .card-shimmer {
 	background: rgba(255,255,255,0.7) var(--grain);
 	background-blend-mode: color-dodge;
@@ -43,16 +136,16 @@
 	background-blend-mode: color-dodge;
 }
 
-html, body { 
-	@apply h-full selection:bg-primary-500 selection:text-surface-50 text-base subpixel-antialiased dark:!font-light /*overscroll-y-none;*/;
+html, body {
+	@apply h-full selection:bg-primary selection:text-primary-foreground text-base subpixel-antialiased /*overscroll-y-none;*/;
 }
 
 p, li {
-	@apply font-serif
+	@apply font-sans
 }
 
 .max-w {
-	@apply max-w-6xl 2xl:max-w-[1500px]
+	@apply max-w-3xl 2xl:max-w-4xl
 }
 
 .section {
@@ -60,7 +153,7 @@ p, li {
 }
 
 .social {
-	@apply inline-flex px-3 py-2 items-center transition-colors bg-surface-hover-token text-token text-sm border border-surface-200-700-token rounded-container;
+	@apply inline-flex w-7 h-7 items-center justify-center transition-colors rounded-full hover:bg-muted text-muted-foreground hover:text-foreground;
 }
 
 .search-input::before {
@@ -90,7 +183,6 @@ input:focus {
     --tw-text-opacity: 1;
     color: rgb(var(--color-primary-600) / var(--tw-text-opacity));
     text-decoration-line: underline;
-	
 }
 .anchor:hover {
     --tw-brightness: brightness(1.1);
@@ -107,44 +199,41 @@ input:focus {
 	}
 
 .prose :where(h2, h3, h4, h5, h6) :where(a):not(:where([class~="not-prose"] *)) {
-	@apply relative no-underline hover:underline hover:after:content-['#'] after:absolute after:w-4 after:h-4 after:text-surface-300-600-token text-surface-900-50-token after:pl-4
+	@apply relative no-underline hover:underline hover:after:content-['#'] after:absolute after:w-4 after:h-4 after:text-muted-foreground text-muted-foreground after:pl-4
 }
 
 h2, h3, h4, h5, h6 {
 	@apply scroll-mt-20
 }
 
-.prose :where(strong) {
-	@apply text-surface-900-50-token
-}
-
 /*Sidenotes*/
-/* Since Tailwind doesn't directly support element type selectors in combination with classes/ids, 
+/* Since Tailwind doesn't directly support element type selectors in combination with classes/ids,
 you might need to extend your configuration or write custom CSS. */
-  
+
 .footnotes hr {
 	/* Hide the horizontal rule */
 	display: none;
 }
 
 .menu-button {
-	@apply cursor-pointer duration-[200ms] border border-surface-200-700-token rounded-container bg-surface-100-800-token transition-colors flex justify-start bg-surface-hover-token h-fit p-2 text-surface-900-50-token
+	@apply cursor-pointer duration-[200ms] border rounded-lg transition-colors flex justify-start h-fit p-2
 }
 
 .button {
-	@apply cursor-pointer duration-[200ms] border border-surface-300-600-token rounded-container bg-surface-50-900-token transition-colors flex justify-start bg-surface-hover-token h-fit p-2
+	@apply cursor-pointer duration-[200ms] border rounded-lg transition-colors flex justify-start h-fit p-2
 }
 
 .button-secondary {
-	@apply cursor-pointer duration-[200ms] border rounded-container transition-colors flex justify-start h-fit p-2 dark:bg-secondary-500/10 bg-secondary-500/40 font-semibold border-secondary-500 dark:border-secondary-600 hover:bg-secondary-500 dark:hover:bg-secondary-600
+	@apply cursor-pointer duration-[200ms] border rounded-lg transition-colors flex justify-start h-fit p-2 font-semibold
 }
 
 .fullbleed {
-	@apply w-screen relative !rounded-container lg:px-[10vw] max-w left-1/2 right-1/2 -translate-x-1/2 object-contain;
+	@apply w-screen relative !rounded-lg lg:px-[10vw] max-w left-1/2 right-1/2 -translate-x-1/2 object-contain;
 }
-  
+
 /*
 .fullbleed {
 	@apply w-screen max-w relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] rounded-container px-[10vw];
   }
 */
+}
