@@ -20,9 +20,9 @@
 
     function goBack() {
         if (browser && previousUrl) {
-            goto(previousUrl, { replaceState: false });
+            goto(previousUrl, { replaceState: true });
         } else {
-            goto("/books", { replaceState: false });
+            goto("/books", { replaceState: true });
         }
     }
 </script>

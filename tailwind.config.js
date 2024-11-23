@@ -5,8 +5,8 @@ import forms from '@tailwindcss/forms';
 const plugin = require('tailwindcss/plugin')
 
 const fluidTypeConfig = {
-	fontSizeMin: 1, // 1.125rem === 18px
-	fontSizeMax: 1.2, // 1.25rem === 20px
+	fontSizeMin: 1.125, // 1.125rem === 18px
+	fontSizeMax: 1.25, // 1.25rem === 20px
 	ratioMin: 1.1, // Multiplicator Min
 	ratioMax: 1.2, // Multiplicator Max
 	screenMin: 20, // 20rem === 320px

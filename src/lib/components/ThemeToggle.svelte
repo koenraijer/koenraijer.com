@@ -1,149 +1,124 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-	import { tweened } from 'svelte/motion';
-	import { writable } from 'svelte/store';
-	import { elasticOut, cubicInOut } from 'svelte/easing';
+	import { onMount } from 'svelte';
+	import { Motion } from 'svelte-motion';
 	import { toggleMode, mode } from 'mode-watcher';
+	
+	const sunVariants = {
+	  light: { 
+		rotate: -360,
+		scale: 0,
+		opacity: 0,
+		transition: { duration: 0.5, ease: "easeInOut" }
+	  },
+	  dark: { 
+		rotate: 0,
+		scale: 1,
+		opacity: 1,
+		transition: { duration: 0.5, ease: "easeInOut" }
+	  }
+	};
+	
+	const moonVariants = {
+	  light: { 
+		rotate: 0,
+		scale: 1,
+		opacity: 1,
+		transition: { duration: 0.5, ease: "easeInOut" }
+	  },
+	  dark: { 
+		rotate: 360,
+		scale: 0,
+		opacity: 0,
+		transition: { duration: 0.5, ease: "easeInOut" }
+	  }
+	};
+	
+	const rayVariants = {
+	  light: { 
+		opacity: 0,
+		scale: 0,
+		transition: { duration: 0.3 }
+	  },
+	  dark: { 
+		opacity: 1,
+		scale: 1,
+		transition: { duration: 0.3 }
+	  }
+	};
   
+	const sunHoverVariants = {
+	  scale: 0.9,
+	  transition: {
+		type: "spring",
+		stiffness: 400,
+		damping: 10
+	  }
+	};
+  
+	const rayHoverVariants = {
+	  scale: 1.2,
+	  transition: {
+		type: "spring",
+		stiffness: 400,
+		damping: 17
+	  }
+	};
+  
+	const moonHoverVariants = {
+	  rotate: 45,
+	  transition: {
+		type: "spring",
+		stiffness: 300,
+		damping: 10,
+		mass: 1.2
+	  }
+	};
+	
 	let isAnimating = false;
-	const rayOpacities = writable(Array(8).fill(1));
-  
-	const rotation = tweened(0, {
-	  duration: 200,
-	  easing: elasticOut
-	});
-  
-	const sunScale = tweened(1, {
-	  duration: 150,
-	  easing: elasticOut
-	});
-  
-	const moonOpacity = tweened(0, {
-	  duration: 300,
-	  easing: cubicInOut
-	});
-  
-	const rayScale = tweened(1, {
-	  duration: 150,
-	  easing: elasticOut
-	});
-  
-	const hoverRotation = tweened(0, {
-	  duration: 100,
-	  easing: elasticOut
-	});
-  
-	let sunHoverTimeout: NodeJS.Timeout;
-	let moonBounceInterval: NodeJS.Timeout;
-  
-	function animateRays(show: boolean) {
-	  const currentOpacities = Array(8).fill(show ? 0 : 1);
-	  for(let i = 0; i < 8; i++) {
-		setTimeout(() => {
-		  currentOpacities[i] = show ? 1 : 0;
-		  rayOpacities.set(currentOpacities);
-		}, i * 50 + (show ? 200 : 0));
+	
+	function handleToggle() {
+	  if (!isAnimating) {
+		isAnimating = true;
+		toggleMode();
+		setTimeout(() => isAnimating = false, 500);
 	  }
 	}
-  
-	function handleMouseEnter() {
-	  if ($mode === 'light') {
-		clearInterval(moonBounceInterval);
-		let bounceCount = 0;
-		let direction = 1;
-  
-		const bounce = () => {
-		  if (bounceCount >= 4) {
-			clearInterval(moonBounceInterval);
-			hoverRotation.set(0);
-			return;
-		  }
-		  hoverRotation.set(45 * direction);
-		  direction *= -1;
-		  bounceCount++;
-		};
-  
-		bounce();
-		moonBounceInterval = setInterval(bounce, 150);
-	  } else {
-		rayScale.set(1.2).then(() => {
-		  rayScale.set(1, { duration: 300, easing: elasticOut });
-		});
-		sunScale.set(0.85).then(() => {
-		  sunScale.set(1, { duration: 300, easing: elasticOut });
-		});
-	  }
-	}
-  
-	function onToggleHandler() {
-		if (!isAnimating) {
-			isAnimating = true;
-			toggleMode();
-			
-			if ($mode === 'light') {
-			const sunOpacity = tweened(1, { duration: 200, easing: cubicInOut });
-			sunOpacity.set(0);
-			moonOpacity.set(0);
-			animateRays(false);
-			rotation.set(-440)
-				.then(() => {
-				moonOpacity.set(1);
-				rotation.set(0);
-				});
-			} else {
-			moonOpacity.set(0);
-			rotation.set(0);
-			animateRays(true);
-			}
-
-			setTimeout(() => isAnimating = false, 500);
-		}
-		}
-  
-	function handleMouseLeave() {
+	
+	const handleHover = () => {
+	  // Return empty object if animating to prevent hover during transition
+	  if (isAnimating) return {};
+	  
 	  if ($mode === 'dark') {
-		clearInterval(moonBounceInterval);
-		hoverRotation.set(0);
-	  } else {
-		rayScale.set(1, { duration: 300, easing: elasticOut });
-		sunScale.set(1, { duration: 300, easing: elasticOut });
+		return sunHoverVariants;
 	  }
-	}
+	  return moonHoverVariants;
+	};
   
-	onMount(() => {
-	  rotation.set($mode === 'dark' ? 0 : 0, { duration: 0 });
-	  moonOpacity.set($mode === 'dark' ? 0 : 1, { duration: 0 });
-	  rayOpacities.set(Array(8).fill($mode === 'dark' ? 1 : 0));
-	});
-  
-	onDestroy(() => {
-	  clearInterval(moonBounceInterval);
-	  clearTimeout(sunHoverTimeout);
-	});
-
+	const handleRayHover = () => {
+	  if (isAnimating || $mode === 'light') return {};
+	  return rayHoverVariants;
+	};
   </script>
   
   <button
-	on:click={onToggleHandler}
-	on:mouseenter={handleMouseEnter}
-	on:mouseleave={handleMouseLeave}
-	class="transition-colors decoration-none flex justify-center items-center rounded-full h-7 w-7 group relative hover:bg-muted hover:text-foreground text-muted-foreground"
+	on:click={handleToggle}
+	class="transition-colors decoration-none inline-flex justify-center items-center rounded-full h-7 w-7 group relative hover:bg-muted hover:text-foreground text-muted-foreground"
 	role="switch"
 	aria-checked={$mode === 'dark'}
 	aria-label="Theme Toggle"
 	title="Toggle theme"
   >
-	<div class="relative w-4 h-4 flex justify-center items-center">
-	  <div
-		class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-200"
-		style="transform: translate(-50%, -50%) rotate({$rotation}deg)"
+	<div class="relative w-4 h-4">
+	  <!-- Sun with Rays -->
+	  <Motion
+		animate={$mode === 'dark' ? 'dark' : 'light'}
+		variants={sunVariants}
+		whileHover={handleHover}
+		let:motion
 	  >
-		<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 256 256">
-		  <rect width="256" height="256" fill="none"></rect>
-		  <g
-			class="origin-center transition-all duration-150 ease-out"
-			style="transform: scale({$sunScale}); opacity: {$moonOpacity === 1 ? 0 : 1}"
-		  >
+		<div use:motion class="absolute inset-0">
+		  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-4 h-4" fill="currentColor">
+			<rect width="256" height="256" fill="none" />
 			<circle
 			  cx="128"
 			  cy="128"
@@ -154,31 +129,53 @@
 			  stroke-linejoin="round"
 			  stroke-width="24"
 			/>
-		  </g>
-		  {#each Array(8) as _, i (i)}
-			<line
-			  style="opacity: {$rayOpacities[i]}; transform: rotate({i * 45}deg) scale({$rayScale}); transform-origin: 128px 128px; transition: transform 150ms ease-out"
-			  x1="128"
-			  y1="28"
-			  x2="128"
-			  y2="20"
+			{#each Array(8) as _, i}
+			  <Motion
+				animate={$mode === 'dark' ? 'dark' : 'light'}
+				variants={rayVariants}
+				whileHover={handleRayHover}
+				custom={i} 
+				let:motion
+			  >
+				<g use:motion>
+				  <line
+					transform={`rotate(${i * 45} 128 128)`}
+					x1="128"
+					y1="28"
+					x2="128"
+					y2="20"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="24"
+				  />
+				</g>
+			  </Motion>
+			{/each}
+		  </svg>
+		</div>
+	  </Motion>
+  
+	  <!-- Moon -->
+	  <Motion
+		animate={$mode === 'dark' ? 'dark' : 'light'}
+		variants={moonVariants}
+		whileHover={handleHover}
+		let:motion
+	  >
+		<div use:motion class="absolute inset-0">
+		  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-4 h-4" fill="currentColor">
+			<rect width="256" height="256" fill="none" />
+			<path
+			  d="M216.7,152.6A91.9,91.9,0,0,1,103.4,39.3h0A92,92,0,1,0,216.7,152.6Z"
 			  fill="none"
 			  stroke="currentColor"
 			  stroke-linecap="round"
 			  stroke-linejoin="round"
 			  stroke-width="24"
-			></line>
-		  {/each}
-		</svg>
-	  </div>
-		<div
-		class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-200"
-		style="transform: translate(-50%, -50%) rotate({$rotation + $hoverRotation}deg); opacity: {$moonOpacity}"
-		>
-		<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 256 256">
-			<rect width="256" height="256" fill="none"></rect>
-			<path d="M216.7,152.6A91.9,91.9,0,0,1,103.4,39.3h0A92,92,0,1,0,216.7,152.6Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24"></path>
-		</svg>
+			/>
+		  </svg>
 		</div>
+	  </Motion>
 	</div>
   </button>

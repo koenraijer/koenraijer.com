@@ -3,26 +3,23 @@
 
 	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
 	import '../app.postcss';
 
 	// UI
-	import Footer from '$lib/components/Footer.svelte'
-	import Menu from '$lib/components/Menu.svelte';
-	import MenuButton from '../lib/components/MenuButton.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import CopyButton from '$lib/components/CopyButton.svelte';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import { ScrollArea } from '$lib/shadcn/ui/scroll-area/';
+	import { Undo2 } from 'lucide-svelte';
 
 	// All other imports
 	import { Toaster } from "$lib/shadcn/ui/sonner";
 	import { ModeWatcher, mode } from "mode-watcher";
 	import PageTransition from '../lib/components/Transition.svelte';
-	import * as info from '$lib/js/info.js'
-
+  
 	// Variables
-	let menuItems = info.menuItems;
 	let link: HTMLLinkElement;
-	let logo;
+	let logo: string;
 
 	afterNavigate(() => {
 		document.getElementById('page')?.scrollTo(0, 0); // Workaround for page not scrolling to top on navigation
@@ -79,6 +76,7 @@
 			}
 		}
 	}
+
 </script>
 
 <svelte:head>
@@ -107,19 +105,32 @@
 <ModeWatcher />
 <Toaster />
 
-<ScrollArea orientation="both" class="!m-0 !p-0 w-screen h-screen">
-	<div class="grid grid-rows-[auto_1fr_auto] grid-cols-[100%] min-h-[100svh] w-screen">
-		<!-- Header -->
+<!-- <ScrollArea orientation="both" class="!m-0 !p-0 w-screen h-screen"> -->
+<div class="w-full grid grid-rows-[auto_1fr_auto] min-h-[100svh]">
+	<!-- Header -->
+	<header class="px-4 md:px-8 py-6 h-fit">
+	<!-- Your header content -->
+	{#if $page.url.pathname === "/books"}
+		<div class="flex items-center group">
+		<a 
+			href="/"
+			class="inline-flex items-center group text-sm text-muted-foreground/80 hover:text-foreground"
+		>
+			<Undo2 class="w-4 h-4 mr-1"/>
+			Index
+		</a>
+		</div>
+	{/if}
+	</header>
 
-		<!-- Router Slot -->
-		<PageTransition url={data.url}>
-				<main class="col-span-full pt-6 sm:pt-12 md:pt-16">
-					<slot />
-				</main>
-		</PageTransition>
+	<!-- Main Content Area -->
+	<PageTransition url={data.url}>
+		<main>
+			<slot />
+		</main>
+	</PageTransition>
 
-		<!-- Footer -->
-		<Footer />
-
-	</div>
-</ScrollArea>
+	<!-- Footer -->
+	<Footer />
+</div>
+<!-- </ScrollArea> -->

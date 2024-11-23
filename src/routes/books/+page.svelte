@@ -180,7 +180,7 @@
 </section>
 
 <!-- Filters Container - Fixed Position -->
-<div class="sticky top-0 left-0 right-0 z-50 mx-4 md:mx-8 px-4 pt-8 md:pt-12">
+<div class="sticky top-0 left-0 right-0 z-50 px-4 pt-8 md:pt-12">
     <div class="w-full flex items-center justify-between">
         <!-- Active Filters -->
         <div class="bg-background/80 backdrop-blur-sm rounded-full border border-muted-foreground/10 py-1.5 px-4">
@@ -215,7 +215,7 @@
 </div>
 
 <!-- Books Grid -->
-<section class="min-h-screen px-4 md:px-8 py-8">
+<section class="px-4 md:px-8 py-8">
     <div 
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4 md:gap-8 auto-rows-max"
         transition:fade={{ duration: 200 }}

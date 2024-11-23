@@ -4,7 +4,7 @@
     import { History } from 'lucide-svelte'
 </script>
 
-<footer class="mb-6 section flex flex-row justify-between w-full">
+<footer class="mb-6 section flex flex-row justify-between w-full mt-auto">
     <Socials />
     <div class="flex flex-row">
         <a href="/changelog" class="transition-colors decoration-none flex justify-center items-center rounded-full h-7 w-7 group relative hover:bg-muted hover:text-foreground text-muted-foreground">
