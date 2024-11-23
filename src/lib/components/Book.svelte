@@ -15,14 +15,12 @@
 </script>
 
 <!--Body-->
-<button class="flex flex-col sm:flex-row {compact ? "w-fit" : "w-full"} group gap-x-4 overflow-hidden" on:click|preventDefault={() => navigateToBookDetails(book)}>
+<button class="flex flex-col w-full sm:flex-row group gap-x-4 overflow-hidden" on:click|preventDefault={() => navigateToBookDetails(book)}>
     {#if compact}
-        <div>
-            <p class="anchor text-sm">
-                <span class="truncate" style:--tag="title-{book["Book Id"]}" >{book.Title ? book.Title : ""}</span>
-                (<span class="" style:--tag="author-{book["Book Id"]}">{book.Author})</span>
-            </p>
-        </div>
+        <p class="anchor text-sm text-left inline">
+            <span>{book.Title ? book.Title : ""}</span>
+            <span>({book.Author})</span>
+        </p>
     {:else}
     <div class="group w-full">
         <!-- Book Cover Container -->

@@ -105,17 +105,15 @@
 		</a>
 	</h2>
 
-	<div class="">
-		{#each data.current_books as book}
-			<Book book={book} compact/>
-		{/each}
-	</div>
+	{#each data.current_books as book}
+		<Book book={book} compact/>
+	{/each}
 </section>
 
-<section class="section no-un">
+<section class="section">
 	<h2 id="categories" class="text-sm font-normal text-muted-foreground/80 mb-2">Projects</h2>
-	<div class="flex flex-col gap-2">
-		<A href="https://reasset.koenraijer.com/" classes="no-underline hover:underline text-sm">ReAsset</A>
-		<A href="https://outline-labs.web.app/" classes="no-underline hover:underline text-sm">Outline Labs</A>
+	<div class="flex flex-col">
+		<A href="https://reasset.koenraijer.com/" classes="anchor text-sm">ReAsset</A>
+		<A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>
 	</div>
 </section>

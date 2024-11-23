@@ -35,11 +35,11 @@
 
 <!-- Preload image-->
 <svelte:head>
-  <link rel="preload" href="/241122_avatar.png" as="image"/>
+  <link rel="preload" as="image" href="/241122_avatar.png" type="image/png" />
 </svelte:head>
 
 <div class="relative">
-  <div class="w-full flex justify-end h-6 absolute -top-7 right-6">
+  <div class="w-full flex justify-end h-6 absolute -top-7 right-0 sm:right-6">
     <a class="inline-flex items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" href="/240504_resume.pdf"><Download class="w-3 h-3 inline"/>Download Resume</a>
   </div>
   <h1 class="text-base mb-4 !leading-8">
@@ -56,7 +56,7 @@
           class="fixed z-50 rounded-full whitespace-nowrap transition-all duration-75"
           style="left: {tooltipX}px; top: {tooltipY}px"
         >
-          <img src="/241122_avatar.png" alt="Avatar" class="w-24 h-24 rounded-full border-muted-foreground/20 border-4"/>
+          <img src="/241122_avatar.png" alt="Avatar" class="w-24 h-24 rounded-full border-muted-foreground/20 border-4" fetchpriority="high"/>
         </span>
       {/if}
     </span>

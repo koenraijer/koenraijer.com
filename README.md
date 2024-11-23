@@ -18,7 +18,7 @@
 - Proper RSS feed: https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
 - Proper sitemap: https://kylenazario.com/blog/sveltekit-blog-sitemap 
 - New code highlighting: https://github.com/atomiks/rehype-pretty-code 
-- https://www.skeleton.dev/utilities/codeblocks <-- replace codeblocks, or: https://github.com/pngwn/MDsveX/issues/385 
+- Implement Shiki for copy code buttons: https://github.com/pngwn/MDsveX/issues/385 
 - Use floating ui for filters
 - Link shortener for my own domain?
 

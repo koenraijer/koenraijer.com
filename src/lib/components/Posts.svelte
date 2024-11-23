@@ -15,7 +15,7 @@
     }
 </script>
 
-<div class="flex flex-col gap-y-2">
+<div class="flex flex-col">
     {#each posts as post}
         <div class="inline">
             <a href={"/" + post.slug} class="text-sm anchor">
