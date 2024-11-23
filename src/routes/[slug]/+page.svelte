@@ -85,97 +85,70 @@
 	<ToTopButton absolute />
 {/if}
 
-<div class="grid grid-cols-5 mx-auto relative mt-12 max-w gap-x-8">
-	<div class="w-full {data.post.ToC ? "col-start-1" : "col-start-2"} col-span-full px-6 sm:px-8 mx-auto">
-		<!-- Title -->
-		<hgroup class="lg:mx-0 w-full !mx-auto">
-			<div>
-				{#if data.post.title}
-					<h2 class="text-2xl my-4">{data.post.title}</h2>
+<section class="section">
+	<!-- Title -->
+	<hgroup class="lg:mx-0 w-full !mx-auto">
+		<div>
+			{#if data.post.title}
+				<h2 class="text-2xl my-4">{data.post.title}</h2>
+			{/if}
+			<p class="mb-8 text-sm font-sans">
+				{#if data.post.date}
+					{#if data.post.updated}
+						<span>{formatDate(data.post.date)}
+							({formatDate(data.post.updated)})
+						</span> -
+					{:else}
+						<span>{formatDate(data.post.date)}</span> -
+					{/if}
 				{/if}
-				<p class="mb-8 text-sm font-sans">
-					{#if data.post.date}
-						{#if data.post.updated}
-							<span>{formatDate(data.post.date)}
-								({formatDate(data.post.updated)})
-							</span> -
-						{:else}
-							<span>{formatDate(data.post.date)}</span> -
-						{/if}
-					{/if}
-					{#if data.post.readingTime}
-						{data.post.wordCount} words
-					{/if}
-				</p>
-			</div>
-		</hgroup>
-	</div>
-	{#if data.post.ToC}
-	<aside class="w-fit h-full lg:w-full font-sans md:pt-2 pt-0 md:mb-4 mb-8 mx-6 sm:mx-8 z-50 lg:col-start-1 lg:col-span-1 lg:block md:hidden col-span-full" aria-label="Table of Contents">
-			<ToC post={data.post}/>
-	</aside>
-	{/if}
-	<article class="w-full lg:col-span-3 lg:col-start-2 col-span-full px-6 sm:px-8 mx-auto relative">
-		{#if data.post.ToC}
-			<aside class="w-fit font-sans md:pt-2 pt-0 md:mb-4 mb-8 mr-8 md:float-left hidden md:block lg:hidden relative z-100" aria-label="Table of Contents">
-					<ToC post={data.post}/>
-			</aside>
-		{/if}
+				{#if data.post.readingTime}
+					{data.post.wordCount} words
+				{/if}
+			</p>
+		</div>
+	</hgroup>
+
+	<!-- Post -->
+	<ToC post={data.post}>
+	<article>
 		<!-- Post content -->
-		<div class="break-words prose-p:z-0 !max-w-none md:prose-p:pl-4 prose-inline-code:overflow-x-scroll prose prose-headings:prose-a:no-underline relative prose-blockquote:prose-quoteless prose-code:text-sm prose-code:text-wrap prose-inline-code:text-wrap prose-inline-code:text-sm prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-ul:mt-0 prose-li:my-0 prose-ul:ml-2 prose-li:ml-2 prose-a:my-0 prose-p:mb-0 prose-ol:mt-0">
+		<div class="break-words prose-p:z-0 !max-w-none prose-inline-code:overflow-x-scroll prose prose-headings:prose-a:no-underline relative prose-blockquote:prose-quoteless prose-code:text-sm prose-code:text-wrap prose-inline-code:text-wrap prose-inline-code:text-sm prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-ul:mt-0 prose-li:my-0 prose-ul:ml-2 prose-li:ml-2 prose-a:my-0 prose-p:mb-0 prose-ol:mt-0">
 			{@html data.post.content}
 		</div>
 	</article>
-
-</div>
+	</ToC>
+</section>
 
 <!-- Categories -->
-<div class="w-full border-t border-b rounded-none mt-12">
-	<div class="w-full mx-auto relative max-w px-6 sm:px-8 md:px-16">
-		<div class="!font-[500] flex gap-x-2 place-items-center my-6 mx-auto w-fit">
-			<span>Filed under:</span>
-			<Categories categories={categoriesArray}/>
-		</div>
-	</div>
-</div>
+<section class="section">
+	<h2 class="text-sm font-normal text-muted-foreground/80 mb-2">Filed under</h2>
+	<Categories categories={categoriesArray}/>
+</section>
 
 <!-- Pagination -->
-<div class="w-screen mx-auto relative max-w">
-	<div class="w-full px-6 sm:px-8 md:px-16 mx-auto">
-		<div class="grid {xor(!data.post.previous, !data.post.next) ? 'grid-rows-1' : 'grid-rows-2'} md:grid-rows-1 grid-cols-2 py-4 md:py-6 justify-between text-base">
-			{#if data.post.previous}
-			<a class="row-start-1 col-span-full md:col-span-1 group flex flex-wrap flex-col p-4 pl-0" href={data.post.previous.slug}>
-				<div class="inline-flex align-top">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2 self-center">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-					</svg>
-					<h4 class="font-[500] group-hover:underline font-sans">&nbsp;Newer post</h4>
-				</div>
-				<p class="">{data.post.previous.title}</p>
-			</a>
-			{:else}
-			<span class="row-start-1 col-span-full md:col-span-1 group flex flex-wrap flex-col p-4 pl-0 italic ">
-				No post newer than this!
-			</span>
-			{/if}
-			<!-- Add vertical divider-->
-			<div class="col-span-full md:col-span-1 md:col-start-2 row-start-1 md:row-start-1 md:row-end-2 border-l-2 md:block hidden"></div>
-			{#if data.post.next}
-			<a class="md:row-start-1 col-span-full md:col-start-2 {data.post.previous ? "row-start-2" : ""} group flex flex-wrap flex-col p-4 pr-0 items-end" href={data.post.next.slug}>
-				<div class="inline-flex align-top">
-					<p class="font-[500] group-hover:underline">Older post&nbsp;</p>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2 self-center">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-					</svg>
-				</div>
-					<p class="text-right">{data.post.next.title}</p>
-			</a>
-			{:else}
-				<span class="md:row-start-1 col-span-full md:col-start-2 {data.post.previous ? "row-start-2" : ""} group flex flex-wrap flex-col p-4 pr-0 items-end italic">
-					No post older than this one!
-				</span>
-			{/if}
-
-		</div>
+<section class="section">
+	<div class="flex flex-col md:flex-row justify-between gap-4">
+	  {#if data.post.previous}
+		<a href={data.post.previous.slug} class="text-sm anchor flex items-center gap-1">
+		  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+		  </svg>
+		  {data.post.previous.title}
+		</a>
+	  {:else}
+		<span class="text-sm text-muted-foreground/80">No newer posts</span>
+	  {/if}
+  
+	  {#if data.post.next}
+		<a href={data.post.next.slug} class="text-sm anchor flex items-center gap-1 md:ml-auto">
+		  {data.post.next.title}
+		  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+		  </svg>
+		</a>
+	  {:else}
+		<span class="text-sm text-muted-foreground/80 md:ml-auto">No older posts</span>
+	  {/if}
 	</div>
-</div>
+</section>

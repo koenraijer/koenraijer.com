@@ -126,7 +126,7 @@
 	<!-- Main Content Area -->
 	<PageTransition url={data.url}>
 		<main class="relative min-h-0">
-			<div class="overflow-y-auto h-full"> <!-- Scrollable container -->
+			<div class="h-full"> <!-- Scrollable container -->
 			  <slot />
 			</div>
 		</main>

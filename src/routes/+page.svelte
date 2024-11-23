@@ -111,7 +111,7 @@
 </section>
 
 <section class="section">
-	<h2 id="categories" class="text-sm font-normal text-muted-foreground/80 mb-2">Projects</h2>
+	<h2 id="projects" class="text-sm font-normal text-muted-foreground/80 mb-2">Projects</h2>
 	<div class="flex flex-col">
 		<A href="https://reasset.koenraijer.com/" classes="anchor text-sm">ReAsset</A>
 		<A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>

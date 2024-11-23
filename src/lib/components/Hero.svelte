@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { LocateFixed, FileText, Download } from 'lucide-svelte'
+    import { LocateFixed, Download } from 'lucide-svelte'
     import * as info from '$lib/js/info.js';
     import { toast } from 'svelte-sonner';
     
@@ -13,12 +13,18 @@
     let zoomLevel = 0; // Track zoom state: 0 = normal, 1 = bigger, 2 = biggest
 
     function handleMouseMove(event: MouseEvent) {
+      // Don't update position if the mouse is over the image
+      if (event.target instanceof HTMLImageElement) return;
+      
       tooltipX = event.pageX + 10;
       tooltipY = event.pageY + 10;
     }
 
-    function handleAvatarClick() {
-      zoomLevel = (zoomLevel + 1) % 3; // Cycle through 0, 1, 2
+    function handleAvatarClick(event: MouseEvent) {
+      // Don't increment zoom if clicking the image
+      if (event.target instanceof HTMLImageElement) return;
+      
+      zoomLevel = (zoomLevel + 1) % 3;
     }
 
     $: avatarSize = zoomLevel === 0 ? 'w-24 h-24' : 
@@ -62,7 +68,7 @@
       {info.name}
       {#if avatarTooltipVisible}
           <span 
-              class="fixed z-50 rounded-full whitespace-nowrap transition-all duration-200"
+              class="fixed z-50 rounded-full whitespace-nowrap"
               style="left: {tooltipX}px; top: {tooltipY}px"
           >
               <img 
