@@ -10,11 +10,20 @@
     let avatarTooltipVisible = false;
     let tooltipX = 0;
     let tooltipY = 0;
-    
+    let zoomLevel = 0; // Track zoom state: 0 = normal, 1 = bigger, 2 = biggest
+
     function handleMouseMove(event: MouseEvent) {
       tooltipX = event.pageX + 10;
       tooltipY = event.pageY + 10;
     }
+
+    function handleAvatarClick() {
+      zoomLevel = (zoomLevel + 1) % 3; // Cycle through 0, 1, 2
+    }
+
+    $: avatarSize = zoomLevel === 0 ? 'w-24 h-24' : 
+                    zoomLevel === 1 ? 'w-32 h-32' : 
+                    'w-40 h-40';
 
     onMount(() => {
       const isDismissed = localStorage.getItem(STORAGE_KEY);
@@ -43,8 +52,8 @@
     <a class="inline-flex items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" href="/240504_resume.pdf"><Download class="w-3 h-3 inline"/>Download Resume</a>
   </div>
   <h1 class="text-base mb-4 !leading-8">
-    <span 
-      role="tooltip"
+    <button 
+      on:click={handleAvatarClick}
       on:mousemove={handleMouseMove}
       on:mouseenter={() => avatarTooltipVisible = true}
       on:mouseleave={() => avatarTooltipVisible = false}
@@ -52,14 +61,19 @@
     >
       {info.name}
       {#if avatarTooltipVisible}
-        <span 
-          class="fixed z-50 rounded-full whitespace-nowrap transition-all duration-75"
-          style="left: {tooltipX}px; top: {tooltipY}px"
-        >
-          <img src="/241122_avatar.png" alt="Avatar" class="w-24 h-24 rounded-full border-muted-foreground/20 border-4" fetchpriority="high"/>
-        </span>
+          <span 
+              class="fixed z-50 rounded-full whitespace-nowrap transition-all duration-200"
+              style="left: {tooltipX}px; top: {tooltipY}px"
+          >
+              <img 
+                  src="/241122_avatar.png" 
+                  alt="Avatar" 
+                  class="{avatarSize} rounded-full border-muted-foreground/20 border-4 transition-all" 
+                  fetchpriority="high"
+              />
+          </span>
       {/if}
-    </span>
+    </button>
     ~ 
     mental health tech w/o losing the spark 
     <span class="text-muted-foreground/30">/</span>

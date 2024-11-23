@@ -115,15 +115,15 @@ function setActiveHeading() {
 }
 </script>
 
-<nav class="fixed font-sans top-0 left-1/2 right-1/2 -translate-x-1/2 w-screen bg-surface-100-800-token border-surface-200-700-token border-b transition-transform duration-300 ease-out !z-30 {$active_tracker ? "translate-y-0" : "translate-y-[-100%]"}">
+<nav class="fixed font-sans top-0 left-1/2 right-1/2 -translate-x-1/2 w-screen bg-muted border border-b transition-transform duration-300 ease-out !z-30 {$active_tracker ? "translate-y-0" : "translate-y-[-100%]"}">
   <div class="text-sm p-2 mx-auto sm:w-fit truncate"> {$active_heading.title} </div>
-  <div id="progressBar" class="absolute top-full h-0.5 bg-secondary-500" bind:this={progressBar}></div>
+  <div id="progressBar" class="absolute top-full h-0.5 bg-secondary" bind:this={progressBar}></div>
 </nav>
 
 <svelte:window on:load={setProgressBar} on:scroll={setActiveHeading} bind:scrollY={scrollY} />
 
 {#if headings.length > 0}
-    <nav class="border font-sans border-surface-200-700-token bg-surface-100 dark:bg-surface-900 p-4 pt-3 text-surface-900-50-token transition-colors duration-100 rounded-container z-10 {$toggle_sticky && isLargeScreen ? "lg:sticky top-[5.5rem] lg:hover:opacity-100 opacity-50 transition-opacity" : "relative"}">
+    <nav class="font-sans border bg-muted p-4 pt-3 text-surface-900-50-token transition-colors duration-100 rounded-container z-10 {$toggle_sticky && isLargeScreen ? "lg:sticky top-[5.5rem] lg:hover:opacity-100 opacity-50 transition-opacity" : "relative"}">
       <button on:click={toggleSticky} class="absolute lg:block hidden top-0 right-0 cursor-pointer duration-[200ms] border-b border-l border-surface-300-600-token rounded-container bg-surface-50-900-token transition-colors bg-surface-hover-token h-fit p-2">
         {#if !$toggle_sticky}
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="w-5 h-5" viewBox="0 0 256 256"><path d="M235.32,81.37,174.63,20.69a16,16,0,0,0-22.63,0L98.37,74.49c-10.66-3.34-35-7.37-60.4,13.14a16,16,0,0,0-1.29,23.78L85,159.71,42.34,202.34a8,8,0,0,0,11.32,11.32L96.29,171l48.29,48.29A16,16,0,0,0,155.9,224c.38,0,.75,0,1.13,0a15.93,15.93,0,0,0,11.64-6.33c19.64-26.1,17.75-47.32,13.19-60L235.33,104A16,16,0,0,0,235.32,81.37ZM224,92.69h0l-57.27,57.46a8,8,0,0,0-1.49,9.22c9.46,18.93-1.8,38.59-9.34,48.62L48,100.08c12.08-9.74,23.64-12.31,32.48-12.31A40.13,40.13,0,0,1,96.81,91a8,8,0,0,0,9.25-1.51L163.32,32,224,92.68Z"></path></svg>
@@ -135,7 +135,7 @@ function setActiveHeading() {
       <ul class="collapse-content">
         {#each headings as heading}
             <li
-            class="heading list-none my-1 text-sm lg:text-xs font-normal dark:font-thin dark:text-surface-100 font-sans transition-all"
+            class="heading list-none my-1 text-sm lg:text-xs font-normal font-sans transition-all"
             style={`--depth: ${heading.depth}`}
             >
             <span class="font-bold">{heading.prefix}</span>

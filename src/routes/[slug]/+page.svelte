@@ -84,32 +84,27 @@
 {#if $isScrollingUp}
 	<ToTopButton absolute />
 {/if}
+
 <div class="grid grid-cols-5 mx-auto relative mt-12 max-w gap-x-8">
 	<div class="w-full {data.post.ToC ? "col-start-1" : "col-start-2"} col-span-full px-6 sm:px-8 mx-auto">
 		<!-- Title -->
-		<hgroup class="text-surface-900-50-token lg:mx-0 w-full !mx-auto">
+		<hgroup class="lg:mx-0 w-full !mx-auto">
 			<div>
 				{#if data.post.title}
-				<div class="text-surface-900-50-token font-semibold">
-					<h2 class="text-3xl my-4">{data.post.title}</h2>
-				</div>
+					<h2 class="text-2xl my-4">{data.post.title}</h2>
 				{/if}
-				<p class="mb-8 text-base text-surface-400 font-sans">
+				<p class="mb-8 text-sm font-sans">
 					{#if data.post.date}
 						{#if data.post.updated}
-							<!-- <span use:popup={updatedPopup}>{formatDate(data.post.date)}</span> -
-							<div class="bg-surface-700 dark:bg-surface-700 rounded-container p-2 z-20 text-xs relative"  data-popup="updatedPopup">
-								<p class="font-sans text-surface-50 dark:text-surface-200"><span class="font-semibold">Updated:</span> {formatDate(data.post.updated)}</p>
-							</div> -->
+							<span>{formatDate(data.post.date)}
+								({formatDate(data.post.updated)})
+							</span> -
 						{:else}
 							<span>{formatDate(data.post.date)}</span> -
 						{/if}
 					{/if}
 					{#if data.post.readingTime}
-						<!-- <span use:popup={wordCountPopup}>{data.post.readingTime}</span>
-						<div class="bg-surface-700 dark:bg-surface-700 rounded-container p-2 z-20 text-xs relative"  data-popup="wordCountPopup">
-							<p class="font-sans text-surface-50 dark:text-surface-200">{data.post.wordCount} words</p>
-						</div> -->
+						{data.post.wordCount} words
 					{/if}
 				</p>
 			</div>
@@ -127,7 +122,7 @@
 			</aside>
 		{/if}
 		<!-- Post content -->
-		<div class="text-surface-900-50-token break-words prose-p:z-0 !max-w-none md:prose-p:pl-4 dark:prose-p:font-thin dark:prose-li:font-thin font-serif prose-headings:font-sans prose-inline-code:overflow-x-scroll prose prose-headings:prose-a:no-underline relative prose-code:text-surface-900-50-token prose-blockquote:text-surface-900-50-token prose-blockquote:prose-quoteless prose-code:text-sm prose-code:text-wrap prose-inline-code:text-wrap prose-inline-code:text-sm prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:bg-surface-100-800-token prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-code:dark:text-[0.9rem] prose-ul:mt-0 prose-li:my-0 prose-ul:ml-4 prose-li:ml-4 prose-a:my-0 prose-p:mb-0 prose-ol:mt-0">
+		<div class="break-words prose-p:z-0 !max-w-none md:prose-p:pl-4 prose-inline-code:overflow-x-scroll prose prose-headings:prose-a:no-underline relative prose-blockquote:prose-quoteless prose-code:text-sm prose-code:text-wrap prose-inline-code:text-wrap prose-inline-code:text-sm prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-ul:mt-0 prose-li:my-0 prose-ul:ml-2 prose-li:ml-2 prose-a:my-0 prose-p:mb-0 prose-ol:mt-0">
 			{@html data.post.content}
 		</div>
 	</article>
@@ -135,10 +130,10 @@
 </div>
 
 <!-- Categories -->
-<div class="w-full card-shimmer border-t border-b border-surface-200-700-token rounded-none mt-12">
+<div class="w-full border-t border-b rounded-none mt-12">
 	<div class="w-full mx-auto relative max-w px-6 sm:px-8 md:px-16">
-		<div class="text-surface-900-50-token flex gap-x-2 place-items-center my-6 mx-auto w-fit">
-			<b>Filed under:</b>
+		<div class="!font-[500] flex gap-x-2 place-items-center my-6 mx-auto w-fit">
+			<span>Filed under:</span>
 			<Categories categories={categoriesArray}/>
 		</div>
 	</div>
@@ -154,7 +149,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2 self-center">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
 					</svg>
-					<h4 class="font-semibold group-hover:underline font-sans">&nbsp;Newer post</h4>
+					<h4 class="font-[500] group-hover:underline font-sans">&nbsp;Newer post</h4>
 				</div>
 				<p class="">{data.post.previous.title}</p>
 			</a>
@@ -164,11 +159,11 @@
 			</span>
 			{/if}
 			<!-- Add vertical divider-->
-			<div class="col-span-full md:col-span-1 md:col-start-2 row-start-1 md:row-start-1 md:row-end-2 border-l-2 border-surface-200-700-token md:block hidden"></div>
+			<div class="col-span-full md:col-span-1 md:col-start-2 row-start-1 md:row-start-1 md:row-end-2 border-l-2 md:block hidden"></div>
 			{#if data.post.next}
 			<a class="md:row-start-1 col-span-full md:col-start-2 {data.post.previous ? "row-start-2" : ""} group flex flex-wrap flex-col p-4 pr-0 items-end" href={data.post.next.slug}>
 				<div class="inline-flex align-top">
-					<p class="font-semibold group-hover:underline font-sans">Older post&nbsp;</p>
+					<p class="font-[500] group-hover:underline">Older post&nbsp;</p>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2 self-center">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
 					</svg>
@@ -184,13 +179,3 @@
 		</div>
 	</div>
 </div>
-
-<!--
-	< Previously for pagination >
-	<div class="grid grid-cols-5 w-screen mx-auto relative max-w">
-		<div class="w-full lg:col-span-3 lg:col-start-2 col-span-full max-w-[75ch] px-6 sm:px-8 mx-auto">
-
-	< Previously for categories >
-	<div class="w-full bg-surface-100-800-token border-t border-b border-surface-200-700-token rounded-none mt-12">
-		<div class="grid grid-cols-5 mx-auto relative max-w">
--->

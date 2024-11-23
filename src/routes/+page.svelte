@@ -75,7 +75,7 @@
 	<h2 id="now" class="text-sm font-normal text-muted-foreground/80 mb-2">Now</h2>
 	<p class="text-sm">
 		<span>Working at Zuyderland Mental Health Service. Writing </span>
-		<A classes="text-sm anchor" href="https://doi.org/10.17605/OSF.IO/CR5F8">a scoping review</A> on ambulatory assessment in PTSD. Learning Firebase by working on <A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>. <br>Previously: finished MSc in Data Science & Society at Tilburg University.
+		<A classes="text-sm anchor" href="https://doi.org/10.17605/OSF.IO/CR5F8">a scoping review</A> on ambulatory assessment in PTSD. Learning Firebase by working on <A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>. Recently: finished MSc in Data Science & Society at Tilburg University.
 	</p>	
 </section>
 

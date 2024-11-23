@@ -109,24 +109,26 @@
 <div class="w-full grid grid-rows-[auto_1fr_auto] min-h-[100svh]">
 	<!-- Header -->
 	<header class="px-4 md:px-8 py-6 h-fit">
-	<!-- Your header content -->
-	{#if $page.url.pathname === "/books"}
-		<div class="flex items-center group">
-		<a 
-			href="/"
-			class="inline-flex items-center group text-sm text-muted-foreground/80 hover:text-foreground"
-		>
-			<Undo2 class="w-4 h-4 mr-1"/>
-			Index
-		</a>
-		</div>
-	{/if}
+		<!-- Your header content -->
+		{#if !$page.url.pathname.startsWith('/books/') && $page.url.pathname !== '/'}
+			<div class="flex items-center group">
+				<a 
+					href="/"
+					class="inline-flex items-center group text-sm text-muted-foreground/80 hover:text-foreground"
+				>
+					<Undo2 class="w-4 h-4 mr-1"/>
+					Index
+				</a>
+			</div>
+		{/if}
 	</header>
 
 	<!-- Main Content Area -->
 	<PageTransition url={data.url}>
-		<main>
-			<slot />
+		<main class="relative min-h-0">
+			<div class="overflow-y-auto h-full"> <!-- Scrollable container -->
+			  <slot />
+			</div>
 		</main>
 	</PageTransition>
 

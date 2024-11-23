@@ -181,37 +181,37 @@
 
 <!-- Filters Container - Fixed Position -->
 <div class="sticky top-0 left-0 right-0 z-50 px-4 pt-8 md:pt-12">
-    <div class="w-full flex items-center justify-between">
         <!-- Active Filters -->
-        <div class="bg-background/80 backdrop-blur-sm rounded-full border border-muted-foreground/10 py-1.5 px-4">
-            {#if sort !== 'Newest' || score !== 'All scores' || status !== 'All'}
-                <div class="text-sm text-muted-foreground/80">
-                    Showing:
-                    <div class="inline-flex gap-2 ml-2">
-                        {#if sort !== 'Newest'}
-                            <span class="text-foreground">{sort}</span>
-                        {/if}
-                        {#if score !== 'All scores'}
-                            <span class="text-foreground">{score}</span>
-                        {/if}
-                        {#if status !== 'All'}
-                            <span class="text-foreground">{status}</span>
-                        {/if}
+        <div class="w-full flex justify-between">
+            <div class="bg-background/80 backdrop-blur-sm rounded-full border border-muted-foreground/10 py-1.5 px-4 w-fit">
+                {#if sort !== 'Newest' || score !== 'All scores' || status !== 'All'}
+                    <div class="text-sm text-muted-foreground/80">
+                        Showing:
+                        <div class="inline-flex gap-2 ml-2">
+                            {#if sort !== 'Newest'}
+                                <span class="text-foreground">{sort}</span>
+                            {/if}
+                            {#if score !== 'All scores'}
+                                <span class="text-foreground">{score}</span>
+                            {/if}
+                            {#if status !== 'All'}
+                                <span class="text-foreground">{status}</span>
+                            {/if}
+                        </div>
                     </div>
-                </div>
-            {/if}
+                {/if}
+            </div>
+    
+            <!-- Filters Dropdown -->
+            <Filters 
+                {score} 
+                {sort} 
+                {status} 
+                on:optionSelected={onOptionSelected} 
+                on:scoreSelected={onScoreSelected} 
+                on:categorySelected={onCategorySelected} 
+            />
         </div>
-
-        <!-- Filters Dropdown -->
-        <Filters 
-            {score} 
-            {sort} 
-            {status} 
-            on:optionSelected={onOptionSelected} 
-            on:scoreSelected={onScoreSelected} 
-            on:categorySelected={onCategorySelected} 
-        />
-    </div>
 </div>
 
 <!-- Books Grid -->
