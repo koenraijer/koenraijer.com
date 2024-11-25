@@ -3,6 +3,7 @@ import remarkParse from 'remark-parse'
 import autolinkHeadings from 'rehype-autolink-headings'
 import slugPlugin from 'rehype-slug'
 import relativeImages from 'mdsvex-relative-images'
+
 import remarkMath from 'remark-math'
 import rehypeKatexSvelte from "rehype-katex-svelte";
 import footnotes from 'remark-footnotes' // `npm add --save-dev remark-footnotes@2.0`
@@ -10,15 +11,60 @@ import remarkHeadings from '@vcarl/remark-headings'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 
+
+// Code highlighting
+import { escapeSvelte } from 'mdsvex'
+import { addCopyButton } from 'shiki-transformer-copy-button'
+import { createHighlighter } from 'shiki';
+
+// optional
+const options = {
+  // delay time from "copied" state back to normal state
+  toggle: 2000,
+}
+
+const highlighter = await createHighlighter({
+	themes: ['github-light', 'github-dark-high-contrast'],
+	langs: ['javascript', 'typescript', 'python', 'html', 'svelte', 'md', 'bash']
+});
+
+
 export default {
   extensions: ['.svx', '.md'],
   layout: {
 		_: dirname(fileURLToPath(import.meta.url)) + '/src/mdsvex.svelte'
   },
+  highlight: {
+    highlighter: async (code, lang = 'text') => {
+        const html = escapeSvelte(
+            highlighter.codeToHtml(code, {
+                lang,
+                transformers: [
+                  addCopyButton(code)
+                ],
+                themes: {
+                    light: 'github-light',
+                    dark: 'github-dark-high-contrast'
+                },
+                colorReplacements: {
+                  'github-light': {
+                    '#ffffff': '#f8f9fa'  // Light theme background
+                  },
+                  'github-dark-high-contrast': {
+                    '#0a0c10': '#121212'  // Dark theme background
+                  }
+                },
+                defaultColor: 'light',
+                cssVariablePrefix: '--shiki-'
+            })
+        );
+        return `{@html \`${html}\`}`;
+    }
+},
   smartypants: {
     dashes: 'oldschool'
   },
-  remarkPlugins: [remarkParse, [footnotes, { inlineNotes: true }], videos, relativeImages, remarkMath, headings],
+  remarkPlugins: [remarkParse, [footnotes, { inlineNotes: true }], addFootnotesHeader, videos, relativeImages, remarkMath, headings],
   rehypePlugins: [
     rehypeKatexSvelte,
     slugPlugin,
@@ -32,6 +78,22 @@ export default {
 }
 
 /**
+ * Adds a "Bibliography & Footnotes" h6 header after the footnotes hr
+ */
+function addFootnotesHeader() {
+  return function transformer(tree) {
+    visit(tree, 'html', (node) => {
+      if (node.value.includes('<div class="footnotes"><hr>')) {
+        node.value = node.value.replace(
+          '<div class="footnotes"><hr>',
+          '<div class="footnotes"><hr><h6>Bibliography & Footnotes</h6>'
+        )
+      }
+    })
+  }
+}
+
+/**
  * Adds support to video files in markdown image links
  */
 function videos() {
@@ -41,9 +103,16 @@ function videos() {
       if (extensions.some((ext) => node.url.endsWith(ext))) {
         node.type = 'html'
         node.value = `
-            <video controls class="w-full" title="${node.alt}">
+            <video 
+                controls
+                disablePictureInPicture
+                playsinline
+                noremoteplayback
+                class="w-full rounded-lg aspect-video" 
+                title="${node.alt}"
+                loop
+            >
               <source src="${node.url}" type="video/mp4">
-              <track kind="captions">
             </video>
           `
       }

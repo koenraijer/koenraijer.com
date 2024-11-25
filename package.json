@@ -33,6 +33,7 @@
 		"prettier-plugin-svelte": "^2.10.1",
 		"remark-footnotes": "2.0",
 		"remark-math": "^3.0.0",
+		"shiki-transformer-copy-button": "^0.0.3",
 		"svelte": "^4.0.0",
 		"svelte-sonner": "^0.3.28",
 		"tailwind-merge": "^2.5.4",
@@ -60,6 +61,7 @@
 		"remark-directive": "^3.0.0",
 		"remark-parse": "^11.0.0",
 		"set-cookie-parser": "^2.6.0",
+		"shiki": "^1.23.1",
 		"svelte-motion": "^0.12.2",
 		"tailwindcss-fluid-type": "^2.0.3",
 		"unist-util-visit": "^5.0.0"

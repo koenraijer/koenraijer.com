@@ -9,7 +9,6 @@
 	// UI
 	import Footer from '$lib/components/Footer.svelte';
 	import CopyButton from '$lib/components/CopyButton.svelte';
-	import { ScrollArea } from '$lib/shadcn/ui/scroll-area/';
 	import { Undo2 } from 'lucide-svelte';
 
 	// All other imports
@@ -22,34 +21,37 @@
 	let logo: string;
 
 	afterNavigate(() => {
-		document.getElementById('page')?.scrollTo(0, 0); // Workaround for page not scrolling to top on navigation
+		document.getElementById('page')?.scrollTo(0, 0);
 
-		// Add copy button to all code blocks
 		for (const node of document.querySelectorAll('pre > code')) {
 			const preElement = node.parentElement;
 			if (!preElement) continue;
-			preElement.style.position = 'relative'; // Set position relative to the <pre> element
-			preElement.style.overflow = 'auto'; // Set overflow to auto to allow scrolling
 
+			// Create a wrapper div for the scroll container
+			const scrollWrapper = document.createElement('div');
+			scrollWrapper.style.position = 'relative';
+			scrollWrapper.style.overflow = 'auto';
+
+			// Move code into wrapper
+			node.parentElement.insertBefore(scrollWrapper, node);
+			scrollWrapper.appendChild(node);
+
+			// Create button container that stays fixed
 			const buttonContainer = document.createElement('div');
-			buttonContainer.style.position = 'absolute'; // Position absolutely relative to <pre>
-			// Width and height of pre element
-			buttonContainer.style.bottom = '0';
-			buttonContainer.style.top = '0';
-			buttonContainer.style.right = '0';
-			buttonContainer.style.height = '100%'; // Adjust height as needed for the button
-			buttonContainer.style.backgroundColor = 'transparent';
-			buttonContainer.style.zIndex = '10';
+			buttonContainer.style.position = 'absolute';
+			buttonContainer.style.right = '8px';
+			buttonContainer.style.top = '8px';
+			buttonContainer.style.zIndex = '50';
+			buttonContainer.style.pointerEvents = 'auto';
 
-			(node as HTMLElement).style.overscrollBehaviorX = 'hide'; // Set overscroll-x to auto TO MAKE COPYBUTTON APPEAR AGAIN
-
-			new CopyButton({ // Use any desired Svelte component here
-				target: buttonContainer,
-				props: {
-					content: node.textContent ?? '',
-				},
+			new CopyButton({
+			target: buttonContainer,
+			props: {
+				content: node.textContent ?? '',
+			},
 			});
 
+			// Add button to pre element, outside scroll wrapper
 			preElement.appendChild(buttonContainer);
 		}
 	});
@@ -57,9 +59,6 @@
 	// Apply correct PrismJS theme based on theme
 	onMount(() => {
 		link = document.createElement('link');
-		link.rel = 'stylesheet';
-		// We'll apply the correct code theme immediately on mount
-		link.href = $mode === 'light' ? '/css/prism.css' : '/css/prismDark.css';
 		document.head.appendChild(link);
 		// Set the correct favicon
     	logo = $mode === 'light' ? "/favicon/favicon_light.svg" : "/favicon/favicon_dark.svg";
@@ -125,10 +124,8 @@
 
 	<!-- Main Content Area -->
 	<PageTransition url={data.url}>
-		<main class="relative min-h-0">
-			<div class="h-full"> <!-- Scrollable container -->
-			  <slot />
-			</div>
+		<main>
+			<slot />
 		</main>
 	</PageTransition>
 

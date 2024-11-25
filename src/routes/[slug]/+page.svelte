@@ -8,7 +8,7 @@
 	import { onMount } from 'svelte'
 	import { writable } from 'svelte/store'
 	export let data
-
+	import { Clock, Calendar } from 'lucide-svelte'
 	const xor = (a, b) => (a || b) && !(a && b);
 
 	// Convert the object to an array of entries [key, value]
@@ -90,22 +90,28 @@
 	<hgroup class="lg:mx-0 w-full !mx-auto">
 		<div>
 			{#if data.post.title}
-				<h2 class="text-2xl my-4">{data.post.title}</h2>
+				<h2 class="text-2xl my-4 font-[500]">{data.post.title}</h2>
 			{/if}
-			<p class="mb-8 text-sm font-sans">
+			<div class="flex items-center gap-3 mb-8 text-xs text-muted-foreground">
 				{#if data.post.date}
-					{#if data.post.updated}
-						<span>{formatDate(data.post.date)}
-							({formatDate(data.post.updated)})
-						</span> -
-					{:else}
-						<span>{formatDate(data.post.date)}</span> -
-					{/if}
+					<div class="flex items-center gap-1">
+						<Calendar class="h-3 w-3" />
+						<span>
+							{formatDate(data.post.date)}
+							{#if data.post.updated}
+								<span class="text-muted-foreground/70">(updated {formatDate(data.post.updated)})</span>
+							{/if}
+						</span>
+					</div>
 				{/if}
+				
 				{#if data.post.readingTime}
-					{data.post.wordCount} words
+					<div class="flex items-center gap-1">
+						<Clock class="h-3 w-3" />
+						<span>{data.post.wordCount} words</span>
+					</div>
 				{/if}
-			</p>
+			</div>
 		</div>
 	</hgroup>
 
@@ -113,7 +119,7 @@
 	<ToC post={data.post}>
 	<article>
 		<!-- Post content -->
-		<div class="break-words prose-p:z-0 !max-w-none prose-inline-code:overflow-x-scroll prose prose-headings:prose-a:no-underline relative prose-blockquote:prose-quoteless prose-code:text-sm prose-code:text-wrap prose-inline-code:text-wrap prose-inline-code:text-sm prose-inline-code:font-mono prose-inline-code:font-normal prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-ul:mt-0 prose-li:my-0 prose-ul:ml-2 prose-li:ml-2 prose-a:my-0 prose-p:mb-0 prose-ol:mt-0">
+		<div class="prose proseClasses proseCodeClasses">
 			{@html data.post.content}
 		</div>
 	</article>
@@ -122,33 +128,35 @@
 
 <!-- Categories -->
 <section class="section">
-	<h2 class="text-sm font-normal text-muted-foreground/80 mb-2">Filed under</h2>
-	<Categories categories={categoriesArray}/>
+	<div class="flex flex-row h-fit row-nowrap items-center">
+		<h2 class="text-xs font-normal text-muted-foreground/80">Filed under:&nbsp;&nbsp;</h2>
+		<Categories categories={categoriesArray}/>
+	</div>
 </section>
 
 <!-- Pagination -->
 <section class="section">
-	<div class="flex flex-col md:flex-row justify-between gap-4">
-	  {#if data.post.previous}
-		<a href={data.post.previous.slug} class="text-sm anchor flex items-center gap-1">
-		  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2">
-			<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-		  </svg>
-		  {data.post.previous.title}
-		</a>
-	  {:else}
-		<span class="text-sm text-muted-foreground/80">No newer posts</span>
-	  {/if}
-  
-	  {#if data.post.next}
-		<a href={data.post.next.slug} class="text-sm anchor flex items-center gap-1 md:ml-auto">
-		  {data.post.next.title}
-		  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 stroke-2">
-			<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-		  </svg>
-		</a>
-	  {:else}
-		<span class="text-sm text-muted-foreground/80 md:ml-auto">No older posts</span>
-	  {/if}
+	<hr class="mb-4">
+	<div class="flex flex-col md:flex-row justify-between gap-y-2">
+		<div class="flex flex-col">
+			{#if data.post.previous}
+				<span class="text-xs font-normal text-muted-foreground/80">Previous</span>
+				<a href={data.post.previous.slug} class="text-sm anchor">
+				{data.post.previous.title}
+				</a>
+			{:else}
+				<span class="text-sm text-muted-foreground/80">No newer posts</span>
+			{/if}
+		</div>
+		<div class="text-right flex flex-col">
+			{#if data.post.next}
+				<span class="text-xs font-normal text-muted-foreground/80">Next</span>
+				<a href={data.post.next.slug} class="text-sm anchor ml-auto text-right">
+					{data.post.next.title}
+				</a>
+			{:else}
+				<span class="text-sm text-muted-foreground/80 md:ml-auto">No older posts</span>
+			{/if}
+		</div>
 	</div>
 </section>

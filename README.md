@@ -19,7 +19,6 @@
 - Proper sitemap: https://kylenazario.com/blog/sveltekit-blog-sitemap 
 - New code highlighting: https://github.com/atomiks/rehype-pretty-code 
 - Implement Shiki for copy code buttons: https://github.com/pngwn/MDsveX/issues/385 
-- Use floating ui for filters
 - Link shortener for my own domain?
 
 **Completed:**

@@ -6,11 +6,11 @@ const plugin = require('tailwindcss/plugin')
 
 const fluidTypeConfig = {
 	fontSizeMin: 1.125, // 1.125rem === 18px
-	fontSizeMax: 1.25, // 1.25rem === 20px
+	fontSizeMax: 1.3, // 1.25rem === 20px
 	ratioMin: 1.1, // Multiplicator Min
-	ratioMax: 1.2, // Multiplicator Max
+	ratioMax: 1.25, // Multiplicator Max
 	screenMin: 20, // 20rem === 320px
-	screenMax: 159, // 159 rem === 2545 px (my large monitor)
+	screenMax: 125, // 159 rem === 2545 px (my large monitor)
 	unit: 'rem', // default is rem but it's also possible to use 'px'
 	prefix: '', // set a prefix to use it alongside the default font sizes
 	extendValues: true, // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
@@ -122,8 +122,8 @@ const config = {
 					'sm': [-1, 1.8],
 					'base': [0, 1.8],
 					'lg': [1, 1.8],
-					'xl': [2, 1.2],
-					'2xl': [3, 1.2],
+					'xl': [1.5, 1.2],
+					'2xl': [2, 1.2],
 					'3xl': [4, 1.2],
 					'4xl': [5, 1.1],
 					'5xl': [6, 1.1],
