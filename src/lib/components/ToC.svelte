@@ -2,7 +2,7 @@
   import { onMount, onDestroy } from 'svelte';
   import { TableOfContents } from 'lucide-svelte';
   import { Button } from '$lib/shadcn/ui/button';
-  import { ScrollArea } from '$lib/shadcn/ui/scroll-area';
+  import FadedScrollArea from '$lib/components/FadedScrollArea.svelte';
   import * as Drawer from "$lib/shadcn/ui/drawer";
   import { slide } from 'svelte/transition';
   import { browser } from '$app/environment';
@@ -107,18 +107,20 @@
         class="fixed left-28 top-60 text-xs w-48 hidden xl:block"
         transition:fadeSlide={{ duration: 400 }}
       >
-        <nav>
-          {#each headings as heading}
-            <a
-              href="#{heading.id}"
-              class="block !text-xxs text-muted-foreground/80 hover:text-foreground transition-colors"
-              style="padding-left: {heading.depth * 0.75}rem"
-              class:text-foreground={activeHeading === heading}
-            >
-              {heading.title}
-            </a>
-          {/each}
-        </nav>
+        <FadedScrollArea class="h-[calc(100vh-15rem-8rem)]">
+          <nav>
+            {#each headings as heading}
+              <a
+                href="#{heading.id}"
+                class="block !text-xxs text-muted-foreground/80 hover:text-foreground transition-colors"
+                style="padding-left: {heading.depth * 0.75}rem"
+                class:text-foreground={activeHeading === heading}
+              >
+                {heading.title}
+              </a>
+            {/each}
+          </nav>
+        </FadedScrollArea>
       </div>
     {/if}
 

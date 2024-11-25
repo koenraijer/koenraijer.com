@@ -145,7 +145,7 @@
 				{data.post.previous.title}
 				</a>
 			{:else}
-				<span class="text-sm text-muted-foreground/80">No newer posts</span>
+				<span class="text-xs text-muted-foreground/80">No newer posts</span>
 			{/if}
 		</div>
 		<div class="text-right flex flex-col">
@@ -155,7 +155,7 @@
 					{data.post.next.title}
 				</a>
 			{:else}
-				<span class="text-sm text-muted-foreground/80 md:ml-auto">No older posts</span>
+				<span class="text-xs text-muted-foreground/80 md:ml-auto">No older posts</span>
 			{/if}
 		</div>
 	</div>
