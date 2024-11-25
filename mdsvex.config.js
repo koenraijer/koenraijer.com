@@ -64,7 +64,7 @@ export default {
   smartypants: {
     dashes: 'oldschool'
   },
-  remarkPlugins: [remarkParse, [footnotes, { inlineNotes: true }], addFootnotesHeader, videos, relativeImages, remarkMath, headings],
+  remarkPlugins: [remarkParse, [footnotes, { inlineNotes: true }], videos, relativeImages, remarkMath, headings],
   rehypePlugins: [
     rehypeKatexSvelte,
     slugPlugin,
@@ -74,6 +74,7 @@ export default {
         behavior: 'wrap'
       }
     ],
+    addFootnotesHeader
   ]
 }
 
@@ -82,15 +83,34 @@ export default {
  */
 function addFootnotesHeader() {
   return function transformer(tree) {
-    visit(tree, 'html', (node) => {
-      if (node.value.includes('<div class="footnotes"><hr>')) {
-        node.value = node.value.replace(
-          '<div class="footnotes"><hr>',
-          '<div class="footnotes"><hr><h6>Bibliography & Footnotes</h6>'
-        )
+    visit(tree, 'element', (node) => {
+      if (
+        node.type === 'element' && 
+        node.tagName === 'div' && 
+        node.properties && 
+        node.properties.className && 
+        node.properties.className.includes('footnotes')
+      ) {
+        // Find the hr element
+        const hrIndex = node.children.findIndex(child => 
+          child.type === 'element' && child.tagName === 'hr'
+        );
+        
+        if (hrIndex !== -1) {
+          // Add h6 after hr
+          node.children.splice(hrIndex + 1, 0, {
+            type: 'element',
+            tagName: 'h6',
+            properties: {},
+            children: [{
+              type: 'text',
+              value: 'Bibliography & Footnotes',
+            }]
+          });
+        }
       }
-    })
-  }
+    });
+  };
 }
 
 /**
@@ -111,6 +131,7 @@ function videos() {
                 class="w-full rounded-lg aspect-video" 
                 title="${node.alt}"
                 loop
+                <track kind="captions">
             >
               <source src="${node.url}" type="video/mp4">
             </video>

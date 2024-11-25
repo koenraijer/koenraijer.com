@@ -34,7 +34,7 @@
             title={alt} 
             loading="lazy" 
             on:load={handleLoad}
-            class="rounded-lg object-contain {isVertical ? 'h-full w-auto' : 'w-full'}" 
+            class="rounded-lg object-contain {isVertical ? 'h-full w-auto' : 'w-full'} mx-auto" 
             style={width ? `width: ${width}px; max-width: 100%;` : ''}
             class:fullbleed
         />

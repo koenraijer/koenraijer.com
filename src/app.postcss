@@ -188,11 +188,16 @@
 
 .prose .footnotes hr {
 	/* Hide the horizontal rule */
-	@apply !hidden
+	/* @apply !hidden */
+  @apply mb-2 !bg-muted/50 !border !border-border
 }
 
 .prose .footnotes {
-  @apply !text-xs !text-muted
+  @apply !text-xs !text-muted-foreground/80
+}
+
+.prose .footnotes > h6 {
+  @apply !text-sm !text-muted-foreground/80
 }
 
 .fullbleed {

@@ -74,7 +74,7 @@
 </section>
 
 <!-- Three column layout container -->
-<div class="section md:max-w-5xl flex flex-col md:grid md:grid-cols-3 md:gap-x-4 h-auto">
+<div class="section md:max-w-5xl flex flex-col md:grid md:grid-cols-3 md:gap-x-4 h-auto md:mt-18">
 
 	<!-- Posts column -->
 	<section>
@@ -126,7 +126,7 @@
 </div>
 
 <!-- Now -->
-<section class="section md:max-w-5xl h-fit">
+<section class="section md:max-w-5xl h-fit md:mt-18">
 	<h2 id="now" class="text-sm font-normal text-muted-foreground/80 mb-2">Now</h2>
 	<p class="text-sm">
 		<span>Working at Zuyderland Mental Health Service. Writing </span>

@@ -118,6 +118,7 @@ const config = {
 				// This are the default settings and analog to the tailwindcss defaults
 				// Each `lineHeight` is set unitless and we think that's the way to go especially in context with fluid type.
 				values: {
+					'xxs': [-2.5, 1.8],
 					'xs': [-2, 1.8],
 					'sm': [-1, 1.8],
 					'base': [0, 1.8],

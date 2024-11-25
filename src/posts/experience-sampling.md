@@ -76,7 +76,6 @@ It may be that trying to tackle self-deception in reflection is akin to peeling 
 
 Needless to say, I am by no means an expert in this field and it is to be expected that parts of this post are naive or uninformed. If you know of any sources I might find interesting to read, please let me know!
 
-###### Bibliography & Footnotes
 [^1]: Posner, J., Russell, J. A., & Peterson, B. S. (2005). The circumplex model of affect: An integrative approach to affective neuroscience, cognitive development, and psychopathology. _Development and Psychopathology_, _17_(3), 715–734. [https://doi.org/10.1017/S0954579405050340](https://doi.org/10.1017/S0954579405050340)
 [^2]: Admittedly, looking back at the pre-tracking emotion could just as well be influenced by memory bias that favours the current emotion, so the error may not be entirely random.  
 [^3]: Kahneman, D. (2011). _Thinking, fast and slow._ Farrar, Straus and Giroux.
