@@ -107,7 +107,7 @@
         class="fixed left-28 top-60 text-xs w-48 hidden xl:block"
         transition:fadeSlide={{ duration: 400 }}
       >
-        <FadedScrollArea class="h-[calc(100vh-15rem-8rem)]">
+        <FadedScrollArea class="h-[calc(100vh-15rem-8rem)] py-4">
           <nav>
             {#each headings as heading}
               <a

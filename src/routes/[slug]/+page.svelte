@@ -92,22 +92,20 @@
 			{#if data.post.title}
 				<h2 class="text-2xl my-4 font-[500]">{data.post.title}</h2>
 			{/if}
-			<div class="flex items-center gap-3 mb-8 text-xs text-muted-foreground">
+			<div class="mb-8 text-xs text-muted-foreground md:flex md:flex-row md:gap-3">
 				{#if data.post.date}
-					<div class="flex items-center gap-1">
-						<Calendar class="h-3 w-3" />
-						<span>
-							{formatDate(data.post.date)}
-							{#if data.post.updated}
-								<span class="text-muted-foreground/70">(updated {formatDate(data.post.updated)})</span>
-							{/if}
-						</span>
+					<div class="break-words">
+						<Calendar class="h-3 w-3 inline" />
+						{formatDate(data.post.date)}
+						{#if data.post.updated}
+							<span class="text-muted-foreground/70">(updated {formatDate(data.post.updated)})</span>
+						{/if}
 					</div>
 				{/if}
 				
 				{#if data.post.readingTime}
-					<div class="flex items-center gap-1">
-						<Clock class="h-3 w-3" />
+					<div class="break-words">
+						<Clock class="h-3 w-3 inline" />
 						<span>{data.post.wordCount} words</span>
 					</div>
 				{/if}

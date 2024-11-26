@@ -111,7 +111,8 @@
 }
 
 .social {
-	@apply inline-flex w-7 h-7 items-center justify-center transition-colors rounded-full hover:bg-muted text-muted-foreground hover:text-foreground;
+  @apply inline-flex w-7 h-7 items-center justify-center transition-colors rounded-full hover:bg-muted text-muted-foreground hover:text-foreground relative;
+  @apply after:absolute after:content-[''] after:inset-[-8px] after:rounded-full;
 }
 
 .anchor {
