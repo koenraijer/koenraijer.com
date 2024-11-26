@@ -111,7 +111,7 @@
       {#if isTablet}
         <div class="fixed top-5 right-5 sm:top-8 sm:right-8 z-50 md:block xl:hidden">
           <button
-            class="social bg-background"
+            class="social bg-background border"
             on:click={() => isDrawerOpen = !isDrawerOpen}
           >
             <TableOfContents class="w-5 h-5" />
@@ -146,7 +146,7 @@
       {#if isMobile}
         <div class="fixed top-5 right-5 sm:top-8 sm:right-8 z-50">
           <button
-            class="social bg-background"
+            class="social bg-background border"
             on:click={() => isMobileDrawerOpen = !isMobileDrawerOpen}
           >
             <TableOfContents class="w-5 h-5" />
