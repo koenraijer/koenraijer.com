@@ -102,7 +102,7 @@
   
   <button
 	on:click={handleToggle}
-	class="transition-colors decoration-none inline-flex justify-center items-center rounded-full h-7 w-7 group relative hover:bg-muted hover:text-foreground text-muted-foreground"
+	class="social"
 	role="switch"
 	aria-checked={$mode === 'dark'}
 	aria-label="Theme Toggle"

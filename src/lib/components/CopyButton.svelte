@@ -14,7 +14,7 @@
   
 <button 
     on:click={copyToClipboard} 
-    class="social"
+    class="social !z-50 bg-background"
 >
     {#if copied}
         <Check class="w-4 h-4"/>

@@ -18,7 +18,7 @@
 - Proper RSS feed: https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
 - Proper sitemap: https://kylenazario.com/blog/sveltekit-blog-sitemap 
 - New code highlighting: https://github.com/atomiks/rehype-pretty-code 
-- Implement Shiki for copy code buttons: https://github.com/pngwn/MDsveX/issues/385 
+- [X] Implement Shiki for copy code buttons: https://github.com/pngwn/MDsveX/issues/385 ~~
 - Link shortener for my own domain?
 
 **Completed:**

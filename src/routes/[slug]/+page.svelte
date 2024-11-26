@@ -85,43 +85,38 @@
 	<ToTopButton absolute />
 {/if}
 
-<section class="section">
+<section class="section ">
 	<!-- Title -->
-	<hgroup class="lg:mx-0 w-full !mx-auto">
+	<hgroup class="w-full !mx-auto">
 		<div>
 			{#if data.post.title}
 				<h2 class="text-2xl my-4 font-[500]">{data.post.title}</h2>
 			{/if}
-			<div class="mb-8 text-xs text-muted-foreground md:flex md:flex-row md:gap-3">
+			<div class="mb-8 text-xs text-muted-foreground md:flex md:flex-row md:items-center break-words">
 				{#if data.post.date}
-					<div class="break-words">
-						<Calendar class="h-3 w-3 inline" />
-						{formatDate(data.post.date)}
+						<Calendar class="h-3 w-3 inline mr-1" />
+						<span class="mr-2">{formatDate(data.post.date)}</span>
 						{#if data.post.updated}
-							<span class="text-muted-foreground/70">(updated {formatDate(data.post.updated)})</span>
+							<span class="text-muted-foreground/70 mr-2">(updated {formatDate(data.post.updated)})</span>
 						{/if}
-					</div>
 				{/if}
-				
 				{#if data.post.readingTime}
-					<div class="break-words">
-						<Clock class="h-3 w-3 inline" />
+						<Clock class="h-3 w-3 inline mr-1" />
 						<span>{data.post.wordCount} words</span>
-					</div>
 				{/if}
 			</div>
 		</div>
 	</hgroup>
 
-	<!-- Post -->
-	<ToC post={data.post}>
-	<article>
+	<article class="relative">
 		<!-- Post content -->
 		<div class="prose proseClasses proseCodeClasses">
 			{@html data.post.content}
 		</div>
+
+		<!-- Post -->
+		<ToC post={data.post} />
 	</article>
-	</ToC>
 </section>
 
 <!-- Categories -->
