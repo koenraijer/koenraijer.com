@@ -74,12 +74,12 @@
 </section>
 
 <!-- Three column layout container -->
-<div class="section md:max-w-5xl flex flex-col md:grid md:grid-cols-3 md:gap-x-4 h-auto md:mt-18">
+<div class="section md:max-w-5xl flex flex-col md:grid md:grid-cols-3 md:gap-x-4 h-auto md:mt-12">
 
 	<!-- Posts column -->
-	<section>
+	<section class="sm:mt-12 mt-8 md:mt-0 h-fit">
 		<h2 id="writing" class="text-sm font-normal text-muted-foreground/80 mb-2">Writing</h2>
-		<FadedScrollArea class="md:h-[30vh] md:pr-4">
+		<FadedScrollArea class="md:h-[35vh] md:pr-4">
 					<Posts posts={data.posts}/>
 		</FadedScrollArea>
 	</section>
@@ -105,7 +105,7 @@
 				{/if}
 			</a>
 		</h2>
-		<FadedScrollArea class="md:h-[30vh] md:pr-4">
+		<FadedScrollArea class="md:h-[35vh] md:pr-4">
 				{#each data.current_books as book}
 					<Book book={book} compact/>
 				{/each}
@@ -116,7 +116,7 @@
 	<section class="mt-8 sm:mt-12 md:mt-0 h-fit">
 		<h2 id="projects" class="text-sm font-normal text-muted-foreground/80 mb-2">Projects</h2>
 
-		<FadedScrollArea class="md:h-[30vh] md:pr-4">
+		<FadedScrollArea class="md:h-[35vh] md:pr-4">
 				<div class="flex flex-col">
 					<A href="https://reasset.koenraijer.com/" classes="anchor text-sm">ReAsset</A>
 					<A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>
@@ -126,7 +126,7 @@
 </div>
 
 <!-- Now -->
-<section class="section md:max-w-5xl h-fit md:mt-18">
+<section class="section md:max-w-5xl h-fit md:mt-12">
 	<h2 id="now" class="text-sm font-normal text-muted-foreground/80 mb-2">Now</h2>
 	<p class="text-sm">
 		<span>Working at Zuyderland Mental Health Service. Writing </span>

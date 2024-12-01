@@ -184,22 +184,25 @@
         <!-- Active Filters -->
         <div class="w-full flex justify-between">
             <div class="bg-background/80 backdrop-blur-sm rounded-full border border-muted-foreground/10 py-1.5 px-4 w-fit">
-                {#if sort !== 'Newest' || score !== 'All scores' || status !== 'All'}
                     <div class="text-sm text-muted-foreground/80">
                         Showing:
                         <div class="inline-flex gap-2 ml-2">
-                            {#if sort !== 'Newest'}
-                                <span class="text-foreground">{sort}</span>
-                            {/if}
-                            {#if score !== 'All scores'}
-                                <span class="text-foreground">{score}</span>
-                            {/if}
-                            {#if status !== 'All'}
-                                <span class="text-foreground">{status}</span>
+                            {#if sort !== 'Newest' || score !== 'All scores' || status !== 'All'}
+                                {#if sort !== 'Newest'}
+                                    <span class="text-foreground">{sort}</span>
+                                {/if}
+                                {#if score !== 'All scores'}
+                                    <span class="text-foreground">{score}</span>
+                                {/if}
+                                {#if status !== 'All'}
+                                    <span class="text-foreground">{status}</span>
+                                {/if}
+                            {:else}
+                                <span class="text-foreground">All</span>
                             {/if}
                         </div>
+
                     </div>
-                {/if}
             </div>
     
             <!-- Filters Dropdown -->
@@ -211,7 +214,7 @@
                 on:scoreSelected={onScoreSelected} 
                 on:categorySelected={onCategorySelected} 
             />
-        </div>
+    </div>
 </div>
 
 <!-- Books Grid -->
