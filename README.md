@@ -4,10 +4,11 @@
 - https://journal.ghost.io/
 
 **To Do:**
-- Move away from .io domain (towards .com?)
-- 🆙 Upgrade Skeleton to using layouts and using persistedstore (https://github.com/skeletonlabs/skeleton/issues/2383)
-- 🐞 Images not showing on /books. 
-- 🐞 Search bar closes on enter without removing the text, squishing the text that was entered. 
+- [X] Move away from .io domain (towards .com?)
+- [X] 🆙 Upgrade Skeleton to using layouts and using persistedstore (https://github.com/skeletonlabs/skeleton/issues/2383)
+- [X] 🐞 Images not showing on /books. 
+- [X] 🐞 Search bar closes on enter without removing the text, squishing the text that was entered. 
+- [X] Three col layout on large screens
 
 **Optional new features:**
 - Update OG Image: https://vercel.com/koenraijers-projects/koenraijer-og/deployments 
@@ -18,9 +19,13 @@
 - Proper RSS feed: https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
 - Proper sitemap: https://kylenazario.com/blog/sveltekit-blog-sitemap 
 - New code highlighting: https://github.com/atomiks/rehype-pretty-code 
-- https://www.skeleton.dev/utilities/codeblocks <-- replace codeblocks, or: https://github.com/pngwn/MDsveX/issues/385 
-- Use floating ui for filters
+- [X] Implement Shiki for copy code buttons: https://github.com/pngwn/MDsveX/issues/385 ~~
 - Link shortener for my own domain?
+- [ ] Fix bug similar to avatar where hover location changes when clicking on it on mobile. 
+- [ ] Change redirect in footer in robbert’s website
+- [ ] https://manuelmoreale.com/blogroll Create a blogroll.
+- [ ] Make sure that, if users are redirected from koenraijer.io, they get the toast otherwise not. 
+
 
 **Completed:**
 - Update ToC: endgoal should be a fixed ToC like on gwern.net, but on scrolling, the active heading should appear as a sticky header at the top of the page, including a progress bar.

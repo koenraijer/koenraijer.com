@@ -3,6 +3,14 @@
     export let alt;
     export let fullbleed;
     let width;
+    let isVertical = false;
+
+    // Check if image is vertical on load
+    function handleLoad(event) {
+        const img = event.target;
+        isVertical = img.naturalHeight > img.naturalWidth;
+    }
+
     $: if (alt.includes('|')) {
         const parts = alt.split('|');
         alt = parts[0].trim();
@@ -15,11 +23,21 @@
 </script>
 
 <svelte:head>
-    <!--Preloading-->
     <link rel="preload" href={src} as="image">
 </svelte:head>
 
-<figure>
-    <img {src} {alt} title={alt} loading="lazy" class="rounded-container mx-auto max-h-[80vh] h-auto" style={width ? `width: ${width}px; max-width: 100%;` : ''} class:fullbleed/>
-    <figcaption class="text-base text-surface-500 mt-1 text-center">{alt}</figcaption>
-</figure>    
+<div class="flex items-center justify-center">
+    <figure class="mx-auto {isVertical ? 'max-h-[80vh] md:max-w-[400px]' : 'max-w-full'} h-auto">
+        <img 
+            {src} 
+            {alt} 
+            title={alt} 
+            loading="lazy" 
+            on:load={handleLoad}
+            class="rounded-lg object-contain {isVertical ? 'h-full w-auto' : 'w-full'} mx-auto" 
+            style={width ? `width: ${width}px; max-width: 100%;` : ''}
+            class:fullbleed
+        />
+        <figcaption class="!text-muted-foreground text-xs text-center mt-2">{alt}</figcaption>
+    </figure>        
+</div>

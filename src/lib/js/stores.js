@@ -1,12 +1,11 @@
-import {writable} from 'svelte/store'
-import { localStorageStore } from '@skeletonlabs/skeleton';
+import { createLocalStore } from './create_local_store.js';
 
-export const active_heading = writable({})
+export const active_heading = createLocalStore('active_heading', {});
 
-export const page_offset = writable({})
+export const page_offset = createLocalStore('page_offset', {});
 
-export const selectedSort = localStorageStore('selectedSort', 'Newest');
+export const selectedSort = createLocalStore('selectedSort', 'Newest');
 
-export const active_tracker = writable(false)
+export const active_tracker = createLocalStore('active_tracker', false);
 
-export const toggle_sticky = writable(false)
+export const toggle_sticky = createLocalStore('toggle_sticky', false);

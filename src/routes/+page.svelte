@@ -1,39 +1,38 @@
 <script>
 	import Hero from '$lib/components/Hero.svelte';
-	import Categories from '$lib/components/Categories.svelte';
+	import { Link2 } from 'lucide-svelte';
 	import Posts from '$lib/components/Posts.svelte';
 	import Book from '$lib/components/Book.svelte';
-	import Fuse from 'fuse.js';
 	import * as info from '$lib/js/info.js';
-	export let data
-	let searchQuery = "";
-	let focused = false;
+	import A from '$lib/components/A.svelte';
+	import FadedScrollArea from "$lib/components/FadedScrollArea.svelte";
 
-	let searchedPosts = data.posts; // Define searchedPosts
-
-	// Fuse options
-	const options = {
-		keys: ['title', 'description', 'categories'],
-		threshold: 0.4,
-		location: 0,
-		minMatchCharLength: 1,
-		shouldSort: true,
-		includeMatches: true,
-		findAllMatches: true,
-	};
-
-	// Create fuse instance
-	let fuse = new Fuse(data.posts, options);
+	// @ts-ignore
+	import { slide } from 'svelte/transition';
 	
-	// Apply searchterm
-	$: {
-		if (searchQuery) {
-			let results = fuse.search(searchQuery);
-			searchedPosts = results.map(result => result.item);
-		} else {
-			searchedPosts = data.posts;
-		}
-	}
+	/**
+	 * @param {Element} node
+	 * @param {import("svelte/transition").SlideParams | undefined} options
+	 */
+	// @ts-ignore
+	function fadeSlide(node, options) {
+        const slideTrans = slide(node, options);
+        return {
+            // @ts-ignore
+            duration: options.duration,
+            css: (/** @type {number} */ t) => `
+				${slideTrans ? 
+				// @ts-ignore
+				slideTrans.css(t, options) : ''}
+                opacity: ${t};
+            `
+        };
+    }
+	
+	// @ts-ignore
+	export let data
+
+	let isHovered = false;
 
 	let categoriesArray = Object.entries(data.categories).map(([category, {count, slug}]) => ({
 		category,
@@ -42,14 +41,6 @@
 	}));
 
 	data.categories = categoriesArray;
-
-	let limit = 5 // Number.POSITIVE_INFINITY
-
-	const loadMore = () => {
-		if (limit < searchedPosts.length) {
-			limit += 5; // Increase the limit by 5 only if limit is less than the length of the posts
-		}
-	};
 
 	// SEO
 	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(info.name)}`
@@ -78,90 +69,67 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<section class="mt-8 sm:mt-12 max-w mx-auto md:px-8 lg:px-16">
+<section class="section md:max-w-5xl">
 	<Hero />
 </section>
 
-<section class="section">
-	<div class="flex sm:flex-row items-center mb-4 w-full flex-wrap sm:flex-nowrap">
-		<div class="flex items-center w-full sm:flex-grow my-4 sm:my-0 ">
-			<h2 id="recent_posts" class="text-xl font-medium flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Recent posts</a></h2>
-			<hr class="!border-dotted !border-t-2 w-full !bg-transparent !border-surface-400"/>
-		</div>
-		<div class="w-full sm:pl-8 basis-full {focused ? "sm:basis-[200%] md:basis-3/5" : "sm:basis-[4.75rem]"} transition-all duration-300 ease-in-out">
-			<search class="relative w-full">
-				<form>
-					<label for="search-input" class="sr-only">Search</label>
-					<input 
-						id="search-input"
-						bind:value={searchQuery} 
-						on:focus={() => focused = true} 
-						on:blur={() => { focused = false; searchQuery = ""; }}
-						type="search" 
-						class="peer cursor-pointer relative z-10 h-10 w-full rounded-container border border-surface-200-700-token bg-transparent outline-none transition-width duration-300 focus:bg-surface-900-20-token focus:cursor-text pl-12 sm:pl-0 sm:focus:pl-12 !focus:outline-none !focus:ring-0 focus:shadow-none bg-surface-hover-token" 
-					/>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="absolute inset-y-0 my-auto h-5 border-r border-transparent border-surface-900-50 peer-focus pl-[0.625rem]">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-					</svg>
-				</form>	
-			</search>
-		</div>
-	</div>
-	
-	<Posts posts={searchedPosts} limit={limit}/>
-	{#if limit < searchedPosts.length}
-		<div class="w-full flex justify-center mt-8">
-			<button class="social" on:click={loadMore}>
-				Load more posts &nbsp;
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline">
-					<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-				  </svg>
-				  
-			</button>
-		</div>
-	{/if}
-	<!-- Consider using a fixed height and scrollbar like on https://robinrendle.com/ -->
-	<!--
-	<div class="h-[calc(100vh-8rem)] overflow-y-scroll border">
-		<Posts posts={searchedPosts} limit={limit}/>
-		{#if limit < searchedPosts.length}
-			<div class="w-full flex justify-center mt-8">
-				<button class="social" on:click={loadMore}>Load more posts</button>
-			</div>
-		{/if}
-	</div>
-	-->
-</section>
+<!-- Three column layout container -->
+<div class="section md:max-w-5xl flex flex-col md:grid md:grid-cols-3 md:gap-x-4 h-auto md:mt-12">
 
-<section class="section flex flex-col">
-	<div class="flex items-center w-full sm:flex-grow my-4 pb-4">
-		<h2 id="currently_reading" class="text-xl font-medium flex-shrink-0 sm:pr-8 pr-4 -mt-1 rounded-container"><a href="#recent_posts">Currently reading</a></h2>
-		<hr class="!border-dotted !border-t-2 w-full !bg-transparent !border-surface-400"/>
-	</div>
-	<div class="grid grid-cols-2 md:grid-cols-3 w-fit gap-6 relative place-content-start">
-		{#each data.current_books as book}
-			<Book book={book} compact/>
-		{/each}
-	</div>
-	<a href="/books" class="button text-sm w-fit mx-auto mt-8">View all books
-	</a>
-</section>
-<div class="grid md:grid-cols-3 mt-12 max-w mx-auto md:px-16 md:gap-x-8 lg:gap-x-12 relative pb-12">
-	<section class="md:col-span-2 px-6 sm:px-8 md:px-0">
-		<div class="flex items-center">
-			<h2 id="archive" class="text-xl font-medium flex-shrink-0 sm:pr-8 pr-4 transition-width duration-300 -mt-1"><a href="#archive">Archive</a></h2>
-			<hr class="!border-dotted !border-t-2 w-full !bg-transparent !border-surface-400"/>
-		</div>
-		<Posts posts={data.posts} compact/>
+	<!-- Posts column -->
+	<section class="sm:mt-12 mt-8 md:mt-0 h-fit">
+		<h2 id="writing" class="text-sm font-normal text-muted-foreground/80 mb-2">Writing</h2>
+		<FadedScrollArea class="md:h-[35vh] md:pr-4">
+					<Posts posts={data.posts}/>
+		</FadedScrollArea>
 	</section>
-	
-	<section class="w-full mt-12 md:mt-4 h-full ">
-		<div class="card-shimmer p-8 md:p-6 lg:p-8 bg-surface-100-800-token shadow-sm rounded-none md:rounded-container border-t border-b md:border border-surface-200-700-token self-start sticky top-12">
-			<div class="flex items-center pb-4">
-				<h2 class="text-lg font-semibold flex-shrink-0 md:pr-8 pr-4 transition-width duration-300 -mt-1">Categories</h2>
-			</div>
-			<Categories categories={data.categories}/>
-		</div>
-	</section>	
+
+	<!-- Books column -->
+	<section class="mt-8 sm:mt-12 md:mt-0 h-fit">
+		<h2 
+			id="reading" 
+			class="text-sm font-normal text-muted-foreground/80 mb-2"
+			on:mouseenter={() => isHovered = true}
+			on:mouseleave={() => isHovered = false}
+		>
+			<a href="/books" class="inline-flex items-center">
+				Reading 
+				<Link2 class="w-4 h-4 text-muted-foreground/40 dark:text-muted-foreground/70 inline rotate-45 ml-1"/>
+				{#if isHovered}
+					<span
+					class="overflow-hidden whitespace-nowrap text-muted-foreground/50 dark:text-muted-foreground/80 pl-2 text-xs"
+					transition:fadeSlide={{ axis: "x", duration: 200 }}
+					>
+					visit /books
+					</span>
+				{/if}
+			</a>
+		</h2>
+		<FadedScrollArea class="md:h-[35vh] md:pr-4">
+				{#each data.current_books as book}
+					<Book book={book} compact/>
+				{/each}
+		</FadedScrollArea>
+	</section>
+
+	<!-- Projects column -->
+	<section class="mt-8 sm:mt-12 md:mt-0 h-fit">
+		<h2 id="projects" class="text-sm font-normal text-muted-foreground/80 mb-2">Projects</h2>
+
+		<FadedScrollArea class="md:h-[35vh] md:pr-4">
+				<div class="flex flex-col">
+					<A href="https://reasset.koenraijer.com/" classes="anchor text-sm">ReAsset</A>
+					<A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>
+				</div>
+		</FadedScrollArea>
+	</section>
 </div>
 
+<!-- Now -->
+<section class="section md:max-w-5xl h-fit md:mt-12">
+	<h2 id="now" class="text-sm font-normal text-muted-foreground/80 mb-2">Now</h2>
+	<p class="text-sm">
+		<span>Working at Zuyderland Mental Health Service. Writing </span>
+		<A classes="text-sm anchor" href="https://doi.org/10.17605/OSF.IO/CR5F8">a scoping review</A> on ambulatory assessment in PTSD. Learning Firebase by working on <A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>. Recently: finished MSc in Data Science & Society at Tilburg University.
+	</p>	
+</section>

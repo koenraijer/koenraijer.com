@@ -7,6 +7,10 @@ categories:
 published: true
 ---
 
+<script lang="ts">
+    import { buttonVariants } from "$lib/shadcn/ui/button"
+</script>
+
 This piece of code allows you to create an Obsidian link which links directly to a reference inside Zotero, simply by dragging the reference into a note. If you're processing research or simply want to reference a study in one of your notes, this is is helpful in speeding up the process. 
 
 ![Video showing the Zotero-Obsidian Quick Copy in action.](zotero-obsidian.m4v)
@@ -83,4 +87,7 @@ Save the code as a `.js` file at `/Users/YOURNAME/Zotero/translators`.
         Zotero.write(output);
 }
 ```
-<a href="https://raw.githubusercontent.com/koenraijer/Zotero-Obsidian-Quick-Copy/main/Zotero-Obsidian-Quick-Copy">Github link</a>
+
+<div class="not-prose">
+    <a class="{buttonVariants({ variant: 'default' })}" href="https://raw.githubusercontent.com/koenraijer/Zotero-Obsidian-Quick-Copy/main/Zotero-Obsidian-Quick-Copy">Github link</a>
+</div>

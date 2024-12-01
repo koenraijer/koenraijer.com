@@ -168,7 +168,5 @@ Data extraction requires a data extraction table. Each row will be a paper. Each
 
 It might also be useful to search OSF for data extraction tables other studies used. Realise that data extraction is probably the most labour-intensive of all, and definitely the most labour-intensive step *per study*. You don't want to forget any columns, because going over all studies again will be very burdensome. At the same time, you don't want to be collecting information you won't need for the review. Sadly, data extraction is still manual labor. 
 
----
-## References & footnotes
 [^1]: van de Schoot, R., de Bruin, J., Schram, R. _et al._ An open source machine learning framework for efficient and transparent systematic reviews. _Nat Mach Intell_ **3**, 125–133 (2021). https://doi.org/10.1038/s42256-020-00287-7
 [^2]: This is described in more detail in [Title and Abstract Screening with ASReview](/literature-review#title-and-abstract-screening-with-asreview). Whereas other calibrations involve only references that screeners disagree on, the calibration that occurred after completing title and abstract screening with ASReview also involves references that *one screener included while the other did not see the reference before*. This occurs because the active learning algorithm in ASReview learns differently based on your earlier choices. 

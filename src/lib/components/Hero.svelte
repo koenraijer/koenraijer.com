@@ -1,81 +1,107 @@
-<script>
+<script lang="ts">
     import { onMount } from 'svelte';
-    import { fade } from 'svelte/transition';  // Import fade transition
-    import Socials from '$lib/components/Socials.svelte';
+    import { LocateFixed, Download } from 'lucide-svelte'
     import * as info from '$lib/js/info.js';
-    let imageLoaded = false;
-        
-    const STORAGE_KEY = 'domain-warning-dismissed';
-    let isVisible = true;
+    import { toast } from 'svelte-sonner';
     
-    function handleDismiss() {
-        isVisible = false;
-        localStorage.setItem(STORAGE_KEY, 'true');
+    const STORAGE_KEY = 'domain-warning-dismissed';
+    
+    let locationTooltipVisible = false;
+    let avatarTooltipVisible = false;
+    let tooltipX = 0;
+    let tooltipY = 0;
+    let zoomLevel = 0; // Track zoom state: 0 = normal, 1 = bigger, 2 = biggest
+
+    function handleMouseMove(event: MouseEvent) {
+      // Don't update position if the mouse is over the image
+      if (event.target instanceof HTMLImageElement) return;
+      
+      tooltipX = event.pageX + 10;
+      tooltipY = event.pageY + 10;
     }
 
-    onMount(() => {
-        // Check localStorage on component mount
-        const isDismissed = localStorage.getItem(STORAGE_KEY);
-        if (isDismissed) {
-            isVisible = false;
-        }
-      const img = new Image();
-      img.onload = () => {
-        imageLoaded = true;
-      };
-      img.onerror = () => {
-        console.error('Error loading image');
-      };
-      img.src = info.avatar; // set src after attaching event handlers
-    });
+    function handleAvatarClick(event: MouseEvent) {
+      // Don't increment zoom if clicking the image
+      if (event.target instanceof HTMLImageElement) return;
+      
+      zoomLevel = (zoomLevel + 1) % 3;
+    }
 
+    $: avatarSize = zoomLevel === 0 ? 'w-24 h-24' : 
+                    zoomLevel === 1 ? 'w-32 h-32' : 
+                    'w-40 h-40';
+
+    onMount(() => {
+      const isDismissed = localStorage.getItem(STORAGE_KEY);
+      if (!isDismissed) {
+        toast(
+          'The `.io` domain will no longer be available per January 22nd 2025. Please visit koenraijer.com instead.', 
+          {
+            duration: 10000,
+            action: {
+              label: "Don't show again",
+              onClick: () => localStorage.setItem(STORAGE_KEY, 'true')
+            }
+          }
+        );
+      }
+    });
 </script>
 
+<!-- Preload image-->
 <svelte:head>
-    <!--Preloading-->
-    <link rel="preload" href="/{info.avatar}" as="image">
-    <link rel="preload" href="/avatar_pixelbg2.png" as="image">
+  <link rel="preload" as="image" href="/241122_avatar.png" type="image/png" />
 </svelte:head>
 
-<div class="relative w-full bg-orange-100 border border-orange-200 rounded my-4" class:hidden={!isVisible}>
-    <div class="max-w-screen-xl mx-auto px-4 py-3">
-        <div class="flex items-center justify-between gap-x-4">
-            <p class="text-orange-800 text-sm">
-                <a href="https://thenewstack.io/what-is-the-future-of-the-io-domain/" class="underline hover:text-orange-900">Recent news</a> suggests there is a high likelihood the .io domain will cease to exist. That's why I've changed this website's domain name to <a href="https://koenraijer.com" class="underline hover:text-orange-900">koenraijer.com</a>.
-            </p>
-            <button
-                on:click={handleDismiss}
-                class="flex-shrink-0 group"
-                aria-label="Dismiss"
-            >
-                <svg class="h-5 w-5 text-orange-800 hover:text-orange-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-    </div>
+<div class="relative">
+  <div class="w-full flex justify-end h-6 absolute -top-8 right-0 sm:right-6">
+    <a class="inline-flex items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" href="https://koenraijer.com/240504_resume.pdf" data-sveltekit-preload-data="off"><Download class="w-3 h-3 inline"/>Download Resume</a>
+  </div>
+  <h1 class="text-base md:text-xl mb-4 !leading-8">
+    <button 
+      on:click={handleAvatarClick}
+      on:mousemove={handleMouseMove}
+      on:mouseenter={() => avatarTooltipVisible = true}
+      on:mouseleave={() => avatarTooltipVisible = false}
+      class="relative inline-block cursor-cell"
+    >
+      {info.name}
+      {#if avatarTooltipVisible}
+          <span 
+              class="fixed z-50 rounded-full whitespace-nowrap"
+              style="left: {tooltipX}px; top: {tooltipY}px"
+          >
+              <img 
+                  src="/241122_avatar.png" 
+                  alt="Avatar" 
+                  class="{avatarSize} rounded-full border-muted-foreground/20 border-4 transition-all" 
+                  fetchpriority="high"
+              />
+          </span>
+      {/if}
+    </button>
+    ~ 
+    mental health tech w/o losing the spark 
+    <span class="text-muted-foreground/30">/</span>
+    psychiatry resident 
+    <span 
+      role="tooltip"
+      on:mousemove={handleMouseMove}
+      on:mouseenter={() => locationTooltipVisible = true}
+      on:mouseleave={() => locationTooltipVisible = false}
+      class="relative inline-block cursor-help"
+    >
+      @ Reinier van Arkel
+      {#if locationTooltipVisible}
+        <span 
+          class="fixed z-50 bg-background whitespace-nowrap duration-75 flex flex-col gap-2 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors"
+          style="left: {tooltipX}px; top: {tooltipY}px"
+        >
+          <span class="text-xs inline-flex items-center gap-x-1"><LocateFixed class="w-4 h-4 inline"/> 's Hertogenbosch <span class="font-mono text-xs">NL</span></span>
+        </span>
+      {/if}
+    </span>
+    <span class="text-muted-foreground/30">/</span>
+    current obsession: everything free energy
+  </h1>
 </div>
-
-<section class="card-shimmer z-0 grid grid-cols-1 md:grid-cols-6 border-t border-b md:border border-surface-200-700-token shadow-sm overflow-hidden md:rounded-container rounded-none md:gap-4">
-    <div class="flex flex-col p-6 md:p-8 md:pr-0 pt-0 overflow-auto col-span-4 row-start-2 md:row-start-1">
-        <h2 class="text-2xl font-semibold pb-4">{info.name}</h2>
-        <p class="text-base flex-grow">   
-            {@html info.bio.html}
-        </p>
-        <div class="pt-4 text-base">
-            <Socials />
-        </div>
-    </div>
-    <div class="relative p-6 lg:p-8 block md:flex-col place-content-start col-span-2"> 
-        <div class="relative aspect-square ml-0 mr-auto md:mx-auto h-36 md:h-auto group transition-all sm:shadow-sm shadow-white dark:shadow-black">
-            {#if !imageLoaded}
-                <div class="placeholder absolute inset-0 animate-pulse rounded-full md:rounded-container h-full bg-surface-200/30 dark:bg-surface-700/30"></div>
-            {:else}
-                <div class="absolute inset-0 rounded-full md:rounded-container bg-[#2989FF] mix-blend-difference group-hover:mix-blend-normal transition-colors" in:fade|global={{duration: 100}}></div>
-                <div class="absolute inset-0 rounded-full md:rounded-container mix-blend-difference group-hover:mix-blend-normal" style="background: url('/avatar_pixelbg2.png') no-repeat center / cover;" in:fade|global={{duration: 100}}></div>
-                <div class="absolute inset-0 rounded-full md:rounded-container group-hover:mix-blend-normal" style="background: url('{info.avatar}') no-repeat center / cover;" in:fade|global={{duration: 100}}></div>
-            {/if}
-        </div>
-    </div>
-</section>

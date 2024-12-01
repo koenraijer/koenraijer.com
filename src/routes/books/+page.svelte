@@ -8,9 +8,11 @@
     import { page } from '$app/stores';
     import { browser } from '$app/environment';
     import { goto } from '$app/navigation';
+    import { fade } from 'svelte/transition';
 
     export let data;
     let sort, score, status;
+    let showStats = false;
 
     if (browser) {
         sort = $page.url.searchParams.get('sort') || "Newest";
@@ -20,6 +22,10 @@
         sort = "Newest";
         score = "All scores";
         status = "All";
+    }
+
+    function toggleStats() {
+        showStats = !showStats;
     }
 
     let books = data.books;
@@ -149,31 +155,78 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<div class="section">
-    <PageTitle title="Books">
-    </PageTitle>
-    <p class="pb-4">{description}</p>
-    <p class="pb-4">
-        So far, I've read a total of <b>{copiedBooks.filter(book => book['Exclusive Shelf'] === "read").length}</b> books:
-    </p>
-    <ul class="list-disc pl-6">
-        <!-- Percentage of books that are fiction -->
-        <li>There are <b>{copiedBooks.filter(book => book["Exclusive Shelf"] === "to-read").length}</b> books on <a href="/books?sort=Newest&score=All%20scores&status=to-read" class="anchor" target="_self">my wishlist</a>, which is <b>{Math.round(copiedBooks.filter(book => book["Exclusive Shelf"] === "to-read").length / copiedBooks.length * 100)}%</b> of the total.</li>
-        <!-- The book with the earliest data published -->
-        <li>The oldest book is <b>{copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0].Title}</b>, published in <b>{copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year'] < 0 ? Math.abs(copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year']) + " BC" : copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year']}</b>.</li>
-        <!-- The most frequently occurring rating -->
-        <li>The most frequently occurring rating is <b>{copiedBooks.map(book => book['My Rating']).reduce((a, b) => a > b ? a : b)}</b>, which occurs <b>{copiedBooks.filter(book => book['My Rating'] === copiedBooks.map(book => book['My Rating']).reduce((a, b) => a > b ? a : b)).length}</b> times.</li>
-    </ul>
-</div>
-<div class="mt-12 mx-auto px-0 sm:px-8 lg:px-16 max-w">
-    <!-- Updated Filters component -->
-    <Filters {score} {sort} {status} on:optionSelected="{onOptionSelected}" on:scoreSelected="{onScoreSelected}" on:categorySelected="{onCategorySelected}" />
-</div>
+<!-- Header Section -->
+<section class="section space-y-4 mb-12">
+    <h1 class="text-xl">Books</h1>
+    <p class="text-muted-foreground/80 max-w-2xl">{description}</p>
+    <button 
+        on:click={toggleStats}
+        class="text-sm text-muted-foreground/60 hover:text-foreground transition-colors"
+    >
+        {showStats ? 'Hide' : 'Show'} reading statistics →
+    </button>
 
-<div class="section">
-    <div class="grid gap-8 sm:gap-6">
-        {#each books as book (book["Book Id"])}
-            <Book {book} />
-        {/each}
+    {#if showStats}
+        <div 
+            class="space-y-2 text-sm text-muted-foreground/80"
+            transition:fade={{ duration: 200 }}
+        >
+            <p>Read: <span class="text-foreground">{copiedBooks.filter(book => book['Exclusive Shelf'] === "read").length}</span> books</p>
+            <p>Wishlist: <span class="text-foreground">{copiedBooks.filter(book => book["Exclusive Shelf"] === "to-read").length}</span> books ({Math.round(copiedBooks.filter(book => book["Exclusive Shelf"] === "to-read").length / copiedBooks.length * 100)}%)</p>
+            <p>Oldest: <span class="text-foreground">{copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0].Title}</span> ({copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year'] < 0 ? Math.abs(copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year']) + " BC" : copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year']})</p>
+            <p>Most common rating: <span class="text-foreground">{copiedBooks.map(book => book['My Rating']).reduce((a, b) => a > b ? a : b)}</span> ({copiedBooks.filter(book => book['My Rating'] === copiedBooks.map(book => book['My Rating']).reduce((a, b) => a > b ? a : b)).length} books)</p>
+        </div>
+    {/if}
+</section>
+
+<!-- Filters Container - Fixed Position -->
+<div class="sticky top-0 left-0 right-0 z-50 px-4 pt-8 md:pt-12">
+        <!-- Active Filters -->
+        <div class="w-full flex justify-between">
+            <div class="bg-background/80 backdrop-blur-sm rounded-full border border-muted-foreground/10 py-1.5 px-4 w-fit">
+                    <div class="text-sm text-muted-foreground/80">
+                        Showing:
+                        <div class="inline-flex gap-2 ml-2">
+                            {#if sort !== 'Newest' || score !== 'All scores' || status !== 'All'}
+                                {#if sort !== 'Newest'}
+                                    <span class="text-foreground">{sort}</span>
+                                {/if}
+                                {#if score !== 'All scores'}
+                                    <span class="text-foreground">{score}</span>
+                                {/if}
+                                {#if status !== 'All'}
+                                    <span class="text-foreground">{status}</span>
+                                {/if}
+                            {:else}
+                                <span class="text-foreground">All</span>
+                            {/if}
+                        </div>
+
+                    </div>
+            </div>
+    
+            <!-- Filters Dropdown -->
+            <Filters 
+                {score} 
+                {sort} 
+                {status} 
+                on:optionSelected={onOptionSelected} 
+                on:scoreSelected={onScoreSelected} 
+                on:categorySelected={onCategorySelected} 
+            />
     </div>
 </div>
+
+<!-- Books Grid -->
+<section class="px-4 md:px-8 py-8">
+    <div 
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4 md:gap-8 auto-rows-max"
+        transition:fade={{ duration: 200 }}
+    >
+        {#each books as book (book["Book Id"])}
+            <div class="h-full">
+                <Book {book} />
+            </div>
+        {/each}
+    </div>
+</section>
