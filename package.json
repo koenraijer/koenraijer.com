@@ -46,6 +46,7 @@
 	},
 	"dependencies": {
 		"@microflash/remark-callout-directives": "^4.3.1",
+		"@sveltejs/adapter-vercel": "^5.5.0",
 		"@vcarl/remark-headings": "^0.1.0",
 		"directory-tree": "^3.5.1",
 		"fuse.js": "^6.6.2",

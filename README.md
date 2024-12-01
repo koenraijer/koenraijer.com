@@ -25,7 +25,7 @@
 - [ ] Change redirect in footer in robbert’s website
 - [ ] https://manuelmoreale.com/blogroll Create a blogroll.
 - [ ] Make sure that, if users are redirected from koenraijer.io, they get the toast otherwise not. 
-
+- [ ] Rework the Changelog to be more similar to the Obsidian changelog. Do so by changing the format of changelog to be like JSON or YAML, and then import it into a page that formats it nicely. 
 
 **Completed:**
 - Update ToC: endgoal should be a fixed ToC like on gwern.net, but on scrolling, the active heading should appear as a sticky header at the top of the page, including a progress bar.
