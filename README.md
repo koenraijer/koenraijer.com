@@ -8,7 +8,7 @@
 - 🆙 Upgrade Skeleton to using layouts and using persistedstore (https://github.com/skeletonlabs/skeleton/issues/2383)
 - 🐞 Images not showing on /books. 
 - 🐞 Search bar closes on enter without removing the text, squishing the text that was entered. 
-
+- [ ] Three col layout on large screens
 **Optional new features:**
 - Update OG Image: https://vercel.com/koenraijers-projects/koenraijer-og/deployments 
 - Backlinks (see: [https://szymonkaliski.com)](https://szymonkaliski.com/writing/2024-07-01-building-a-static-site-generator/#backlinking)
