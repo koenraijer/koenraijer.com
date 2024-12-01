@@ -5,12 +5,14 @@
   import * as Drawer from "$lib/shadcn/ui/drawer";
   import { slide } from 'svelte/transition';
   import { browser } from '$app/environment';
-  
+  import { afterNavigate } from '$app/navigation';
+
   export let post;
   
   function fadeSlide(node, options) {
     const slideTrans = slide(node, options);
     return {
+      delay: options?.delay || 0,    // Add this line
       duration: options?.duration || 200,
       css: (t) => `
         ${slideTrans ? slideTrans.css(t, options) : ''}
@@ -25,6 +27,8 @@
   let headings = [];
   let activeHeading = null;
   let scrollY;
+  let isMounted = false;
+
   const scrollMarginTop = 105;
   
   function updateHeadings() {
@@ -74,9 +78,18 @@
     updateActiveHeading();
     window.addEventListener('resize', updateMediaQueries);
     
+    // Set timeout
+    isMounted = true;
     return () => {
       window.removeEventListener('resize', updateMediaQueries);
     };
+  });
+
+
+  let shouldAnimate = false;
+
+  afterNavigate(() => {
+    shouldAnimate = true;
   });
 </script>
 
@@ -88,9 +101,11 @@
 {#if headings.length > 0}
     <!-- Desktop ToC (xl and up) -->
     {#if !isMobile && !isTablet}
+      {#key shouldAnimate}
       <div
-        in:fadeSlide={{ duration: 400 }}
-        class="fixed top-0 text-xs w-48 hidden xl:block -translate-x-72 translate-y-32"
+        in:fadeSlide={{ duration: 400, delay: 500 }}
+        class="fixed top-0 text-xs w-48 hidden -translate-x-72 translate-y-32"
+        class:xl:block={shouldAnimate}
       >
           <nav>
             {#each headings as heading}
@@ -105,6 +120,7 @@
             {/each}
           </nav>
       </div>
+      {/key}
     {/if}
 
       <!-- Tablet ToC Button (md only) -->
@@ -119,7 +135,7 @@
         </div>
   
         <Drawer.Root direction="left" bind:open={isDrawerOpen}>
-          <Drawer.Content class="w-[50vh]">
+          <Drawer.Content class="!w-[50vh] !h-screen">
             <Drawer.Header>
               <Drawer.Title>Table of Contents</Drawer.Title>
             </Drawer.Header>
