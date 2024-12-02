@@ -1,9 +1,12 @@
 ## 2024
 ### December
+- 🐞 locationtooltip
 - 🐞 locationtooltip bug fixed
 #### December 2024
+- 🐞 locationtooltip
 - ✨ Annual redesign: complete overhault of the website.
 - 📝 New post: [Notes on Falsificationism](/falsificationism)
+
 
 #### November 2024
 - 📍 New domain: [https://koenraijer.com](https://koenraijer.com).
@@ -17,7 +20,7 @@
 - 📝 New post: [Experience sampling](/experience-sampling).
 
 #### May 2024
-- ✨ Added [Projects](/projects), improved UI of hero and [Books](/books).
+- ✨ UI improvements: hero and [Books](/books).
 - 📝 New post [Introducing arXivCollector](arxivcollector)
 
 #### January 2024
@@ -26,11 +29,13 @@
 - 📝 New post: [Convert Pocketbook notes to Obsidian-flavoured markdown](/pocketbook-html-to-obsidian-md)
 
 #### December 2023
+- 🐞 locationtooltip
 - 💄 UI improvements: category page, footer, table of contents.
 - ✨ New features: math notation in KaTeX, full bleed images, markdown video support, [TailwindCSS fluid type plugin](https://davidhellmann.com/blog/development/tailwindcss-fluid-type-plugin). 
 - 📦 Changed packages: from GoatCounter to Vercel Speed Insights
 - Added Vercel speed insights, removed GoatCounter
 - 📝 New post: [Anki Remote iOS alternative: cheap, versatile, unwasteful.](/anki-remote)
+
 
 #### August 2023
 - ✨ New features: footnotes, books page, changelog page, OG images, meta tags. 
