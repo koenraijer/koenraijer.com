@@ -95,7 +95,7 @@ Periodization answers the question of "what's the best way of reaching my traini
 
 The field of exercise science is rough, and whereas early studies on DUP were really promising, more recent studies comparing linear periodization and DUP are less applauding. I nevertheless mention DUP as a good training modality, because I have had good experience with it, and because the theory behind it *makes sense* to me.
 
-It makes sense because different rep ranges target different types of muscle fibers (fast twitch, slow twitch, etc.). If you for strength on monday, your muscle fibers optimized for hypertrophy will need less recovery on wednesday.
+It makes sense because different rep ranges target different types of muscle fibers (fast twitch, slow twitch, etc.). If you train for strength on monday, your muscle fibers optimized for hypertrophy will need less recovery on wednesday.
 
 Perhaps even more logical is the reason why linear periodization doesn't work well. If you train for hypertrophy for a month, and then for strength for another month, and then for endurance for another month, you're likely to lose most of the hypertrophy and part of the strength during that final endurance month. With DUP, you train for strength, hypertrophy and endurance *each* week.
 
@@ -108,7 +108,7 @@ Imagine, you need 2 more reps to finish the last set for the bench press. Doing 
 - When benching, keep your feet on the ground.
 - Don't do underhand barbell rows for risk of bicep tendon tear.
 - It's going well? Don't overreach. 
-- Don't assume your form is correct after watching 1 YouTube video, videotape it or let someone watch you to get feedback from others with more experience.
+- Don't assume your form is correct after watching 1 YouTube video. Videotape yourself or let someone watch you and get feedback from someone with more experience.
 
 ## Designing a Training
 So far, you've gotten an idea of what the program aspires to be through its core motivations, read about intensity, and internalized what daily undulating periodization is supposed to look like.
@@ -197,5 +197,4 @@ This is the part you can use to actually compose a training. What follows is a l
 - Rep range - a range of repetitions per set to use for a given exercise for a given training. *Example:* "do 5 sets in the 5-8 rep range for the bench press".
 - Technical failure - when you are unable to do another repetition with correct technique.
 
-## Bibliography
 [^1]: Lorenz DS, Reiman MP, Walker JC. Periodization: current review and suggested implementation for athletic rehabilitation. Sports Health. 2010 Nov;2(6):509–18.

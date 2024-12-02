@@ -14,7 +14,6 @@ import { fileURLToPath } from 'url'
 
 // Code highlighting
 import { escapeSvelte } from 'mdsvex'
-import { addCopyButton } from 'shiki-transformer-copy-button'
 import { createHighlighter } from 'shiki';
 
 // optional
@@ -39,9 +38,6 @@ export default {
         const html = escapeSvelte(
             highlighter.codeToHtml(code, {
                 lang,
-                transformers: [
-                  addCopyButton(code)
-                ],
                 themes: {
                     light: 'github-light',
                     dark: 'github-dark-high-contrast'

@@ -1,0 +1,244 @@
+{
+    "changelog": [
+      {
+        "year": "2024",
+        "month": "November",
+        "date": "2024-11-01",
+        "message": "📍 New domain: [https://koenraijer.com](https://koenraijer.com)."
+      },
+      {
+        "year": "2024",
+        "month": "October",
+        "date": "2024-10-01",
+        "message": "⬆️ Migrated to SvelteKit 2.0"
+      },
+      {
+        "year": "2024",
+        "month": "October",
+        "date": "2024-10-01",
+        "message": "📝 New post: [How I would write a literature review in 2025](/literature-review)"
+      },
+      {
+        "year": "2024",
+        "month": "June",
+        "date": "2024-06-01",
+        "message": "Spring cleaning (font, lay-out, book cards) and new post added: [Experience sampling](/experience-sampling)."
+      },
+      {
+        "year": "2024",
+        "month": "May",
+        "date": "2024-05-01",
+        "message": "Added [Projects](/projects), improved UI of hero and [Books](/books)."
+      },
+      {
+        "year": "2024",
+        "month": "May",
+        "date": "2024-05-01",
+        "message": "📝 New post [Introducing arXivCollector](arxivcollector)"
+      },
+      {
+        "year": "2024",
+        "month": "January",
+        "date": "2024-01-01",
+        "message": "Changed link component so icons for external links are added automatically, changed menus"
+      },
+      {
+        "year": "2024",
+        "month": "January",
+        "date": "2024-01-01",
+        "message": "Added lazy loading to [Books](/books) based on intersection observer API ([src](https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479))"
+      },
+      {
+        "year": "2024",
+        "month": "January",
+        "date": "2024-01-01",
+        "message": "UI/UX improvements to book filtering options and menus"
+      },
+      {
+        "year": "2024",
+        "month": "January",
+        "date": "2024-01-01",
+        "message": "Refurbished library page: added book covers, redesigned book cards, added pages for individual books, added Currently Reading item to homepage."
+      },
+      {
+        "year": "2024",
+        "month": "January",
+        "date": "2024-01-01",
+        "message": "Changed to [Mona Sans](https://github.com/mona-sans), replaced Favicon and made it dependent whether light or dark mode is active."
+      },
+      {
+        "year": "2024",
+        "month": "January",
+        "date": "2024-01-01",
+        "message": "Added grainy background to hero and category element"
+      },
+      {
+        "year": "2024",
+        "month": "January",
+        "date": "2024-01-01",
+        "message": "Fixed inline code and other code formatting things"
+      },
+      {
+        "year": "2024",
+        "month": "January",
+        "date": "2024-01-01",
+        "message": "📝 New post: [Convert Pocketbook notes to Obsidian-flavoured markdown](/pocketbook-html-to-obsidian-md)"
+      },
+      {
+        "year": "2023",
+        "month": "December",
+        "date": "2023-12-01",
+        "message": "Fixed footer on mobile screens, redesigned ToC"
+      },
+      {
+        "year": "2023",
+        "month": "December",
+        "date": "2023-12-01",
+        "message": "Redesigned footer, fixed bug of pages being halfway after navigating, added support for math notation, full bleed images, added markdown video support."
+      },
+      {
+        "year": "2023",
+        "month": "December",
+        "date": "2023-12-01",
+        "message": "Version 3.0 of the website is live! 🎉"
+      },
+      {
+        "year": "2023",
+        "month": "December",
+        "date": "2023-12-01",
+        "message": "Added Vercel speed insights, removed GoatCounter"
+      },
+      {
+        "year": "2023",
+        "month": "December",
+        "date": "2023-12-01",
+        "message": "📝 New post: [Anki Remote iOS alternative: cheap, versatile, unwasteful.](/anki-remote)"
+      },
+      {
+        "year": "2023",
+        "month": "December",
+        "date": "2023-12-01",
+        "message": "Added [TailwindCSS fluid type plugin](https://davidhellmann.com/blog/development/tailwindcss-fluid-type-plugin)"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Fixed book page SEO."
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Implemented automatic updates of the books data file based on a Python script that translates a local spreadsheet into JSON"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Added books page with several filter options"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Added a menu for all options in top right that is fixed on mobile"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Fixed search bar width using mostly Tailwind"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Many small UI improvements for mobile screens"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Optimised Lighthouse scores"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "New avatar image"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Added SEO with dynamic Og Images, meta tags, and so forth"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Archive section on homepage now shows a compact list of all posts"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Improved search input so that all transitions are smooth and the search input is full-width on mobile"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Added footnote support using remark-footnotes"
+      },
+      {
+        "year": "2023",
+        "month": "August",
+        "date": "2023-08-01",
+        "message": "Added a changelog page which is generated from the changelog.md file, which is updated automatically with each commit message"
+      },
+      {
+        "year": "2023",
+        "month": "July",
+        "date": "2023-07-01",
+        "message": "Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content"
+      },
+      {
+        "year": "2023",
+        "month": "July",
+        "date": "2023-07-01",
+        "message": "Add category links to posts, created category cloud, and added category pages"
+      },
+      {
+        "year": "2023",
+        "month": "July",
+        "date": "2023-07-01",
+        "message": "Hero placeholder shows up on all screen sizes"
+      },
+      {
+        "year": "2023",
+        "month": "July",
+        "date": "2023-07-01",
+        "message": "Add tag for in templates"
+      },
+      {
+        "year": "2023",
+        "month": "July",
+        "date": "2023-07-01",
+        "message": "Syntax Highlighting with two themes that switch depending on active theme"
+      },
+      {
+        "year": "2023",
+        "month": "July",
+        "date": "2023-07-01",
+        "message": "Add compact post list for Archive"
+      },
+      {
+        "year": "2023",
+        "month": "July",
+        "date": "2023-07-01",
+        "message": "Added `Fuse.js` for client-side fuzzy search"
+      }
+    ]
+  }
