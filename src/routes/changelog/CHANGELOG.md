@@ -1,12 +1,6 @@
-## 2024
-### December
-- 🐞 locationtooltip
-- 🐞 locationtooltip bug fixed
 #### December 2024
-- 🐞 locationtooltip
 - ✨ Annual redesign: complete overhault of the website.
 - 📝 New post: [Notes on Falsificationism](/falsificationism)
-
 
 #### November 2024
 - 📍 New domain: [https://koenraijer.com](https://koenraijer.com).
