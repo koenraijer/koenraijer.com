@@ -79,7 +79,7 @@
 	<!-- Posts column -->
 	<section class="sm:mt-12 mt-8 md:mt-0 h-fit">
 		<h2 id="writing" class="text-sm font-normal text-muted-foreground/80 mb-2">Writing</h2>
-		<FadedScrollArea class="md:h-[35vh] md:pr-4">
+		<FadedScrollArea class="md:h-[35vh] md:pr-4 mt-2">
 					<Posts posts={data.posts}/>
 		</FadedScrollArea>
 	</section>
@@ -88,7 +88,7 @@
 	<section class="mt-8 sm:mt-12 md:mt-0 h-fit">
 		<h2 
 			id="reading" 
-			class="text-sm font-normal text-muted-foreground/80 mb-2"
+			class="text-sm font-normal text-muted-foreground/80"
 			on:mouseenter={() => isHovered = true}
 			on:mouseleave={() => isHovered = false}
 		>
@@ -105,7 +105,7 @@
 				{/if}
 			</a>
 		</h2>
-		<FadedScrollArea class="md:h-[35vh] md:pr-4">
+		<FadedScrollArea class="md:h-[35vh] md:pr-4 mt-2">
 				{#each data.current_books as book}
 					<Book book={book} compact/>
 				{/each}
@@ -114,9 +114,9 @@
 
 	<!-- Projects column -->
 	<section class="mt-8 sm:mt-12 md:mt-0 h-fit">
-		<h2 id="projects" class="text-sm font-normal text-muted-foreground/80 mb-2">Projects</h2>
+		<h2 id="projects" class="text-sm font-normal text-muted-foreground/80">Projects</h2>
 
-		<FadedScrollArea class="md:h-[35vh] md:pr-4">
+		<FadedScrollArea class="md:h-[35vh] md:pr-4 mt-2">
 				<div class="flex flex-col">
 					<A href="https://reasset.koenraijer.com/" classes="anchor text-sm">ReAsset</A>
 					<A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>

@@ -84,8 +84,7 @@
     mental health tech w/o losing the spark 
     <span class="text-muted-foreground/30">/</span>
     psychiatry resident 
-    <span 
-      role="tooltip"
+    <button 
       on:mousemove={handleMouseMove}
       on:mouseenter={() => locationTooltipVisible = true}
       on:mouseleave={() => locationTooltipVisible = false}
@@ -93,14 +92,18 @@
     >
       @ Reinier van Arkel
       {#if locationTooltipVisible}
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <span 
+          role="button"
+          tabindex={0}
+          on:click|stopPropagation
           class="fixed z-50 bg-background whitespace-nowrap duration-75 flex flex-col gap-2 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors"
           style="left: {tooltipX}px; top: {tooltipY}px"
         >
           <span class="text-xs inline-flex items-center gap-x-1"><LocateFixed class="w-4 h-4 inline"/> 's Hertogenbosch <span class="font-mono text-xs">NL</span></span>
         </span>
       {/if}
-    </span>
+    </button>
     <span class="text-muted-foreground/30">/</span>
     current obsession: everything free energy
   </h1>
