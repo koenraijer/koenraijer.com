@@ -24,6 +24,7 @@
 
 ## 2023
 ### December
+- 💄 Reworked category page
 - Books updated
 - Fixed footer on mobile screens, redesigned ToC
 - Redesigned footer, fixed bug of pages being halfway after navigating, added support for math notation, full bleed images, added markdown video support.
@@ -31,6 +32,7 @@
 - Added Vercel speed insights, removed GoatCounter
 - 📝 New post: [Anki Remote iOS alternative: cheap, versatile, unwasteful.](/anki-remote)
 - Added [TailwindCSS fluid type plugin](https://davidhellmann.com/blog/development/tailwindcss-fluid-type-plugin)
+
 
 
 ### August

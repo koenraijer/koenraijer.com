@@ -6,8 +6,6 @@
   import { slide } from 'svelte/transition';
   import { browser } from '$app/environment';
   import { afterNavigate } from '$app/navigation';
-
-  export let post;
   
   function fadeSlide(node, options) {
     const slideTrans = slide(node, options);
