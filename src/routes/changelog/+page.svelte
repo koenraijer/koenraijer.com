@@ -35,14 +35,12 @@
 
 <article class="w-full section">
     <!-- Title -->
-    <section class="section">
-        <hgroup class="w-full !mx-auto">
-            <h2 class="text-2xl my-4 font-[500]">Changelog</h2>
-        </hgroup>
-    </section>
+    <hgroup class="w-full">
+        <h2 class="text-2xl my-4 font-[500]">Changelog</h2>
+    </hgroup>
 
     <!-- Post content -->
-    <section class="section prose proseClasses proseCodeClasses">
+    <div class="prose proseClasses proseCodeClasses mt-8 sm:mt-12">
         <svelte:component this={changelog} />
-    </section>
+    </div>
 </article>

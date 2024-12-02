@@ -1,0 +1,47 @@
+  /* TIP variant */
+  .callout-tip {
+    @apply bg-blue-50 border-blue-500;
+    @apply dark:bg-blue-950/50 dark:border-blue-500/50;
+  }
+  .callout-tip-text {
+    @apply text-blue-500 dark:text-blue-400;
+  }
+
+  /* WARNING variant */
+  .callout-warning {
+    @apply bg-yellow-50 border-yellow-500;
+    @apply dark:bg-yellow-950/50 dark:border-yellow-500/50;
+  }
+  .callout-warning-text {
+    @apply text-yellow-500 dark:text-yellow-400;
+  }
+
+  /* IMPORTANT variant */
+  .callout-important {
+    @apply bg-purple-50 border-purple-500;
+    @apply dark:bg-purple-950/50 dark:border-purple-500/50;
+  }
+  .callout-important-text {
+    @apply text-purple-500 dark:text-purple-400;
+  }
+
+  /* NOTE variant */
+  .callout-note {
+    @apply bg-gray-50 border-gray-500;
+    @apply dark:bg-gray-900/50 dark:border-gray-500/50;
+  }
+  .callout-note-text {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  /* Shared styles */
+  .callout-wrapper {
+    @apply my-6 p-4 border-2 rounded-lg;
+  }
+
+  .callout-content {
+    @apply text-sm text-gray-700 dark:text-gray-300;
+  }
+  .callout-title {
+    @apply flex items-center font-medium mb-2 text-sm;
+  }
