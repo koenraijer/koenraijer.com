@@ -3,6 +3,7 @@
   import { TableOfContents } from 'lucide-svelte';
   import { ScrollArea } from "$lib/shadcn/ui/scroll-area/index.js";
   import * as Drawer from "$lib/shadcn/ui/drawer";
+  import * as Dialog from "$lib/shadcn/ui/dialog";
   import { slide } from 'svelte/transition';
   import { browser } from '$app/environment';
   import { afterNavigate } from '$app/navigation';
@@ -20,7 +21,7 @@
   }
   
   let allowedHeadings = ['h2', 'h3'];
-  let isDrawerOpen = false;
+  let isDialogOpen = false;
   let isMobileDrawerOpen = false;
   let headings = [];
   let activeHeading = null;
@@ -56,7 +57,7 @@
   }
   
   function handleHeadingClick() {
-    isDrawerOpen = false;
+    isDialogOpen = false;
   }
   
   // Media query states
@@ -122,48 +123,44 @@
     {/if}
 
       <!-- Tablet ToC Button (md only) -->
-      {#if isTablet}
-        <div class="fixed top-5 right-5 sm:top-8 sm:right-8 z-50 md:block xl:hidden">
-          <button
-            class="social bg-background border"
-            on:click={() => isDrawerOpen = !isDrawerOpen}
-          >
-            <TableOfContents class="w-5 h-5" />
-        </button>
-        </div>
-  
-        <Drawer.Root direction="left" bind:open={isDrawerOpen}>
-          <Drawer.Content class="!w-[50vh] !h-screen">
-            <Drawer.Header>
-              <Drawer.Title>Table of Contents</Drawer.Title>
-            </Drawer.Header>
-            <ScrollArea class="h-[calc(100vh-8rem)] px-4">
-              <nav class="space-y-1">
-                {#each headings as heading}
-                  <a
-                    href="#{heading.id}"
-                    class="block text-sm py-1 text-muted-foreground hover:text-foreground transition-colors"
-                    style="padding-left: {heading.depth * 0.75}rem"
-                    class:text-foreground={activeHeading === heading}
-                    on:click={handleHeadingClick}
-                  >
-                    {heading.title}
-                  </a>
-                {/each}
-              </nav>
-            </ScrollArea>
-          </Drawer.Content>
-        </Drawer.Root>
+      {#if isTablet || isMobile}
+        <Dialog.Root bind:open={isDialogOpen}>
+          <Dialog.Trigger>
+            <button
+              class="fixed top-5 right-5 sm:top-8 sm:right-8 z-50 social bg-background border"
+            >
+              <TableOfContents class="w-4 h-4" />
+            </button>
+          </Dialog.Trigger>
+          <Dialog.Content class="sm:!max-w-md">
+            <Dialog.Header>
+              <Dialog.Title class="text-sm font-normal text-muted-foreground/80 text-left">Table of Contents</Dialog.Title>
+            </Dialog.Header>
+            <nav class="h-full w-full flex flex-col justify-between mx-auto my-auto sm:mx-0 sm:my-0">
+              {#each headings as heading}
+                <a
+                  href="#{heading.id}"
+                  class="block text-xs py-1 anchor transition-colors"
+                  style="padding-left: {heading.depth * 0.75}rem"
+                  class:text-foreground={activeHeading === heading}
+                  on:click={handleHeadingClick}
+                >
+                  {heading.title}
+                </a>
+              {/each}
+            </nav>
+          </Dialog.Content>
+        </Dialog.Root>
       {/if}
   
       <!-- Mobile ToC Button (sm and below) -->
-      {#if isMobile}
+      <!-- {#if isMobile}
         <div class="fixed top-5 right-5 sm:top-8 sm:right-8 z-50">
           <button
             class="social bg-background border"
             on:click={() => isMobileDrawerOpen = !isMobileDrawerOpen}
           >
-            <TableOfContents class="w-5 h-5" />
+            <TableOfContents class="w-4 h-4" />
           </button>
         </div>
   
@@ -189,5 +186,5 @@
             </ScrollArea>
           </Drawer.Content>
         </Drawer.Root>
-      {/if}  
+      {/if}   -->
 {/if}

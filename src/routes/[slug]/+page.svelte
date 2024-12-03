@@ -38,14 +38,17 @@
 	let isScrollingUp = writable(false);
 	let lastScrollY = 0;
 	let scrollOffset = writable(0);
+
 	function handleScroll() {
 		const currentScrollY = window.scrollY;
 		scrollOffset.set(currentScrollY);
-
-		if (currentScrollY < lastScrollY && currentScrollY > 750) {
-		isScrollingUp.set(true);
+		
+		const distanceFromBottom = document.documentElement.scrollHeight - (window.innerHeight + currentScrollY);
+		
+		if (currentScrollY < lastScrollY && distanceFromBottom >= 200) {
+			isScrollingUp.set(true);
 		} else {
-		isScrollingUp.set(false);
+			isScrollingUp.set(false);
 		}
 		lastScrollY = currentScrollY;
 	}
