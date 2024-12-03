@@ -4,7 +4,7 @@
   import * as Dialog from "$lib/shadcn/ui/dialog";
   import { slide } from 'svelte/transition';
   import { browser } from '$app/environment';
-  import { afterNavigate } from '$app/navigation';
+  import { afterNavigate, goto } from '$app/navigation';
   
   function fadeSlide(node, options) {
     const slideTrans = slide(node, options);
@@ -54,8 +54,9 @@
     }
   }
   
-  function handleHeadingClick() {
+  function handleHeadingClick(id) {
     isDialogOpen = false;
+    goto(`#${id}`);
   }
   
   // Media query states
@@ -136,15 +137,14 @@
             </Dialog.Header>
             <nav class="h-full w-full flex flex-col justify-between mx-auto my-auto sm:mx-0 sm:my-0">
               {#each headings as heading}
-                <a
-                  href="#{heading.id}"
-                  class="block text-xs py-1 anchor transition-colors"
+                <button
+                  class="block w-fit text-xs py-1 anchor transition-colors"
                   style="padding-left: {heading.depth * 0.75}rem"
                   class:text-foreground={activeHeading === heading}
-                  on:click={handleHeadingClick}
+                  on:click={handleHeadingClick(heading.id)}
                 >
                   {heading.title}
-                </a>
+              </button>
               {/each}
             </nav>
           </Dialog.Content>
