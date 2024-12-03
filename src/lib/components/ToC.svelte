@@ -135,10 +135,10 @@
             <Dialog.Header>
               <Dialog.Title class="text-sm font-normal text-muted-foreground/80 text-left">Table of Contents</Dialog.Title>
             </Dialog.Header>
-            <nav class="h-full w-full flex flex-col justify-between mx-auto my-auto sm:mx-0 sm:my-0">
+            <nav class="h-full w-full flex flex-col justify-between mx-auto my-auto sm:mx-0 sm:my-0 text-left">
               {#each headings as heading}
                 <button
-                  class="block w-fit text-xs py-1 anchor transition-colors"
+                  class="block w-fit text-xs py-1 anchor transition-colors text-left"
                   style="padding-left: {heading.depth * 0.75}rem"
                   class:text-foreground={activeHeading === heading}
                   on:click={handleHeadingClick(heading.id)}
