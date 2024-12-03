@@ -9,7 +9,7 @@
     let isExternal = href.includes("http") || href.includes("mailto");
 
     // Check if link is from Wikipedia
-    let isWikipedia = href.includes("wikipedia.org");
+    let isWikipedia = href.includes("wikipedia.org") || href.includes("wiktionary.org");
 
     if (isExternal) {
         target = "_blank";
