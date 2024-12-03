@@ -1,8 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { TableOfContents } from 'lucide-svelte';
-  import { ScrollArea } from "$lib/shadcn/ui/scroll-area/index.js";
-  import * as Drawer from "$lib/shadcn/ui/drawer";
   import * as Dialog from "$lib/shadcn/ui/dialog";
   import { slide } from 'svelte/transition';
   import { browser } from '$app/environment';

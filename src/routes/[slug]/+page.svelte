@@ -1,7 +1,6 @@
 <script lang="js">
 	import { formatDate } from '$lib/js/utils.js'
 	import Categories from '$lib/components/Categories.svelte'
-	import PageTitle from '$lib/components/PageTitle.svelte'
 	import ToTopButton from '$lib/components/ToTopButton.svelte'
 	import ToC from '$lib/components/ToC.svelte'
 	import * as info from '$lib/js/info.js'
@@ -9,6 +8,7 @@
 	import { writable } from 'svelte/store'
 	export let data
 	import { Clock, Calendar } from 'lucide-svelte'
+	
 	const xor = (a, b) => (a || b) && !(a && b);
 
 	// Convert the object to an array of entries [key, value]
@@ -19,20 +19,7 @@
 
 	// SEO
 	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(data.post.title)}`
-
 	const url = `${info.website}/${data.post.slug}`
-
-	// Popups
-	const wordCountPopup = {
-		event: 'hover',
-		target: 'wordCountPopup',
-		placement: 'bottom'
-	};
-	const updatedPopup = {
-		event: 'hover',
-		target: 'updatedPopup',
-		placement: 'bottom'
-	};
 
 	// Scroll to top
 	let isScrollingUp = writable(false);
@@ -118,7 +105,9 @@
 		</div>
 
 		<!-- Post -->
-		<ToC post={data.post} />
+		{#if data.post.ToC}
+			<ToC post={data.post} />
+		{/if}
 	</article>
 </section>
 
