@@ -9,10 +9,10 @@ export let website;
 if (dev) {
     website = 'http://localhost:5173' 
 } else {
-    website = 'https://koenraijer.io'
+    website = 'https://koenraijer.com'
 }
 
-export const domain = 'koenraijer.io'
+export const domain = 'koenraijer.com'
 
 // Title / logo for the website
 export const title = 'Koen Raijer'
