@@ -41,6 +41,3 @@ Under the following terms:
 - [LinkedIn](https://www.linkedin.com/in/koen-raijer-3495a7127/)
 - [Email](mailto:hello@koenraijer.com)
 - [GoodReads](https://www.goodreads.com/koenraijer/)
-
----
-Made with ❤️ by [Your Name]
