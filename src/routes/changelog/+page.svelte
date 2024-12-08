@@ -1,9 +1,10 @@
 <script>
     import changelog from './CHANGELOG.md'
 	import * as info from '$lib/js/info.js'
+    import { page } from '$app/stores'
 
 	// SEO
-	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(title)}`
+	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&slug=${encodeURIComponent($page.route.id)}`
 
 	const url = `${info.website}/changelog`
 

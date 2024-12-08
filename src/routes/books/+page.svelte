@@ -1,6 +1,5 @@
 
 <script>
-    import PageTitle from '$lib/components/PageTitle.svelte';
     import Filters from '$lib/components/Filters.svelte';
     import Book from '$lib/components/Book.svelte';
     import * as info from '$lib/js/info.js';
@@ -9,7 +8,7 @@
     import { browser } from '$app/environment';
     import { goto } from '$app/navigation';
     import { fade } from 'svelte/transition';
-
+    
     export let data;
     let sort, score, status;
     let showStats = false;
@@ -127,7 +126,7 @@
 	// SEO
     const title = "Books"
     const description = "Explore (almost!) every book I've read since 2013. Currently sourced from a GoodReads export and updated whenever I update the website using a Python script."
-	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(title)}`
+	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&slug=${encodeURIComponent($page.route.id)}`
 
 	const url = `${info.website}/books`
 

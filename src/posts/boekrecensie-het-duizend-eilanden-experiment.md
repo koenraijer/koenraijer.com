@@ -1,5 +1,5 @@
 ---
-title: "Boekrecensie: Het duizend eilanden experiment"
+title: "Recensie: Het duizend eilanden experiment"
 date: 2024-01-07
 categories:
   - Dutch

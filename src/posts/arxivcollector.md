@@ -1,5 +1,5 @@
 ---
-title: Introducing arXivCollector
+title: "arXivCollector"
 date: 2024-05-04
 categories:
   - Research

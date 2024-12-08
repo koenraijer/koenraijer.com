@@ -3,6 +3,7 @@
 	import Categories from '$lib/components/Categories.svelte'
 	import ToTopButton from '$lib/components/ToTopButton.svelte'
 	import ToC from '$lib/components/ToC.svelte'
+	import { page } from '$app/stores'
 	import * as info from '$lib/js/info.js'
 	import { onMount } from 'svelte'
 	import { writable } from 'svelte/store'
@@ -18,7 +19,7 @@
 	}));
 
 	// SEO
-	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(data.post.title)}`
+	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(data.post.title)}&description=${encodeURIComponent(data.post.description)}&slug=${encodeURIComponent($page.route.id)}`
 	const url = `${info.website}/${data.post.slug}`
 
 	// Scroll to top

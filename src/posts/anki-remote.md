@@ -1,5 +1,5 @@
 ---
-title: "Anki Remote iOS alternative: cheap, versatile, unwasteful."
+title: "DIY Anki Remote for iPhone"
 date: 2023-12-10
 categories:
   - Tools

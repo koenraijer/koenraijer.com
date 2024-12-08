@@ -10,6 +10,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import CopyButton from '$lib/components/CopyButton.svelte';
 	import { Undo2 } from 'lucide-svelte';
+	import AnimatedLogo from '$lib/components/AnimatedLogo.svelte';
 
 	// All other imports
 	import { Toaster } from "$lib/shadcn/ui/sonner";
@@ -107,7 +108,7 @@
 <!-- <ScrollArea orientation="both" class="!m-0 !p-0 w-screen h-screen"> -->
 <div class="w-full grid grid-rows-[auto_1fr_auto] min-h-[100svh]">
 	<!-- Header -->
-	<header class="px-4 md:px-8 py-6 h-fit">
+	<header class="px-4 md:px-8 py-6 md:pt-8 h-fit">
 		<!-- Your header content -->
 		{#if !$page.url.pathname.startsWith('/books/') && $page.url.pathname !== '/'}
 			<div class="flex items-center group">
@@ -119,6 +120,8 @@
 					Index
 				</a>
 			</div>
+		{:else}
+			<AnimatedLogo />
 		{/if}
 	</header>
 

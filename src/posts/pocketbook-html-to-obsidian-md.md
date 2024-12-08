@@ -1,5 +1,5 @@
 ---
-title: Convert Pocketbook notes to Obsidian-flavoured markdown
+title: From Pocketbook notes to markdown
 date: 2024-01-04
 categories:
   - Tools

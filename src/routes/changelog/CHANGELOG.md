@@ -1,4 +1,5 @@
 #### December 2024
+- 🔎 SEO: better OG Images
 - 🐞 Bug fixes: table of contents now disappears after navigation, and to top button doesn't sit in the way of footer buttons anymore.
 - ✨ New feature: added support for callouts in markdown.
 - ✨ Annual redesign: complete overhaul of the website.

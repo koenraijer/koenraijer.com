@@ -121,7 +121,7 @@
       {/key}
     {/if}
 
-      <!-- Tablet ToC Button (md only) -->
+      <!-- Tablet ToC Button (md only)
       {#if isTablet || isMobile}
         <Dialog.Root bind:open={isDialogOpen}>
           <Dialog.Trigger>
@@ -149,7 +149,7 @@
             </nav>
           </Dialog.Content>
         </Dialog.Root>
-      {/if}
+      {/if} -->
   
       <!-- Mobile ToC Button (sm and below) -->
       <!-- {#if isMobile}

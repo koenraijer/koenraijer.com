@@ -53,7 +53,7 @@
   <link rel="preload" as="image" href="/241122_avatar.png" type="image/png" />
 </svelte:head>
 
-<div class="relative">
+<div class="relative flex flex-row gap-x-2">
   <div class="w-full flex justify-end h-6 absolute -top-8 right-0 sm:right-6">
     <a class="inline-flex items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" href="https://koenraijer.com/240504_resume.pdf" data-sveltekit-preload-data="off"><Download class="w-3 h-3 inline"/>Download Resume</a>
   </div>
@@ -81,8 +81,6 @@
       {/if}
     </button>
     ~ 
-    mental health tech w/o losing the spark 
-    <span class="text-muted-foreground/30">/</span>
     psychiatry resident 
     <button 
       on:mousemove={handleMouseMove}

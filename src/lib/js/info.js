@@ -12,7 +12,7 @@ if (dev) {
     website = 'https://koenraijer.com'
 }
 
-export const domain = 'koenraijer.com'
+export const domain = website
 
 // Title / logo for the website
 export const title = 'Koen Raijer'
@@ -23,11 +23,8 @@ export const name = `${firstName} ${lastName}`
 
 export const email = 'hello@koenraijer.com'
 
-// Used for the hero
-export const avatar = 'avatar_nobg.png' //'avatar.webp'
-
 export const bio = { 
-    text: `Hi, I'm Koen! Welcome to this always-changing, never-finished website. I work in psychiatry, and I do research that applies computational methods to psychology and psychiatry. This is where I would like to share thoughts and updates, although most of the time I'm just tweaking the website.`,
+    text: `Personal website of Koen Raijer. Psychiatry resident and researcher. Interests: personalized models of psychopathology, digital phenotyping, ambulatory assessment.`,
     html: `Hi, I'm Koen! Welcome to this always-changing, never-finished website. I work in psychiatry, and I do research that applies computational methods to psychology and psychiatry. This is where I <i>would like</i> to share thoughts and updates, but most of the time I'm just tweaking the website. If you read just one thing, check out <a href="/experience-sampling" class="anchor">this self-experiment on experience sampling</a>.`
 }
 
