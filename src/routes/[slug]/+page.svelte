@@ -19,7 +19,7 @@
 	}));
 
 	// SEO
-	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(data.post.title)}&description=${encodeURIComponent(data.post.description)}&slug=${encodeURIComponent($page.route.id)}`
+	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(data.post.title)}&description=${encodeURIComponent(data.post.description)}&slug=${encodeURIComponent(data.post.slug)}`
 	const url = `${info.website}/${data.post.slug}`
 
 	// Scroll to top
