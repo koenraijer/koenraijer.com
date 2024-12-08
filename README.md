@@ -1,45 +1,46 @@
-**Inspiration:**
-- https://ubud.aspirethemes.com/
-- https://github.com/mattjennings/sveltekit-blog-template/
-- https://journal.ghost.io/
+# Koen Raijer
+> Personal website and blog of Koen Raijer
 
-**To Do:**
-- [X] Move away from .io domain (towards .com?)
-- [X] 🆙 Upgrade Skeleton to using layouts and using persistedstore (https://github.com/skeletonlabs/skeleton/issues/2383)
-- [X] 🐞 Images not showing on /books. 
-- [X] 🐞 Search bar closes on enter without removing the text, squishing the text that was entered. 
-- [X] Three col layout on large screens
+## 🌟 Welcome!
+Hi, I'm Koen! I'm a psychiatry resident with a passion for technology, philosophy, and writing. This is my personal website and blog, where I write about my interests and share my thoughts.
 
-**Optional new features:**
-- Update OG Image: https://vercel.com/koenraijers-projects/koenraijer-og/deployments 
-- Backlinks (see: [https://szymonkaliski.com)](https://szymonkaliski.com/writing/2024-07-01-building-a-static-site-generator/#backlinking)
-- Webmentions: These allow your site to gather reactions from around the web (likes, replies, retweets, etc.) and display them. Or consider adding utteranc.es? A service like webmention.io can help with this.
-- Image Optimization: Automatic resizing, lazy loading and optimization of images for better performance. --> Keep track of Svelte image (currently experimental!)
-- Site-wide cmd-K search (see: https://www.youtube.com/watch?v=-B58GgsehKQ&t=291s) - Use flexsearch like here? https://joyofcode.xyz/blazing-fast-sveltekit-search (flexsearch appears to be best: https://github.com/nextapps-de/flexsearch)
-- Proper RSS feed: https://kylenazario.com/blog/full-content-rss-feed-with-sveltekit 
-- Proper sitemap: https://kylenazario.com/blog/sveltekit-blog-sitemap 
-- New code highlighting: https://github.com/atomiks/rehype-pretty-code 
-- [X] Implement Shiki for copy code buttons: https://github.com/pngwn/MDsveX/issues/385 ~~
-- Link shortener for my own domain?
-- [ ] Fix bug similar to avatar where hover location changes when clicking on it on mobile. 
-- [ ] Change redirect in footer in robbert’s website
-- [ ] https://manuelmoreale.com/blogroll Create a blogroll.
-- [ ] Make sure that, if users are redirected from koenraijer.io, they get the toast otherwise not. 
-- [ ] Rework the Changelog to be more similar to the Obsidian changelog. Do so by changing the format of changelog to be like JSON or YAML, and then import it into a page that formats it nicely. 
+## 💻 Tech Stack
+Technologies used to build the website:
+- Frontend: SvelteKit, mdsvex
+- Styling: Tailwind CSS
+- Deployment: Vercel
+- Hosting: Cloudflare
 
-**Completed:**
-- Update ToC: endgoal should be a fixed ToC like on gwern.net, but on scrolling, the active heading should appear as a sticky header at the top of the page, including a progress bar.
-- Convert [slug]/+page.server.js to be fully dependable on api/posts, also for the content.
-- Add category links to posts, created category cloud, and added category pages.
-- Hero placeholder shows up on all screen sizes
-- Add <A> tag for in templates
-- Syntax Highlighting with two themes that switch depending on active theme
-- Add compact post list for Archive
-- Added Fuse.js for client-side fuzzy search
-- Add semi-automated changelog? I.e., whenever a new page is added?
-- Create a menu for all options in top right 
-- Add books page
-- Change text select colour
-- https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479 <-- lazy loading (sitewide, but at least on the books page). 
-- Bug fix: white vertical stroke on mobile on books page removed.
-- Improve menu 
+## 🎨 Design Philosophy
+A return to simplicity, with a focus on content. Small moving details make the site feel alive. Inspired by [gwern.net](https://www.gwern.net/) and [paco.me](https://paco.me/).
+
+## 🛠️ Local Development
+```bash
+# Clone the repository
+git clone https://github.com/koenraijer/koenraijer.com
+
+# Install dependencies
+pnpm install
+
+# Start development server
+npm run dev
+```
+
+## 📝 License
+This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
+
+This means you are free to:
+- Share — copy and redistribute the material in any medium or format
+- Adapt — remix, transform, and build upon the material
+
+Under the following terms:
+- Attribution — You must give appropriate credit
+- NonCommercial — You may not use the material for commercial purposes
+
+## 🤝 Connect With Me
+- [LinkedIn](https://www.linkedin.com/in/koen-raijer-3495a7127/)
+- [Email](mailto:hello@koenraijer.com)
+- [GoodReads](https://www.goodreads.com/koenraijer/)
+
+---
+Made with ❤️ by [Your Name]
