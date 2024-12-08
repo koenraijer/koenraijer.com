@@ -17,7 +17,7 @@
 
 <div class="flex flex-col">
     {#each posts as post}
-        <div class="inline leading-tight">
+        <div class="inline leading-7">
             <a href={"/" + post.slug} class="text-sm anchor">
                 {post.title}
             </a>

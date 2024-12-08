@@ -17,7 +17,7 @@
 <!--Body-->
 <button class="flex flex-col w-full sm:flex-row group gap-x-4 overflow-hidden" on:click|preventDefault={() => navigateToBookDetails(book)}>
     {#if compact}
-        <p class="anchor text-sm text-left inline">
+        <p class="anchor text-sm text-left inline leading-7">
             <span>{book.Title ? book.Title : ""}</span>
             <span>({book.Author})</span>
         </p>

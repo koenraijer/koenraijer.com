@@ -105,9 +105,11 @@
 				{/if}
 			</a>
 		</h2>
+		<div class="inline leading-7">
 		{#each data.current_books as book}
 			<Book book={book} compact/>
 		{/each}
+		</div>
 	</section>
 
 	<!-- Projects column -->
