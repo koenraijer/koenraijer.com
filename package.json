@@ -63,6 +63,7 @@
 		"remark-parse": "^11.0.0",
 		"set-cookie-parser": "^2.6.0",
 		"shiki": "^1.23.1",
+		"svelte-intersection-observer": "^1.0.0",
 		"svelte-legos": "^0.2.5",
 		"svelte-motion": "^0.12.2",
 		"tailwindcss-fluid-type": "^2.0.3",

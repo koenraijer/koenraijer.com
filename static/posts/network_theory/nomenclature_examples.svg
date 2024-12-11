@@ -1,0 +1,12 @@
+<svg width="517" height="192" viewBox="0 0 517 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M322.061 44.0607C322.646 43.4749 322.646 42.5251 322.061 41.9393L312.515 32.3934C311.929 31.8076 310.979 31.8076 310.393 32.3934C309.808 32.9792 309.808 33.9289 310.393 34.5147L318.879 43L310.393 51.4853C309.808 52.0711 309.808 53.0208 310.393 53.6066C310.979 54.1924 311.929 54.1924 312.515 53.6066L322.061 44.0607ZM186 44.5H321V41.5H186V44.5Z" fill="#C00F0C"/>
+<rect x="0.5" y="0.5" width="185" height="84" rx="42" fill="white" stroke="black"/>
+<rect x="321.5" y="0.5" width="185" height="84" rx="42" fill="white" stroke="black"/>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Average Sans" font-size="24" letter-spacing="0em"><tspan x="23.5312" y="51.596">Social support</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Average Sans" font-size="24" letter-spacing="0em"><tspan x="349.551" y="51.596">Negative affect</tspan></text>
+<path d="M322.414 151.414C323.195 150.633 323.195 149.367 322.414 148.586L309.686 135.858C308.905 135.077 307.639 135.077 306.858 135.858C306.077 136.639 306.077 137.905 306.858 138.686L318.172 150L306.858 161.314C306.077 162.095 306.077 163.361 306.858 164.142C307.639 164.923 308.905 164.923 309.686 164.142L322.414 151.414ZM186 152H321V148H186V152Z" fill="#009951"/>
+<rect x="0.5" y="107.5" width="185" height="84" rx="42" fill="white" stroke="black"/>
+<rect x="321.5" y="107.5" width="185" height="84" rx="42" fill="white" stroke="black"/>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Average Sans" font-size="24" letter-spacing="0em"><tspan x="48.0352" y="158.596">Insomnia</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Average Sans" font-size="24" letter-spacing="0em"><tspan x="387.707" y="158.596">Fatigue</tspan></text>
+</svg>

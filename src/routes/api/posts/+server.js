@@ -6,8 +6,8 @@ async function getPostsAndCategories() {
     let posts = []
     let categoriesData = new Map(); // Map to store categories and their data
 
-    const paths = import.meta.glob('/src/posts/*.md', { eager: true })
-
+    const paths = import.meta.glob(['/src/posts/*.md', '/src/posts/*.svx'], { eager: true });
+    
     for (const path in paths) {
         const file = paths[path]
         const slug = path.split('/').at(-1)?.replace('.md', '')

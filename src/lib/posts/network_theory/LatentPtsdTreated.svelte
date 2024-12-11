@@ -1,0 +1,17 @@
+<svg width="616" height="416" viewBox="0 0 616 416" fill="none" xmlns="http://www.w3.org/2000/svg" class="font-sans text-base text-foreground w-full h-fit mx-auto">
+    <circle cx="322" cy="207" r="73" fill="hsl(var(--muted))"/>
+    <text fill="currentColor" xml:space="preserve" style="white-space: pre" font-size="36" letter-spacing="0em"><tspan x="282" y="221.144">PTSD</tspan></text>
+    <rect x="446.5" y="208.5" width="169" height="50" rx="25" fill="hsl(var(--accent))" stroke="hsl(var(--muted-foreground))"/>
+    <text fill="hsl(var(--muted-foreground))" xml:space="preserve" style="white-space: pre" letter-spacing="0em"><tspan x="473.766" y="242.596">Nightmares</tspan></text>
+    <rect x="228.5" y="331.5" width="185" height="84" rx="42" fill="hsl(var(--accent))" stroke="hsl(var(--muted-foreground))"/>
+    <text fill="hsl(var(--muted-foreground))" xml:space="preserve" style="white-space: pre" letter-spacing="0em"><tspan x="240.504" y="367.096">Being constantly </tspan><tspan x="276.938" y="398.096">&#x2018;on edge&#x2019;</tspan></text>
+    <rect x="0.5" y="114.5" width="185" height="84" rx="42" fill="hsl(var(--accent))" stroke="hsl(var(--muted-foreground))"/>
+    <text fill="hsl(var(--muted-foreground))" xml:space="preserve" style="white-space: pre" letter-spacing="0em"><tspan x="7.83984" y="150.096">Avoiding possible </tspan><tspan x="18.3281" y="181.096">trauma triggers</tspan></text>
+    <path d="M214.5 42.5C214.5 19.304 233.304 0.5 256.5 0.5H385.5C408.696 0.5 427.5 19.304 427.5 42.5C427.5 65.696 408.696 84.5 385.5 84.5H256.5C233.304 84.5 214.5 65.696 214.5 42.5Z" fill="hsl(var(--accent))" stroke="hsl(var(--muted-foreground))"/>
+    <text fill="hsl(var(--muted-foreground))" xml:space="preserve" style="white-space: pre" letter-spacing="0em"><tspan x="242.953" y="36.096">Re-experiencing </tspan><tspan x="239.016" y="67.096">traumatic events</tspan></text>
+    <path d="M322.707 84.2929C322.317 83.9024 321.683 83.9024 321.293 84.2929L314.929 90.6569C314.538 91.0474 314.538 91.6805 314.929 92.0711C315.319 92.4616 315.953 92.4616 316.343 92.0711L322 86.4142L327.657 92.0711C328.047 92.4616 328.681 92.4616 329.071 92.0711C329.462 91.6805 329.462 91.0474 329.071 90.6569L322.707 84.2929ZM323 134V85H321V134H323Z" fill="hsl(var(--accent))"/>
+    <path d="M446.309 234.951C446.834 234.781 447.122 234.216 446.951 233.691L444.172 225.131C444.001 224.606 443.437 224.318 442.912 224.489C442.387 224.659 442.099 225.223 442.27 225.749L444.74 233.358L437.131 235.828C436.606 235.999 436.318 236.563 436.489 237.088C436.659 237.613 437.223 237.901 437.749 237.73L446.309 234.951ZM394.546 208.891L445.546 234.891L446.454 233.109L395.454 207.109L394.546 208.891Z" fill="hsl(var(--accent))"/>
+    <path d="M185.608 156.08C185.1 156.296 184.864 156.883 185.08 157.392L188.604 165.673C188.82 166.181 189.407 166.418 189.916 166.202C190.424 165.985 190.66 165.398 190.444 164.89L187.312 157.529L194.673 154.396C195.181 154.18 195.418 153.593 195.202 153.084C194.985 152.576 194.398 152.34 193.89 152.556L185.608 156.08ZM253.374 183.072L186.374 156.072L185.626 157.928L252.626 184.928L253.374 183.072Z" fill="hsl(var(--accent))"/>
+    <path d="M320.293 331.707C320.683 332.098 321.317 332.098 321.707 331.707L328.071 325.343C328.462 324.953 328.462 324.319 328.071 323.929C327.681 323.538 327.047 323.538 326.657 323.929L321 329.586L315.343 323.929C314.953 323.538 314.319 323.538 313.929 323.929C313.538 324.319 313.538 324.953 313.929 325.343L320.293 331.707ZM320 280V331H322V280H320Z" fill="hsl(var(--accent))"/>
+</svg>
+    

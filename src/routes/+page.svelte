@@ -5,7 +5,6 @@
 	import Book from '$lib/components/Book.svelte';
 	import * as info from '$lib/js/info.js';
 	import A from '$lib/components/A.svelte';
-	import FadedScrollArea from "$lib/components/FadedScrollArea.svelte";
 
 	// @ts-ignore
 	import { slide } from 'svelte/transition';
@@ -75,7 +74,7 @@
 
 <!-- Now -->
 <section class="section md:max-w-5xl h-fit md:mt-12">
-	<h2 id="now" class="text-sm font-normal text-muted-foreground/80 mb-2">Now</h2>
+	<h2 id="now" class="text-sm font-[500] text-muted-foreground/80 mb-2">Now</h2>
 	<p class="text-sm">
 		<span>Working at a mental health care facility. Doing </span>
 		<A classes="text-sm anchor" href="https://doi.org/10.17605/OSF.IO/CR5F8">research</A> on ambulatory assessment in PTSD. Coding <A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>. Relocating to Utrecht. Recently graduated from Tilburg University in data science. 
@@ -85,10 +84,10 @@
 <!-- Three column layout container -->
 <div class="section md:max-w-5xl flex flex-col md:grid md:grid-cols-2 md:gap-x-4 h-auto md:mt-12">
 	<!-- Books column -->
-	<section class="mt-8 sm:mt-12 md:mt-0 h-fit">
+	<section class="mt-0 h-fit">
 		<h2 
 			id="reading" 
-			class="text-sm font-normal text-muted-foreground/80"
+			class="text-sm font-[500] text-muted-foreground/80"
 			on:mouseenter={() => isHovered = true}
 			on:mouseleave={() => isHovered = false}
 		>
@@ -114,7 +113,7 @@
 
 	<!-- Projects column -->
 	<section class="mt-8 sm:mt-12 md:mt-0 h-fit">
-		<h2 id="projects" class="text-sm font-normal text-muted-foreground/80">Projects</h2>
+		<h2 id="projects" class="text-sm font-[500] text-muted-foreground/80">Projects</h2>
 		<div class="flex flex-col gap-y-2">
 			<div>
 				<A href="https://reasset.koenraijer.com/" classes="anchor text-sm">ReAsset</A>
@@ -130,6 +129,12 @@
 
 <!-- Posts column -->
 <section class="section md:max-w-5xl h-fit">
-	<h2 id="writing" class="text-sm font-normal text-muted-foreground/80 mb-2">Writing</h2>
+	<h2 id="writing" class="text-sm font-[500] text-muted-foreground/80 mb-2">Writing</h2>
 	<Posts posts={data.posts}/>
+</section>
+
+<!-- Connect -->
+<section class="section md:max-w-5xl h-fit">
+	<h2 id="writing" class="text-sm font-[500] text-muted-foreground/80 mb-2">Connect</h2>
+	<p class="text-sm">Reach me at <A href="mailto:hello@koenraijer.com">hello@koenraijer.com</A>.
 </section>

@@ -9,14 +9,14 @@
 	// UI
 	import Footer from '$lib/components/Footer.svelte';
 	import CopyButton from '$lib/components/CopyButton.svelte';
-	import { Undo2 } from 'lucide-svelte';
+	import { Undo2, Download } from 'lucide-svelte';
 	import AnimatedLogo from '$lib/components/AnimatedLogo.svelte';
 
 	// All other imports
 	import { Toaster } from "$lib/shadcn/ui/sonner";
 	import { ModeWatcher, mode } from "mode-watcher";
 	import PageTransition from '../lib/components/Transition.svelte';
-  
+
 	// Variables
 	let link: HTMLLinkElement;
 	let logo: string;
@@ -108,7 +108,7 @@
 <!-- <ScrollArea orientation="both" class="!m-0 !p-0 w-screen h-screen"> -->
 <div class="w-full grid grid-rows-[auto_1fr_auto] min-h-[100svh]">
 	<!-- Header -->
-	<header class="px-4 md:px-8 py-6 md:pt-8 h-fit">
+	<header class="px-4 md:px-8 py-6 md:pt-8 h-fit relative">
 		<!-- Your header content -->
 		{#if !$page.url.pathname.startsWith('/books/') && $page.url.pathname !== '/'}
 			<div class="flex items-center group">
@@ -123,6 +123,8 @@
 		{:else}
 			<AnimatedLogo />
 		{/if}
+
+		<a class="sm:hidden absolute inline-flex top-6 right-4 items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" href="https://koenraijer.com/240504_resume.pdf"><Download class="w-3 h-3 inline"/>Download Resume</a>
 	</header>
 
 	<!-- Main Content Area -->

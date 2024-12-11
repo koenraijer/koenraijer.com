@@ -1,0 +1,17 @@
+<svg width="480" height="381" viewBox="0 0 480 381" fill="none" xmlns="http://www.w3.org/2000/svg" class="font-sans text-base text-foreground w-full h-fit mx-auto">
+    <rect x="278.5" y="36.5" width="169" height="49" rx="24.5" fill="hsl(var(--background))" stroke="hsl(var(--border))"/>
+    <text fill="currentColor" xml:space="preserve" style="white-space: pre" letter-spacing="0em"><tspan x="323.93" y="70.096">Imaging</tspan></text>
+    <circle cx="186" cy="207" r="73" fill="hsl(var(--muted))"/>
+    <text fill="currentColor" xml:space="preserve" style="white-space: pre" font-size="36" letter-spacing="0em"><tspan x="134" y="221.144">Cancer</tspan></text>
+    <rect x="310.5" y="208.5" width="169" height="49" rx="24.5" fill="hsl(var(--accent))" stroke="hsl(var(--muted-foreground))"/>
+    <text fill="hsl(var(--muted-foreground))" xml:space="preserve" style="white-space: pre" letter-spacing="0em"><tspan x="373.695" y="242.096">Pain</tspan></text>
+    <rect x="92.5" y="331.5" width="185" height="49" rx="24.5" fill="hsl(var(--accent))" stroke="hsl(var(--muted-foreground))"/>
+    <text fill="hsl(var(--muted-foreground))" xml:space="preserve" style="white-space: pre" letter-spacing="0em"><tspan x="99.7109" y="365.096">Having no energy</tspan></text>
+    <rect x="0.5" y="0.5" width="185" height="83" rx="41.5" fill="hsl(var(--accent))" stroke="hsl(var(--muted-foreground))"/>
+    <text fill="hsl(var(--muted-foreground))" xml:space="preserve" style="white-space: pre" letter-spacing="0em"><tspan x="31.6289" y="36.096">Unexplained </tspan><tspan x="39.3164" y="67.096">weight loss</tspan></text>
+    <path d="M93.07 84.0025C92.5191 83.9638 92.0411 84.3791 92.0025 84.93L91.3724 93.9079C91.3338 94.4588 91.749 94.9368 92.3 94.9755C92.8509 95.0141 93.3289 94.5989 93.3675 94.0479L93.9275 86.0676L101.908 86.6276C102.459 86.6662 102.937 86.251 102.975 85.7C103.014 85.1491 102.599 84.6711 102.048 84.6325L93.07 84.0025ZM146.755 145.344L93.7549 84.3441L92.2451 85.6559L145.245 146.656L146.755 145.344Z" fill="hsl(var(--muted-foreground))"/>
+    <path d="M310.309 234.951C310.834 234.781 311.122 234.216 310.951 233.691L308.172 225.131C308.001 224.606 307.437 224.318 306.912 224.489C306.387 224.659 306.099 225.223 306.27 225.749L308.74 233.358L301.131 235.828C300.606 235.999 300.318 236.563 300.489 237.088C300.659 237.613 301.223 237.901 301.749 237.73L310.309 234.951ZM258.546 208.891L309.546 234.891L310.454 233.109L259.454 207.109L258.546 208.891Z" fill="hsl(var(--muted-foreground))"/>
+    <path d="M246.018 164.814C245.915 165.356 246.271 165.88 246.814 165.982L255.656 167.66C256.198 167.763 256.722 167.407 256.825 166.864C256.928 166.322 256.571 165.798 256.029 165.695L248.169 164.204L249.66 156.344C249.763 155.802 249.407 155.278 248.864 155.175C248.322 155.072 247.798 155.429 247.695 155.971L246.018 164.814ZM362.437 85.1735L246.437 164.173L247.563 165.827L363.563 86.8265L362.437 85.1735Z" fill="currentColor"/>
+    <path d="M184.293 331.707C184.683 332.098 185.317 332.098 185.707 331.707L192.071 325.343C192.462 324.953 192.462 324.319 192.071 323.929C191.681 323.538 191.047 323.538 190.657 323.929L185 329.586L179.343 323.929C178.953 323.538 178.319 323.538 177.929 323.929C177.538 324.319 177.538 324.953 177.929 325.343L184.293 331.707ZM184 280V331H186V280H184Z" fill="hsl(var(--muted-foreground))"/>
+</svg>
+    

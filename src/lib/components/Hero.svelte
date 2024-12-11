@@ -55,9 +55,9 @@
 
 <div class="relative flex flex-row gap-x-2">
   <div class="w-full flex justify-end h-6 absolute -top-8 right-0 sm:right-6">
-    <a class="inline-flex items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" href="https://koenraijer.com/240504_resume.pdf" data-sveltekit-preload-data="off"><Download class="w-3 h-3 inline"/>Download Resume</a>
+    <a class="sm:inline-flex hidden items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" href="https://koenraijer.com/240504_resume.pdf"><Download class="w-3 h-3 inline"/>Download Resume</a>
   </div>
-  <h1 class="text-base md:text-xl mb-4 !leading-10">
+  <h1 class="text-base md:text-xl mb-4 md:!leading-10">
     <button 
       on:click={handleAvatarClick}
       on:mousemove={handleMouseMove}
