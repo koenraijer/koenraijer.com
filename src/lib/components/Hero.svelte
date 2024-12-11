@@ -46,6 +46,13 @@
         );
       }
     });
+
+    let rabbitholes = info.rabbitholes
+
+    // Get last three items, most recent first
+    $: visibleHoles = rabbitholes
+      .slice(-3)
+      .reverse();
 </script>
 
 <!-- Preload image-->
@@ -80,7 +87,7 @@
           </span>
       {/if}
     </button>
-    ~ 
+    ~
     psychiatry resident 
     <button 
       on:mousemove={handleMouseMove}
@@ -103,6 +110,41 @@
       {/if}
     </button>
     <span class="text-muted-foreground/30">/</span>
-    current obsession: everything free energy
+    latest rabbit hole: 
+    <div class="relative inline group w-fit h-full">
+      {#each visibleHoles as hole, i}
+        {#if i === 0}
+          <!-- Current rabbithole - inline -->
+          <span class="cursor-s-resize">
+            {hole}
+          </span>
+        {:else}
+          <!-- Previous rabbitholes container - absolute positioning -->
+          <div class="absolute top-0 left-0 pointer-events-none w-full h-full">
+            <div 
+              class="absolute left-0 transition-all opacity-0 translate-y-0 scale-98
+                     group-hover:delay-[0ms] group-hover:duration-300
+                     duration-300 w-full text-sm md:text-base"
+              class:group-hover:opacity-[0.4]={i === 1}
+              class:group-hover:opacity-[0.2]={i === 2}
+              class:group-hover:delay-75={i === 2}
+              class:delay-150={i === 1}
+              class:delay-0={i === 2}
+              style:top={`${i * 1.4}rem`}
+            >
+              <div
+                class:pl-1.5={i === 1}
+                class:pl-3={i === 2}
+                class:-mt-1={i === 2}
+              >
+                <span class="whitespace-nowrap">
+                  {hole}
+                </span>
+              </div>
+            </div>
+          </div>
+        {/if}
+      {/each}
+    </div>
   </h1>
 </div>

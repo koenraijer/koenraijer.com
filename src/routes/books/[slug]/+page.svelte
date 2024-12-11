@@ -1,30 +1,9 @@
 <script lang="ts">
     export let data;
     import { formatDate } from '$lib/js/utils.js';
-    import { browser } from '$app/environment';
-    import { goto } from '$app/navigation';
     import { Undo2 } from 'lucide-svelte';
-    
+
     const book = data?.data?.book ?? {};
-
-    const previousUrl: string | null = browser ? sessionStorage.getItem('previousUrl') : null;
-
-    // Map of paths to their display names
-    const pathNames: { [key: string]: string } = {
-        '/': 'Index',
-        '/books': 'Books'
-    };
-
-    // Get the display name for the previous page
-    const previousPageName = previousUrl ? (pathNames[previousUrl] || 'Back') : 'Books';
-
-    function goBack() {
-        if (browser && previousUrl) {
-            goto(previousUrl, { replaceState: true });
-        } else {
-            goto("/books", { replaceState: true });
-        }
-    }
 </script>
 
 <svelte:head>
@@ -35,16 +14,6 @@
 </svelte:head>
 
 <section class="section">
-    <div class="flex items-center group mb-6">
-        <button 
-            on:click={goBack} 
-            class="inline-flex items-center group text-sm text-muted-foreground/80 hover:text-foreground"
-        >
-            <Undo2 class="w-4 h-4 mr-1"/>
-            {previousPageName}
-        </button>
-    </div>
-
     <div class="grid gap-8 md:grid-cols-3">
         <!-- Book Details -->
         <div class="md:col-span-2 space-y-4">

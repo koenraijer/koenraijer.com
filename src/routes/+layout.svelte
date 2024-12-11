@@ -1,10 +1,11 @@
 <script lang="ts">
 	export let data;
-
-	import { onMount } from 'svelte';
-	import { afterNavigate } from '$app/navigation';
-	import { page } from '$app/stores';
 	import '../app.postcss';
+
+	import { browser } from '$app/environment';
+	import { goto, afterNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
+	import { base } from '$app/paths'
 
 	// UI
 	import Footer from '$lib/components/Footer.svelte';
@@ -17,10 +18,7 @@
 	import { ModeWatcher, mode } from "mode-watcher";
 	import PageTransition from '../lib/components/Transition.svelte';
 
-	// Variables
-	let link: HTMLLinkElement;
-	let logo: string;
-
+	// Copy code button
 	afterNavigate(() => {
 		document.getElementById('page')?.scrollTo(0, 0);
 
@@ -57,26 +55,31 @@
 		}
 	});
 
-	// Apply correct PrismJS theme based on theme
-	onMount(() => {
-		link = document.createElement('link');
-		document.head.appendChild(link);
-		// Set the correct favicon
-    	logo = $mode === 'light' ? "/favicon/favicon_light.svg" : "/favicon/favicon_dark.svg";
+	// Books page navigation stuff
+	let previousPage: string = base;
+
+	// Map of paths to their display names
+	const pathNames: { [key: string]: string } = {
+		'/': 'Index',
+		'/books': 'Books'
+	};
+
+	afterNavigate(({from}) => {
+	if (from) {
+		previousPage = from.url.pathname;
+	}
 	});
 
-	$: {
-		if (link) { // Make sure that the link element has been created
-			if ($mode === 'light') {
-				link.href = '/css/prism.css';
-				logo = "/favicon/favicon_light.svg";
-			} else {
-				link.href = '/css/prismDark.css';
-				logo = "/favicon/favicon_dark.svg";
-			}
-		}
-	}
+	// Get the display name for the previous page
+	$: previousPageName = pathNames[previousPage] || 'Back';
 
+	function goBack() {
+	if (previousPage) {
+		goto(previousPage, { replaceState: true });
+	} else {
+		goto("/books", { replaceState: true });
+	}
+	}
 </script>
 
 <svelte:head>
@@ -99,7 +102,8 @@
 	<!-- Preload fonts -->
 	<link rel="preload" href="/fonts/General_Sans/GeneralSans-Variable.ttf" as="font" type="font/ttf" crossorigin="">
 	<link rel="preload" href="/fonts/General_Sans/GeneralSans-VariableItalic.ttf" as="font" type="font/ttf" crossorigin="">
-
+	<link rel="preload" href="/fonts/Newsreader/Newsreader-Italic-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin="">
+	
 </svelte:head>
 
 <ModeWatcher />
@@ -120,11 +124,21 @@
 					Index
 				</a>
 			</div>
+		{:else if $page.url.pathname.startsWith('/books/')}
+			<button 
+				on:click={goBack} 
+				class="inline-flex items-center group text-sm text-muted-foreground/80 hover:text-foreground"
+			>
+				<Undo2 class="w-4 h-4 mr-1"/>
+				{previousPageName}
+			</button>
 		{:else}
 			<AnimatedLogo />
 		{/if}
 
-		<a class="sm:hidden absolute inline-flex top-6 right-4 items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" href="https://koenraijer.com/240504_resume.pdf"><Download class="w-3 h-3 inline"/>Download Resume</a>
+		{#if $page.url.pathname === '/'}
+			<a class="sm:hidden absolute inline-flex top-6 right-4 items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" href="https://koenraijer.com/240504_resume.pdf"><Download class="w-3 h-3 inline"/>Download Resume</a>
+		{/if}
 	</header>
 
 	<!-- Main Content Area -->

@@ -81,6 +81,7 @@ const config = {
 			fontFamily: {
 				sans: ['"General Sans"', ...fontFamily.sans],
 				serif: ['Source Serif', ...fontFamily.serif],
+				emphasis: ['Newsreader', ...fontFamily.serif],
 			},
 			screens: {
 				'screen-5xl': '1200px',

@@ -96,7 +96,7 @@
 				<Link2 class="w-4 h-4 text-muted-foreground/40 dark:text-muted-foreground/70 inline rotate-45 ml-1"/>
 				{#if isHovered}
 					<span
-					class="overflow-hidden whitespace-nowrap text-muted-foreground/50 dark:text-muted-foreground/80 pl-2 text-xs"
+					class="overflow-hidden whitespace-nowrap text-muted-foreground/50 dark:text-muted-foreground/80 pl-2 text-xs font-normal"
 					transition:fadeSlide={{ axis: "x", duration: 200 }}
 					>
 					visit /books

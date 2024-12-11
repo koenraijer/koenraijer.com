@@ -13,7 +13,7 @@
     </script>
     
     {#if visible}
-    <a href="/" alt="Home">
+    <a href="/">
     <svg 
         in:fade={{duration: 450}}
         width="134" 
