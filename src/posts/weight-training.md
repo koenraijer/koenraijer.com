@@ -2,10 +2,15 @@
 title: Weight training for longevity
 description: A flexible and efficient, science-based full-body weight training program for busy people who seek long-term health, based on my own training experience, medical background, and knowledge of scientific literature.
 date: 2023-08-06
+updated: 2024-12-12
 categories:
   - Health
 published: true
 ---
+
+This is a guide on how to structure your weight training. I'm not sure why I, with all of the stuff that's already out there, decided to write this. I guess I just wanted to put my own thoughts on paper. I've been weight training for 8 years now, and I've read a lot of scientific literature on the subject. I've also read a lot of online fitness advice, and I've tried to internalize the good stuff. I like to think I've come up with a good system for myself, and I wanted to share it with you. 
+
+So, in one sentece: this is a flexible and efficient, science-based full-body weight training program for busy people who seek long-term health. 
 
 I have taken the liberty to write an extensive guide on how I structure my own weight training. 
 

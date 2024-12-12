@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+    // PURPOSE: lazy loading images for books page.
     // Import all images at build time
     const images = import.meta.glob([
         '/src/images/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'

@@ -1,7 +1,7 @@
 <script lang="ts">
     export let data;
     import { formatDate } from '$lib/js/utils.js';
-    import { Undo2 } from 'lucide-svelte';
+    import Image from '$lib/components/Image.svelte';
 
     const book = data?.data?.book ?? {};
 </script>
@@ -77,11 +77,10 @@
 
         <!-- Book Cover -->
         <div class="aspect-[2/3] w-full relative bg-muted/30 rounded-lg overflow-hidden">
-            <img 
+            <Image 
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
                 src={"/src/images/book_covers/" + (book["Book Id"] ? book["Book Id"] : "") + ".webp"} 
                 alt={book.Title ? book.Title : ""} 
-                style:--tag="book-{book["Book Id"]}"
             />
         </div>
     </div>
