@@ -8,7 +8,7 @@ description: Here’s my blueprint for tackling a second literature review, havi
 published: true
 ToC: true
 ---
-## Introduction
+
 Here’s my blueprint for tackling a second literature review in 2025, having learned from past mistakes so you won't have to! The approach is heavy on tools, high on automation, and emphasises minimising the potential for human error. I value open-science principles, and prefer open-source software. I try to adhere to the *four-eyes principle*, which says that all work should be done twice, independently of each other. This includes: peer reviewing the search strategy, title and abstract screening, full-text screening and data extraction. I also try limiting copy-pasting actions as much as possible, because every time you copy-paste, you can introduce an error. The most important tools and frameworks I used are: [PRISMA](https://www.prisma-statement.org/), [OSF](https://osf.io/), [ASReview](https://asreview.nl/), [Zotero](https://www.zotero.org/), and [Google Drive](https://drive.google.com/). While you may not agree with all of my points, the take-away is that it is important to thoroughly plan your workflow before you start.
 ### Tools & Frameworks
 - [PRISMA](https://www.prisma-statement.org/). PRISMA guidelines help you write clear and complete systematic reviews, meta-analyses, and also scoping reviews (see [PRISMA-ScR](https://www.prisma-statement.org/scoping)) by providing a structured reporting framework. 

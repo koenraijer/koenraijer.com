@@ -14,11 +14,11 @@
 		y: 0,
 		scale: 1,
 		transition: {
-		  duration: 0.5,
+		  duration: 0.3,
 		  ease: [0.4, 0, 0.2, 1],
 		  opacity: { duration: 0.4 },
-		  y: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-		  scale: { duration: 0.4, ease: [0.4, 0, 0.2, 1] }
+		  y: { duration: 0.2, ease: [0.4, 0, 0.2, 1] },
+		  scale: { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
 		}
 	  },
 	  exit: {
@@ -26,11 +26,11 @@
 		y: -100,
 		scale: 0.95,
 		transition: {
-		  duration: 0.4,
-		  ease: [0.4, 0, 0.2, 1],
+		  duration: 0.3,
+		  ease: [0.4, 0, 0.3, 1],
 		  opacity: { duration: 0.3 },
-		  y: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-		  scale: { duration: 0.4, ease: [0.4, 0, 0.2, 1] }
+		  y: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+		  scale: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
 		}
 	  }
 	};
@@ -45,7 +45,7 @@
 	>
 	  <div 
 		use:motion 
-		class="min-h-full w-full rounded-lg overflow-hidden bg-background shadow-none transition-shadow duration-500 ease-out data-[state=enter]:shadow-lg"
+		class="min-h-full w-full rounded-lg overflow-hidden bg-background shadow-none transition-shadow duration-300 ease-out data-[state=enter]:shadow-lg"
 	  >
 		<Motion
 		  initial="initial"
