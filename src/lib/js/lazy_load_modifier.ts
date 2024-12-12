@@ -11,6 +11,9 @@ function getObserver() {
                     entry.target.dispatchEvent(new CustomEvent('isVisible'));
                 }
             });
+        },
+        {
+            rootMargin: '150px 0px' // Load when element is 50px from entering viewport
         }
     );
 }
