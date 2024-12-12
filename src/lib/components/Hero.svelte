@@ -57,7 +57,7 @@
 
 <!-- Preload image-->
 <svelte:head>
-  <link rel="preload" as="image" href="/241122_avatar.png" type="image/png" />
+  <link rel="preload" as="image" href="/241122_avatar.webp" type="image/webp" />
 </svelte:head>
 
 <div class="relative flex flex-row gap-x-2">
@@ -79,7 +79,7 @@
               style="left: {tooltipX}px; top: {tooltipY}px"
           >
               <img 
-                  src="/241122_avatar.png" 
+                  src="/241122_avatar.webp" 
                   alt="Avatar" 
                   class="{avatarSize} rounded-full border-muted-foreground/20 border-4 transition-all" 
                   fetchpriority="high"

@@ -84,6 +84,7 @@
                         class:fullbleed
                         width={enhancedSrc.img.w}
                         height={enhancedSrc.img.h}
+                        {...$$restProps}
                     />
                 </picture>
             {:else}
@@ -96,6 +97,7 @@
                     class="rounded-lg object-contain {isVertical ? 'h-full w-auto' : 'w-full'} mx-auto"
                     style={width ? `width: ${width}px; max-width: 100%;` : ''}
                     class:fullbleed
+                    {...$$restProps}
                 />
             {/if}
             {#if alt}
