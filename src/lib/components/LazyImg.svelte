@@ -1,42 +1,94 @@
-<script >
+<script lang="ts" context="module">
+    // Import all images at build time
+    const images = import.meta.glob([
+        '/src/images/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'
+    ], {
+        eager: true,
+        query: { enhanced: true }
+    });
+
+    function getImagePath(src: string) {
+        // Try different path formats
+        const possiblePaths = [
+            src,
+            `/src${src}`,
+            `/src/images${src}`,
+            `/src/images/book_covers${src.startsWith('/') ? src : `/${src}`}`
+        ];
+
+        for (const path of possiblePaths) {
+            if (images[path]) {
+                return images[path];
+            }
+        }
+        return undefined;
+    }
+</script>
+
+<script lang="ts">
     import lazyLoad from "$lib/js/lazy_load_modifier";
-    export let src;
+    
+    export let src: string;
     export let imgClasses = "";
     export let parentClasses = "";
     export let placeholderClasses = "";
     export let alt = "";
     export let style = "";
     export let styleTag = "";
+    
     $: load = false;
 
-    function blobToBase64(blob) {
-        return new Promise((resolve, _) => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result);
-            reader.readAsDataURL(blob);
-        });
-    }
+    // Get enhanced image data
+    $: enhancedImage = getImagePath(src)?.default;
 
-    async function loadImage() {
-        const response = await fetch(src);
-        const blob = await response.blob();
-        return await blobToBase64(blob);
+    // For debugging
+    $: {
+        if (!enhancedImage) {
+            console.log('Image not found:', src);
+            console.log('Available paths:', Object.keys(images));
+        }
     }
-</script >
+</script>
 
 <div use:lazyLoad on:isVisible={() => (load = true)} class={parentClasses}>
-    <figure>
-    {#if load}
-        {#await loadImage()}
+    <figure class="s-MjpFyM6B2tB_">
+        {#if load}
+            {#if enhancedImage && typeof enhancedImage === 'object' && 'sources' in enhancedImage}
+                <picture>
+                    {#if enhancedImage.sources.avif}
+                        <source srcset={enhancedImage.sources.avif} type="image/avif">
+                    {/if}
+                    {#if enhancedImage.sources.webp}
+                        <source srcset={enhancedImage.sources.webp} type="image/webp">
+                    {/if}
+                    <img 
+                        src={enhancedImage.img.src}
+                        {alt}
+                        title={alt}
+                        loading="lazy"
+                        class={`${imgClasses} w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-105 s-MjpFyM6B2tB_`}
+                        {style}
+                        style:--tag={styleTag}
+                        width={enhancedImage.img.w}
+                        height={enhancedImage.img.h}
+                    />
+                </picture>
+            {:else}
+                <img 
+                    {src}
+                    {alt}
+                    title={alt}
+                    loading="lazy"
+                    class={`${imgClasses} w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-105 s-MjpFyM6B2tB_`}
+                    {style}
+                    style:--tag={styleTag}
+                />
+            {/if}
+        {:else}
             <div class={placeholderClasses + " placeholder w-full h-full animate-pulse rounded-container bg-surface-200-700-token"}></div>
-        {:then data}
-            <img src={data} {alt} title={alt} loading="lazy" class={imgClasses} {style} style:--tag={styleTag}/> 
-        {/await}
-    {/if}
+        {/if}
     </figure>   
 </div>
-
-<!-- src: https://alex-schnabl.medium.com/lazy-loading-images-and-components-in-svelte-and-sveltekit-using-typescript-6a8443bb9479 -->
 
 <style>
     img {

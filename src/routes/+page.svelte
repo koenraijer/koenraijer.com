@@ -87,7 +87,7 @@
 	<section class="mt-0 h-fit">
 		<h2 
 			id="reading" 
-			class="text-sm font-[500] text-muted-foreground/80"
+			class="text-sm font-[500] text-muted-foreground/80 mb-2"
 			on:mouseenter={() => isHovered = true}
 			on:mouseleave={() => isHovered = false}
 		>
@@ -104,19 +104,19 @@
 				{/if}
 			</a>
 		</h2>
-		<div class="inline leading-7">
-		{#each data.current_books as book}
-			<Book book={book} compact/>
-		{/each}
+		<div class="flex flex-col gap-y-2">
+			{#each data.current_books as book}
+				<Book book={book} compact/>
+			{/each}
 		</div>
 	</section>
 
 	<!-- Projects column -->
 	<section class="mt-8 sm:mt-12 md:mt-0 h-fit">
-		<h2 id="projects" class="text-sm font-[500] text-muted-foreground/80">Projects</h2>
-		<div class="flex flex-col gap-y-2">
+		<h2 id="projects" class="text-sm font-[500] text-muted-foreground/80 mb-2">Projects</h2>
+		<div class="flex flex-col leading-tight gap-y-1">
 			<div>
-				<A href="https://reasset.koenraijer.com/" classes="anchor text-sm">ReAsset</A>
+				<A href="https://reasset.koenraijer.com/" classes="anchor text-sm ">ReAsset</A>
 				<span class="text-muted-foreground text-sm -ml-1">. Rebalance your stocks efficiently.</span>
 			</div>
 			<div>

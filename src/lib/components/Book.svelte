@@ -17,9 +17,10 @@
 <!--Body-->
 <button class="flex flex-col w-full sm:flex-row group gap-x-4 overflow-hidden" on:click|preventDefault={() => navigateToBookDetails(book)}>
     {#if compact}
-        <p class="anchor text-sm text-left inline leading-7">
+        <p class="anchor text-sm text-left inline !leading-tight">
             <span>{book.Title ? book.Title : ""}</span>
-            <span>({book.Author})</span>
+            <span class="text-muted-foreground text-sm">&nbsp;~ {book.Author}</span>
+
         </p>
     {:else}
     <div class="group w-full">
@@ -30,8 +31,9 @@
                 <!-- Content container with rounded corners -->
                 <div class="absolute inset-0 rounded-lg overflow-hidden bg-muted/30">
                     {#if book.cover_downloaded}
+                        <!-- src={"/book_covers/" + book["Book Id"] + ".webp"}  -->
                         <LazyImg 
-                            src={"/book_covers/" + book["Book Id"] + ".webp"} 
+                            src={"/images/book_covers/" + book["Book Id"] + ".webp"} 
                             styleTag="book-{book["Book Id"]}" 
                             alt={book.Title} 
                             imgClasses="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-105"

@@ -101,7 +101,7 @@
 
 	<article class="relative">
 		<!-- Post content -->
-		<div class="prose proseClasses proseCodeClasses">
+		<div class="prose proseClasses proseCodeClasses first-letter:text-[3.75rem] first-letter:font-[500] first-letter:float-left first-letter:!leading-[0.96] first-letter:tracking-[10px]">
 			{@html data.post.content}
 		</div>
 
