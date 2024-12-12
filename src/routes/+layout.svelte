@@ -9,7 +9,7 @@
 
 	// UI
 	import Footer from '$lib/components/Footer.svelte';
-	import CopyButton from '$lib/components/CopyButton.svelte';
+	import CopyButton from '$lib/components/CodeCopyButton.svelte';
 	import { Undo2, Download } from 'lucide-svelte';
 	import AnimatedLogo from '$lib/components/AnimatedLogo.svelte';
 

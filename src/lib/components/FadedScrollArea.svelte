@@ -1,4 +1,5 @@
 <script>
+	// Intended use: to fade out the top and bottom of a scroll area. Currently not used, but I like it. 
 	import { ScrollArea } from "$lib/shadcn/ui/scroll-area";
 </script>
 

@@ -1,21 +1,19 @@
 ---
 title: Visualization of network theory for mental disorders
 date: 2024-12-09
-updated: 
+updated: 2024-12-11
 categories:
   - Research
 description: 
-published: false
+published: true
 ToC: false
 ---
-
 <script>
   import HysteresisLoop from '$lib/posts/network_theory/HysteresisLoop.svelte';
   import NetworkPtsdTherapy from '$lib/posts/network_theory/NetworkPtsdTherapy.svelte';
   import NetworkPtsdCommonCauses from '$lib/posts/network_theory/NetworkPtsdCommonCauses.svelte';
   import MultilayerNetwork from '$lib/posts/network_theory/MultilayerNetwork.svelte';
   import NetworkPtsdClustered from '$lib/posts/network_theory/NetworkPtsdClustered.svelte';
-
   import NetworkPtsdExternal from '$lib/posts/network_theory/NetworkPtsdExternal.svelte';
   import NetworkPtsd from '$lib/posts/network_theory/NetworkPtsd.svelte';
   import NomenclatureExamples from '$lib/posts/network_theory/NomenclatureExamples.svelte';
@@ -25,14 +23,13 @@ ToC: false
   import LatentPtsd from '$lib/posts/network_theory/LatentPtsd.svelte';
   import LatentCausality from '$lib/posts/network_theory/LatentCausality.svelte';
   import LatentCancerTreated from '$lib/posts/network_theory/LatentCancerTreated.svelte';
-
 </script>
 
-Network theory offers a fundamental shift in how we understand mental disorders: rather than viewing them as discrete conditions with underlying causes, it conceptualizes them as ever-changing networks of interacting symptoms, emotions, behaviors and traits [^1]. 
+Network theory offers a fundamental shift in how we understand mental disorders: rather than viewing them as discrete conditions with invisible underlying causes, it conceptualizes them as ever-changing networks of interacting symptoms, emotions, behaviors and traits [^1]. It is both a departure from and an extension to the 'common cause' model (also known as the latent disease model). In the common cause model, which underlies classification systems like DSM-5 and ICD-10, symptoms are viewed as mere consequences of an underlying disorder — like depression or anxiety — without causal relationships between symptoms. This has shaped psychiatry and psychology ever since the conception of the DSM-III in 1980 [^2]. Network theory, in contrast, proposes that mental disorders are macroscopic states that emerge from a complex web of causal interactions between symptoms, situated in a person, situated in the world. Symptoms aren't mere consequences of the disorder, *they constitute it* [^3]. 
 
-It is a departure from, and an extension to, the 'common cause' model. Network theory is part of a broader cross-disciplinary development known as complexity science. Because complex systems doesn't lend itself well to the linearity of the written word, this post relies on diagrams to convey its message. Its intended audience is mental health care workers. 
+As a discipline, network theory is far from new. It can be situated in a much broader field known as [complexity science](https://en.wikipedia.org/wiki/Complex_system), which has crossed paths with cognitive neuroscience, ecology, sociology, economics, computer science, epidemiology, and more. The study of complex systems has taken many forms throughout the 20th century: from [game theory](https://en.wikipedia.org/wiki/Game_theory), to [cybernetics](https://en.wikipedia.org/wiki/Cybernetics), to [chaos theory](https://en.wikipedia.org/wiki/Chaos_theory), all the way to modern [systems biology](https://en.wikipedia.org/wiki/Systems_biology) and network science. And mental health care professionals aren't entirely unfamiliar with complex systems thinking either - conceptual models that are widely used in clinical practice, such as the [biopsychosocial model](https://en.wikipedia.org/wiki/Biopsychosocial_model) and the [diathesis-stress model](https://en.wikipedia.org/wiki/Diathesis%E2%80%93stress_model), already emphasize the interplay between different factors in mental health. What network theory adds is a mathematical framework that transforms these abstract ideas into testable models, opening up new possibilities for understanding and treating mental disorders. 
 
-I will go in-depth on the 'common cause' model, differences with the network model, and how we can use the network model in practice. 
+Because complex systems don't lend themselves well to the linearity of the written word, this post uses diagrams to explain network theory and its implications for mental health care. What I've tried to do is write an introductory post that can serve as a primer for the network approach in psychopathology. I am a psychiatry resident with a degree in data science, which allowed me to follow a course in complex systems. Since then, I have been captivated by this topic. In this post, I will cover the 'common cause' model, differences with the network model, and the  interpretation and conceptualization of network models. If I happen to remain diligent, there may come a part two where I will toy with some actual data!
 
 ## The 'Common Cause' Model
 
@@ -58,7 +55,7 @@ Let's go back to our 'common cause' view of PTSD. Our client has received therap
 
 The answer is no. At least not currently. Of course, they may be more susceptible than others to have symptoms return, but there is no basis on which to say they currently have PTSD. Without symptoms, there is no disorder. <em>Symptoms do not reflect a mental disorder: they constitute it.</em>
 
-That is not the only problem with the 'common cause' model. Decades of research into the origins of mental disorders have not found causal mechanisms that justify 'common causes'. In actuality, mental disorders co-occur very frequently, to the point where more than half of clients have received two or more classifications at a time [^2]. People have written extensively about the shortcomings of traditional categorical classification systems, so I will not go into that further. 
+That is not the only problem with the 'common cause' model. Decades of research into the origins of mental disorders have not found causal mechanisms that justify 'common causes'. In actuality, mental disorders co-occur very frequently, to the point where more than half of clients have received two or more classifications at a time [^4]. People have written extensively about the shortcomings of traditional categorical classification systems, so I will not go into that further. 
 
 The way symptoms persist in the stories clients tell is more reminiscent of vicious cycles of ever-reinforcing patterns.
 
@@ -100,7 +97,7 @@ Although we aren't fans of discrete categories, we create structure for ourselve
 
 <NetworkPtsdClustered/>
 
-So far we have only discussed psychological symptoms, but it is possible to include the entire [biopsychosocial model](https://en.wikipedia.org/wiki/Biopsychosocial_model). The way to do this is heavily dependent on your philosophical point of departure. Some have proposed that, since psychological factors arise out of biological factors, the network should have multiple layers [^3]. 
+So far we have only discussed psychological symptoms, but it is possible to include the entire [biopsychosocial model](https://en.wikipedia.org/wiki/Biopsychosocial_model). The way to do this is heavily dependent on your philosophical point of departure. Some have proposed that, since psychological factors arise out of biological factors, a network should really have multiple layers [^5]. 
 
 <MultilayerNetwork/>
 
@@ -146,5 +143,7 @@ Network theory is not a new idea. The intuition that symptoms can cause each oth
 
 
 [^1]: Reeves, J. W., & Fisher, A. J. (2020). _An examination of idiographic networks of posttraumatic stress disorder symptoms_. [https://doi.org/10.1002/jts.22491](https://doi.org/10.1002/jts.22491)
-[^2]: Cramer, A. O. J., Waldorp, L. J., van der Maas, H. L. J., & Borsboom, D. (2010). Comorbidity: A network perspective. Behavioral and Brain Sciences, 33, 137–193. https://doi.org/10.1017/s0140525x09991567
-[^3]: Riese, H., & Wichers, M. (2021). Comment on: Eronen MI (2019). The levels problem in psychopathology. _Psychological Medicine_, _51_(3), 525–526. [https://doi.org/10.1017/S0033291719003623](https://doi.org/10.1017/S0033291719003623)
+[^2]: Borgogna, N. C., Owen, T., & Aita, S. L. (2024). The absurdity of the latent disease model in mental health: 10,130,814 ways to have a DSM-5-TR psychological disorder. _Journal of Mental Health_, _33_(4), 451–459. [https://doi.org/10.1080/09638237.2023.2278107](https://doi.org/10.1080/09638237.2023.2278107)
+[^3]: Roefs, A., Fried, E. I., Kindt, M., Martijn, C., Elzinga, B., Evers, A. W. M., Wiers, R. W., Borsboom, D., & Jansen, A. (2022). A new science of mental disorders: Using personalised, transdiagnostic, dynamical systems to understand, model, diagnose and treat psychopathology. _Behaviour Research and Therapy_, _153_, 104096. [https://doi.org/10.1016/j.brat.2022.104096](https://doi.org/10.1016/j.brat.2022.104096)
+[^4]: Cramer, A. O. J., Waldorp, L. J., van der Maas, H. L. J., & Borsboom, D. (2010). Comorbidity: A network perspective. Behavioral and Brain Sciences, 33, 137–193. https://doi.org/10.1017/s0140525x09991567
+[^5]: Riese, H., & Wichers, M. (2021). Comment on: Eronen MI (2019). The levels problem in psychopathology. _Psychological Medicine_, _51_(3), 525–526. [https://doi.org/10.1017/S0033291719003623](https://doi.org/10.1017/S0033291719003623)

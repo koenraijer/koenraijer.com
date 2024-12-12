@@ -1,4 +1,5 @@
 <script>
+    // Intende use: showing a progress bar on top of the page when a user scrolls down. May be reintroduced at some point.
     import {active_heading, active_tracker} from '$lib/js/stores'
 	import {fly} from 'svelte/transition'
     import {browser} from '$app/environment'

@@ -1,7 +1,6 @@
 <script>
     export let data;
     import Posts from '$lib/components/Posts.svelte';
-    import PageTitle from '$lib/components/PageTitle.svelte';
     import Categories from '$lib/components/Categories.svelte';
 
     let categoriesArray = Object.entries(data.categories).map(([category, {count, slug}]) => ({

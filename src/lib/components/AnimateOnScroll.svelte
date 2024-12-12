@@ -1,4 +1,5 @@
 <script>
+    // Intended use: to trigger animations when an element is in view, but the component doesn't seem to work together with mdsvex.
     import { inview } from 'svelte-inview';
     import { onMount } from 'svelte';
   
