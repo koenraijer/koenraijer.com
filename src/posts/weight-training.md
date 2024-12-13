@@ -1,205 +1,136 @@
 ---
-title: Weight training for longevity
+title: Practical Weight Training Guide
 description: A flexible and efficient, science-based full-body weight training program for busy people who seek long-term health, based on my own training experience, medical background, and knowledge of scientific literature.
 date: 2023-08-06
 updated: 2024-12-12
 categories:
   - Health
 published: true
+ToC: true
 ---
-
-This is a guide on how to structure your weight training. I'm not sure why I, with all of the stuff that's already out there, decided to write this. I guess I just wanted to put my own thoughts on paper. I've been weight training for 8 years now, and I've read a lot of scientific literature on the subject. I've also read a lot of online fitness advice, and I've tried to internalize the good stuff. I like to think I've come up with a good system for myself, and I wanted to share it with you. 
-
-So, in one sentece: this is a flexible and efficient, science-based full-body weight training program for busy people who seek long-term health. 
-
-I have taken the liberty to write an extensive guide on how I structure my own weight training. 
-
-What is this and who it is for in one sentence:
-
-> A flexible and efficient, science-based full-body weight training program for busy people who seek long-term health, based on my own training experience, medical background, and knowledge of scientific literature.
-
-Even if you don't intend on using this program, think about how you currently manage your physical fitness. Try to seek something that fits neatly with your lifestyle. Don't go all in on some way-over-the-top program. Instead, pick something reasonable, easy to follow and effective.
-
+This is a guide on how to structure your weight training. I'm not sure why I, with all of the stuff that's already out there, decided to write this. I guess I just wanted to put my own thoughts on paper. I've been doing weight training for a good 10 years now. I moved through many life phases in the meantime, with incremental degrees of seriousness. New cities, busy schedules, commitments, fun life stuff. And all the while I've been training consistently for multiple times a week. Sometimes once or twice, oftentimes three or four times. I've consumed a lot of fitness advice in that time, and I think I've internalized most of the good stuff. So, drawing from my experience, I hope this guide helps those who want to take their training seriously while balancing it with work and life commitments.  Even if you don't intend on using this program, think about how you currently manage your physical fitness. Try to seek something that fits neatly with your lifestyle. Don't go all in on some way-over-the-top program. Instead, pick something reasonable, easy to follow and effective. The best fitness program is the one you keep doing!
 ## Introduction
 It can be really hard to sift through all the bullshit in the world of weight training. In fact, there's a whole market for people saying they have gotten rid of all the bullshit, just for you, and then they sell you *their own* bullshit. At a discount, if you're lucky.
 
 The thing is: much of the online fitness advice is given by full-time fitness influencers, and it's geared towards full-time fitness influencers. Work-out 6 times a week *every* week, never eat anything unhealthy, ~~do roids~~. Try doing that while balancing **important** things: study, work, kids, friends and family. You won't be able to stick to it, and frankly, you probably shouldn't want to (unless you *really*, *really* do want to prioritize fitness).
 
-I have devised my own mental framework for staying physically healthy over the years.
-It is based on 8 years of weight training experience, my medical knowledge on anatomy and injury prevention, online fitness advice I've consumed and internalized over the years and scientific studies I've read on things like periodization and recovery times.
-
-I've decided to make it concrete, by writing it down. I have tried to be as transparent as I can be about the reasons for doing something.
+What I've tried to do is go through my mind and write down the things I do that work. I have tried to be as transparent as I can be about the reasons for doing something.
 
 Some general comments on this program:
-- It is catered to my own lifestyle; and I'm studying and doing lots of stuff other than weight training;
+- It is catered to my own lifestyle; and I'm ~~studying~~ working and doing lots of stuff other than weight training;
 - It is opinionated, and there's stuff in here you could disagree with. Take the stuff you *do* like and use it in your own training.
 - I'm a man, and my exercise choice has been influenced by it. Still, there's no reason women can't use it.
 - It assumes you know how to perform the exercises with good technique and assumes you know how to search the internet for help if you don't.
 - It requires intrinsic motivation to push yourself *enough*. Be strict and honest about your schedule, the effort you're putting in, and where your priorities lie.
 
 ## Core Principles
-These are the four principles this program tries to adhere to.
 
-### Flexible.
-###### Works with Any Schedule.
-- Because each work-out works all major muscle groups, it doesn't matter if you miss one.
-- Several compound exercises per muscle group can be used, alternated, preferred. It doesn't matter. Just pick what you like, or what feels good.
+I think there are four principle the program adheres to: 
+- **Flexible**. It must work with every schedule. Skipping a day shouldn't be disastrous (I'm looking at you bro split). You should be able to plug and play with exercises, switch things up, keep yourself engaged.
+- **Simple**. Don't do weight tracking. If you train more than once every fortnight, you'll remember what weight you did last time. The exercise selection is limited, with a small selection of high quality exercises to choose from.
+- **Efficient**. Don't be in the gym for hours. Minimize passive resting by doing supersets or accessories. This saves time and helps with cardiovascular fitness as an added bonus. 
+- **Safe**. The goal is to minimize injury-risk and maximize long-term efficiency. Always a day of recovery, full body workouts, efficient warm-ups, injury prevention, and more. 
 
-### Simple
-###### Simple Programs Are Easier to Stick To.
-- No weight tracking. If you train several times a week, you'll know what weight you can do. Push yourself a little harder if you feel like it, and don't, if you don't.
-- Comprehensibly structured. Small selection of good exercises to choose from.
+> ::TIP Long-term efficiency
+> If you don't get injured, you don't lose progress. Consistency in the long-term is more important than hitting that rep, or doing that extra set. If it doesn't feel right, or the technique is failing, *stop*. That rep is not important in the long-term. Slow and steady wins the race.
 
-### Efficient
-###### Optimized for Long-term Efficiency.
-- Time-efficient work-outs that minimize passive resting with supersetting or doing accessories, which saves you time and maximizes cardiovascular fitness.
-- Always take at least a day of recovery in between strength training work-outs. Active recovery through cardio is encouraged but not required.
-- Loosely implements modern approach to periodization, see **Daily undulating periodisation**
+## Training intensity 
+Intensity is defined as weight $\times$ volume, where volume is sets $\times$ repetitions. If I did 3 sets of 12 in squats with 80 kg, the intensity amounts to $80 \times (3 \times 12) = 2880$. Basically, it's the total amount of weight you lift. Keep this value relatively constant over work-outs. No need to calculate it, but be mindful of the work you put in and the way your body reacts. Don't do two highly taxing squat workouts in close succession. If you've done a lot of lower back work, don't also be going heavy on rows. Common sense stuff. 
 
-### Safe
-###### Minimize Injury-risk to Maximize Long-term Efficiency.
-- Full-body means more compound exercises and less training volume per body part per session, which will likely lead to less injuries.
-- Efficient warming-up by slowly working you way up to the working weight doing the exercise itself. This helps **greasing the groove**.
-- Dynamic stretching through exercise choice and using full ROM.
-- Emphasis on injury-prone muscle groups such as the external rotators of the shoulder and the lower back musculature.
-- Encourages stopping *right before* technical failure and discourages ever going to absolute failure.
+The reason not to be doing this is because you'll feel lethargic the next day, or feel nauseated after the workout, and that is just not fun. It's also not sustainable, and it's risky because your technique will suffer, leaving you vulnerable to injuries. 
 
-> **Long-term efficiency**:
-> If you don't get injured, you don't lose progress. Consistency over the long-term is more important than hitting that rep, or doing that extra set. If it doesn't feel right, or the technique is failing, *stop*. That rep is not important in the long-term. Slow and steady wins the race.
-
-## Determining the Right Intensity
-Intensity is often defined as `load` (weight) multiplied by `volume`. Volume in turn equals `sets` multiplied by `reps`. It is important to know this equation, because you should try to keep the intensity consistent from work-out to work-out. But at what level?
-
-That's why the word "right" in the title is so important. You can't calculate the right intensity level for *your body*, but you can learn it over time. You learn how quickly your body recovers, and how much rest you need after a certain exercise combination. For example, if I have gone heavy on squats, I will often do a less taxing single-leg exercise for my next training.
-
-There's a certain sweet spot for everyone, where you're maximizing progress without getting injured. It takes time figuring out where yours is.
+There's a certain sweet spot where you're maximizing progress without getting injured. It takes time figuring out where yours is. 
 
 ## Training Frequency
-There's a large body of research roughly saying that Muscle Protein Synthesis peaks at 24 hours and declines after 48 hours. This is one of the biggest reasons advocating full-body training, instead of body part splits. Apparently, after 48-72 hours, not much is happening in your muscles in terms of progress. If you only train once a week, you're losing out on a lot of progress.
+There's a large body of research roughly saying that Muscle Protein Synthesis peaks at 24 hours and declines after 48 hours. This is one of the biggest reasons advocating full-body training, instead of body part splits. After a 2 days, not much is happening anymore in your muscles in terms of progress. If you're doing the bro split and only train chest on mondays, you're losing out on a lot of progress. If my schedule allows out, I leave only one day in between workouts.
 
-That's why I take between 36-48 hours of recovery time after each training, and I encourage you to do the same.
+Active recovery is encouraged on rest days. Go do cardio like cycling, walking, running or swimming. Go outside and touch grass, take someone you like with you. 
 
-> **Isn't hitting the same muscle group several times a week too much volume?**
-> No, because the volume per muscle group is much lower compared to a body part split, as we only do 1 compound exercise per muscle group. Besides, **Daily undulating periodization** means we use different rep ranges for each training, focussing on different types of muscle fiber and speeding up recovery.
+> ::WARNING Isn't training the same muscles several times a week too much? 
+> No, because we only do one compound exercise per muscle group, and we vary the rep ranges each session. That's very different from completely wrecking your pecs on chest day.
 
-I encourage *active recovery* by doing cardio like cycling, running, swimming or brisk walking. Be reasonable about this. If your legs are super sore from squats, don't do cardio that's super heavy on the legs the next day. The other way around, if cardio made your legs sore, don't go heavy on squats the next day. Instead, do a lighter, less taxing leg exercise.
+## Picking a rep range
 
-## Daily Undulating Periodization
+Periodization is a systematic way to organize your training variables over time. The traditional method, linear periodization, keeps you in one rep range for weeks before changing. A more dynamic approach, *daily undulating periodization*, varies your rep ranges between workouts. In practice, this mean you can just switch it up. If you feel like doing a set of 5, go for it. If you want to feel the pump, go for a set of 12. If the effort is there, the outcome is likely to be similar compared to if you had stuck to a certain rep range for weeks on end. 
 
-To explain what this is, I think a proper definition of periodization will be helpful:
+![General overview of the properties you target with different rep ranges.](reps-per-set.png)
+Daily undulating periodization makes intuitive sense because different rep ranges target different types of muscle fibers (fast twitch, slow twitch, etc.). If you train for strength on Monday, your muscle fibers optimized for hypertrophy will need less recovery on Wednesday. 
 
-> Periodization is a concept of systematic progression—that is, resistance training programs that follow predictable patterns of change in training variables. 
+## How hard should you train?
 
-Lorenz, 2010 [^1].
+This is a very important part of progressing with weight training. You're there to put in an effort. There won't be improvement otherwise. Be focussed on the exercise your doing. Pay attention. Mind-muscle connection is real. Have rituals before you go under the squat bar. Be determined to finish the set. But beware, don't ever go beyond *technical failure*. Even if it means setting a PR. We've all seen the guy doing their final reps on bench press, the guy's arms are contorted in strange angles, elbows flared out, and the spotter is basically doing barbell curls. Don't be that guy. 
 
-Periodization answers the question of "what's the best way of reaching my training goal over the next several weeks or months?". It says stuff about the `load` and `volume` you should use for a given training. That is important, because different rep ranges work different things. Training in the 1-8 rep range will prioritize strength, while the 8-12 rep range will prioritize hypertrophy. Higher rep ranges mostly train muscle endurance. Note that training in a lower rep range assumes you increase the weight accordingly to keep the intensity consistent.
+## Technique tips
+- Having proper technique is vital for injury prevention and training effectiveness. It's a continuous learning process. I very often repeat several cues in my head when I do an exercise. I might be thinking "glutes up, big chest" while doing good mornings. Videotape yourself, especially on stuff like squats. Check in with your butt wink now and then!
+- Breathing is important, too. It's nice to have your breathing sync up with your set. Breathe in, hold, do a rep, breath out. 
+- No need to do underhand barbell rows. High risk of bicep tendon tear. Probably, not a hard no-no, but still, be warned (I removed several 'hard no-no's' because they weren't that hard). 
 
-![Reps per set](reps-per-set.png)
+## Time savers
 
-*Daily undulating periodization* (DUP) is a relatively recent development in the world of exercise science. Its premise is that you should switch up your load and volume on a per-training basis. This is completely opposite to traditional linear periodization, which sticks to a certain amount of repetitions per set for weeks on end.
+**Supersetting**. I really like supersetting multiple muscle groups that don't interfere with each other. Think pull-ups and dips, curls and tricep extensions, hanging leg raises and leg extensions. Instead of doing nothing for 3 minutes, you do a set of the other exercise. It keeps your heart rate up and helps with cardiovascular fitness, and it feels more athletic, too. And it would literally save 50% of your time if all you did were supersets.
 
-The field of exercise science is rough, and whereas early studies on DUP were really promising, more recent studies comparing linear periodization and DUP are less applauding. I nevertheless mention DUP as a good training modality, because I have had good experience with it, and because the theory behind it *makes sense* to me.
+**Myo-reps**. Did you know that the final reps in a set are most effective? What if you could do final reps more of the time? That's what myo-reps are for. It's pretty simple. First you do your regular set, leave no more than 1-2 reps in the tank. Wait 15 seconds, do another set, leaving no more than 1 rep in the tank. Wait 15 seconds again, and repeat. Try and finish and exercise with a set followed by 4 sets of myo-reps and see if you like it. Some suitable exercises: pull-ups, dips, push-ups, biceps and triceps 
 
-It makes sense because different rep ranges target different types of muscle fibers (fast twitch, slow twitch, etc.). If you train for strength on monday, your muscle fibers optimized for hypertrophy will need less recovery on wednesday.
+**Ladders**. I've found ladders to be most suitable for pull-ups, but I've used them for other bodyweight exercises like push-ups, too. It works by doing a rep, waiting for a fixed amount of time (I pick something between 10 s and 30 s), then doing two reps, waiting, doing three reps, and so forth, until you fail. That's one ladder. Now, instead of resting, you wait and immediately start at one rep for then next ladder. I often find myself doing 5 ladders of pull-ups with 15 s rest. 
 
-Perhaps even more logical is the reason why linear periodization doesn't work well. If you train for hypertrophy for a month, and then for strength for another month, and then for endurance for another month, you're likely to lose most of the hypertrophy and part of the strength during that final endurance month. With DUP, you train for strength, hypertrophy and endurance *each* week.
+**Just do abs**. Seriously, there's always a bar free somewhere. Go do some hanging leg raises while your chest and tris are recovering. 
+## Exercise choice
 
-## Train Hard (with Proper technique)
-If you want to improve, you have to push yourself. Be 100% focused on the exercise your doing. Mind-muscle connection is real. Think about the muscle you need to contract for the exercise your doing. Have rituals. Put on the right song, walk out the squat bar in the same way each time, position yourself on the bench and your hands on the barbell when bench pressing in the same way. Then do the reps you set out to do. Be convinced you're going to finish that set.
+I've compiled a list of exercises organized roughly per muscle group. The list is highly opinionated, and there are more good exercises out there, but if you don't have a list like this in your head, it's probably a good place to start.
 
-Imagine, you need 2 more reps to finish the last set for the bench press. Doing so would be a personal record, but your elbow starts flaring out, putting too much stress on your delts, instead of the pecs. Stop! You've reached technical failure. Those two reps will come next time.
+Each full-body training, you'll pick one exercise from each major muscle group, and as many accessories as you feel like (or have time for). 
 
-## General Tips
-- When benching, keep your feet on the ground.
-- Don't do underhand barbell rows for risk of bicep tendon tear.
-- It's going well? Don't overreach. 
-- Don't assume your form is correct after watching 1 YouTube video. Videotape yourself or let someone watch you and get feedback from someone with more experience.
+Some thoughts:
+- Alternate horizontal and vertical pulls and pushes between workouts. 
+- Train your hamstrings using *both* straight-legged and knee-bending exercises. 
+### Main movements
 
-## Designing a Training
-So far, you've gotten an idea of what the program aspires to be through its core motivations, read about intensity, and internalized what daily undulating periodization is supposed to look like.
+Back (horizontal and vertical pulls)
+- Pull-ups/chin-ups (weighted, regular, rings)
+- Lat pulldown (single-arm, double cable)
+- Pendlay row (barbell)
+- Incline bench row
 
-This is the part you can use to actually compose a training. What follows is a list of exercises, organized by muscle group in the case of compound exercises or as a list for the accessory exercises. Although this list is non-exhaustive, you are more than welcome to use another variation you enjoy doing.
-
-### Upper Body - Pull
-- Pull up / chin up
-	- Weighted / regular
-- Lat pulldown
-	- One arm / Double cable / Isometric
-- Ring pull up
-	- Weighted / regular / one ring / isometric
-### Upper Body - Push
+Shoulders and chest (horizontal and vertical pushing):
+- Dips (weighted, regular)
+- Military press (standing, seated)
+- Landmine press (kneeling, standing)
+- Incline dumbbell press 
 - Barbell bench press
-	- Flat / incline
-- Dumbbell press
-	- Flat / incline / shoulder
-- Military press
-	- Standing / seated
-- Dips
-	- Weighted / unweighted
-### Core - Abs
-- Dip bar leg raises
-	- Straight leg / bent leg
-- Hanging leg raises
-	- Straight leg / bent leg / side / toe to bar
-### Lower - Push
+
+Quadriceps and hip extensors (lower push):
+- Bulgarian split squats 
+- Walking dumbbell lunges
 - Barbell back squat
-	- Low bar / high bar
-- Dumbbell lunges
-- Bulgarian split squat
-	- Barbell / Smith machine
-- Weighted box standups
-### Lower - Pull
-- Romanian deadlift
-	- Barbell / dumbbell
-- Deadlift
-	- Conventional / sumo
-- Standing single leg hamstring curl (in the leg extension apparatus)
-### Lower - Calves
+
+Hamstrings and glutes (lower pull):
+- Romanian deadlift (barbell, dumbbells)
+- Good morning (standing, seated)
+- Machine leg curls 
+- Back extensions on the Roman chair
+
+Abs and core:
+- Hanging leg raises (straight leg, side bends, toe to bar)
+- Cable crunches (don't be afraid to go heavy)
+
+Calves:
+- Cycling
 - Machine calf extension
 - Smith machine calf raises
 
-### Accessories
+Accessories:
 - Face pulls
-- Back extension
-	- Machine / weighted
 - Rear delt rows
-- Curls
-	- Preacher / EZ-bar / dumbbell / cable / hammer
-	- Seated incline curls
+- Curls (on the seated incline bench, preacher curls, hammer curls)
+- Skull-crushers 
 - Cable tricep pushdown
-- Cable tricep kickback
-- Straight arm pulldown
 
-## Do this every week
-- For compound exercises, vary the rep ranges.
-- Try to vary rep range for compound exercises over the course of the week. *For example*: if you expect to bench three times this week, do sets of 12 on day 1, sets of 8 on day 2, then sets of 5 on day 3.
-- **Frequency:** ideally, and at most, every other day.
+## Putting it all together
 
-- Pick one compound exercise per movement pattern
-	- Push
-	- Pull
-	- Quads
-	- Hamstrings
-	- Abs
-	- Calves
-- For major compounds, work your way up in weight using 1.25-2.5 kg increments.
-	- Long-term injury prevention
-	- Greasing the groove
-- Use resting periods, don't sit around:
-	- Supersets with antagonizing muscle groups.
-	- Train abs and calves during resting periods whenever the intended apparatus is free.
+Train every other day for about an hour. Don't sit around when in between sets; use supersets, myo-reps or ladders to [save time](#time-savers). Train hard, until near-failure, but never to technical failure. Pick one [exercise](#exercise-choice) per major muscle group and 1-2 accessories. Switch up the rep schemes and exercises. Go outside and move on days you don't train.
 
-## Glossary
+## A final word of advice
 
-- Working weight - a weight at which you will get stronger or better at a given exercise.
-- RPE - Rate of Perceived Exertion. A scale from 1-10, where 1 equals "very light activity", and 10 equals "max effort activity". A set which is RPE 10, means you couldn't have done a single other repetition. RPE 9 means you could maybe do 1 more rep, RPE 8 means you could've done 2 more, etcetera. 
-- ROM - Range of Motion. The degrees through which you're moving a certain joint.
-- Greasing the groove - A term coined by Pavel Tsatsouline. It means that you should not train to failure, instead practice a movement frequently to optimize the pathways connecting the brain with your muscles.
-- Hypertrophy - muscle growth.
-- Compound exercise - an exercise that uses multiple muscle groups at the same time.
-- Isolation exercise - an exercise that trains 1 muscle group at a time.
-- Accessorie - an exercise that is generally less important than a compound exercise. Use these to address weak points or prevent injuries.
-- Rep range - a range of repetitions per set to use for a given exercise for a given training. *Example:* "do 5 sets in the 5-8 rep range for the bench press".
-- Technical failure - when you are unable to do another repetition with correct technique.
+It's impossible to stick to your program *all of the time*. There will be times, perhaps weeks on end, where you're unmotivated. That's normal. You haven't lost your gains. Just go back and pick up where you left off. It's no major failure and not a reason to stop. Stopping and starting is part of it. 
 
-[^1]: Lorenz DS, Reiman MP, Walker JC. Periodization: current review and suggested implementation for athletic rehabilitation. Sports Health. 2010 Nov;2(6):509–18.
+Of course, weight training likes to be around having a fulfilling social and family life, good sleep, a healthy diet, a fulfilling career. All of these are in constant tensions with each other, and that's okay.
