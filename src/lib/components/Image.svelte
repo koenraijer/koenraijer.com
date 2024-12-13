@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+    // Purpose: to display images using vite image optimisation inside normal html code
     const images = import.meta.glob([
         '../../images/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'
     ], {

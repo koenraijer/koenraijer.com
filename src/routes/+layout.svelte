@@ -97,7 +97,15 @@
 	{/if}
 
 	<!-- Preload CSS stylesheets -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+	<svelte:element 
+		this="link"
+		rel="stylesheet" 
+		href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" 
+		media="print" 
+		on:load={() => { const elem = document.querySelector('link[href*="katex"]'); if (elem) elem.setAttribute('media', 'all'); }}
+		integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" 
+		crossorigin="anonymous"
+	/>
 
 	<!-- Preload fonts -->
 	<link rel="preload" href="/fonts/General_Sans/GeneralSans-Variable.ttf" as="font" type="font/ttf" crossorigin="">

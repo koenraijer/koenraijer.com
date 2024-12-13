@@ -1,17 +1,14 @@
 <script lang="js">
-	import { formatDate } from '$lib/js/utils.js'
+	import { formatDate, formatRelativeTime } from '$lib/js/utils.js'
 	import Categories from '$lib/components/Categories.svelte'
 	import ToTopButton from '$lib/components/ToTopButton.svelte'
 	import ToC from '$lib/components/ToC.svelte'
-	import { page } from '$app/stores'
 	import * as info from '$lib/js/info.js'
 	import { onMount } from 'svelte'
 	import { writable } from 'svelte/store'
 	export let data
-	import { Clock, Calendar } from 'lucide-svelte'
+	import { Calendar, BookText, History } from 'lucide-svelte'
 	
-	const xor = (a, b) => (a || b) && !(a && b);
-
 	// Convert the object to an array of entries [key, value]
 	let categoriesArray = Object.entries(data.post.categories).map(([category, details]) => ({
 		category,
@@ -88,11 +85,11 @@
 						<Calendar class="h-3 w-3 inline mr-1" />
 						<span class="mr-2">{formatDate(data.post.date)}</span>
 						{#if data.post.updated}
-							<span class="text-muted-foreground/70 mr-2">(updated {formatDate(data.post.updated)})</span>
+							<span class="text-muted-foreground/70 mr-2">(<History class="h-3 w-3 inline mr-1"/> {formatRelativeTime(data.post.updated)})</span>
 						{/if}
 				{/if}
 				{#if data.post.readingTime}
-						<Clock class="h-3 w-3 inline mr-1" />
+						<BookText class="h-3 w-3 inline mr-1" />
 						<span>{data.post.wordCount} words</span>
 				{/if}
 			</div>

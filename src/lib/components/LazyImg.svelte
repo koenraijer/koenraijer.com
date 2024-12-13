@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-    // PURPOSE: lazy loading images for books page.
+    // PURPOSE: lazy loading images for books page. Does the same thing as Image.svelte but with lazy loading.
     // Import all images at build time
     const images = import.meta.glob([
         '/src/images/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'
@@ -41,14 +41,6 @@
 
     // Get enhanced image data
     $: enhancedImage = getImagePath(src)?.default;
-
-    // For debugging
-    $: {
-        if (!enhancedImage) {
-            console.log('Image not found:', src);
-            console.log('Available paths:', Object.keys(images));
-        }
-    }
 </script>
 
 <div use:lazyLoad on:isVisible={() => (load = true)} class={parentClasses}>

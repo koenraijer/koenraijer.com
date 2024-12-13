@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-    // PURPOSE: This component is a wrapper around the <img> element that allows for svelte enhanced image support in mdsvex.
+    // PURPOSE: This component is an mdsvex custom element that replaced the <img> element, enabling svelte enhanced image support in mdsvex.
     // Import all images at build time from the static directory
     const images = import.meta.glob([
         '../../../static/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'
