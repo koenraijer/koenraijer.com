@@ -9,8 +9,14 @@ published: true
 ToC: false
 ---
 
+<script>
+  // import BookCard from '$lib/components/BookCard.svelte';
+</script>
+
 > ::IMPORTANT Correspondentie met de auteur
 > De auteur heeft gereageerd op deze recensie. Dat heeft tot een korte briefwisseling geleid. Zijn reactie getuigt van een bewonderenswaardige durf om zich kwetsbaar op te stellen en te luisteren naar kritiek, zelfs als die iets betreft waar hij zijn ziel en zaligheid in heeft gelegd. Omdat ik niet zijn toestemming heb om zijn reactie te publiceren, zal ik dat ook niet doen. Ik wil de auteur bedanken, en ik moedig iedereen aan om zijn boeken te lezen en om zelf ook een mening te vormen.
+
+<!-- <BookCard slug="het-duizend-eilanden-experiment-ontdekking-van-de-mens-1"/> -->
 
 *[Het duizend eilanden experiment](https://www.bol.com/nl/nl/p/ontdekking-van-de-mens-1-het-duizend-eilanden-experiment/9300000047861060/?s2a=&bltgh=hoFsbQc0Yjss36Fs5ShBUQ.2_36_37.38.FeatureOptionButton#productTitle)* van Frank van Dongen is een Nederlandse scifiroman waarin genationaliseerde social mediagiganten een wereldwijd aandachtsmonopolie op het met automatische medicatie-implantaten in toom gehouden volk hebben. Elke vorm van zelfexpressie -- een eigen zaak hebben, een feestje houden, er überhaupt ideeën op nahouden -- wordt ontmoedigd of is verboden. Met de magische connectie tussen de hoofdpersoon en zijn eeneiige tweelingbroer ontvouwt zich een mysterieuze verhaallijn op een andere planeet, waarbij de dreiging van intelligent buitenaards leven als een rode draad door het verhaal blijft lopen.
 
