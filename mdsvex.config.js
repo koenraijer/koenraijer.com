@@ -117,10 +117,12 @@ function videos() {
                 noremoteplayback
                 class="w-full rounded-lg aspect-video" 
                 title="${node.alt}"
+                aria-label="${node.alt}"
                 loop
-                <track kind="captions">
             >
               <source src="${node.url}" type="video/mp4">
+              <track kind="captions">
+
             </video>
           `
       }
@@ -202,12 +204,20 @@ function customBlockquotes() {
           
           node.type = 'html';
           node.value = `
-            <div class="not-prose ${callout.wrapperClass} callout-wrapper">
-              <div class="callout-title">
-                ${coloredIcon}
-                <span class="${callout.iconColor}">${title}</span>
+            <div 
+              class="not-prose ${callout.wrapperClass} callout-wrapper" 
+              role="note"
+            >
+              <div 
+                class="callout-title"
+              >
+                <span aria-hidden="true">${coloredIcon}</span>
+                <span class="${callout.iconColor}" id="callout-${type.toLowerCase()}">${title}</span>
               </div>
-              <div class="callout-content">
+              <div 
+                class="callout-content"
+                aria-labelledby="callout-${type.toLowerCase()}"
+              >
                 ${content}
               </div>
             </div>

@@ -34,14 +34,18 @@
 <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<article class="w-full section">
+<article class="w-full section" aria-labelledby="changelog-title">
     <!-- Title -->
-    <hgroup class="w-full">
-        <h2 class="text-2xl my-4 font-[500]">Changelog</h2>
-    </hgroup>
+    <header>
+        <h1 id="changelog-title" class="text-2xl my-4 font-[500]">Changelog</h1>
+    </header>
 
-    <!-- Post content -->
-    <div class="prose proseClasses proseCodeClasses mt-8 sm:mt-12">
+    <!-- Changelog content -->
+    <div 
+        class="prose proseClasses proseCodeClasses mt-8 sm:mt-12"
+        role="region" 
+        aria-label="Changelog entries"
+    >
         <svelte:component this={changelog} />
     </div>
 </article>

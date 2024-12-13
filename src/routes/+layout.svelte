@@ -117,46 +117,70 @@
 <ModeWatcher />
 <Toaster />
 
-<!-- <ScrollArea orientation="both" class="!m-0 !p-0 w-screen h-screen"> -->
+
 <div class="w-full grid grid-rows-[auto_1fr_auto] min-h-[100svh]">
+    <a 
+		href="#main-content" 
+		class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-background"
+	>
+		Skip to main content
+	</a>
+	
 	<!-- Header -->
-	<header class="px-4 md:px-8 py-6 md:pt-8 h-fit relative">
-		<!-- Your header content -->
-		{#if !$page.url.pathname.startsWith('/books/') && $page.url.pathname !== '/'}
-			<div class="flex items-center group">
-				<a 
-					href="/"
-					class="inline-flex items-center group text-sm text-muted-foreground/80 hover:text-foreground"
-				>
-					<Undo2 class="w-4 h-4 mr-1"/>
-					Index
-				</a>
-			</div>
-		{:else if $page.url.pathname.startsWith('/books/')}
-			<button 
-				on:click={goBack} 
-				class="inline-flex items-center group text-sm text-muted-foreground/80 hover:text-foreground"
-			>
-				<Undo2 class="w-4 h-4 mr-1"/>
-				{previousPageName}
-			</button>
-		{:else}
-			<AnimatedLogo />
-		{/if}
+    <header 
+        class="px-4 md:px-8 py-6 md:pt-8 h-fit relative"
+        aria-label="Primary navigation"
+    >
+        <nav aria-label="Primary navigation">
+            {#if !$page.url.pathname.startsWith('/books/') && $page.url.pathname !== '/'}
+                <div class="flex items-center group">
+                    <a 
+                        href="/"
+                        class="inline-flex items-center group text-sm text-muted-foreground/80 hover:text-foreground"
+                        aria-label="Return to index page"
+                    >
+                        <Undo2 class="w-4 h-4 mr-1" aria-hidden="true"/>
+                        Index
+                    </a>
+                </div>
+            {:else if $page.url.pathname.startsWith('/books/')}
+                <button 
+                    on:click={goBack} 
+                    class="inline-flex items-center group text-sm text-muted-foreground/80 hover:text-foreground"
+                    aria-label="Return to {previousPageName}"
+                >
+                    <Undo2 class="w-4 h-4 mr-1" aria-hidden="true"/>
+                    {previousPageName}
+                </button>
+            {:else}
+                <AnimatedLogo />
+            {/if}
 
-		{#if $page.url.pathname === '/'}
-			<a class="sm:hidden absolute inline-flex top-6 right-4 items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" href="https://koenraijer.com/240504_resume.pdf"><Download class="w-3 h-3 inline"/>Download Resume</a>
-		{/if}
-	</header>
+            {#if $page.url.pathname === '/'}
+                <a 
+                    class="sm:hidden absolute inline-flex top-6 right-4 items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" 
+                    href="https://koenraijer.com/240504_resume.pdf"
+                    aria-label="Download resume (PDF)"
+                    download
+                >
+                    <Download class="w-3 h-3 inline" aria-hidden="true"/>
+                    Download Resume
+                </a>
+            {/if}
+        </nav>
+    </header>
 
-	<!-- Main Content Area -->
-	<PageTransition url={data.url}>
-		<main>
-			<slot />
-		</main>
-	</PageTransition>
+    <!-- Main Content Area -->
+    <PageTransition url={data.url}>
+        <main 
+            id="main-content"
+            class="relative"
+            tabindex="-1"
+        >
+            <slot />
+        </main>
+    </PageTransition>
 
-	<!-- Footer -->
-	<Footer />
+    <!-- Footer -->
+    <Footer />
 </div>
-<!-- </ScrollArea> -->

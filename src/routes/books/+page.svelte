@@ -155,75 +155,93 @@
 </svelte:head>
 
 <!-- Header Section -->
-<section class="section space-y-4 mb-12">
+<header class="section space-y-4 mb-12">
     <h1 class="text-xl">Books</h1>
     <p class="text-muted-foreground/80 max-w-2xl">{description}</p>
     <button 
         on:click={toggleStats}
         class="text-sm text-muted-foreground/60 hover:text-foreground transition-colors"
+        aria-expanded={showStats}
+        aria-controls="reading-stats"
     >
         {showStats ? 'Hide' : 'Show'} reading statistics →
     </button>
 
     {#if showStats}
         <div 
+            id="reading-stats"
             class="space-y-2 text-sm text-muted-foreground/80"
             transition:fade={{ duration: 200 }}
+            role="region"
+            aria-label="Reading statistics"
         >
-            <p>Read: <span class="text-foreground">{copiedBooks.filter(book => book['Exclusive Shelf'] === "read").length}</span> books</p>
-            <p>Wishlist: <span class="text-foreground">{copiedBooks.filter(book => book["Exclusive Shelf"] === "to-read").length}</span> books ({Math.round(copiedBooks.filter(book => book["Exclusive Shelf"] === "to-read").length / copiedBooks.length * 100)}%)</p>
-            <p>Oldest: <span class="text-foreground">{copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0].Title}</span> ({copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year'] < 0 ? Math.abs(copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year']) + " BC" : copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year']})</p>
-            <p>Most common rating: <span class="text-foreground">{copiedBooks.map(book => book['My Rating']).reduce((a, b) => a > b ? a : b)}</span> ({copiedBooks.filter(book => book['My Rating'] === copiedBooks.map(book => book['My Rating']).reduce((a, b) => a > b ? a : b)).length} books)</p>
+            <p>Read: <span class="text-foreground" aria-label="Number of books read">{copiedBooks.filter(book => book['Exclusive Shelf'] === "read").length}</span> books</p>
+            <p>Wishlist: <span class="text-foreground" aria-label="Number of books on wishlist">{copiedBooks.filter(book => book["Exclusive Shelf"] === "to-read").length}</span> books 
+                <span aria-label="Percentage of total books">({Math.round(copiedBooks.filter(book => book["Exclusive Shelf"] === "to-read").length / copiedBooks.length * 100)}%)</span>
+            </p>
+            <p>Oldest: <span class="text-foreground">{copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0].Title}</span> 
+                <span aria-label="Publication year">({copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year'] < 0 ? Math.abs(copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year']) + " BC" : copiedBooks.sort((a, b) => a['Original Publication Year'] - b['Original Publication Year'])[0]['Original Publication Year']})</span>
+            </p>
+            <p>Most common rating: <span class="text-foreground" aria-label="Rating">{copiedBooks.map(book => book['My Rating']).reduce((a, b) => a > b ? a : b)}</span> 
+                <span aria-label="Number of books with this rating">({copiedBooks.filter(book => book['My Rating'] === copiedBooks.map(book => book['My Rating']).reduce((a, b) => a > b ? a : b)).length} books)</span>
+            </p>
         </div>
     {/if}
-</section>
+</header>
 
-<!-- Filters Container - Fixed Position -->
-<div class="sticky top-0 left-0 right-0 z-50 px-4 pt-8 md:pt-12">
-        <!-- Active Filters -->
-        <div class="w-full flex justify-between">
-            <div class="bg-background/80 backdrop-blur-sm rounded-full border border-muted-foreground/10 py-1.5 px-4 w-fit">
-                    <div class="text-sm text-muted-foreground/80">
-                        Showing:
-                        <div class="inline-flex gap-2 ml-2">
-                            {#if sort !== 'Newest' || score !== 'All scores' || status !== 'All'}
-                                {#if sort !== 'Newest'}
-                                    <span class="text-foreground">{sort}</span>
-                                {/if}
-                                {#if score !== 'All scores'}
-                                    <span class="text-foreground">{score}</span>
-                                {/if}
-                                {#if status !== 'All'}
-                                    <span class="text-foreground">{status}</span>
-                                {/if}
-                            {:else}
-                                <span class="text-foreground">All</span>
-                            {/if}
-                        </div>
-
-                    </div>
+<!-- Filters Container -->
+<div 
+    class="sticky top-0 left-0 right-0 z-50 px-4 pt-8 md:pt-12"
+    role="region"
+    aria-label="Book filters"
+>
+    <!-- Active Filters -->
+    <div class="w-full flex justify-between">
+        <div class="bg-background/80 backdrop-blur-sm rounded-full border border-muted-foreground/10 py-1.5 px-4 w-fit">
+            <div class="text-sm text-muted-foreground/80" role="status" aria-live="polite">
+                Showing:
+                <div class="inline-flex gap-2 ml-2">
+                    {#if sort !== 'Newest' || score !== 'All scores' || status !== 'All'}
+                        {#if sort !== 'Newest'}
+                            <span class="text-foreground">{sort}</span>
+                        {/if}
+                        {#if score !== 'All scores'}
+                            <span class="text-foreground">{score}</span>
+                        {/if}
+                        {#if status !== 'All'}
+                            <span class="text-foreground">{status}</span>
+                        {/if}
+                    {:else}
+                        <span class="text-foreground">All</span>
+                    {/if}
+                </div>
             </div>
-    
-            <!-- Filters Dropdown -->
-            <Filters 
-                {score} 
-                {sort} 
-                {status} 
-                on:optionSelected={onOptionSelected} 
-                on:scoreSelected={onScoreSelected} 
-                on:categorySelected={onCategorySelected} 
-            />
+        </div>
+
+        <!-- Filters Dropdown -->
+        <Filters 
+            {score} 
+            {sort} 
+            {status} 
+            on:optionSelected={onOptionSelected} 
+            on:scoreSelected={onScoreSelected} 
+            on:categorySelected={onCategorySelected} 
+        />
     </div>
 </div>
 
 <!-- Books Grid -->
-<section class="px-4 md:px-8 py-8">
+<section 
+    class="px-4 md:px-8 py-8"
+    aria-label="Books collection"
+>
     <div 
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4 md:gap-8 auto-rows-max"
         transition:fade={{ duration: 200 }}
+        role="list"
     >
         {#each books as book (book["Book Id"])}
-            <div class="h-full">
+            <div class="h-full" role="listitem">
                 <Book {book} />
             </div>
         {/each}

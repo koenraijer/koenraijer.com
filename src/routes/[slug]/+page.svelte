@@ -73,73 +73,87 @@
 	<ToTopButton absolute />
 {/if}
 
-<section class="section ">
-	<!-- Title -->
-	<hgroup class="w-full !mx-auto">
-		<div>
-			{#if data.post.title}
-				<h2 class="text-2xl my-4 font-[500]">{data.post.title}</h2>
-			{/if}
-			<div class="mb-8 text-xs text-muted-foreground md:flex md:flex-row md:items-center break-words">
-				{#if data.post.date}
-						<Calendar class="h-3 w-3 inline mr-1" />
-						<span class="mr-2">{formatDate(data.post.date)}</span>
-						{#if data.post.updated}
-							<span class="text-muted-foreground/70 mr-2">(<History class="h-3 w-3 inline mr-1"/> {formatRelativeTime(data.post.updated)})</span>
-						{/if}
-				{/if}
-				{#if data.post.readingTime}
-						<BookText class="h-3 w-3 inline mr-1" />
-						<span>{data.post.wordCount} words</span>
-				{/if}
-			</div>
-		</div>
-	</hgroup>
+<article class="section">
+    <!-- Header section -->
+    <header class="w-full !mx-auto">
+        {#if data.post.title}
+            <h1 class="text-2xl my-4 font-[500]">{data.post.title}</h1>
+        {/if}
+        <div class="mb-8 text-xs text-muted-foreground md:flex md:flex-row md:items-center break-words">
+            {#if data.post.date}
+                <span class="flex items-center">
+                    <Calendar class="h-3 w-3 mr-1" aria-hidden="true" />
+                    <time datetime={data.post.date}>{formatDate(data.post.date)}</time>
+                </span>
+                {#if data.post.updated}
+                    <span class="text-muted-foreground/70 mr-2">
+                        <History class="h-3.5 w-3.5 inline mr-1" aria-hidden="true"/>
+                        <time datetime={data.post.updated}>Updated {formatRelativeTime(data.post.updated)}</time>
+                    </span>
+                {/if}
+            {/if}
+            {#if data.post.readingTime}
+                <span class="flex items-center">
+                    <BookText class="h-3 w-3 mr-1" aria-hidden="true" />
+                    <span aria-label="Article length">{data.post.wordCount} words</span>
+                </span>
+            {/if}
+        </div>
+    </header>
 
-	<article class="relative">
-		<!-- Post content -->
-		<div class="prose proseClasses proseCodeClasses first-letter:text-[3.75rem] first-letter:font-[500] first-letter:float-left first-letter:!leading-[0.96] first-letter:tracking-[10px]">
-			{@html data.post.content}
-		</div>
+    <!-- Post content -->
+    <section class="relative">
+        <div class="prose proseClasses proseCodeClasses first-letter:text-[3.75rem] first-letter:font-[500] first-letter:float-left first-letter:!leading-[0.96] first-letter:tracking-[10px]">
+            {@html data.post.content}
+        </div>
 
-		<!-- Post -->
-		{#if data.post.ToC}
-			<ToC post={data.post} />
-		{/if}
-	</article>
-</section>
+        {#if data.post.ToC}
+            <ToC post={data.post} />
+        {/if}
+    </section>
+</article>
 
 <!-- Categories -->
-<section class="section">
-	<div class="flex flex-row h-fit row-nowrap items-center">
-		<h2 class="text-xs font-normal text-muted-foreground/80">Filed under:&nbsp;&nbsp;</h2>
-		<Categories categories={categoriesArray}/>
-	</div>
+<section class="section" aria-label="Post categories">
+    <div class="flex flex-row h-fit row-nowrap items-center">
+        <h2 class="text-xs font-normal text-muted-foreground/80">Filed under:</h2>
+        <Categories categories={categoriesArray}/>
+    </div>
 </section>
 
-<!-- Pagination -->
-<section class="section">
-	<hr class="mb-4">
-	<div class="flex flex-col md:flex-row justify-between gap-y-2">
-		<div class="flex flex-col">
-			{#if data.post.previous}
-				<span class="text-xs font-normal text-muted-foreground/80">Previous</span>
-				<a href={data.post.previous.slug} class="text-sm anchor">
-				{data.post.previous.title}
-				</a>
-			{:else}
-				<span class="text-xs text-muted-foreground/80">No newer posts</span>
-			{/if}
-		</div>
-		<div class="text-right flex flex-col">
-			{#if data.post.next}
-				<span class="text-xs font-normal text-muted-foreground/80">Next</span>
-				<a href={data.post.next.slug} class="text-sm anchor ml-auto text-right">
-					{data.post.next.title}
-				</a>
-			{:else}
-				<span class="text-xs text-muted-foreground/80 md:ml-auto">No older posts</span>
-			{/if}
-		</div>
-	</div>
-</section>
+<!-- Navigation -->
+<nav class="section" aria-label="Post navigation">
+    <hr class="mb-4">
+    <div class="flex flex-col md:flex-row justify-between gap-y-2">
+        <div class="flex flex-col">
+            {#if data.post.previous}
+                <span class="text-xs font-normal text-muted-foreground/80" id="prev-label">Previous</span>
+                <a 
+                    href={data.post.previous.slug} 
+                    class="text-sm anchor"
+                    aria-labelledby="prev-label"
+                    rel="prev"
+                >
+                    {data.post.previous.title}
+                </a>
+            {:else}
+                <span class="text-xs text-muted-foreground/80" aria-label="No newer posts available">No newer posts</span>
+            {/if}
+        </div>
+        <div class="text-right flex flex-col">
+            {#if data.post.next}
+                <span class="text-xs font-normal text-muted-foreground/80" id="next-label">Next</span>
+                <a 
+                    href={data.post.next.slug} 
+                    class="text-sm anchor ml-auto text-right"
+                    aria-labelledby="next-label"
+                    rel="next"
+                >
+                    {data.post.next.title}
+                </a>
+            {:else}
+                <span class="text-xs text-muted-foreground/80 md:ml-auto" aria-label="No older posts available">No older posts</span>
+            {/if}
+        </div>
+    </div>
+</nav>

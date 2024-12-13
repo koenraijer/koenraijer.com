@@ -15,14 +15,34 @@
     }
 </script>
 
-<div class="flex flex-col gap-y-1 !leading-tight">
-    {#each posts as post}
-        <div class="inline">
-            <a href={"/" + post.slug} class="text-sm anchor">
+<div 
+    class="flex flex-col gap-y-1 !leading-tight"
+    role="list"
+    aria-label="Blog posts"
+>
+    {#each posts as post (post.slug)}
+        <div 
+            class="inline"
+            role="listitem"
+        >
+            <a 
+                href={"/" + post.slug} 
+                class="text-sm anchor"
+                aria-label="{post.title}, published {formatDate(post.date)}"
+            >
                 {post.title}
             </a>
-            <span class="text-muted-foreground/70 text-xs">
-                <CornerDownRight class="w-3 h-3 inline"/> {formatDate(post.date)}
+            <span 
+                class="text-muted-foreground/70 text-xs"
+                aria-hidden="true"
+            >
+                <CornerDownRight 
+                    class="w-3 h-3 inline"
+                    aria-hidden="true"
+                /> 
+                <time datetime={new Date(post.date).toISOString()}>
+                    {formatDate(post.date)}
+                </time>
             </span>
         </div>
     {/each}

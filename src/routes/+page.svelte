@@ -68,73 +68,109 @@
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
-<section class="section md:max-w-5xl">
-	<Hero />
+
+<!-- Introduction -->
+<section class="section md:max-w-5xl" aria-label="Introduction">
+    <Hero />
 </section>
 
-<!-- Now -->
-<section class="section md:max-w-5xl h-fit md:mt-12">
-	<h2 id="now" class="text-sm font-[500] text-muted-foreground/80 mb-2">Now</h2>
-	<p class="text-sm">
-		<span>Working at a mental health care facility. Doing </span>
-		<A classes="text-sm anchor" href="https://doi.org/10.17605/OSF.IO/CR5F8">research</A> on ambulatory assessment in PTSD. Coding <A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>. Relocating to Utrecht. Recently graduated from Tilburg University in data science. 
-	</p>	
+<!-- Current Status -->
+<section 
+    class="section md:max-w-5xl h-fit md:mt-12"
+    aria-labelledby="now-heading"
+>
+    <h2 id="now-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Now</h2>
+    <p class="text-sm">
+        <span>Working at a mental health care facility. Doing </span>
+        <A classes="text-sm anchor" href="https://doi.org/10.17605/OSF.IO/CR5F8">research</A> on ambulatory assessment in PTSD. Coding <A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>. Relocating to Utrecht. Recently graduated from Tilburg University in data science. 
+    </p>    
 </section>
 
-<!-- Three column layout container -->
+<!-- Two column layout container -->
 <div class="section md:max-w-5xl flex flex-col md:grid md:grid-cols-2 md:gap-x-4 h-auto md:mt-12">
-	<!-- Books column -->
-	<section class="mt-0 h-fit">
-		<h2 
-			id="reading" 
-			class="text-sm font-[500] text-muted-foreground/80 mb-2"
+    <!-- Reading section -->
+    <section 
+        class="mt-0 h-fit"
+        aria-labelledby="reading-heading"
+    >
+        <h2 
+            id="reading-heading" 
+            class="text-sm font-[500] text-muted-foreground/80 mb-2"
 			on:mouseenter={() => isHovered = true}
 			on:mouseleave={() => isHovered = false}
-		>
-			<a href="/books" class="inline-flex items-center">
-				Reading 
-				<Link2 class="w-4 h-4 text-muted-foreground/40 dark:text-muted-foreground/70 inline rotate-45 ml-1"/>
-				{#if isHovered}
-					<span
-					class="overflow-hidden whitespace-nowrap text-muted-foreground/50 dark:text-muted-foreground/80 pl-2 text-xs font-normal"
-					transition:fadeSlide={{ axis: "x", duration: 200 }}
-					>
-					visit /books
-					</span>
-				{/if}
-			</a>
-		</h2>
-		<div class="flex flex-col gap-y-2">
-			{#each data.current_books as book}
-				<Book book={book} compact/>
-			{/each}
-		</div>
-	</section>
+        >
+            <a 
+                href="/books" 
+                class="inline-flex items-center"
+                aria-label="View all books"
+            >
+                Reading 
+                <Link2 
+                    class="w-4 h-4 text-muted-foreground/40 dark:text-muted-foreground/70 inline rotate-45 ml-1"
+                    aria-hidden="true"
+                />
+                {#if isHovered}
+                    <span
+                        class="overflow-hidden whitespace-nowrap text-muted-foreground/50 dark:text-muted-foreground/80 pl-2 text-xs font-normal"
+                        transition:fadeSlide={{ axis: "x", duration: 200 }}
+                    >
+                        visit /books
+                    </span>
+                {/if}
+            </a>
+        </h2>
+        <div 
+            class="flex flex-col gap-y-2"
+            role="list"
+            aria-label="Currently reading"
+        >
+            {#each data.current_books as book}
+                <div role="listitem">
+                    <Book {book} compact/>
+                </div>
+            {/each}
+        </div>
+    </section>
 
-	<!-- Projects column -->
-	<section class="mt-8 sm:mt-12 md:mt-0 h-fit">
-		<h2 id="projects" class="text-sm font-[500] text-muted-foreground/80 mb-2">Projects</h2>
-		<div class="flex flex-col leading-tight gap-y-1">
-			<div>
-				<A href="https://reasset.koenraijer.com/" classes="anchor text-sm ">ReAsset</A>
-				<span class="text-muted-foreground text-sm -ml-1">. Rebalance your stocks efficiently.</span>
-			</div>
-			<div>
-				<A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>
-				<span class="text-muted-foreground text-sm -ml-1">. Faster clinical notetaking.</span>
-			</div>
-		</div>
-	</section>
+    <!-- Projects section -->
+    <section 
+        class="mt-8 sm:mt-12 md:mt-0 h-fit"
+        aria-labelledby="projects-heading"
+    >
+        <h2 id="projects-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Projects</h2>
+        <div 
+            class="flex flex-col leading-tight gap-y-1"
+            role="list"
+            aria-label="Project list"
+        >
+            <div role="listitem">
+                <A href="https://reasset.koenraijer.com/" classes="anchor text-sm">ReAsset</A>
+                <span class="text-muted-foreground text-sm -ml-1">. Rebalance your stocks efficiently.</span>
+            </div>
+            <div role="listitem">
+                <A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>
+                <span class="text-muted-foreground text-sm -ml-1">. Faster clinical notetaking.</span>
+            </div>
+        </div>
+    </section>
 </div>
 
-<!-- Posts column -->
-<section class="section md:max-w-5xl h-fit">
-	<h2 id="writing" class="text-sm font-[500] text-muted-foreground/80 mb-2">Writing</h2>
-	<Posts posts={data.posts}/>
+<!-- Writing section -->
+<section 
+    class="section md:max-w-5xl h-fit"
+    aria-labelledby="writing-heading"
+>
+    <h2 id="writing-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Writing</h2>
+    <Posts posts={data.posts}/>
 </section>
 
-<!-- Connect -->
-<section class="section md:max-w-5xl h-fit">
-	<h2 id="writing" class="text-sm font-[500] text-muted-foreground/80 mb-2">Connect</h2>
-	<p class="text-sm">Reach me at <A href="mailto:hello@koenraijer.com">hello@koenraijer.com</A>.
+<!-- Contact section -->
+<section 
+    class="section md:max-w-5xl h-fit"
+    aria-labelledby="connect-heading"
+>
+    <h2 id="connect-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Connect</h2>
+    <p class="text-sm">
+        Reach me at <A href="mailto:hello@koenraijer.com" aria-label="Send email to hello@koenraijer.com">hello@koenraijer.com</A>.
+    </p>
 </section>

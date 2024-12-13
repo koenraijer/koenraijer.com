@@ -1,4 +1,7 @@
 #### December 2024
+- ✨ New feature: added RSS feed.
+- ♿️ Accessibility: major improvements in screen reader support and use of semantic HTML.
+- ⚡️ Performance: improved loading times by serving optimized images. 
 - 🔎 SEO: better OG Images
 - 🐞 Bug fixes: table of contents now disappears after navigation, and to top button doesn't sit in the way of footer buttons anymore.
 - ✨ New feature: added support for callouts in markdown.
