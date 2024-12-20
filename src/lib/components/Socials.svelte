@@ -16,7 +16,7 @@
     <a class="social" target="_blank" aria-label="Goodreads" rel="noopener" href="https://www.goodreads.com/koenraijer/" title="Goodreads">
         <Goodreads class="w-4 h-4" aria-hidden="true"/>
     </a>
-    <a class="social" aria-label="RSS" rel="noopener" href="/rss.xml" title="RSS">
+    <a class="social" aria-label="RSS" data-sveltekit-preload-data="off" rel="noopener external" href="/rss.xml" title="RSS">
         <Rss class="w-4 h-4" aria-hidden="true"/>
     </a>
 </div>
