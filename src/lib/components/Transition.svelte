@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Motion } from 'svelte-motion';
     import { preferredReduceMotion } from "svelte-legos";
+    import { browser } from '$app/environment';
     
     export let url: string;
     const motion = preferredReduceMotion();
@@ -37,35 +38,55 @@
             }
         }
     };
+
+    let isLoaded = false;
+    
+    $: if (browser) {
+        setTimeout(() => {
+            isLoaded = true;
+        }, 100);
+    }
 </script>
 
-{#key url}
-    <Motion
-        initial="initial"
-        animate="enter"
-        exit="exit"
-        let:motion
-    >
-        <div 
-            use:motion 
-            class="min-h-full w-full rounded-lg overflow-hidden bg-background"
-            aria-live="polite"
-            role="region"
-        >
-            <Motion
-                initial="initial"
-                animate="enter"
-                exit="exit"
-                variants={pageTransitionVariants}
-                let:motion
-            >
-                <div use:motion class="h-full w-full">
-                    <slot />
-                </div>
-            </Motion>
+<div class="relative w-full min-h-full">
+    {#if !isLoaded}
+        <div class="fixed inset-0 flex items-center justify-center bg-background">
+            <div class="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" 
+                 role="status" 
+                 aria-label="Loading">
+            </div>
         </div>
-    </Motion>
-{/key}
+    {/if}
+    
+    {#key url}
+        <Motion
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            let:motion
+        >
+            <div 
+                use:motion 
+                class="min-h-full w-full rounded-lg overflow-hidden bg-background"
+                class:opacity-0={!isLoaded}
+                aria-live="polite"
+                role="region"
+            >
+                <Motion
+                    initial="initial"
+                    animate="enter"
+                    exit="exit"
+                    variants={pageTransitionVariants}
+                    let:motion
+                >
+                    <div use:motion class="h-full w-full">
+                        <slot />
+                    </div>
+                </Motion>
+            </div>
+        </Motion>
+    {/key}
+</div>
 
 <style>
     :global(body) {

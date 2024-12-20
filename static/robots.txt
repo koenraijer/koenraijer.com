@@ -1,4 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
+Sitemap: https://koenraijer.com/sitemap.xml
 User-agent: *
 Disallow: /*.js$
 Disallow: /*.json

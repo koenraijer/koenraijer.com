@@ -75,9 +75,9 @@
 
 	function goBack() {
 	if (previousPage) {
-		goto(previousPage, { replaceState: true });
+		goto(previousPage, { replaceState: true, noScroll: true });
 	} else {
-		goto("/books", { replaceState: true });
+		goto("/books", { replaceState: true, noScroll: true });
 	}
 	}
 </script>
@@ -181,6 +181,8 @@
         </main>
     </PageTransition>
 
-    <!-- Footer -->
-    <Footer />
+
+	<!-- Footer -->
+	<Footer />
+	
 </div>

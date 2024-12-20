@@ -8,7 +8,19 @@
     import { browser } from '$app/environment';
     import { goto } from '$app/navigation';
     import { fade } from 'svelte/transition';
+    import { beforeNavigate } from '$app/navigation';
     
+    // Add this near your other state variables
+    let scrollPosition = 0;
+
+    // Store scroll position before navigation
+    beforeNavigate(({ to }) => {
+        if (to?.url.pathname.startsWith('/books/')) {
+            scrollPosition = window.scrollY;
+            sessionStorage.setItem('booksScrollPosition', scrollPosition.toString());
+        }
+    });
+
     export let data;
     let sort, score, status;
     let showStats = false;
@@ -116,11 +128,18 @@
         books = filteredBooks;
 
         // history.pushState(null, '', `?sort=${encodeURIComponent(sort)}&score=${encodeURIComponent(score)}&status=${encodeURIComponent(status)}`);
-        goto(`?sort=${encodeURIComponent(sort)}&score=${encodeURIComponent(score)}&status=${encodeURIComponent(status)}`, { replaceState: false, noScroll: true });
+        goto(`?sort=${encodeURIComponent(sort)}&score=${encodeURIComponent(score)}&status=${encodeURIComponent(status)}`, { replaceState: true, noScroll: true });
     }
     
     onMount(() => {
         filterBooks();
+        
+        // Restore scroll position if coming back from a book detail page
+        const stored = sessionStorage.getItem('booksScrollPosition');
+        if (stored) {
+            window.scrollTo(0, parseInt(stored));
+            sessionStorage.removeItem('booksScrollPosition');
+        }
     });
 
 	// SEO

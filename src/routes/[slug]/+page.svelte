@@ -79,22 +79,22 @@
         {#if data.post.title}
             <h1 class="text-2xl my-4 font-[500]">{data.post.title}</h1>
         {/if}
-        <div class="mb-8 text-xs text-muted-foreground md:flex md:flex-row md:items-center break-words">
+        <div class="mb-8 text-xs text-muted-foreground md:inline-flex md:items-center break-words">
             {#if data.post.date}
-                <span class="flex items-center mr-2">
-                    <Calendar class="h-3 w-3 mr-1" aria-hidden="true" />
+                <span class="inline mr-2">
+                    <Calendar class="h-3 w-3 mr-1 inline-flex flex-nowrap" aria-hidden="true" />
                     <time datetime={data.post.date}>{formatDate(data.post.date)}</time>
                 </span>
                 {#if data.post.updated}
-                    <span class="text-muted-foreground/70 mr-2">
+                    <span class="text-muted-foreground/70 mr-2 inline flex-nowrap">
                         <History class="h-3.5 w-3.5 inline" aria-hidden="true"/>
                         <time datetime={data.post.updated}>{formatRelativeTime(data.post.updated)}</time>
                     </span>
                 {/if}
             {/if}
             {#if data.post.readingTime}
-                <span class="flex items-center">
-                    <BookText class="h-3 w-3 mr-1" aria-hidden="true" />
+                <span class="inline">
+                    <BookText class="h-3 w-3 mr-1 inline" aria-hidden="true" />
                     <span aria-label="Article length">{data.post.wordCount} words</span>
                 </span>
             {/if}
