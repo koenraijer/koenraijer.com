@@ -2,7 +2,7 @@
 	export let data;
 	import '../app.postcss';
 
-	import { browser } from '$app/environment';
+	import { info } from '$lib/js/info';
 	import { goto, afterNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths'
@@ -83,6 +83,9 @@
 </script>
 
 <svelte:head>
+	<!-- SEO -->
+	<link rel="canonical" href="{info.website}{$page.url.pathname}" />
+
 	<!-- Preload the favicon based on theme -->
 	{#if $mode === 'light'}
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon_light/apple-touch-icon.png">
