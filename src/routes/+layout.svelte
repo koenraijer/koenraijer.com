@@ -2,7 +2,7 @@
 	export let data;
 	import '../app.postcss';
 
-	import { info } from '$lib/js/info';
+	import { website } from '$lib/js/info.js';
 	import { goto, afterNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths'
@@ -84,7 +84,7 @@
 
 <svelte:head>
 	<!-- SEO -->
-	<link rel="canonical" href="{info.website}{$page.url.pathname}" />
+	<link rel="canonical" href="{website}{$page.url.pathname}" />
 
 	<!-- Preload the favicon based on theme -->
 	{#if $mode === 'light'}
