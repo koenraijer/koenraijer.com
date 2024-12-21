@@ -5,15 +5,15 @@ import forms from '@tailwindcss/forms';
 const plugin = require('tailwindcss/plugin')
 
 const fluidTypeConfig = {
-	fontSizeMin: 1.125, // 1.125rem === 18px
-	fontSizeMax: 1.3, // 1.25rem === 20px
-	ratioMin: 1.1, // Multiplicator Min
-	ratioMax: 1.25, // Multiplicator Max
-	screenMin: 20, // 20rem === 320px
-	screenMax: 125, // 159 rem === 2545 px (my large monitor)
-	unit: 'rem', // default is rem but it's also possible to use 'px'
-	prefix: '', // set a prefix to use it alongside the default font sizes
-	extendValues: true, // When you set extendValues to true it will extend the default values. Set it to false to overwrite the values.
+	fontSizeMin: 1.125,    // 18px at minimum screen size
+	fontSizeMax: 1.3,     // Slightly reduced from 1.3 to account for preferred zoom
+	ratioMin: 1.1,         // Keeping this the same
+	ratioMax: 1.25,        // Keeping this the same
+	screenMin: 20,         // 320px minimum
+	screenMax: 96,         // Adjusted to ~1536px (2560px/1.1 to account for preferred 110% zoom)
+	unit: 'rem',
+	prefix: '',
+	extendValues: true,
 }
 
 const proseFontSetting = `clamp(${fluidTypeConfig.fontSizeMin}${fluidTypeConfig.unit}, calc(${fluidTypeConfig.fontSizeMin}${fluidTypeConfig.unit} + ((${fluidTypeConfig.fontSizeMax} - ${fluidTypeConfig.fontSizeMin}) * ((100vw - ${fluidTypeConfig.screenMin}${fluidTypeConfig.unit}) / (${fluidTypeConfig.screenMax} - ${fluidTypeConfig.screenMin})))), ${fluidTypeConfig.fontSizeMax}${fluidTypeConfig.unit})`

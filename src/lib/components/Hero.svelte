@@ -60,7 +60,6 @@
   <link rel="preload" as="image" href="/241122_avatar.webp" type="image/webp" />
 </svelte:head>
 
-
 <div class="relative flex flex-row gap-x-2">
   <!-- Resume Download -->
   <div class="w-full flex justify-end h-6 absolute -top-8 right-0 sm:right-6">
@@ -96,7 +95,7 @@
               >
                   <img 
                       src="/241122_avatar.webp" 
-                      alt="" 
+                      alt="Profile picture of {info.name}"
                       class="{avatarSize} rounded-full border-muted-foreground/20 border-4 transition-all" 
                       fetchpriority="high"
                       aria-hidden="true"
@@ -121,7 +120,7 @@
           {#if locationTooltipVisible}
               <span 
                   role="tooltip"
-                  class="fixed z-50 bg-background whitespace-nowrap duration-75 flex flex-col gap-2 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors"
+                  class="fixed z-50 bg-background whitespace-nowrap duration-75 flex flex-col gap-2 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-7 text-muted-foreground hover:bg-muted transition-colors"
                   style="left: {tooltipX}px; top: {tooltipY}px"
               >
                   <span class="text-xs inline-flex items-center gap-x-1">
