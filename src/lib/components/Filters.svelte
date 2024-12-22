@@ -1,84 +1,106 @@
-<script>
+<script lang="ts">
     import { onMount, createEventDispatcher } from 'svelte';
     import * as DropdownMenu from "$lib/shadcn/ui/dropdown-menu";
     import * as Drawer from "$lib/shadcn/ui/drawer";
     import { Button } from "$lib/shadcn/ui/button";
     import { MoreVertical, ArrowUpDown, Star, BookOpen, Check } from 'lucide-svelte';
     import { Motion } from "svelte-motion";
-	import { ScrollArea } from "$lib/shadcn/ui/scroll-area/";
+    import { ScrollArea } from "$lib/shadcn/ui/scroll-area/";
 
-    export let score, status, sort;
-    const dispatch = createEventDispatcher();
+    // Define types for props and events
+    export let score: string;
+    export let status: 'read' | 'currently-reading' | 'to-read' | 'All';
+    export let sort: string;
 
+    type SortOption = 'Highest' | 'Lowest' | 'Newest' | 'Oldest' | 'Title A-Z' | 'Title Z-A';
+    type ScoreOption = 'All scores' | '> 1' | '> 2' | '> 3' | '> 4';
+    type StatusOption = 'All' | 'Finished' | 'Reading now' | 'On wishlist';
+
+    interface SortGroup {
+        group: string;
+        items: SortOption[];
+    }
+
+    type DispatchEvents = {
+        optionSelected: { selectedOption: SortOption };
+        scoreSelected: { selectedScoreOption: ScoreOption };
+        categorySelected: { selectedCategoryOption: StatusOption };
+    };
+
+    const dispatch = createEventDispatcher<DispatchEvents>();
+
+    // State management
     let isOpen = false;
     let isMobileDrawerOpen = false;
     let isMobile = false;
 
-    // Check for mobile screen on mount and window resize
-    function checkMobile() {
-        isMobile = window.innerWidth < 768;
-    }
-
-    onMount(() => {
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    });
-
-    // Sort options
-    const sortOptions = [
+    // Memoized options
+    const sortOptions: SortGroup[] = [
         { group: 'By score', items: ['Highest', 'Lowest'] },
         { group: 'By date', items: ['Newest', 'Oldest'] },
         { group: 'By title', items: ['Title A-Z', 'Title Z-A'] }
     ];
-    $: selectedSort = sort || 'Newest';
 
-    // Score options
-    const scoreOptions = ['All scores', '> 1', '> 2', '> 3', '> 4'];
-    $: selectedScore = score || 'All scores';
+    const scoreOptions: ScoreOption[] = ['All scores', '> 1', '> 2', '> 3', '> 4'];
+    const statusOptions: StatusOption[] = ['All', 'Finished', 'Reading now', 'On wishlist'];
 
-    // Status options
-    const statusOptions = ['All', 'Finished', 'Reading now', 'On wishlist'];
+    // Reactive declarations with type safety
+    $: selectedSort = sort as SortOption || 'Newest';
+    $: selectedScore = score as ScoreOption || 'All scores';
     $: selectedStatus = status === 'read' ? 'Finished' 
         : status === 'currently-reading' ? 'Reading now' 
         : status === 'to-read' ? 'On wishlist' 
         : 'All';
 
-    // Handler functions
-    function handleSortSelect(option) {
+    // Optimize mobile check with ResizeObserver
+    const checkMobile = (): void => {
+        isMobile = window.innerWidth < 768;
+    };
+
+    onMount(() => {
+        // Use ResizeObserver instead of window resize event
+        const resizeObserver = new ResizeObserver(() => {
+            requestAnimationFrame(checkMobile);
+        });
+        
+        resizeObserver.observe(document.documentElement);
+        checkMobile();
+
+        return () => {
+            resizeObserver.disconnect();
+        };
+    });
+
+    // Handlers with type safety
+    function handleSortSelect(option: SortOption): void {
         selectedSort = option;
         dispatch('optionSelected', { selectedOption: option });
         if (isMobile) isMobileDrawerOpen = false;
     }
 
-    function handleScoreSelect(option) {
+    function handleScoreSelect(option: ScoreOption): void {
         selectedScore = option;
         dispatch('scoreSelected', { selectedScoreOption: option });
         if (isMobile) isMobileDrawerOpen = false;
     }
 
-    function handleStatusSelect(option) {
+    function handleStatusSelect(option: StatusOption): void {
         selectedStatus = option;
         dispatch('categorySelected', { selectedCategoryOption: option });
         if (isMobile) isMobileDrawerOpen = false;
     }
 
+    // Animation variants
     const rotateVariants = {
         open: { rotate: 720 },
         closed: { rotate: 0 }
     };
 
-    function handleOpenChange(event) {
+    function handleOpenChange(event: CustomEvent<boolean>): void {
         isOpen = event.detail;
     }
 
-    onMount(() => {
-        dispatch('optionSelected', { selectedOption: selectedSort });
-        dispatch('scoreSelected', { selectedScoreOption: selectedScore });
-        dispatch('categorySelected', { selectedCategoryOption: selectedStatus });
-    });
-
-    // Add labels for screen readers
+    // Accessibility labels
     const labels = {
         sort: {
             button: `Sort by ${selectedSort}`,
@@ -93,7 +115,18 @@
             menu: "Status filter options"
         }
     };
+
+    // Initial dispatch
+    onMount(() => {
+        // Use Promise.resolve to defer initial dispatches
+        Promise.resolve().then(() => {
+            dispatch('optionSelected', { selectedOption: selectedSort });
+            dispatch('scoreSelected', { selectedScoreOption: selectedScore });
+            dispatch('categorySelected', { selectedCategoryOption: selectedStatus as StatusOption });
+        });
+    });
 </script>
+
 {#if isMobile}
     <Drawer.Root bind:open={isMobileDrawerOpen}>
         <Drawer.Trigger 
@@ -184,7 +217,7 @@
 {:else}
     <DropdownMenu.Root bind:open={isOpen} on:openChange={handleOpenChange}>
         <DropdownMenu.Trigger 
-            class="rounded-full p-2 bg-background/80 backdrop-blur-sm border border-muted-foreground/10 hover:border-muted-foreground/20 transition-colors"
+            class="rounded-full social w-10 flex justify-center items-center h-10 bg-background/80 backdrop-blur-sm border border-muted-foreground/10 hover:border-muted-foreground/20 transition-colors"
             aria-label="Open filters menu"
             aria-expanded={isOpen}
         >
