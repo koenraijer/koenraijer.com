@@ -13,7 +13,7 @@
     </script>
     
     {#if visible}
-    <a href="/">
+    <a href="/" title="Home" aria-label="Go Home">
     <svg 
         in:fade={{duration: 450}}
         width="134" 
