@@ -58,6 +58,7 @@
 <!-- Preload image-->
 <svelte:head>
   <link rel="preload" as="image" href="/241122_avatar.webp" type="image/webp" />
+  <link rel="prefetch" href="/241122_avatar.webp" />
 </svelte:head>
 
 <div class="relative flex flex-row gap-x-2">
@@ -99,6 +100,7 @@
                       class="{avatarSize} rounded-full border-muted-foreground/20 border-4 transition-all" 
                       fetchpriority="high"
                       loading="eager"
+                      decoding="sync"
                       aria-hidden="true"
                   />
               </span>
