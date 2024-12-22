@@ -98,6 +98,7 @@
                       alt="Profile picture of {info.name}"
                       class="{avatarSize} rounded-full border-muted-foreground/20 border-4 transition-all" 
                       fetchpriority="high"
+                      loading="eager"
                       aria-hidden="true"
                   />
               </span>

@@ -36,16 +36,24 @@
     export let alt = "";
     export let style = "";
     export let styleTag = "";
+    export let loading: 'lazy' | 'eager' = 'lazy';
     
+    // Only use lazy loading modifier if loading is 'lazy'
+    $: shouldLazyLoad = loading === 'lazy';
+
     $: load = false;
 
     // Get enhanced image data
     $: enhancedImage = getImagePath(src)?.default;
 </script>
 
-<div use:lazyLoad on:isVisible={() => (load = true)} class={parentClasses}>
+<div 
+    use:lazyLoad={shouldLazyLoad} 
+    on:isVisible={() => (load = shouldLazyLoad ? true : (load = true))} 
+    class={parentClasses}
+>
     <figure class="s-MjpFyM6B2tB_">
-        {#if load}
+        {#if !shouldLazyLoad || load}
             {#if enhancedImage && typeof enhancedImage === 'object' && 'sources' in enhancedImage}
                 <picture>
                     {#if enhancedImage.sources.avif}
@@ -58,7 +66,7 @@
                         src={enhancedImage.img.src}
                         {alt}
                         title={alt}
-                        loading="lazy"
+                        loading={loading}
                         class={`${imgClasses} w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-105 s-MjpFyM6B2tB_`}
                         {style}
                         style:--tag={styleTag}
@@ -71,7 +79,7 @@
                     {src}
                     {alt}
                     title={alt}
-                    loading="lazy"
+                    loading={loading}
                     class={`${imgClasses} w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-105 s-MjpFyM6B2tB_`}
                     {style}
                     style:--tag={styleTag}

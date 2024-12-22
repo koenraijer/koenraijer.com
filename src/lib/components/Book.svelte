@@ -1,17 +1,43 @@
-<script>
+<script lang="ts">
     import { formatDate } from '$lib/js/utils.js';
     import LazyImg from '$lib/components/LazyImg.svelte';
     import { BookmarkCheck, ClipboardList, BookOpen, Star } from 'lucide-svelte';
     import { goto } from '$app/navigation';
     export let compact = false
     export let book;
+    export let index = 0;
     
-    function navigateToBookDetails(book) {
+    // Calculate columns based on viewport for first row only
+    const columnsMap = {
+        'default': 2,  // grid-cols-2
+        'sm': 3,       // sm:grid-cols-3
+        'md': 4,       // md:grid-cols-4
+        'lg': 5,       // lg:grid-cols-5
+        'xl': 6,       // xl:grid-cols-6
+        '2xl': 7       // 2xl:grid-cols-7
+    };
+    
+    // Only first row should be eagerly loaded
+    const isAboveFold = (idx: number) => {
+        const viewport = window?.innerWidth || 0;
+        let columns = columnsMap.default;
+        
+        if (viewport >= 1536) columns = columnsMap['2xl'];
+        else if (viewport >= 1280) columns = columnsMap.xl;
+        else if (viewport >= 1024) columns = columnsMap.lg;
+        else if (viewport >= 768) columns = columnsMap.md;
+        else if (viewport >= 640) columns = columnsMap.sm;
+        
+        return idx < columns; // Just 1 row
+    };
+
+    function navigateToBookDetails(book: { slug: any; }) {
         // Store the current URL in sessionStorage
         sessionStorage.setItem('previousUrl', window.location.href);
         // Navigate to the book details page
         goto(`/books/${book.slug}`, { replaceState: false });
     }
+    
 </script>
 
 <!--Body-->
@@ -39,6 +65,7 @@
                             imgClasses="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-105"
                             placeholderClasses="object-contain" 
                             parentClasses="w-full h-full"
+                            loading={isAboveFold(index) ? 'eager' : 'lazy'}
                         />
                     {:else}
                         <div class="w-full h-full bg-muted/50" />

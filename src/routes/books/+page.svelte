@@ -309,10 +309,10 @@
         transition:fade={{ duration: 200 }}
         role="list"
     >
-        {#each books as book (book["Book Id"])}
-            <div class="h-full" role="listitem">
-                <Book {book} />
-            </div>
-        {/each}
+    {#each books as book, index (book["Book Id"])}
+        <div class="h-full" role="listitem">
+            <Book {book} {index} />
+        </div>
+    {/each}
     </div>
 </section>
