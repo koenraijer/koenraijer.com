@@ -9,7 +9,10 @@ const config = {
 	preprocess: [vitePreprocess({}), mdsvex(mdsvexConfig)],
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		prerender: {
+			entries: ['*'],
+		}
 	}
 };
 export default config;

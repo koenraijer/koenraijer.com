@@ -1,25 +1,29 @@
-import { error } from '@sveltejs/kit'
+import { error } from '@sveltejs/kit';
+import { website } from '$lib/js/info.js';
+
+export const prerender = true;
 
 export async function load({ params, fetch }) {
     try {
-        const data = await fetch("/book_data.json").then(res => res.json())
-
-        // Match slug to slug in data
-        const book = data.find(book => book.slug === params.slug)
+        const data = await fetch("/book_data.json").then(res => res.json());
+        const book = data.find(book => book.slug === params.slug);
+        
+        if (!book) {
+            throw error(404, `Book ${params.slug} not found`);
+        }
         
         return {
             book
-        }
+        };
     } catch (e) {
-        error(404, `Could not find ${params.slug}. ${e}`);
+        throw error(404, `Could not find ${params.slug}. ${e}`);
     }
 }
 
-/** @type {import('@sveltejs/kit').EntryGenerator} */
-/* https://kit.svelte.dev/docs/page-options#prerender-troubleshooting
+/** @type {import('@sveltejs/kit').RequestHandler} */
 export async function entries() {
-    const data = await fetch("/book_data.json").then(res => res.json())
+    const response = await fetch(new URL('/book_data.json', website));
+    const data = await response.json();
     return data.map(book => ({ slug: book.slug }));
 }
- */
-export const prerender = false;
+// This function has been added to svelte.config.js and enables prerendering of book pages.

@@ -3,7 +3,7 @@
     import { formatDate } from '$lib/js/utils.js';
     import Image from '$lib/components/Image.svelte';
     import { Star } from 'lucide-svelte';
-    const book = data?.data?.book ?? {};
+    const book = data.book;
 </script>
 
 <svelte:head>
