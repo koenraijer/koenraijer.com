@@ -3,12 +3,14 @@
     import Book from '$lib/components/Book.svelte';
     import * as info from '$lib/js/info.js';
     import { onMount } from 'svelte';
+    import { writable } from 'svelte/store';
     import { page } from '$app/stores';
     import { browser } from '$app/environment';
     import { goto } from '$app/navigation';
     import { fade } from 'svelte/transition';
     import { beforeNavigate } from '$app/navigation';
     import { ArrowRight } from 'lucide-svelte';
+	import ToTopButton from '$lib/components/ToTopButton.svelte'
 
     // Define book interface
     interface Book {
@@ -196,6 +198,32 @@
     const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&slug=${encodeURIComponent($page.route.id ?? '')}`;
     const url = `${info.website}/books`;
 
+    	// Scroll to top
+	let isScrollingUp = writable(false);
+	let lastScrollY = 0;
+	let scrollOffset = writable(0);
+
+	function handleScroll() {
+		const currentScrollY = window.scrollY;
+		scrollOffset.set(currentScrollY);
+		
+		const distanceFromBottom = document.documentElement.scrollHeight - (window.innerHeight + currentScrollY);
+		
+		if (currentScrollY < lastScrollY && distanceFromBottom >= 200) {
+			isScrollingUp.set(true);
+		} else {
+			isScrollingUp.set(false);
+		}
+		lastScrollY = currentScrollY;
+	}
+
+	onMount(() => {
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	});
+
     // Create a shallow copy for stats
     const copiedBooks = [...data.books];
 </script>
@@ -222,6 +250,10 @@
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
 </svelte:head>
+
+{#if $isScrollingUp}
+	<ToTopButton absolute />
+{/if}
 
 <!-- Header Section -->
 <header class="section space-y-4 mb-12">

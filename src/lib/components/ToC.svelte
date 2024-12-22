@@ -102,7 +102,7 @@
       {#key shouldAnimate}
       <div
         in:fadeSlide={{ duration: 400, delay: 500 }}
-        class="fixed top-0 text-xs w-48 hidden -translate-x-72 translate-y-32"
+        class="fixed top-0 text-xs w-48 hidden -translate-x-72 translate-y-[8.5rem]"
         class:xl:block={shouldAnimate}
       >
           <nav>

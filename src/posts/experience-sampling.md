@@ -50,7 +50,7 @@ I've noticed similar effects when being alone. Especially when in a high absolut
 
 Only after reading a study by Ida-Marie Arendt and colleagues, who calls these **metacognitive beliefs**, did I become able to give words to this phenomenon. She writes the following: 
 
-> "Self-report risks capturing metacognitive beliefs about the symptom rather than the phenomenon itself" [^4]
+> Self-report risks capturing metacognitive beliefs about the symptom rather than the phenomenon itself [^4]
 
 Instead of answering the question of how I was feeling at that moment in time (*the phenomenon itself*), I would answer a different question (the answer to which is the *metacognitive belief*). 
 

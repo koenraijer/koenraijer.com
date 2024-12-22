@@ -1,10 +1,10 @@
 ---
-title: How to write a literature review in 2025
+title: Guide on automating systematic literature reviews in 2025
 date: 2024-09-20
 updated: 2024-09-20
 categories:
   - Research
-description: Here’s my blueprint for tackling a second literature review, having learned from past mistakes so you won't have to! 😉
+description: A practical guide to conducting literature reviews in 2025, showing how to use PRISMA, OSF, ASReview, Zotero, and Google Drive to streamline research workflows. Learn how to handle everything from preregistration and search strategies to automated screening and data extraction, with tips for reducing errors and maintaining quality. Written for researchers working on systematic or scoping reviews, with detailed setup instructions and real examples from firsthand experience.
 published: true
 ToC: true
 ---
