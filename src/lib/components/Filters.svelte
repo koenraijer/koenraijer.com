@@ -288,7 +288,7 @@
     <Menubar.Root class="border-none">
         <!-- Sort Menu -->
         <Menubar.Menu>
-            <Menubar.Trigger class="p-0 w-7 h-7 inline-flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground aspect-square rounded-full">
+            <Menubar.Trigger class="p-0 w-7 h-7 inline-flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground aspect-square rounded-full cursor-pointer">
                 <ArrowUpDown class="w-3.5 h-3.5" />
             </Menubar.Trigger>
             <Menubar.Content class="shadow-none">
@@ -313,7 +313,7 @@
 
         <!-- Rating Menu -->
         <Menubar.Menu>
-            <Menubar.Trigger class="p-0 w-7 h-7 inline-flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground aspect-square rounded-full">
+            <Menubar.Trigger class="p-0 w-7 h-7 inline-flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground aspect-square rounded-full cursor-pointer">
                 <Star class="w-3.5 h-3.5" />
             </Menubar.Trigger>
             <Menubar.Content class="shadow-none">
@@ -333,7 +333,7 @@
 
         <!-- Status Menu -->
         <Menubar.Menu>
-            <Menubar.Trigger class="p-0 w-7 h-7 inline-flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground aspect-square rounded-full">
+            <Menubar.Trigger class="p-0 w-7 h-7 inline-flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground aspect-square rounded-full cursor-pointer">
                 <BookOpen class="w-3.5 h-3.5" />
             </Menubar.Trigger>
             <Menubar.Content class="shadow-none">
