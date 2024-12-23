@@ -1,10 +1,9 @@
 <script lang="ts">
     import { onMount, createEventDispatcher } from 'svelte';
-    import * as DropdownMenu from "$lib/shadcn/ui/dropdown-menu";
     import * as Drawer from "$lib/shadcn/ui/drawer";
+    import * as Menubar from "$lib/shadcn/ui/menubar";
     import { Button } from "$lib/shadcn/ui/button";
-    import { MoreVertical, ArrowUpDown, Star, BookOpen, Check } from 'lucide-svelte';
-    import { Motion } from "svelte-motion";
+    import { MoreVertical, ArrowUpDown, Star, BookOpen, Check, X } from 'lucide-svelte';
     import { ScrollArea } from "$lib/shadcn/ui/scroll-area/";
 
     // Define types for props and events
@@ -90,32 +89,29 @@
         if (isMobile) isMobileDrawerOpen = false;
     }
 
-    // Animation variants
-    const rotateVariants = {
-        open: { rotate: 720 },
-        closed: { rotate: 0 }
-    };
-
-    function handleOpenChange(event: CustomEvent<boolean>): void {
-        isOpen = event.detail;
+    function getReadableStatus(status: 'read' | 'currently-reading' | 'to-read' | 'All'): string {
+        const map = {
+            'read': 'Finished',
+            'currently-reading': 'Currently reading',
+            'to-read': 'On wishlist',
+            'All': 'All'
+        };
+        return map[status] || status;
     }
 
-    // Accessibility labels
-    const labels = {
-        sort: {
-            button: `Sort by ${selectedSort}`,
-            menu: "Sort options menu"
-        },
-        rating: {
-            button: `Filter by rating: ${selectedScore}`,
-            menu: "Rating filter options"
-        },
-        status: {
-            button: `Filter by status: ${selectedStatus}`,
-            menu: "Status filter options"
+    function clearFilter(type: 'sort' | 'score' | 'status'): void {
+        switch(type) {
+            case 'sort':
+                handleSortSelect('Newest');
+                break;
+            case 'score':
+                handleScoreSelect('All scores');
+                break;
+            case 'status':
+                handleStatusSelect('All');
+                break;
         }
-    };
-
+    }
     // Initial dispatch
     onMount(() => {
         // Use Promise.resolve to defer initial dispatches
@@ -128,14 +124,51 @@
 </script>
 
 {#if isMobile}
+    <!-- Active Filters -->
+    <div class="flex items-center">
+        {#if sort === 'Newest' && score === 'All scores' && status === 'All'}
+            <span class="text-foreground text-xs !pill hover:bg-none">Showing all</span>
+        {:else}
+            <div class="inline-flex gap-1.5">
+                {#if sort !== 'Newest'}
+                    <button 
+                        class="pill pr-1.5"
+                        on:click={() => clearFilter('sort')}
+                    >
+                        {sort}
+                        <span class="social hover:bg-foreground/5 p-1 h-5 w-5 flex items-center justify-center ml-1"><X class="w-3.5 h-3.5 inline"/></span>
+                    </button>
+                {/if}
+                {#if score !== 'All scores'}
+                    <button 
+                        class="pill pr-1.5"
+                        on:click={() => clearFilter('score')}
+                    >
+                        {score}
+                        <span class="social hover:bg-foreground/5 p-1 h-5 w-5 flex items-center justify-center ml-1"><X class="w-3.5 h-3.5 inline"/></span>
+                    </button>
+                {/if}
+                {#if status !== 'All'}
+                    <button 
+                        class="pill pr-1.5"
+                        on:click={() => clearFilter('status')}
+                    >
+                        {getReadableStatus(status)}
+                        <span class="social hover:bg-foreground/5 p-1 h-5 w-5 flex items-center justify-center ml-1"><X class="w-3.5 h-3.5 inline"/></span>
+                    </button>
+                {/if}
+            </div>
+        {/if}
+    </div>
+
     <Drawer.Root bind:open={isMobileDrawerOpen}>
         <Drawer.Trigger 
-            class="rounded-full p-2 bg-background/80 backdrop-blur-sm border border-muted-foreground/10 hover:border-muted-foreground/20 transition-colors"
+            class="social border"
             aria-label="Open book filters menu"
         >
-            <MoreVertical class="w-5 h-5" aria-hidden="true" />
+            <MoreVertical class="w-4 h-4" aria-hidden="true" />
         </Drawer.Trigger>
-        <Drawer.Content class="max-h-[85vh]" role="dialog" aria-label="Book filters">
+        <Drawer.Content class="max-h-[95vh]" role="dialog" aria-label="Book filters">
             <Drawer.Header>
                 <Drawer.Title>Filter Books</Drawer.Title>
                 <Drawer.Description>Select your preferences below</Drawer.Description>
@@ -215,102 +248,107 @@
         </Drawer.Content>
     </Drawer.Root>
 {:else}
-    <DropdownMenu.Root bind:open={isOpen} on:openChange={handleOpenChange}>
-        <DropdownMenu.Trigger 
-            class="rounded-full social w-10 flex justify-center items-center h-10 bg-background/80 backdrop-blur-sm border border-muted-foreground/10 hover:border-muted-foreground/20 transition-colors"
-            aria-label="Open filters menu"
-            aria-expanded={isOpen}
-        >
-            <Motion 
-                animate={isOpen ? 'open' : 'closed'} 
-                variants={rotateVariants}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                let:motion
-            >
-                <div use:motion aria-hidden="true">
-                    <MoreVertical class="w-5 h-5" />
-                </div>
-            </Motion>
-        </DropdownMenu.Trigger>
+    <!-- Active Filters -->
+    <div class="flex items-center">
+        {#if sort === 'Newest' && score === 'All scores' && status === 'All'}
+            <span class="text-foreground text-xs !pill hover:bg-none">Showing all</span>
+        {:else}
+            <div class="inline-flex gap-1.5">
+                {#if sort !== 'Newest'}
+                    <button 
+                        class="pill pr-1.5"
+                        on:click={() => clearFilter('sort')}
+                    >
+                        {sort}
+                        <span class="social hover:bg-foreground/5 p-1 h-5 w-5 flex items-center justify-center ml-1"><X class="w-3.5 h-3.5 inline"/></span>
+                    </button>
+                {/if}
+                {#if score !== 'All scores'}
+                    <button 
+                        class="pill pr-1.5"
+                        on:click={() => clearFilter('score')}
+                    >
+                        {score}
+                        <span class="social hover:bg-foreground/5 p-1 h-5 w-5 flex items-center justify-center ml-1"><X class="w-3.5 h-3.5 inline"/></span>
+                    </button>
+                {/if}
+                {#if status !== 'All'}
+                    <button 
+                        class="pill pr-1.5"
+                        on:click={() => clearFilter('status')}
+                    >
+                        {getReadableStatus(status)}
+                        <span class="social hover:bg-foreground/5 p-1 h-5 w-5 flex items-center justify-center ml-1"><X class="w-3.5 h-3.5 inline"/></span>
+                    </button>
+                {/if}
+            </div>
+        {/if}
+    </div>
 
-        <DropdownMenu.Content class="w-56" align="start" role="menu" aria-label="Book filters">
-            <DropdownMenu.Label>Filters</DropdownMenu.Label>
-            <DropdownMenu.Separator />
+    <Menubar.Root class="border-none">
+        <!-- Sort Menu -->
+        <Menubar.Menu>
+            <Menubar.Trigger class="p-0 w-7 h-7 inline-flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground aspect-square rounded-full">
+                <ArrowUpDown class="w-3.5 h-3.5" />
+            </Menubar.Trigger>
+            <Menubar.Content class="shadow-none">
+                {#each sortOptions as group}
+                    <Menubar.Group>
+                        <Menubar.Label class="font-[500] text-muted-foreground !text-xs">{group.group}</Menubar.Label>
+                        {#each group.items as option}
+                            <Menubar.Item 
+                                on:click={() => handleSortSelect(option)}
+                                class="flex items-center justify-between !text-xs"
+                            >
+                                {option}
+                                {#if selectedSort === option}
+                                    <Check class="w-4 h-4" />
+                                {/if}
+                            </Menubar.Item>
+                        {/each}
+                    </Menubar.Group>
+                {/each}
+            </Menubar.Content>
+        </Menubar.Menu>
 
-            <!-- Sort Sub-Menu -->
-            <DropdownMenu.Sub>
-                <DropdownMenu.SubTrigger class="flex items-center gap-2" aria-label={labels.sort.button}>
-                    <ArrowUpDown class="w-4 h-4" aria-hidden="true" />
-                    <span>Sort: {selectedSort}</span>
-                </DropdownMenu.SubTrigger>
-                <DropdownMenu.SubContent aria-label={labels.sort.menu}>
-                    {#each sortOptions as group}
-                        <DropdownMenu.Group>
-                            <DropdownMenu.Label>{group.group}</DropdownMenu.Label>
-                            {#each group.items as option}
-                                <DropdownMenu.Item 
-                                    on:click={() => handleSortSelect(option)}
-                                    class="flex items-center justify-between"
-                                    role="menuitemradio"
-                                    aria-checked={selectedSort === option}
-                                >
-                                    {option}
-                                    {#if selectedSort === option}
-                                        <Check class="w-4 h-4" aria-hidden="true" />
-                                    {/if}
-                                </DropdownMenu.Item>
-                            {/each}
-                            <DropdownMenu.Separator />
-                        </DropdownMenu.Group>
-                    {/each}
-                </DropdownMenu.SubContent>
-            </DropdownMenu.Sub>
+        <!-- Rating Menu -->
+        <Menubar.Menu>
+            <Menubar.Trigger class="p-0 w-7 h-7 inline-flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground aspect-square rounded-full">
+                <Star class="w-3.5 h-3.5" />
+            </Menubar.Trigger>
+            <Menubar.Content class="shadow-none">
+                {#each scoreOptions as option}
+                    <Menubar.Item 
+                        on:click={() => handleScoreSelect(option)}
+                        class="flex items-center justify-between !text-xs"
+                    >
+                        {option}
+                        {#if selectedScore === option}
+                            <Check class="w-4 h-4" />
+                        {/if}
+                    </Menubar.Item>
+                {/each}
+            </Menubar.Content>
+        </Menubar.Menu>
 
-            <!-- Rating Sub-Menu -->
-            <DropdownMenu.Sub>
-                <DropdownMenu.SubTrigger class="flex items-center gap-2" aria-label={labels.rating.button}>
-                    <Star class="w-4 h-4" aria-hidden="true" />
-                    <span>Rating: {selectedScore}</span>
-                </DropdownMenu.SubTrigger>
-                <DropdownMenu.SubContent aria-label={labels.rating.menu}>
-                    {#each scoreOptions as option}
-                        <DropdownMenu.Item 
-                            on:click={() => handleScoreSelect(option)}
-                            class="flex items-center justify-between"
-                            role="menuitemradio"
-                            aria-checked={selectedScore === option}
-                        >
-                            {option}
-                            {#if selectedScore === option}
-                                <Check class="w-4 h-4" aria-hidden="true" />
-                            {/if}
-                        </DropdownMenu.Item>
-                    {/each}
-                </DropdownMenu.SubContent>
-            </DropdownMenu.Sub>
-
-            <!-- Status Sub-Menu -->
-            <DropdownMenu.Sub>
-                <DropdownMenu.SubTrigger class="flex items-center gap-2" aria-label={labels.status.button}>
-                    <BookOpen class="w-4 h-4" aria-hidden="true" />
-                    <span>Status: {selectedStatus}</span>
-                </DropdownMenu.SubTrigger>
-                <DropdownMenu.SubContent aria-label={labels.status.menu}>
-                    {#each statusOptions as option}
-                        <DropdownMenu.Item 
-                            on:click={() => handleStatusSelect(option)}
-                            class="flex items-center justify-between"
-                            role="menuitemradio"
-                            aria-checked={selectedStatus === option}
-                        >
-                            {option}
-                            {#if selectedStatus === option}
-                                <Check class="w-4 h-4" aria-hidden="true" />
-                            {/if}
-                        </DropdownMenu.Item>
-                    {/each}
-                </DropdownMenu.SubContent>
-            </DropdownMenu.Sub>
-        </DropdownMenu.Content>
-    </DropdownMenu.Root>
+        <!-- Status Menu -->
+        <Menubar.Menu>
+            <Menubar.Trigger class="p-0 w-7 h-7 inline-flex items-center justify-center hover:bg-muted text-muted-foreground hover:text-foreground aspect-square rounded-full">
+                <BookOpen class="w-3.5 h-3.5" />
+            </Menubar.Trigger>
+            <Menubar.Content class="shadow-none">
+                {#each statusOptions as option}
+                    <Menubar.Item 
+                        on:click={() => handleStatusSelect(option)}
+                        class="flex items-center justify-between !text-xs"
+                    >
+                        {option}
+                        {#if selectedStatus === option}
+                            <Check class="w-4 h-4" />
+                        {/if}
+                    </Menubar.Item>
+                {/each}
+            </Menubar.Content>
+        </Menubar.Menu>
+    </Menubar.Root>
 {/if}

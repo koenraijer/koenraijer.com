@@ -8,7 +8,7 @@
     }
 </script>
 
-<button class="social bg-background !z-40 border {absolute ? "fixed bottom-5 right-5 sm:bottom-8 sm:right-8" : ""}" on:click={() => {
+<button class="social bg-background !z-40 border {absolute ? "fixed bottom-4 right-4 sm:bottom-8 sm:right-8" : ""}" on:click={() => {
     toTop();
 }} transition:fade={{duration: 100}}>
     <ArrowUp  class="w-4 h-4"/>

@@ -49,7 +49,7 @@
     let books: Book[] = [];
     let sort: string;
     let score: string;
-    let status: string;
+    let status: "read" | "currently-reading" | "to-read" | "All";
     let showStats = false;
     
     // Create memoized indices for faster filtering
@@ -63,7 +63,8 @@
     if (browser) {
         sort = $page.url.searchParams.get('sort') || "Newest";
         score = $page.url.searchParams.get('score') || "All scores";
-        status = $page.url.searchParams.get('status') || "All";
+        const urlStatus = $page.url.searchParams.get('status');
+        status = (urlStatus === 'read' || urlStatus === 'currently-reading' || urlStatus === 'to-read' || urlStatus === 'All') ? urlStatus : "All";
     } else {
         sort = "Newest";
         score = "All scores";
@@ -291,34 +292,12 @@
 </header>
 
 <!-- Filters Container -->
-<div 
-    class="sticky top-0 left-0 right-0 z-50 px-4 pt-8 md:pt-12"
-    role="region"
+<section 
+    class="w-full px-4 md:px-8"
     aria-label="Book filters"
 >
     <!-- Active Filters -->
     <div class="w-full flex justify-between">
-        <div class="bg-background/80 rounded-full border border-muted-foreground/10 py-1 px-4 w-fit">
-            <div class="text-sm text-muted-foreground/80" role="status" aria-live="polite">
-                Showing:
-                <div class="inline-flex gap-2 ml-2">
-                    {#if sort !== 'Newest' || score !== 'All scores' || status !== 'All'}
-                        {#if sort !== 'Newest'}
-                            <span class="text-foreground">{sort}</span>
-                        {/if}
-                        {#if score !== 'All scores'}
-                            <span class="text-foreground">{score}</span>
-                        {/if}
-                        {#if status !== 'All'}
-                            <span class="text-foreground">{status}</span>
-                        {/if}
-                    {:else}
-                        <span class="text-foreground">All</span>
-                    {/if}
-                </div>
-            </div>
-        </div>
-
         <!-- Filters Dropdown -->
         <Filters 
             {score} 
@@ -329,7 +308,7 @@
             on:categorySelected={onCategorySelected} 
         />
     </div>
-</div>
+</section>
 
 <!-- Books Grid -->
 <section 

@@ -116,7 +116,7 @@
 <!-- Categories -->
 <section class="section" aria-label="Post categories">
     <div class="flex flex-row h-fit row-nowrap items-center">
-        <h2 class="text-xs font-normal text-muted-foreground/80">Filed under:</h2>
+        <h2 class="text-xs font-normal text-muted-foreground/80">Filed under:&nbsp;</h2>
         <Categories categories={categoriesArray}/>
     </div>
 </section>

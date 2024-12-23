@@ -123,6 +123,10 @@
   @apply after:absolute after:content-[''] after:inset-[-8px] after:rounded-full md:after:hidden;
 }
 
+.pill {
+  @apply inline-flex items-center text-xs px-2.5 py-0.5 rounded-md bg-secondary hover:bg-secondary/80 text-secondary-foreground transition-colors;
+}
+
 .anchor {
     @apply underline underline-offset-2 decoration-muted-foreground/30 hover:decoration-muted-foreground transition-colors; 
 }
@@ -194,6 +198,9 @@
 
 .proseCodeClasses {
   @apply prose-inline-code:!text-wrap prose-inline-code:!font-mono prose-inline-code:font-normal prose-inline-code:rounded prose-inline-code:before:content-none prose-inline-code:after:content-none prose-inline-code:p-1 prose-inline-code:bg-muted/50 prose-code:!bg-transparent prose-pre:border;
+  /* Add these lines */
+  @apply prose-pre:w-full prose-pre:max-w-full prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap;
+  @apply prose-pre:break-words;
 }
 
 .prose h2, h3, h4, h5, h6 {

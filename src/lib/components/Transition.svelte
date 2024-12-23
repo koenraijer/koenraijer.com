@@ -48,14 +48,15 @@
     }
 </script>
 
-<div class="relative w-full min-h-full">
     {#if !isLoaded}
+    <div class="relative w-full min-h-full">
         <div class="fixed inset-0 flex items-center justify-center bg-background">
             <div class="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" 
                  role="status" 
                  aria-label="Loading">
             </div>
         </div>
+    </div>
     {/if}
     
     {#key url}
@@ -86,10 +87,3 @@
             </div>
         </Motion>
     {/key}
-</div>
-
-<style>
-    :global(body) {
-        overflow-x: hidden;
-    }
-</style>

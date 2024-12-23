@@ -1,21 +1,23 @@
 ---
-title: Guide on automating systematic literature reviews in 2025
+title: Guide on automating your literature review in 2025
 date: 2024-09-20
-updated: 2024-09-20
+updated: 2024-12-22
 categories:
   - Research
-description: A practical guide to conducting literature reviews in 2025, showing how to use PRISMA, OSF, ASReview, Zotero, and Google Drive to streamline research workflows. Learn how to handle everything from preregistration and search strategies to automated screening and data extraction, with tips for reducing errors and maintaining quality. Written for researchers working on systematic or scoping reviews, with detailed setup instructions and real examples from firsthand experience.
+description: "A practical guide to conducting literature reviews in 2025, showing how to use PRISMA, OSF, ASReview, Zotero, and Google Drive to streamline research workflows. Learn how to handle everything from preregistration and search strategies to automated screening and data extraction, with tips for reducing errors and maintaining quality. Written for researchers working on systematic or scoping reviews, with detailed setup instructions and real examples from firsthand experience."
 published: true
 ToC: true
 ---
 
 Here’s my blueprint for tackling a second literature review in 2025, having learned from past mistakes so you won't have to! The approach is heavy on tools, high on automation, and emphasises minimising the potential for human error. I value open-science principles, and prefer open-source software. I try to adhere to the *four-eyes principle*, which says that all work should be done twice, independently of each other. This includes: peer reviewing the search strategy, title and abstract screening, full-text screening and data extraction. I also try limiting copy-pasting actions as much as possible, because every time you copy-paste, you can introduce an error. The most important tools and frameworks I used are: [PRISMA](https://www.prisma-statement.org/), [OSF](https://osf.io/), [ASReview](https://asreview.nl/), [Zotero](https://www.zotero.org/), and [Google Drive](https://drive.google.com/). While you may not agree with all of my points, the take-away is that it is important to thoroughly plan your workflow before you start.
+
 ### Tools & Frameworks
 - [PRISMA](https://www.prisma-statement.org/). PRISMA guidelines help you write clear and complete systematic reviews, meta-analyses, and also scoping reviews (see [PRISMA-ScR](https://www.prisma-statement.org/scoping)) by providing a structured reporting framework. 
 - [OSF](https://osf.io/). The Open Science Framework is a free and open-source platform for preregistering research, project management, and much more. A commonly used alternative is [PROSPERO](https://www.crd.york.ac.uk/PROSPERO/) (systematic reviews and meta-analyses only). 
 - [ASReview](https://asreview.nl/). ASReview is an open-source software tool that accelerates literature reviewing using machine learning to prioritise and screen the scientific literature efficiently. I saved about 75% of time using ASReview. 
 - [Zotero](https://www.zotero.org/). A free and open-source reference manager with loads of useful features. Similar in purpose to EndNote. Its PDF retrieval functionality regularly finds 70-80% of PDFs with the click of a button. Shared libraries make collaboration easy, allowing multiple people to annotate and discuss PDFs asynchronously. It also has a good duplicate detection feature. 
 - [Google Drive](https://drive.google.com/). Don't go working in offline Excel spreadsheets that you share over email. There is an alternative!
+
 ### Research Plan
 The first thing you write and discuss with your team, the **research plan** is a high-level document intended for structuring your thoughts in the preparatory phase. 
 
@@ -34,7 +36,8 @@ Define *inclusion and exclusion criteria* based on your research question, but a
 
 Decide whether you're going to *preregister* your review, and on which platform. One benefit is the fact that you'll be able to cite it on grant applications or resumés, even when it's far from being finished. I preregistered [my scoping review](https://doi.org/10.17605/OSF.IO/CR5F8) on OSF.
 
-Construct a *timeline* for when you'll want to have the protocol finished and published, when you want to start screening, etc. A review requires a significant time investment for all collaborators. Reaching agreement on the timeline will reduce the chance of delays. 
+Construct a *timeline* for when you'll want to have the protocol finished and published, when you want to start screening, etc. A review requires a significa
+nt time investment for all collaborators. Reaching agreement on the timeline will reduce the chance of delays. 
 ### Protocol
 This is a document that outlines the entire procedure of conducting the review, in as much detail as possible. If you decided to preregister your review, this is the document you'll upload there. Its structure depends on the review methodology. I wrote a scoping review, and used [this protocol](https://osf.io/fkxev) as an example. I might be stating the obvious here, but the protocol should be written and published before you actually do the literature search. 
 
@@ -47,6 +50,7 @@ The rest of this post was written with two goals in mind:
 The first thing you'll want to do is perfect the search query for your primary database: the index query. That means seeking agreement among collaborators *before you translate the index query to the language of other databases*. Only when the index query is perfect, you start the translation process. At this point, you might want to involve your university library for advice on your literature search ([UM Library support](https://library.maastrichtuniversity.nl/research/research-essentials/literature-search-systematic-reviews/)). In deciding how broad or narrow you want to search the literature, the number of hits is often an important contributing factor. If you decide to [screen titles and abstracts with ASReview](/literature-review#title-and-abstract-screening-with-asreview), it is helpful to realise that the proportion of time you save increases with the number of hits. In my case, 63% remained unseen with 1339 total hits. With more references, this can increase to 92% [^1]. 
 
 Translation of search queries is tedious and error-prone. There are many differences between databases. For example, they use different *controlled vocabularies*. Examples of controlled vocabularies are MeSH terms in PubMed/MedLine, EMTREE in Embase, and Headings in CINAHL. These do not match one-to-one. There is a [translation tool](https://sr-accelerator.com/#/polyglot) for search queries, but I cannot account for its accuracy because I only found out about it after having translated my queries. I found [this guide](https://guides.library.utoronto.ca/c.php?g=577919&p=4305874) especially useful for navigating these different databases. For peer reviewing the search strategy, I used the PRESS (Peer Review of Electronic Search Strategies) guidelines ([direct link to the checklist](https://ars.els-cdn.com/content/image/1-s2.0-S0895435616000585-mmc1.docx)).
+
 ## Exporting and Deduplicating References 
 You should now have all your search queries executed and lined up. Assuming you've got Zotero downloaded and installed, the next step is exporting your search queries. Generally speaking, the `RIS` format is a good file format. [Here](https://osf.io/3nsep) is a guide on exporting references from different databases for use in Zotero. 
 
