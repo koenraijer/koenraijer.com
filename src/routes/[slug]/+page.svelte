@@ -1,6 +1,6 @@
 <script lang="js">
 	import { formatDate, formatRelativeTime } from '$lib/js/utils.js'
-	import Categories from '$lib/components/Categories.svelte'
+	import Category from '$lib/components/Category.svelte'
 	import ToTopButton from '$lib/components/ToTopButton.svelte'
 	import ToC from '$lib/components/ToC.svelte'
 	import * as info from '$lib/js/info.js'
@@ -115,11 +115,13 @@
 
 <!-- Categories -->
 <section class="section" aria-label="Post categories">
-    <div class="flex flex-row h-fit row-nowrap items-center">
-        <h2 class="text-xs font-normal text-muted-foreground/80">Filed under:&nbsp;</h2>
-        <Categories categories={categoriesArray}/>
+    <div class="flex flex-wrap gap-2 items-center">
+        <h2 class="text-xs font-normal text-muted-foreground/80">Filed under:</h2>
+        {#each categoriesArray as {category, count, slug}}
+            <Category {category} {count} {slug}/>
+        {/each}
     </div>
-</section>
+ </section>
 
 <!-- Navigation -->
 <nav class="section" aria-label="Post navigation">
