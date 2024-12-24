@@ -1,57 +1,61 @@
+// api/posts/+server.js
 import { json } from '@sveltejs/kit'
 import readingTime from 'reading-time'
-import { parse } from 'node-html-parser'
 
 async function getPostsAndCategories() {
     let posts = []
-    let categoriesData = new Map(); // Map to store categories and their data
+    let categoriesData = new Map();
 
     const paths = import.meta.glob(['/src/posts/*.md', '/src/posts/*.svx'], { eager: true });
     
-    for (const path in paths) {
-        const file = paths[path]
-        const slug = path.split('/').at(-1)?.replace('.md', '')
+    posts = await Promise.all(
+        Object.entries(paths).map(async ([path, file]) => {
+            const slug = path.split('/').at(-1)?.replace('.md', '')
+            
+            if (file && typeof file === 'object' && 'metadata' in file && slug) {
+                const metadata = file.metadata
+                const moduleInfo = await import(`/src/posts/${slug}.md`);
+                const stats = readingTime(moduleInfo.default.render().html, { wordsPerMinute: 250 })
+                const preview = metadata.preview || moduleInfo.default.render().html.match(/<p>(.*?)<\/p>/)?.[1] || ""
 
-        if (file && typeof file === 'object' && 'metadata' in file && slug) {
-            const metadata = file.metadata
-            const content = file.default
-            const htmlContent = content.render().html; // Get the rendered HTML content
-            const html = parse(htmlContent)
-            const preview = metadata.preview ? parse(metadata.preview) : html.querySelector('p') ? html.querySelector('p') : ""
-            const stats = readingTime(html.structuredText, { wordsPerMinute: 250 })
-            const post = { 
-                ...metadata, 
-                slug, 
-                readingTime: stats.text, 
-                wordCount: stats.words,
-                content: htmlContent, 
-                preview: {
-                    html: preview.toString(),
-                    text: preview.structuredText ?? preview.toString()
-                }
-            } 
+                if (metadata.published) {
+                    metadata.categories?.forEach(category => {
+                        const categorySlug = category.toLowerCase().replace(/ /g, '-')
+                        if (categoriesData.has(category)) {
+                            categoriesData.set(category, {
+                                ...categoriesData.get(category), 
+                                count: categoriesData.get(category).count + 1
+                            })
+                        } else {
+                            categoriesData.set(category, {slug: categorySlug, count: 1})
+                        }
+                    })
 
-            // If the post is published, push it to the posts array and add/update its categories in the categoriesData map
-            if (post.published) {
-                posts.push(post)
-                post.categories.forEach(category => {
-                    const categorySlug = category.toLowerCase().replace(/ /g, '-'); // create a slug from category name
-                    if (categoriesData.has(category)) {
-                        categoriesData.set(category, {...categoriesData.get(category), count: categoriesData.get(category).count + 1})
-                    } else {
-                        categoriesData.set(category, {slug: categorySlug, count: 1})
+                    return {
+                        ...metadata,
+                        slug,
+                        readingTime: stats.text,
+                        wordCount: stats.words,
+                        modulePath: `/src/posts/${slug}.md`, // Store the path for dynamic import
+                        preview: {
+                            html: preview,
+                            text: preview.replace(/<[^>]*>/g, '')
+                        }
                     }
-                });
+                }
             }
-        }
-    }
-
-    posts = posts.sort((first, second) =>
-        new Date(second.date).getTime() - new Date(first.date).getTime()
+            return null
+        })
     )
 
-    const categories = Object.fromEntries(categoriesData); // Convert the Map to an object
-    return { posts, categories } // Return both posts and categories with their counts and slugs
+    posts = posts
+        .filter(post => post !== null)
+        .sort((first, second) => 
+            new Date(second.date).getTime() - new Date(first.date).getTime()
+        )
+
+    const categories = Object.fromEntries(categoriesData)
+    return { posts, categories }
 }
 
 export async function GET() {

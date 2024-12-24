@@ -25,7 +25,6 @@ ToC: false
   import LatentCausality from '$lib/posts/network_theory/LatentCausality.svelte';
   import LatentCancerTreated from '$lib/posts/network_theory/LatentCancerTreated.svelte';
   import NetworkTable from '$lib/posts/network_theory/NetworkTable.svelte';
-  import Counter from '$lib/components/Counter.svelte';
 </script>
 
 Network theory offers a fundamental shift in how we understand mental disorders: rather than viewing them as discrete conditions with invisible underlying causes, it conceptualizes them as ever-changing networks of interacting symptoms, emotions, behaviors and traits [^1]. It is both a departure from and an extension to the 'common cause' model (also known as the latent disease model). In the common cause model, which underlies classification systems like DSM-5 and ICD-10, symptoms are viewed as mere consequences of an underlying disorder — like depression or anxiety — without causal relationships between symptoms. This has shaped psychiatry and psychology ever since the conception of the DSM-III in 1980 [^2]. Network theory, in contrast, proposes that mental disorders are macroscopic states that emerge from a complex web of causal interactions between symptoms, situated in a person, situated in the world. Symptoms aren't mere consequences of the disorder, *they constitute it* [^3]. 
@@ -104,8 +103,6 @@ Contemporaneous means as much as "at the same time". To construct a contemporane
 In contrast, temporal networks are all about patterns of change over time. Instead of looking for co-occurrence patterns within each data point, we look for co-occurrence patterns from one data point to the next. If one symptom repeatedly happens before another, we can say they are temporally related. Because time is a one-way street, we can draw an arrow from the first to the second symptom. This leads to *directed* edges, indicating the passage of time (it does not imply causality). Usually, temporal networks use a so-called *lag* of 1, meaning we look at the relationship between symptoms at time t and t+1. A lag of 2 would mean we look at the relationship between symptoms at time t and t+2.
 
 <NetworkTable/>
-
-<Counter/>
 
 In this example, we can see clear co-occurrence patterns:
 - Insomnia and Fatigue frequently occur together (P1, P2, P4, P6)
