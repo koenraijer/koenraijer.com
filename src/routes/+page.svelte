@@ -5,7 +5,7 @@
 	import Book from '$lib/components/Book.svelte';
 	import * as info from '$lib/js/info.js';
 	import A from '$lib/components/A.svelte';
-
+    
 	// @ts-ignore
 	import { slide } from 'svelte/transition';
 	

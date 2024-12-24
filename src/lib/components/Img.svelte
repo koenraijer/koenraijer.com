@@ -102,7 +102,7 @@
                 />
             {/if}
             {#if alt}
-                <figcaption class="!text-muted-foreground text-xs text-center mt-2">{alt}</figcaption>
+                <figcaption class="figcaption">{alt}</figcaption>
             {/if}
         </figure>        
     </div>
