@@ -5,9 +5,10 @@ updated: 2024-12-11
 categories:
   - Research
 description: 
-published: false
+published: true
 ToC: false
 ---
+
 <script>
   import HysteresisLoop from '$lib/posts/network_theory/HysteresisLoop.svelte';
   import NetworkPtsdTherapy from '$lib/posts/network_theory/NetworkPtsdTherapy.svelte';
@@ -23,56 +24,93 @@ ToC: false
   import LatentPtsd from '$lib/posts/network_theory/LatentPtsd.svelte';
   import LatentCausality from '$lib/posts/network_theory/LatentCausality.svelte';
   import LatentCancerTreated from '$lib/posts/network_theory/LatentCancerTreated.svelte';
+  import NetworkTable from '$lib/posts/network_theory/NetworkTable.svelte';
 </script>
 
 Network theory offers a fundamental shift in how we understand mental disorders: rather than viewing them as discrete conditions with invisible underlying causes, it conceptualizes them as ever-changing networks of interacting symptoms, emotions, behaviors and traits [^1]. It is both a departure from and an extension to the 'common cause' model (also known as the latent disease model). In the common cause model, which underlies classification systems like DSM-5 and ICD-10, symptoms are viewed as mere consequences of an underlying disorder — like depression or anxiety — without causal relationships between symptoms. This has shaped psychiatry and psychology ever since the conception of the DSM-III in 1980 [^2]. Network theory, in contrast, proposes that mental disorders are macroscopic states that emerge from a complex web of causal interactions between symptoms, situated in a person, situated in the world. Symptoms aren't mere consequences of the disorder, *they constitute it* [^3]. 
 
 As a discipline, network theory is far from new. It can be situated in a much broader field known as [complexity science](https://en.wikipedia.org/wiki/Complex_system), which has crossed paths with cognitive neuroscience, ecology, sociology, economics, computer science, epidemiology, and more. The study of complex systems has taken many forms throughout the 20th century: from [game theory](https://en.wikipedia.org/wiki/Game_theory), to [cybernetics](https://en.wikipedia.org/wiki/Cybernetics), to [chaos theory](https://en.wikipedia.org/wiki/Chaos_theory), all the way to modern [systems biology](https://en.wikipedia.org/wiki/Systems_biology) and network science. And mental health care professionals aren't entirely unfamiliar with complex systems thinking either - conceptual models that are widely used in clinical practice, such as the [biopsychosocial model](https://en.wikipedia.org/wiki/Biopsychosocial_model) and the [diathesis-stress model](https://en.wikipedia.org/wiki/Diathesis%E2%80%93stress_model), already emphasize the interplay between different factors in mental health. What network theory adds is a mathematical framework that transforms these abstract ideas into testable models, opening up new possibilities for understanding and treating mental disorders. 
 
-I'll explain how viewing mental disorders as networks of interacting symptoms challenges traditional models to a broad professional audience. Ever since following Travis Wiltshire's Complex Systems course at Tilburg University, the topic has captivated me. Because complexity writing turns into word salad really quickly, I'll use diagrams to explain how network models can be interpreted and what they can reveal about mental health. In a future post, I plan on demonstrating these concepts with real data analysis.
+In this post, I'll explain how viewing mental disorders as networks of interacting symptoms challenges traditional models of psychopathology. Because complexity writing turns into word salad really quickly, I sought to use diagrams to support the text. In a future post, I plan on demonstrating these concepts with real data analysis.
 
-## The 'Common Cause' Model
+## The 'Common Cause' Model in Medicine
 
-The 'common cause' model has its origins in medicine. It is based on the idea that symptoms are clues for an underlying disease. Someone with cancer may lose weight unexpectedly and feel tired all the time, because the tumor is consuming all their energy. And they're in pain because the tumor puts pressure on the surrounding tissues.
-
-After the patient has been treated successfully and their symptoms wane, but medical imaging shows the tumor is still there, they are still said to have cancer. The latent cause is still there, even if the symptoms are not.
+The 'common cause' model has its origins in medicine. It is based on the idea that symptoms are clues for an underlying disease and it's also known as the *latent cause model*. Take the example of someone who has cancer. They may lose weight and feel tired because they have a tumor that consumes all their energy. In similar fashion, they are in pain because they have a tumor that puts pressure on surrounding tissues. The pain may have some effect on their energy levels, but it's mostly the tumor causing both. The tumor's existence is indisputable. We know it exists because imaging or pathology confirmed it. If the patient receives chemotherapy and their symptoms wane, but medical imaging shows that the tumor is still there, albeit smaller, they are still said to have cancer. The latent cause is still present.
 
 <LatentCancerTreated/>
 
-Mental health care has also adopted the 'common cause' model. We use classification systems (e.g., DSM-V & ICD-10) to give names to these common causes, such as major depressive disorder, generalized anxiety disorder, or post-traumatic stress disorder. Systems such as the DSM have been instrumental in the history of mental health care, systematizing and (to a degree) democratizing it. It gave people a shared language, and played a role in legitimizing mental health conditions as real conditions.
 
-In the 'common cause' view of psychopathology, all symptoms are consequences of a common latent variable. They do not possess any causal power themselves. Let's look at post-traumatic stress disorder (PTSD) as an example. 
+## The 'Common Cause' Model in Psychopathology
+
+Widely used classification systems like the DSM-V or ICD-10 are also grounded in the 'common cause' model. They assume that symptoms are manifestations of an unobserved construct such as major depressive disorder, generalized anxiety disorder, or post-traumatic stress disorder. To qualify for such a disorder, someone might need to have "5 out of 9 symptoms". The exact symptoms are interchangeable, and interactions among symptoms are irrelevant. Symptoms are mere consequences of the 'common cause' that don't possess any causal power themselves. Let's take a look at post-traumatic stress disorder (PTSD) to see how that works out in practice.
 
 <LatentPtsd/>
 
-Within the 'common cause' model, symptoms have the unobserved construct 'PTSD' as a shared cause. This means that symptoms are mere bystanders, they don't participate in the causal matrix. They can't cause other symptoms, they can't change over time, and they must respect the boundaries of diagnostic categories.
+In this view, PTSD is conceptualized as a "thing" that is there, which gives rise to all of the above symptoms. These symptoms are mere clues that hint at the presence of PTSD as their shared underlying cause. It is well-known that people usually have more than one classification. It is not hard to model how multiple classifications are purported to interact within the common cause model. We can safely ignore the symptoms. 
 
 <LatentCausality/>
 
-Let's go back to our 'common cause' view of PTSD. Our client has received therapy and reports not having had any symptoms for the past week. Can we still say they have PTSD?
+Let's go back to our 'common cause' view of PTSD. Parallel to the person with *cancer*, our client has also received treatment in the form of therapy. They report not having had any meaningful symptoms for the past month. Can we still say they have PTSD?
 
 <LatentPtsdTreated/>
 
 The answer is no. At least not currently. Of course, they may be more susceptible than others to have symptoms return, but there is no basis on which to say they currently have PTSD. Without symptoms, there is no disorder. <em>Symptoms do not reflect a mental disorder: they constitute it.</em>
 
-That is not the only problem with the 'common cause' model. Decades of research into the origins of mental disorders have not found causal mechanisms that justify 'common causes'. In actuality, mental disorders co-occur very frequently, to the point where more than half of clients have received two or more classifications at a time [^4]. People have written extensively about the shortcomings of traditional categorical classification systems, so I will not go into that further. 
+This reveals a major flaw in the common cause model: if PTSD is only there if the symptoms are, then PTSD cannot be the cause of the symptoms. A cause must exist independently of its effects - it cannot be defined by the presence of those effects. The common cause model thus contains circular logic: it claims PTSD causes the symptoms, yet PTSD is defined by the presence of those very symptoms.
 
-The way symptoms persist in the stories clients tell is more reminiscent of vicious cycles of ever-reinforcing patterns.
+And that's not the only problem with the common cause model for psychopathology. Decades of research into the origins of mental disorders have not found causal mechanisms that justify the existence of 'common causes'. In addition, real people cannot be confined to the rigid categories that classification systems impose, to the point where more than half of clients have received two or more classifications at a time [^4]. 
+
+People have written extensively about the shortcomings of traditional categorical classification systems, and for risk of repeating what others have already said better, I think it is time to discuss why symptoms deserve a more prominent role. 
+
+The common cause view does not account for several facts that are seen as self-evident by many: (1) symptoms can cause other symptoms, (2) symptoms change over time, (3) symptoms don't care about classifications. 
+
+In reality, symptoms occur in self-reinforcing patterns and cycles. 
 
 <ViciousCircle/>
 
-We don't need a common cause to explain what is happening here. We can just let symptoms cause other symptoms. That is enough to get a self-sustaining entity that could serve as a basis of understanding and as a way to identify possible treatment targets. 
+We don't need a common cause to explain what is happening here. We can just let symptoms cause other symptoms. The resulting self-sustaining entity is enough to serve as a basis for understanding psychopathology. 
 
-It is time to introduce some terminology. 
+## Understanding mental disorders as networks
 
-- **Nodes**. The text boxes we previously called symptoms. 
-- **Edges**. Arrows connecting nodes. Each edge has a *direction*, indicated by the arrowhead. It also has a *strength*, indicated by the edge's width. And it has a *valence*, indicated by its colour (red or green). 
-- **Graph**. The formal name of a network of nodes and edges. 
-- **Path**. Any trajectory along a graph.
-- **Cluster**. A group of nodes that are more densely connected than other parts in the graph.
+### Basic terminology
+
+To make the move from vicious cycles to full-blown networks, it is time to introduce some terminology. 
 
 <Nomenclature/>
 
+**Nodes**, or elements, can be symptoms, emotions, behaviors, or traits. Nodes are causal agents that influence other nodes.
+
+**Edges** are connections between nodes, that take the form of *lines*. 
+
+An edge always has at least these two properties: 
+1. a strength, indicated by the edge's width or thickness, and
+2. a <span style="color:#009951; font-weight: 500">positive</span> or <span style="color:#C00F0D; font-weight: 500">negative</span> *valence*. 
+
+Optionally, edges can have a third property: *direction*, as indicated by the arrowhead. Whether a node is directional depends on the type of network (more on that in the next bit). 
+
+**Path**: any trajectory along a graph.
+
+**Cluster**: a group of nodes that are more densely connected than other parts in the graph.
+
+**Graph**: a different name for a network, commonly used in mathematics.
+
+### Contemporaneous vs. Temporal networks
+
+At this point, it is important to introduce the distinction between *temporal* networks and *contemporaneous* networks.  
+
+Contemporaneous means as much as "at the same time". To construct a contemporaneous network, we look for co-occurrence patterns between pairs of symptoms within each data point. If two symptoms frequently occur together, they are correlated and we draw an edge between them. This leads to *undirected* edges, because although these patterns may be robust, we don't know which symptom causes which.
+
+In contrast, temporal networks are all about patterns of change over time. Instead of looking for co-occurrence patterns within each data point, we look for co-occurrence patterns from one data point to the next. If one symptom repeatedly happens before another, we can say they are temporally related. Because time is a one-way street, we can draw an arrow from the first to the second symptom. This leads to *directed* edges, indicating the passage of time (it does not imply causality). Usually, temporal networks use a so-called *lag* of 1, meaning we look at the relationship between symptoms at time t and t+1. A lag of 2 would mean we look at the relationship between symptoms at time t and t+2.
+
+<NetworkTable/>
+
+In this example, we can see clear co-occurrence patterns:
+- Insomnia and Fatigue frequently occur together (P1, P2, P4, P6)
+- Anxiety and Sadness sometimes co-occur (P3)
+- Some people have multiple symptoms (P1, P4)
+- Others have single symptoms (P5)
+
+These patterns would result in stronger edges between frequently co-occurring symptoms (like Insomnia-Fatigue) in the network.
 For example, a negative edge between “social support” and “depression” nodes might indicate that higher levels of social support tend to reduce depressive symptoms. Conversely, a strong positive edge between “insomnia” and “fatigue” nodes would suggest that increased insomnia is likely to lead to increased fatigue.
 
 <NomenclatureExamples/>

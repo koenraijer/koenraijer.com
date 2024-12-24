@@ -104,7 +104,7 @@
     <!-- Post content -->
     <section class="relative">
         <div class="prose proseClasses proseCodeClasses first-letter:text-[3.75rem] first-letter:font-[500] first-letter:float-left first-letter:!leading-[0.96] first-letter:tracking-[10px]">
-            {@html data.post.content}
+            <svelte:component this={data.post.content} />
         </div>
 
         {#if data.post.ToC}

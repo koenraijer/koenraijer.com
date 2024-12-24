@@ -13,13 +13,7 @@ const config = {
         prerender: {
             entries: ['*'],
             handleHttpError: ({ path, referrer, message }) => {
-                // Specifically handle the problematic URL
-                if (path === '/books/hyperion-by-dan-simmons-1989-05-26') {
-                    console.warn(`Skipping problematic URL: ${path}`);
-                    return;
-                }
-
-                // Log other 404s but continue building
+                // Log 404s but continue building
                 if (message.includes('404')) {
                     console.warn(`Warning: ${message}. Skipping prerender for ${path}`);
                     return;

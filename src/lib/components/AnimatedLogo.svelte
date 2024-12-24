@@ -23,7 +23,7 @@
         stroke="currentColor"
         stroke-width="inherit"
         xmlns="http://www.w3.org/2000/svg"
-        class="stroke-foreground h-8 w-8 stroke-1"
+        class="stroke-foreground h-6 w-6 stroke-1"
     >
 
         <path 

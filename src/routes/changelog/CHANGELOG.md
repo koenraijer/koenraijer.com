@@ -1,4 +1,5 @@
 #### December 2024
+- 🐞 Fixed bug where Svelte hydration wasn't working for blog posts
 - ✨ New feature: added RSS feed.
 - ♿️ Accessibility: major improvements in screen reader support and use of semantic HTML.
 - ⚡️ Performance: improved loading times by serving optimized images. 
