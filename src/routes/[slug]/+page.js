@@ -7,7 +7,7 @@ export async function load({ data }) {
     }, {});
 
     // Dynamically import the MDsveX component
-    const postModule = await import(post.modulePath);
+    const postModule = await import(`../../posts/${post.slug}.md`)
     const postComponent = postModule.default;
 
     post = { 

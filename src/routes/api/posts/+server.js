@@ -14,7 +14,7 @@ async function getPostsAndCategories() {
             
             if (file && typeof file === 'object' && 'metadata' in file && slug) {
                 const metadata = file.metadata
-                const moduleInfo = await import(`/src/posts/${slug}.md`);
+                const moduleInfo = file  // Use the file object directly
                 const stats = readingTime(moduleInfo.default.render().html, { wordsPerMinute: 250 })
                 const preview = metadata.preview || moduleInfo.default.render().html.match(/<p>(.*?)<\/p>/)?.[1] || ""
 
