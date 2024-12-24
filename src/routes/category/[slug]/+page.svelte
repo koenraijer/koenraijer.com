@@ -20,12 +20,12 @@
 </article>
 
 <section class="section" aria-labelledby="posts-heading">
-    <h2 id="posts-heading" class="text-sm font-normal text-muted-foreground/80 mb-2">Posts in {data.category}</h2>
+    <h2 id="posts-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Posts in {data.category}</h2>
     <Posts posts={data.categoryPosts} />
 </section>
 
 <!-- Categories -->
 <nav class="section" aria-labelledby="categories-heading">
-    <h2 id="categories-heading" class="text-sm font-normal text-muted-foreground/80 mb-2">All Categories</h2>
+    <h2 id="categories-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">All Categories</h2>
     <Categories categories={data.categories} />
 </nav>

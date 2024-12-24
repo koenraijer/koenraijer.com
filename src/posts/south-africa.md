@@ -1,5 +1,5 @@
 ---
-title: Three months in a rural South African hospital
+title: Three Months in a South African Public Hospital
 description: I spent three months working in a rural hospital in Limpopo, the poorest province of South Africa.
 date: 2022-11-14
 categories:
