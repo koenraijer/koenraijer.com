@@ -46,6 +46,7 @@
 		"xmlbuilder2": "^3.1.1"
 	},
 	"dependencies": {
+		"@giscus/svelte": "^3.0.0",
 		"@microflash/remark-callout-directives": "^4.3.1",
 		"@sveltejs/adapter-vercel": "^5.5.0",
 		"@vcarl/remark-headings": "^0.1.0",

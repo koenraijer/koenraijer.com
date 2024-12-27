@@ -125,7 +125,7 @@
         {/each}
     </div>
 
-    <A href={githubEditLink} classes="anchor !text-xs">Edit this post</A>
+    <A href={githubEditLink} classes="anchor !text-xs">Edit</A>
  </section>
 
 <!-- Navigation -->
@@ -164,3 +164,22 @@
         </div>
     </div>
 </nav>
+
+<section class="section" aria-label="Comments">
+    <script src="https://giscus.app/client.js"
+            data-repo="koenraijer/koenraijer.com"
+            data-repo-id="R_kgDOJ_LamA"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOJ_LamM4Clf9g"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+</section>

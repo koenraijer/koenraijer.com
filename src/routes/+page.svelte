@@ -171,6 +171,6 @@
 >
     <h2 id="connect-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Connect</h2>
     <p class="text-sm">
-        Reach me at <A href="mailto:hello@koenraijer.com" aria-label="Send email to hello@koenraijer.com">hello@koenraijer.com</A>.
+        Reach me at <A me href="mailto:hello@koenraijer.com" aria-label="Send email to hello@koenraijer.com">hello@koenraijer.com</A>.
     </p>
 </section>

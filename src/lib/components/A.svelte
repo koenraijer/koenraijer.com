@@ -2,9 +2,11 @@
 	import { ArrowUpRight, Send } from 'lucide-svelte'
     import Github from '$lib/components/icons/Github.svelte'
     export let href;
-    export let classes="anchor";
-    let target = "_self";
+    export let classes="anchor";   
+    export let me = false;
     let rel = "";
+    let target = "_self";
+
 
     // Check if link is external
     let isExternal = href.includes("http") || href.includes("mailto");
@@ -19,13 +21,13 @@
     let isGithub = href.includes("github.com")
     if (isExternal) {
         target = "_blank";
-        rel = "noopener noreferrer nofollow";
+        rel = me ? "me noopener noreferrer nofollow" : "noopener noreferrer nofollow";
     }
 
 </script>
 
 
-<a class={classes + " inline-flex my-0 break-all group"} href={href} {target} {rel}>
+<a class={classes + " inline-flex my-0 break-all group"} href={href} {target} {rel} {...$$restProps}>
     <slot/>
     {#if isExternal && !isWikipedia && !isEmail && !isGithub}
 		<ArrowUpRight class="w-3 h-3 inline-flex self-start text-inherit stroke-2 mt-1 -ml-[1px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"/>
@@ -37,6 +39,6 @@
         <Send class="w-2 h-2 inline-flex self-start text-inherit stroke-2 mt-1 -ml-[1px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"/>
     {/if}
     {#if isGithub}
-        <Github class="w-2 h-2 bg-accent inline-flex self-start mt-1 text-foreground/70 group-hover:text-foreground transition-colors"/>
+        <Github class="w-2 h-2 bg-accent inline-flex self-start ml-[1px] mt-1 text-foreground/70 group-hover:text-foreground transition-colors"/>
     {/if}
 </a>
