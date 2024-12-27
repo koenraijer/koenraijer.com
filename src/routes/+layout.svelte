@@ -133,7 +133,7 @@
 	<a class="p-name u-url" href="https://koenraijer.com">{info.name}</a>
 	<a class="u-email" href={"mailto:" + info.email}>{info.email}</a>
 	
-	<p class="p-note">{info.bio}</p>
+	<p class="p-note">{info.bio.text}</p>
   
 	<p>
 	  <span class="p-org">Reinier van Arkel</span>
