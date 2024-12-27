@@ -76,17 +76,22 @@
 	<ToTopButton absolute />
 {/if}
 
-<article class="section">
+<article class="section h-entry">
     <!-- Header section -->
     <header class="w-full !mx-auto">
         {#if data.post.title}
-            <h1 class="text-2xl my-4 font-[500]">{data.post.title}</h1>
+            <h1 class="text-2xl my-4 font-[500] p-name">{data.post.title}</h1>
         {/if}
+
+        <!-- h-entry stuff-->
+        <a class="p-author h-card hidden" href={info.website}>{info.name}</a>
+        <p class="p-summary hidden">{data.post.description}</p>
+
         <div class="mb-8 text-xs text-muted-foreground md:inline-flex md:items-center break-words">
             {#if data.post.date}
                 <span class="inline mr-2">
                     <Calendar class="h-3 w-3 mr-1 inline-flex flex-nowrap" aria-hidden="true" />
-                    <time datetime={data.post.date}>{formatDate(data.post.date)}</time>
+                    <time class="dt-published" datetime={data.post.date}>{formatDate(data.post.date)}</time>
                 </span>
                 {#if data.post.updated}
                     <span class="text-muted-foreground/70 mr-2 inline flex-nowrap">
@@ -106,7 +111,7 @@
 
     <!-- Post content -->
     <section class="relative">
-        <div class="prose proseClasses proseCodeClasses first-letter:text-[3.75rem] first-letter:font-[500] first-letter:float-left first-letter:!leading-[0.96] first-letter:tracking-[10px]">
+        <div class="e-content prose proseClasses proseCodeClasses first-letter:text-[3.75rem] first-letter:font-[500] first-letter:float-left first-letter:!leading-[0.96] first-letter:tracking-[10px]">
             <svelte:component this={data.post.content} />
         </div>
 
