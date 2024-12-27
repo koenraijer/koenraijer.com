@@ -3,12 +3,13 @@
 	import Category from '$lib/components/Category.svelte'
 	import ToTopButton from '$lib/components/ToTopButton.svelte'
 	import ToC from '$lib/components/ToC.svelte'
+    import A from '$lib/components/A.svelte'
 	import * as info from '$lib/js/info.js'
 	import { onMount } from 'svelte'
 	import { writable } from 'svelte/store'
 	export let data
 	import { Calendar, BookText, History } from 'lucide-svelte'
-	
+
 	// Convert the object to an array of entries [key, value]
 	let categoriesArray = Object.entries(data.post.categories).map(([category, details]) => ({
 		category,
@@ -18,6 +19,8 @@
 	// SEO
 	const ogImage = `https://koenraijer-og.vercel.app/api/og?title=${encodeURIComponent(data.post.title)}&description=${encodeURIComponent(data.post.description)}&slug=${encodeURIComponent(data.post.slug)}`
 	const url = `${info.website}/${data.post.slug}`
+
+    const githubEditLink = `https://github.com/koenraijer/koenraijer.com/edit/main/src/posts/${data.post.slug}.md`
 
 	// Scroll to top
 	let isScrollingUp = writable(false);
@@ -114,13 +117,15 @@
 </article>
 
 <!-- Categories -->
-<section class="section" aria-label="Post categories">
+<section class="section flex justify-between" aria-label="Post categories">
     <div class="flex flex-wrap gap-2 items-center">
         <h2 class="text-xs font-normal text-muted-foreground/80">Filed under:</h2>
         {#each categoriesArray as {category, count, slug}}
             <Category {category} {count} {slug}/>
         {/each}
     </div>
+
+    <A href={githubEditLink} classes="anchor !text-xs">Edit this post</A>
  </section>
 
 <!-- Navigation -->

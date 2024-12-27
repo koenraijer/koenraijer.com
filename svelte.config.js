@@ -10,6 +10,9 @@ const config = {
 
     kit: {
         adapter: adapter(),
+        // files: {
+        //     assets: ['src/images']
+        // },
         prerender: {
             entries: ['*'],
             handleHttpError: ({ path, referrer, message }) => {
