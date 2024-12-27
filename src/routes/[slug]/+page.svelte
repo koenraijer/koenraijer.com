@@ -84,8 +84,9 @@
         {/if}
 
         <!-- h-entry stuff-->
-        <a class="p-author h-card hidden" href={info.website}>{info.name}</a>
+        <a class="p-author h-card hidden" rel="author" href={info.website}>{info.name}</a>
         <p class="p-summary hidden">{data.post.description}</p>
+        <a class="u-url" href={info.website + "/" + data.post.slug}>{info.website + "/" + data.post.slug}</a>
 
         <div class="mb-8 text-xs text-muted-foreground md:inline-flex md:items-center break-words">
             {#if data.post.date}
