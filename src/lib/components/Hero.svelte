@@ -57,8 +57,8 @@
 
 <!-- Preload image-->
 <svelte:head>
-  <link rel="preload" as="image" href="/241122_avatar.webp" type="image/webp" />
-  <link rel="prefetch" href="/241122_avatar.webp" />
+  <link rel="preload" as="image" href={info.avatar} type="image/webp" />
+  <link rel="prefetch" href={info.avatar} />
 </svelte:head>
 
 <div class="relative flex flex-row gap-x-2">
@@ -95,7 +95,7 @@
                   aria-label="Profile picture of {info.name}"
               >
                   <img 
-                      src="/241122_avatar.webp" 
+                      src={info.avatar} 
                       alt="Profile picture of {info.name}"
                       class="{avatarSize} rounded-full border-muted-foreground/20 border-4 transition-all" 
                       fetchpriority="high"

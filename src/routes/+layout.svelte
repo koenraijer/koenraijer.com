@@ -2,7 +2,7 @@
 	export let data;
 	import '../app.postcss';
 
-	import { website } from '$lib/js/info.js';
+	import * as info from '$lib/js/info.js'
 	import { goto, afterNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { base } from '$app/paths'
@@ -65,26 +65,33 @@
 	};
 
 	afterNavigate(({from}) => {
-	if (from) {
-		previousPage = from.url.pathname;
-	}
+		if (from) {
+			previousPage = from.url.pathname;
+		}
 	});
 
 	// Get the display name for the previous page
 	$: previousPageName = pathNames[previousPage] || 'Back';
 
 	function goBack() {
-	if (previousPage) {
-		goto(previousPage, { replaceState: true, noScroll: true });
-	} else {
-		goto("/books", { replaceState: true, noScroll: true });
-	}
+		if (previousPage) {
+			goto(previousPage, { replaceState: true, noScroll: true });
+		} else {
+			goto("/books", { replaceState: true, noScroll: true });
+		}
 	}
 </script>
 
 <svelte:head>
 	<!-- SEO -->
-	<link rel="canonical" href="{website}{$page.url.pathname}" />
+	<link rel="canonical" href="{info.website}{$page.url.pathname}" />
+
+	<!-- Accept Webmentions -->
+	<link rel="webmention" href="https://webmention.io/www.koenraijer.com/webmention" />
+	<link rel="pingback" href="https://webmention.io/www.koenraijer.com/xmlrpc" />
+
+	<!-- RSS Autodiscovery -->
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.koenraijer.com/rss.xml">
 
 	<!-- Preload the favicon based on theme -->
 	{#if $mode === 'light'}
@@ -120,6 +127,24 @@
 <ModeWatcher />
 <Toaster />
 
+<!-- h-card -->
+<div class="h-card hidden">
+	<img class="u-photo" src={info.avatar} alt="Koen Raijer's avatar" />
+	<a class="p-name u-url" href="https://koenraijer.com">{info.name}</a>
+	<a class="u-email" href={"mailto:" + info.email}>{info.email}</a>
+	
+	<p class="p-note">{info.bio}</p>
+  
+	<p>
+	  <span class="p-org">Reinier van Arkel</span>
+	  <span class="p-job-title">Psychiatry resident</span>
+	</p>
+  
+	<!-- Social profiles -->
+	<a class="u-url" rel="me" href={info.github}>GitHub</a>
+	<a class="u-url" rel="me" href={info.linkedin}>LinkedIn</a>
+	<a class="u-url" rel="me" href={info.goodreads}>GoodReads</a>
+  </div>
 
 <div class="w-full grid grid-rows-[auto_1fr_auto] min-h-[100svh]">
     <a 
