@@ -31,22 +31,6 @@
                     zoomLevel === 1 ? 'w-32 h-32' : 
                     'w-40 h-40';
 
-    onMount(() => {
-      const isDismissed = localStorage.getItem(STORAGE_KEY);
-      if (!isDismissed) {
-        toast(
-          'The `.io` domain will no longer be available per January 22nd 2025. Please visit koenraijer.com instead.', 
-          {
-            duration: 10000,
-            action: {
-              label: "Don't show again",
-              onClick: () => localStorage.setItem(STORAGE_KEY, 'true')
-            }
-          }
-        );
-      }
-    });
-
     let rabbitholes = info.rabbitholes
 
     // Get last three items, most recent first
