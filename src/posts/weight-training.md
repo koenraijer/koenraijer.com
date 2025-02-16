@@ -2,13 +2,13 @@
 title: Practical Weight Training Guide
 description: A flexible and efficient, science-based full-body weight training program for busy people who seek long-term health, based on my own training experience, medical background, and knowledge of scientific literature.
 date: 2023-08-06
-updated: 2024-12-12
+updated: 2025-02-16
 categories:
   - Health
 published: true
 ToC: true
 ---
-This is a guide on how to structure your weight training. I'm not sure why I, with all of the stuff that's already out there, decided to write this. I guess I just wanted to put my own thoughts on paper. I've been doing weight training for a good 10 years now. I moved through many life phases in the meantime, with incremental degrees of seriousness. New cities, busy schedules, commitments, fun life stuff. And all the while I've been training consistently for multiple times a week. Sometimes once or twice, oftentimes three or four times. I've consumed a lot of fitness advice in that time, and I think I've internalized most of the good stuff. So, drawing from my experience, I hope this guide helps those who want to take their training seriously while balancing it with work and life commitments.  Even if you don't intend on using this program, think about how you currently manage your physical fitness. Try to seek something that fits neatly with your lifestyle. Don't go all in on some way-over-the-top program. Instead, pick something reasonable, easy to follow and effective. The best fitness program is the one you keep doing!
+This is a guide on how to structure your weight training. I'm not sure why I, with all of the stuff that's already out there, decided to write this. I guess I just wanted to put my own thoughts on paper. I've been doing weight training for a good decade now. I started at around 15 years old, and I'm 26 now. New cities, busy schedules, commitments, fun life stuff. And all the while I trained quasi-consistently, usually several times a week. Sometimes once or twice, oftentimes three or four times. I've consumed a lot of fitness advice in that time, and I think I've internalized most of the good stuff. So, drawing from my experience, I hope this guide helps those who want to take their training seriously while balancing it with work and life commitments.  Even if you don't intend on using this program, think about how you currently manage your physical fitness. Try to seek something that fits neatly with your lifestyle. Don't go all in on some way-over-the-top program. Instead, pick something reasonable, easy to follow and effective. The best fitness program is the one you keep doing!
 ## Introduction
 It can be really hard to sift through all the bullshit in the world of weight training. In fact, there's a whole market for people saying they have gotten rid of all the bullshit, just for you, and then they sell you *their own* bullshit. At a discount, if you're lucky.
 
@@ -35,7 +35,7 @@ I think there are four principle the program adheres to:
 > If you don't get injured, you don't lose progress. Consistency in the long-term is more important than hitting that rep, or doing that extra set. If it doesn't feel right, or the technique is failing, *stop*. That rep is not important in the long-term. Slow and steady wins the race.
 
 ## Training intensity 
-Intensity is defined as weight $\times$ volume, where volume is sets $\times$ repetitions. If I did 3 sets of 12 in squats with 80 kg, the intensity amounts to $80 \times (3 \times 12) = 2880$. Basically, it's the total amount of weight you lift. Keep this value relatively constant over work-outs. No need to calculate it, but be mindful of the work you put in and the way your body reacts. Don't do two highly taxing squat workouts in close succession. If you've done a lot of lower back work, don't also be going heavy on rows. Common sense stuff. 
+Intensity is defined as weight x volume, where volume is sets x repetitions. If I did 3 sets of 12 in squats with 80 kg, the intensity amounts to $80 \times (3 \times 12) = 2880$. Basically, it's the total amount of weight you lift. Keep this value relatively constant over work-outs. No need to calculate it, but be mindful of the work you put in and the way your body reacts. Don't do two highly taxing squat workouts in close succession. If you've done a lot of lower back work, don't also be going heavy on rows. Common sense stuff. 
 
 The reason not to be doing this is because you'll feel lethargic the next day, or feel nauseated after the workout, and that is just not fun. It's also not sustainable, and it's risky because your technique will suffer, leaving you vulnerable to injuries. 
 
@@ -129,8 +129,94 @@ Accessories:
 
 Train every other day for about an hour. Don't sit around when in between sets; use supersets, myo-reps or ladders to [save time](#time-savers). Train hard, until near-failure, but never to technical failure. Pick one [exercise](#exercise-choice) per major muscle group and 1-2 accessories. Switch up the rep schemes and exercises. Go outside and move on days you don't train.
 
+## Example programs
+These are some example programs I've used in the past. I currently use the 2 alternating 30-minute full-body workouts.
+
+### 2 alternating 30-minute full-body workouts
+**Workout CQ (chest/quad-focussed):**
+1. Chin-ups 8-12 reps. → start 2 min. timer
+2. Dips 12-15 reps.
+3. Chin-ups 8-12 reps. → 4x 15 sec. myoreps
+4. Dips 12-15 reps. → 4 x 15 sec. myoreps
+5. Squats warming up (no rest): 8x 40 kg; 5x 50 kg → start 1:30 min. timer
+6. HLRs 12 reps. 
+7. Squats 60 kg 10 reps. → start 2 min. timer
+8. HLRs 12 reps.
+9. Squats 60 kg 10 reps. 
+10. Lateral raises 8 kg 12-15 reps. → start 1:30 min. timer
+11. Lateral raises 8 kg 12-15 reps. → 4x 15 sec. myoreps
+
+**Workout SH (shoulders/hamstring-focussed):**
+1. Cable rows 12 reps. → start 2 min. timer
+2. Landmine press 12 reps. per side
+3. Cable rows 8-12 reps. → 4x 15 sec. myoreps
+4. Landmine press 12 reps. per side → 4 x 15 sec. myoreps
+5. Good mornings warming up (no rest): 12 reps. with empty bar; 5 reps. with 40 kg → start 1:30 min. timer
+6. HLRs 12 reps. 
+7. Good mornings 50 kg 10 reps. → start 2 min. timer
+8. HLRs 12 reps.
+9. Good mornings 50 kg 10 reps.
+10. Skullcrushers warming up (no rest): 5 reps. with 5 kg per side; 5 reps. with 7.5 kg per side.
+11. 2x: Incline DB curls 12 reps. with 12 kg. → skullcrushers 12 reps. with 10 kg per side
+
+### 1-hour full-body A/B
+**A:**
+1. Handstand practice
+2. Weighted pull ups: 3 sets of 6-10 reps
+3. Pike push ups: 3 sets of 8-12 reps
+4. Barbell lunges: 3 sets of 10-12 reps
+5. Superset:
+	1. Bodyweight rows: 3 sets of 10-12 reps
+	2. Push-ups: 3 sets of 15-20 reps
+
+**B:**
+1. Handstand practice
+2. Superset:
+	1. Pull ups
+	2. RDLs / Good mornings
+3. Superset:
+	1. Weighted dips
+	2. Hanging leg raises
+4. Superset:
+	1. Face pulls
+	2. Lateral raises
+5. Core compression routine
+
+### 4-day upper-lower split
+**Upper 1**
+- Weighted pull-ups
+- Weighted dips
+- Barbell rows
+- Shoulder press
+- Abs
+- Accessory
+
+**Lower 1**
+- Leg press
+- Good mornings
+- Hamstring curls
+- Leg extensions
+- Calves
+
+**Upper 2**
+- Pull up pyramid (20s)
+- Bench press
+- Cable rows
+- Shoulder press
+- Abs
+- Accessory
+
+**Lower 2**
+- Squats
+- RDLs
+- Leg extensions
+- Hamstring curls
+- Calves
+- Abs
+
 ## A final word of advice
 
-It's impossible to stick to your program *all of the time*. There will be times, perhaps weeks on end, where you're unmotivated. That's normal. You haven't lost your gains. Just go back and pick up where you left off. It's no major failure and not a reason to stop. Stopping and starting is part of it. 
+It's impossible to stick to your program *all of the time*. There will be times, perhaps weeks on end, where you're unmotivated. That's normal. You haven't lost your gains. Just go back and pick up where you left off. It's not a major failure, nor a character flaw, and it's definitely not a reason to stop. Stopping and starting is part of working out.  
 
-Of course, weight training likes to be around having a fulfilling social and family life, good sleep, a healthy diet, a fulfilling career. All of these are in constant tensions with each other, and that's okay.
+Of course, weight training is in constant tension with a fulfilling social and family life, good sleep, a healthy diet, a fulfilling career. It's a constant act of considering the trade-offs and balancing it all.
+

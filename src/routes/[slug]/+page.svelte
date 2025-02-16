@@ -171,6 +171,7 @@
     </div>
 </nav>
 
+<!-- 
 <section class="section" aria-label="Comments">
     <script src="https://giscus.app/client.js"
             data-repo="koenraijer/koenraijer.com"
@@ -188,4 +189,4 @@
             crossorigin="anonymous"
             async>
     </script>
-</section>
+</section> -->

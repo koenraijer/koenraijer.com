@@ -1,3 +1,6 @@
+#### February 2025 
+- 📝 New post: [Living guide for novice PineTime tinkerers](/pinetime)
+
 #### December 2024
 - 🐞 Fixed bug where Svelte hydration wasn't working for blog posts
 - ✨ New feature: added RSS feed.

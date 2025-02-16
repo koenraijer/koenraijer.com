@@ -3,7 +3,7 @@ title: Zotero-Obsidian Quick Copy
 description: External translator to improve integration between Obsidian and Zotero.
 date: 2022-12-31
 categories:
-  - Tools
+  - Tinkering
 published: true
 ---
 

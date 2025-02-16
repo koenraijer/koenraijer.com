@@ -3,7 +3,7 @@ title: "arXivCollector"
 date: 2024-05-04
 categories:
   - Research
-  - Tools
+  - Tinkering
 description: Export arXiv searches as neatly formatted BibTex files.
 published: true
 ToC: true

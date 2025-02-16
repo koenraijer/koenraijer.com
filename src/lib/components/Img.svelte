@@ -89,7 +89,7 @@
                 />
             {/if}
             {#if alt}
-                <figcaption class="figcaption pb-4 md:mb-12">{alt}</figcaption>
+                <figcaption class="figcaption">{alt}</figcaption>
             {/if}
         </figure>        
     </div>

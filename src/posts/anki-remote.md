@@ -2,7 +2,7 @@
 title: "DIY Anki Remote for iPhone"
 date: 2023-12-10
 categories:
-  - Tools
+  - Tinkering
 description: Setting up an Anki Remote using nothing but your iPhone (only for iOS)
 published: true
 ---
