@@ -1,7 +1,9 @@
 {
-  "name": "koenraijer",
-  "compatibility_date": "2025-04-23",
-  "assets": {
-    "directory": ".svelte-kit/cloudflare"
-  }
+    "name": "koenraijer",
+    "compatibility_date": "2025-04-23",
+    "main": ".svelte-kit/cloudflare/_worker.js",
+    "assets": {
+        "binding": "ASSETS",
+        "directory": ".svelte-kit/cloudflare"
+    }
 }
