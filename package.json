@@ -12,7 +12,6 @@
 	},
 	"devDependencies": {
 		"@floating-ui/dom": "^1.6.5",
-		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/enhanced-img": "0.3.10",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
@@ -48,7 +47,7 @@
 	"dependencies": {
 		"@giscus/svelte": "^3.0.0",
 		"@microflash/remark-callout-directives": "^4.3.1",
-		"@sveltejs/adapter-vercel": "^5.5.0",
+		"@sveltejs/adapter-cloudflare": "^7.0.4",
 		"@vcarl/remark-headings": "^0.1.0",
 		"directory-tree": "^3.5.1",
 		"fuse.js": "^6.6.2",
