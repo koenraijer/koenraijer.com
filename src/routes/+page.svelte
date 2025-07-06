@@ -81,8 +81,8 @@
 >
     <h2 id="now-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Now</h2>
     <p class="text-sm">
-        <span>Working at a mental health care facility. Doing </span>
-        <A classes="text-sm anchor" href="https://doi.org/10.17605/OSF.IO/CR5F8">research</A> on ambulatory assessment in PTSD. Coding <A href="https://outline-labs.web.app/" classes="anchor text-sm">Outline Labs</A>. Relocating to Utrecht. Recently graduated from Tilburg University in data science. 
+        <span>Slowing down, learning, reflecting. Working at a mental health institution. Finishing up on </span>
+        <A classes="text-sm anchor" href="https://doi.org/10.17605/OSF.IO/CR5F8">research</A> on ambulatory assessment in PTSD.
     </p>    
 </section>
 
@@ -133,7 +133,7 @@
     </section>
 
     <!-- Projects section -->
-    <section 
+    <!-- <section 
         class="mt-8 sm:mt-12 md:mt-0 h-fit"
         aria-labelledby="projects-heading"
     >
@@ -152,7 +152,7 @@
                 <span class="text-muted-foreground text-sm -ml-1">. Faster clinical notetaking.</span>
             </div>
         </div>
-    </section>
+    </section> -->
 </div>
 
 <!-- Writing section -->

@@ -36,6 +36,7 @@ export const rabbitholes =
     'internet history',
     'free energy',
     'network theory',
+    'rituals',
 ]
 
 // Old bio's:
