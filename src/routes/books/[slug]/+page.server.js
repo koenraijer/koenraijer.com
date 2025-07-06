@@ -30,10 +30,6 @@ export async function entries() {
         const data = await response.json();
         const entries = data.filter(book => book.slug).map(book => ({ slug: book.slug }));
         
-        // Log the specific book
-        const found = entries.find(e => e.slug === 'de-nederlandse-paus-adrianus-van-utrecht-1459-1523');
-        console.log('Book in entries:', !!found);
-        
         return entries;
     } catch (e) {
         console.error('entries() failed:', e);
