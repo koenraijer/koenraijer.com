@@ -6,9 +6,9 @@ Hi, I'm Koen! I'm a psychiatry resident with a passion for technology, philosoph
 
 ## 💻 Tech Stack
 Technologies used to build the website:
-- Frontend: SvelteKit, mdsvex
+- Frontend: SvelteKit, typescript, mdsvex
 - Styling: Tailwind CSS
-- Deployment: Vercel
+- Deployment: Cloudflare Worker
 - Hosting: Cloudflare
 
 ## 🎨 Design Philosophy
