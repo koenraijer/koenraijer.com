@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Pre-push Goodreads sync guard (website nested repo)
+# - Runs sync on pushes to main
+# - Skips when GIT_SKIP_SYNC=1 or commit message contains [skip-sync]
+# - Use `git push --no-verify` to bypass hooks entirely
+
+# Skip via env var
+if [[ "${GIT_SKIP_SYNC:-}" == "1" ]]; then
+  exit 0
+fi
+
+# Skip via commit message tag on the latest commit
+if git log -1 --pretty=%B | grep -qi '\[skip-sync\]'; then
+  exit 0
+fi
+
+# Only run on main
+branch="$(git rev-parse --abbrev-ref HEAD)"
+if [[ "$branch" != "main" ]]; then
+  exit 0
+fi
+
+website_root="$(git rev-parse --show-toplevel)"
+repo_root="$(cd "$website_root/.." && pwd -P)"
+cd "$repo_root"
+
+echo "[pre-push] (website) Running Goodreads sync from repo root…" >&2
+if scripts/prepush_sync.sh; then
+  echo "[pre-push] (website) Goodreads sync completed." >&2
+  exit 0
+else
+  status=$?
+  echo "[pre-push] (website) Goodreads sync failed (exit $status). Use --no-verify or GIT_SKIP_SYNC=1 or [skip-sync] to bypass." >&2
+  exit $status
+fi
+

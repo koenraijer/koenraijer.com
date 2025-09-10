@@ -1,3 +1,6 @@
+#### September 2025
+- ✨ New feature: book notes are now automatically displayed on book pages.
+
 #### February 2025 
 - 📝 New post: [Living guide for novice PineTime tinkerers](/pinetime)
 
