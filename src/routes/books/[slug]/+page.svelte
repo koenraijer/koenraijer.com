@@ -3,6 +3,9 @@
     import { formatDate } from '$lib/js/utils.js';
     import Image from '$lib/components/Image.svelte';
     import { Star, Info } from 'lucide-svelte';
+    import { Tooltip, TooltipContent, TooltipTrigger } from '$lib/shadcn/ui/tooltip/index.js';
+    import { browser } from '$app/environment';
+
     const book = data.book;
 
     function normalizeReview(input: string): string[] {
@@ -177,18 +180,21 @@
         <section aria-labelledby="notes-heading" class="order-4 md:order-3 col-span-full md:col-span-3">
             <!-- <h2 id="notes-heading" class="text-base font-medium mb-2">Notes</h2> -->
             {#if data?.note && data?.note?.content}
-                <div class="bg-muted/10 border border-muted-foreground/10 rounded-md px-4 py-2">
-                    <div class="text-xs text-muted-foreground mb-3 inline-flex items-center gap-1">
+                <div class="bg-muted/10 border border-muted-foreground/10 rounded-md px-4 pt-2 pb-4">
+                    <div class="text-xs text-muted-foreground mb-2 inline-flex items-center gap-1">
                         <span>Field notes</span>
-                        <span class="relative inline-block group align-middle">
-                            <Info class="h-3.5 w-3.5 text-muted-foreground/80" aria-hidden="true" />
-                            <span
-                                role="tooltip"
-                                class="pointer-events-none absolute z-10 left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap rounded-md border bg-popover text-popover-foreground px-2 py-1 text-[11px] opacity-0 group-hover:opacity-100 shadow-md transition-opacity"
-                            >
-                                Auto‑imported from Obsidian
-                            </span>
-                        </span>
+                        {#if browser}
+                          <Tooltip>
+                            <TooltipTrigger class="align-middle inline-flex">
+                              <Info class="h-3.5 w-3.5 text-muted-foreground/80" aria-label="Auto‑imported from Obsidian" />
+                            </TooltipTrigger>
+                            <TooltipContent sideOffset={6} class="h-fit">
+                              <span class="text-[11px] py-0 my-0">Auto‑imported from Obsidian</span>
+                            </TooltipContent>
+                          </Tooltip>
+                        {:else}
+                          <Info class="h-3.5 w-3.5 text-muted-foreground/80" aria-label="Auto‑imported from Obsidian" title="Auto‑imported from Obsidian" />
+                        {/if}
                     </div>
                     <div class="prose prose-sm prose-headings:font-medium prose-p:leading-relaxed prose-blockquote:italic prose-blockquote:text-muted-foreground">
                         {@html mdToHtml(String(data.note.content))}
