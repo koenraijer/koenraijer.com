@@ -1,6 +1,7 @@
 <script>
     export let posts;
     import { CornerDownRight } from 'lucide-svelte';
+    import A from '$lib/components/A.svelte';
     
     /**
 	 * @param {string | number | Date} dateString
@@ -25,13 +26,9 @@
             class="inline"
             role="listitem"
         >
-            <a 
-                href={"/" + post.slug} 
-                class="text-sm anchor"
-                aria-label="{post.title}, published {formatDate(post.date)}"
-            >
+            <A href={"/" + post.slug} classes="anchor text-sm" aria-label={post.title + ", published " + formatDate(post.date)}>
                 {post.title}
-            </a>
+            </A>
             <span 
                 class="text-muted-foreground/70 text-xs"
                 aria-hidden="true"

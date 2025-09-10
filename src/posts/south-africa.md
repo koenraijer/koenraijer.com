@@ -4,7 +4,7 @@ description: I spent three months working in a rural hospital in Limpopo, the po
 date: 2022-11-14
 categories:
   - Personal
-  - Psychiatry/psychology
+  - Psychiatry & psychology
 published: true
 ---
 

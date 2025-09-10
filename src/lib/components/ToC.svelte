@@ -89,7 +89,56 @@
   afterNavigate(() => {
     shouldAnimate = true;
   });
+
+  // Layout tuning (split top/bottom control)
+  export let topStartPx = 144;       // initial top offset (~8rem)
+  export let topTuckedPx = 48;       // tucked top offset (~3.5rem)
+  export let transitionRangePx = 320;// interpolation range for tuck
+  export let bottomViewportGapPx = 48; // white margin at bottom of viewport
+  export let navBottomGapPx = 4;       // gap between ToC bottom and Post navigation
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function easeOutQuad(x) { return 1 - (1 - x) * (1 - x); }
+
+  let currentTopPx = topStartPx;
+  let maxH = `calc(100vh - ${topStartPx + bottomViewportGapPx}px)`;
+  let postNavEl: HTMLElement | null = null;
+
+  $: (function updateTopAndHeight() {
+    const tLinear = Math.min(Math.max(scrollY / transitionRangePx, 0), 1);
+    const t = easeOutQuad(tLinear);
+    currentTopPx = Math.round(lerp(topStartPx, topTuckedPx, t));
+    // Compute viewport-constrained max height
+    const vhLimit = (typeof window !== 'undefined') ? (window.innerHeight - (currentTopPx + bottomViewportGapPx)) : 0;
+    // If post navigation exists and is within viewport, constrain bottom to it
+    let navLimit = Infinity;
+    if (typeof window !== 'undefined') {
+      if (!postNavEl) postNavEl = document.querySelector('nav[aria-label="Post navigation"]');
+      const rect = postNavEl?.getBoundingClientRect();
+      if (rect) {
+        // Distance from top of viewport to bottom of nav, minus current top and an extra gap
+        navLimit = rect.bottom - currentTopPx - navBottomGapPx;
+      }
+    }
+    const px = Math.max(0, Math.min(vhLimit, navLimit));
+    maxH = px > 0 ? `${Math.round(px)}px` : `calc(100vh - ${currentTopPx + bottomViewportGapPx}px)`;
+  })();
 </script>
+
+<style>
+  /* Smoothly animate tiny changes to top to avoid jaggedness */
+  .toc-container { transition: top 100ms ease-out; will-change: top; }
+  /* Keep layout stable; hide scrollbars but allow scrolling */
+  .toc-scroll { scrollbar-gutter: stable both-edges; }
+  .toc-scroll { scrollbar-width: none; }
+  .toc-scroll::-webkit-scrollbar { width: 0; height: 0; }
+  .toc-scroll::-webkit-scrollbar-track { background: transparent; }
+  .toc-scroll::-webkit-scrollbar-thumb { background-color: transparent; }
+  @media (prefers-color-scheme: dark) {
+    .toc-scroll { scrollbar-width: none; }
+    .toc-scroll::-webkit-scrollbar { width: 0; height: 0; }
+  }
+</style>
 
 <svelte:window 
   on:scroll={updateActiveHeading}
@@ -102,8 +151,9 @@
       {#key shouldAnimate}
       <div
         in:fadeSlide={{ duration: 400, delay: 500 }}
-        class="fixed top-0 text-xs w-48 hidden -translate-x-72 translate-y-[8.5rem]"
-        class:xl:block={shouldAnimate}
+        class="toc-container fixed text-xs w-48 hidden xl:block -translate-x-72 overflow-y-auto pr-2 overscroll-contain toc-scroll"
+        style={`top:${currentTopPx}px; max-height:${maxH}`}
+        tabindex="0"
       >
           <nav>
             {#each headings as heading}

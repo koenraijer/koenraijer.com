@@ -2,11 +2,18 @@
     export let data;
     import { formatDate } from '$lib/js/utils.js';
     import Image from '$lib/components/Image.svelte';
-    import { Star, Info } from 'lucide-svelte';
-    import { Tooltip, TooltipContent, TooltipTrigger } from '$lib/shadcn/ui/tooltip/index.js';
-    import { browser } from '$app/environment';
+    
+    import { clickOutside } from '$lib/actions/clickOutside';
 
     const book = data.book;
+    let showNoteInfo = false;
+
+    function starsFromRating(input: unknown, max = 5): string {
+        const n = Math.round(Number(input) || 0);
+        const filled = '★'.repeat(Math.max(0, Math.min(n, max)));
+        const empty = '☆'.repeat(Math.max(0, max - Math.min(n, max)));
+        return filled + empty;
+    }
 
     function normalizeReview(input: string): string[] {
         if (!input) return [];
@@ -92,21 +99,20 @@
                         src={"book_covers/" + (book["Book Id"] ? book["Book Id"] : "") + ".webp"} 
                         alt={`Book cover for ${book.Title} by ${book.Author}`}
                     />
-                    {#if book['My Rating']}
-                        <div class="absolute top-2 right-2 flex items-center gap-0.5 bg-background/90 backdrop-blur-sm rounded-full py-0.5 px-2.5 shadow-sm">
-                            <Star class="md:w-4 md:h-4 h-3 w-3" fill="currentColor" />
-                            <span class="md:text-sm text-xs font-medium leading-none">{book['My Rating']}</span>
-                        </div>
-                    {/if}
                 </div>
+                {#if book['My Rating']}
+                    <div class="w-1/3 mx-auto md:w-full text-center">
+                        <span class="text-base font-mono">{starsFromRating(book['My Rating'])}</span>
+                    </div>
+                {/if}
             </div>
         </section>
         
         <!-- Right: unified column with all content stacked top-to-bottom -->
-        <section class="order-2 md:order-1 md:col-start-2 md:col-span-2 space-y-3">
+        <section class="order-2 md:order-1 md:col-start-2 md:col-span-2 space-y-1">
             <!-- Title & Author -->
             <header aria-labelledby="book-title">
-                <h1 class="text-xl font-medium mb-1" id="book-title">{book?.Title}</h1>
+                <h1 class="text-xl font-medium" id="book-title">{book?.Title}</h1>
                 <p class="text-lg text-muted-foreground" id="book-author">{book?.Author}</p>
             </header>
             <!-- Reading Status -->
@@ -166,7 +172,7 @@
 
         <!-- Review: span all columns -->
         {#if book['My Review']}
-            <section aria-labelledby="review-heading" class="order-3 md:order-2 col-span-full md:col-span-3 pt-4">
+            <section aria-labelledby="review-heading" class="order-3 md:order-2 col-span-full md:col-span-3">
                 <h2 id="review-heading" class="text-base font-medium mb-2">Review</h2>
                 <div class="prose text-sm">
                     {#each reviewParagraphs as para}
@@ -183,18 +189,34 @@
                 <div class="bg-muted/10 border border-muted-foreground/10 rounded-md px-4 pt-2 pb-4">
                     <div class="text-xs text-muted-foreground mb-2 inline-flex items-center gap-1">
                         <span>Field notes</span>
-                        {#if browser}
-                          <Tooltip>
-                            <TooltipTrigger class="align-middle inline-flex">
-                              <Info class="h-3.5 w-3.5 text-muted-foreground/80" aria-label="Auto‑imported from Obsidian" />
-                            </TooltipTrigger>
-                            <TooltipContent sideOffset={6} class="h-fit">
-                              <span class="text-[11px] py-0 my-0">Auto‑imported from Obsidian</span>
-                            </TooltipContent>
-                          </Tooltip>
-                        {:else}
-                          <Info class="h-3.5 w-3.5 text-muted-foreground/80" aria-label="Auto‑imported from Obsidian" title="Auto‑imported from Obsidian" />
-                        {/if}
+                        <span
+                          class="relative inline-block"
+                          use:clickOutside={{ enabled: showNoteInfo }}
+                          on:outclick={() => (showNoteInfo = false)}
+                        >
+                          <button
+                            class="cursor-pointer align-middle inline-flex text-muted-foreground/80 underline decoration-dotted underline-offset-2"
+                            type="button"
+                            aria-expanded={showNoteInfo}
+                            aria-controls="note-info"
+                            on:click={() => (showNoteInfo = !showNoteInfo)}
+                          >
+                            [info]
+                          </button>
+                          {#if showNoteInfo}
+                            <span
+                              id="note-info"
+                              role="tooltip"
+                              class="absolute left-0 top-full mt-1 z-20 bg-popover text-popover-foreground whitespace-nowrap text-[11px] border border-foreground/50 rounded-sm px-2 py-1"
+                            >
+                              <span class="absolute left-3 -top-1.5">
+                                <span class="block w-0 h-0 border-x-[6px] border-x-transparent border-b-[6px] border-b-foreground/50"></span>
+                                <span class="absolute left-0 top-[2px] block w-0 h-0 border-x-[6px] border-x-transparent border-b-[6px] border-b-popover"></span>
+                              </span>
+                              Auto‑imported from Obsidian
+                            </span>
+                          {/if}
+                        </span>
                     </div>
                     <div class="prose prose-sm prose-headings:font-medium prose-p:leading-relaxed prose-blockquote:italic prose-blockquote:text-muted-foreground">
                         {@html mdToHtml(String(data.note.content))}

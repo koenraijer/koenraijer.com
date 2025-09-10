@@ -1,7 +1,7 @@
 <script lang="ts">
     import { formatDate } from '$lib/js/utils.js';
     import LazyImg from '$lib/components/LazyImg.svelte';
-    import { BookmarkCheck, ClipboardList, BookOpen, Star } from 'lucide-svelte';
+    import { ClipboardList, BookOpen } from 'lucide-svelte';
     import { goto } from '$app/navigation';
     export let compact = false
     export let book;
@@ -37,13 +37,24 @@
         // Navigate to the book details page
         goto(`/books/${book.slug}`, { replaceState: false });
     }
+
+    // Local formatter: DD-MM-YY
+    function formatDDMMYY(input: string | Date | undefined) {
+        if (!input) return '';
+        const d = new Date(input);
+        if (isNaN(d.getTime())) return '';
+        const dd = String(d.getDate()).padStart(2, '0');
+        const mm = String(d.getMonth() + 1).padStart(2, '0');
+        const yy = String(d.getFullYear()).slice(-2);
+        return `${dd}-${mm}-${yy}`;
+    }
     
 </script>
 
 <!--Body-->
 <button class="flex flex-col w-full sm:flex-row group gap-x-4 overflow-hidden" on:click|preventDefault={() => navigateToBookDetails(book)}>
     {#if compact}
-        <p class="anchor text-sm text-left inline !leading-tight">
+        <p class="anchor underline decoration-dotted underline-offset-2 text-sm text-left inline !leading-tight">
             <span>{book.Title ? book.Title : ""}</span>
             <span class="text-muted-foreground text-sm">&nbsp;~ {book.Author}</span>
 
@@ -72,18 +83,11 @@
                     {/if}
                 </div>
     
-                <!-- Floating Rating Badge -->
-                {#if book['My Rating']}
-                    <div class="absolute top-2 right-2 flex items-center gap-0.5 bg-background/90 backdrop-blur-sm rounded-full py-0.5 px-2 shadow-sm">
-                        <Star class="w-3 h-3" fill="currentColor" />
-                        <span class="text-xs font-medium leading-none">{book['My Rating']}</span>
-                    </div>
-                {/if}
+                <!-- Rating caption below cover -->
             </div>
         </div>
-    
         <!-- Book Info -->
-        <div class="space-y-1.5">
+        <div class="space-y-0.5">
             <!-- Title and Author in more compact layout -->
             <div class="space-y-0.5">
                 <h2 class="text-sm font-medium line-clamp-1 hover:underline text-left">
@@ -94,19 +98,24 @@
                 </p>
             </div>
     
-            <!-- Status with more compact design -->
-            <div class="flex items-center gap-1 text-xs text-muted-foreground/80">
+            <!-- Status with compact, inline flow -->
+            <p class="text-xs text-muted-foreground/80 text-left">
                 {#if book['Exclusive Shelf'] === "read"}
-                        <BookmarkCheck class="w-3.5 h-3.5" />
-                        <span>{book['Date Read'] ? (formatDate(book['Date Read'])) : "Finished"}</span>
+                    {#if book['Date Read']}
+                        <span>{formatDDMMYY(book['Date Read'])}</span>
+                    {/if}
+                    {#if book['My Rating']}
+                        <span class="text-muted-foreground/50"> · </span>
+                        <span class="font-mono">[★ {book['My Rating']}/5]</span>
+                    {/if}
                 {:else if book['Exclusive Shelf'] === "currently-reading"}
-                        <BookOpen class="w-3.5 h-3.5" />
-                        <span>Reading</span>
+                    <BookOpen class="w-3.5 h-3.5 inline-block align-[0.1em]" />
+                    <span class="ml-1">Reading</span>
                 {:else if book['Exclusive Shelf'] === "to-read"}
-                        <ClipboardList class="w-3.5 h-3.5" />
-                        <span>Wishlist</span>
+                    <ClipboardList class="w-3.5 h-3.5 inline-block align-[0.1em]" />
+                    <span class="ml-1">Wishlist</span>
                 {/if}
-            </div>
+            </p>
         </div>
     </div>
     {/if}

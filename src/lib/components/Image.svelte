@@ -37,12 +37,13 @@
                 loading="lazy"
                 width={enhancedSrc.img.w}
                 height={enhancedSrc.img.h}
+                class="border border-border rounded-none"
                 {...$$restProps}
             />
         </picture>
     {:else}
         <picture>
-            <img {src} {alt} title={alt} loading="lazy" {...$$restProps} />
+            <img {src} {alt} title={alt} loading="lazy" class="border border-border rounded-none" {...$$restProps} />
         </picture>
     {/if}
 {/if}

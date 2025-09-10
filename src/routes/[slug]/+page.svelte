@@ -112,7 +112,7 @@
 
     <!-- Post content -->
     <section class="relative">
-        <div class="e-content prose proseClasses proseCodeClasses first-letter:text-[3.75rem] first-letter:font-[500] first-letter:float-left first-letter:!leading-[0.96] first-letter:tracking-[10px]">
+        <div class="e-content prose proseClasses proseCodeClasses first-letter:text-[4rem] first-letter:font-[500] first-letter:float-left first-letter:!leading-[0.96] first-letter:tracking-[10px] first-letter:transform first-letter:translate-y-[0.3rem]">
             <svelte:component this={data.post.content} />
         </div>
 
@@ -137,18 +137,18 @@
 <!-- Navigation -->
 <nav class="section" aria-label="Post navigation">
     <hr class="mb-4">
-    <div class="flex flex-col md:flex-row justify-between gap-y-2">
+    <div class="flex flex-col md:flex-row justify-between gap-y-2 gap-x-6">
         <div class="flex flex-col">
             {#if data.post.previous}
                 <span class="text-xs font-normal text-muted-foreground/80" id="prev-label">Previous</span>
-                <a 
-                    href={data.post.previous.slug} 
-                    class="text-sm anchor"
+                <A
+                    href={data.post.previous.slug}
+                    classes="anchor text-sm"
                     aria-labelledby="prev-label"
                     rel="prev"
                 >
                     {data.post.previous.title}
-                </a>
+                </A>
             {:else}
                 <span class="text-xs text-muted-foreground/80" aria-label="No newer posts available">No newer posts</span>
             {/if}
@@ -156,14 +156,14 @@
         <div class="text-right flex flex-col">
             {#if data.post.next}
                 <span class="text-xs font-normal text-muted-foreground/80" id="next-label">Next</span>
-                <a 
-                    href={data.post.next.slug} 
-                    class="text-sm anchor ml-auto text-right"
+                <A
+                    href={data.post.next.slug}
+                    classes="anchor text-sm ml-auto text-right"
                     aria-labelledby="next-label"
                     rel="next"
                 >
                     {data.post.next.title}
-                </a>
+                </A>
             {:else}
                 <span class="text-xs text-muted-foreground/80 md:ml-auto" aria-label="No older posts available">No older posts</span>
             {/if}

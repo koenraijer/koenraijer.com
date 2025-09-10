@@ -1,6 +1,5 @@
 <script>
 	import Hero from '$lib/components/Hero.svelte';
-	import { Link2 } from 'lucide-svelte';
 	import Posts from '$lib/components/Posts.svelte';
 	import Book from '$lib/components/Book.svelte';
 	import * as info from '$lib/js/info.js';
@@ -33,7 +32,6 @@
 	// @ts-ignore
 	export let data
 
-	let isHovered = false;
 
 	let categoriesArray = Object.entries(data.categories).map(([category, {count, slug}]) => ({
 		category,
@@ -98,31 +96,11 @@
         <h2 
             id="reading-heading" 
             class="text-sm font-[500] text-muted-foreground mb-2"
-			on:mouseenter={() => isHovered = true}
-			on:mouseleave={() => isHovered = false}
         >
-            <a 
-                href="/books" 
-                class="inline-flex items-center"
-                aria-label="View all books"
-            >
-                Reading 
-                <Link2 
-                    class="w-4 h-4 text-muted-foreground/40 dark:text-muted-foreground/70 inline rotate-45 ml-1"
-                    aria-hidden="true"
-                />
-                {#if isHovered}
-                    <span
-                        class="overflow-hidden whitespace-nowrap text-muted-foreground/50 dark:text-muted-foreground pl-2 text-xs font-normal"
-                        transition:fadeSlide={{ axis: "x", duration: 200 }}
-                    >
-                        visit /books
-                    </span>
-                {/if}
-            </a>
+            Reading
         </h2>
         <div 
-            class="flex flex-col gap-y-2"
+            class="flex flex-col gap-y-1"
             role="list"
             aria-label="Currently reading"
         >
@@ -132,6 +110,9 @@
                 </div>
             {/each}
         </div>
+        <p class="mt-0">
+            <A href="/books" classes="anchor text-xs italic" aria-label="See all books">[See all books]</A>
+        </p>
     </section>
 
     <!-- Projects section -->
@@ -176,18 +157,15 @@
         <span>Reach me at <A me href={"mailto:" + info.email} aria-label={"Send email to " + info.email}>{info.email}</A></span>
         <span>
             or download 
-            <a 
+            <A 
               href="https://koenraijer.com/240504_resume.pdf"
               aria-label="Download resume (PDF)"
-              class="anchor text-sm inline-flex items-baseline group"
+              classes="anchor text-sm inline items-baseline"
               rel="noopener noreferrer"
               download
             >
               my resume
-              <sup class="inline-block align-super transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5">
-                <FileDown class="w-2.5 h-2.5" aria-hidden="true" />
-              </sup>
-            </a>
+            </A>
             .
         </span>
     </p>
