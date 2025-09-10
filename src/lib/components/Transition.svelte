@@ -51,10 +51,8 @@
     {#if !isLoaded}
     <div class="relative w-full min-h-full">
         <div class="fixed inset-0 flex items-center justify-center bg-background">
-            <div class="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" 
-                 role="status" 
-                 aria-label="Loading">
-            </div>
+            <!-- Retro, stepped spinner -->
+            <div class="retro-spinner text-primary" role="status" aria-label="Loading"></div>
         </div>
     </div>
     {/if}
@@ -87,3 +85,29 @@
             </div>
         </Motion>
     {/key}
+
+<style>
+  /* Segmented ring with choppy, stepwise rotation for a retro vibe */
+  .retro-spinner {
+    width: 2rem;
+    height: 2rem;
+    /* Use current text color so tailwind's text-primary applies */
+    color: currentColor;
+    /* Create segmented ring */
+    background: repeating-conic-gradient(
+      currentColor 0deg 14deg,
+      transparent 14deg 30deg
+    );
+    /* Punch a hole in the middle to form a ring */
+    -webkit-mask: radial-gradient(farthest-side, transparent 58%, #000 60%);
+            mask: radial-gradient(farthest-side, transparent 58%, #000 60%);
+    /* Choppy step animation instead of smooth spin */
+    animation: retro-spin 900ms steps(12) infinite;
+    /* Slightly blocky feel */
+    image-rendering: pixelated;
+  }
+
+  @keyframes retro-spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
