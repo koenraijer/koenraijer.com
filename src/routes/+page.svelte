@@ -5,6 +5,8 @@
 	import Book from '$lib/components/Book.svelte';
 	import * as info from '$lib/js/info.js';
 	import A from '$lib/components/A.svelte';
+    import { FileDown } from 'lucide-svelte';
+    import { Download } from 'lucide-svelte';
     
 	// @ts-ignore
 	import { slide } from 'svelte/transition';
@@ -79,7 +81,7 @@
     class="section md:max-w-5xl h-fit md:mt-12"
     aria-labelledby="now-heading"
 >
-    <h2 id="now-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Now</h2>
+    <h2 id="now-heading" class="text-sm font-[500] text-muted-foreground mb-2">Now</h2>
     <p class="text-sm">
         <span>Slowing down, learning, reflecting. Working at a mental health institution. Finishing up on </span>
         <A classes="text-sm anchor" href="https://doi.org/10.17605/OSF.IO/CR5F8">research</A> on ambulatory assessment in PTSD.
@@ -95,7 +97,7 @@
     >
         <h2 
             id="reading-heading" 
-            class="text-sm font-[500] text-muted-foreground/80 mb-2"
+            class="text-sm font-[500] text-muted-foreground mb-2"
 			on:mouseenter={() => isHovered = true}
 			on:mouseleave={() => isHovered = false}
         >
@@ -111,7 +113,7 @@
                 />
                 {#if isHovered}
                     <span
-                        class="overflow-hidden whitespace-nowrap text-muted-foreground/50 dark:text-muted-foreground/80 pl-2 text-xs font-normal"
+                        class="overflow-hidden whitespace-nowrap text-muted-foreground/50 dark:text-muted-foreground pl-2 text-xs font-normal"
                         transition:fadeSlide={{ axis: "x", duration: 200 }}
                     >
                         visit /books
@@ -137,7 +139,7 @@
         class="mt-8 sm:mt-12 md:mt-0 h-fit"
         aria-labelledby="projects-heading"
     >
-        <h2 id="projects-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Projects</h2>
+        <h2 id="projects-heading" class="text-sm font-[500] text-muted-foreground mb-2">Projects</h2>
         <div 
             class="flex flex-col leading-tight gap-y-1"
             role="list"
@@ -160,7 +162,7 @@
     class="section md:max-w-5xl h-fit"
     aria-labelledby="writing-heading"
 >
-    <h2 id="writing-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Writing</h2>
+    <h2 id="writing-heading" class="text-sm font-[500] text-muted-foreground mb-2">Writing</h2>
     <Posts posts={data.posts}/>
 </section>
 
@@ -169,8 +171,24 @@
     class="section md:max-w-5xl h-fit"
     aria-labelledby="connect-heading"
 >
-    <h2 id="connect-heading" class="text-sm font-[500] text-muted-foreground/80 mb-2">Connect</h2>
-    <p class="text-sm">
-        Reach me at <A me href={"mailto:" + info.email} aria-label={"Send email to " + info.email}>{info.email}</A>.
+    <h2 id="connect-heading" class="text-sm font-[500] text-muted-foreground mb-2">Connect</h2>
+    <p class="text-sm flex items-center gap-2 flex-wrap">
+        <span>Reach me at <A me href={"mailto:" + info.email} aria-label={"Send email to " + info.email}>{info.email}</A></span>
+        <span>
+            or download 
+            <a 
+              href="https://koenraijer.com/240504_resume.pdf"
+              aria-label="Download resume (PDF)"
+              class="anchor text-sm inline-flex items-baseline group"
+              rel="noopener noreferrer"
+              download
+            >
+              my resume
+              <sup class="inline-block align-super transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5">
+                <FileDown class="w-2.5 h-2.5" aria-hidden="true" />
+              </sup>
+            </a>
+            .
+        </span>
     </p>
 </section>

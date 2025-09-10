@@ -1,35 +1,21 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { LocateFixed, Download } from 'lucide-svelte'
+    import { LocateFixed } from 'lucide-svelte'
     import * as info from '$lib/js/info.js';
     import { toast } from 'svelte-sonner';
     
     const STORAGE_KEY = 'domain-warning-dismissed';
     
-    let locationTooltipVisible = false;
-    let avatarTooltipVisible = false;
-    let tooltipX = 0;
-    let tooltipY = 0;
-    let zoomLevel = 0; // Track zoom state: 0 = normal, 1 = bigger, 2 = biggest
+    let showLocation = false;
+    let showAvatar = false;
+    let zoomLevel = 0; // Track zoom state: 0 = small, 1 = medium
 
-    function handleMouseMove(event: MouseEvent) {
-      // Don't update position if the mouse is over the image
-      if (event.target instanceof HTMLImageElement) return;
-      
-      tooltipX = event.pageX + 10;
-      tooltipY = event.pageY + 10;
+    function handleAvatarClick() {
+      zoomLevel = (zoomLevel + 1) % 2;
     }
 
-    function handleAvatarClick(event: MouseEvent) {
-      // Don't increment zoom if clicking the image
-      if (event.target instanceof HTMLImageElement) return;
-      
-      zoomLevel = (zoomLevel + 1) % 3;
-    }
-
-    $: avatarSize = zoomLevel === 0 ? 'w-24 h-24' : 
-                    zoomLevel === 1 ? 'w-32 h-32' : 
-                    'w-40 h-40';
+    // Preserve aspect ratio: control width only; two sizes
+    $: avatarSize = zoomLevel === 0 ? 'w-24' : 'w-32';
 
     let rabbitholes = info.rabbitholes
 
@@ -46,77 +32,62 @@
 </svelte:head>
 
 <div class="relative flex flex-row gap-x-2">
-  <!-- Resume Download -->
-  <div class="w-full flex justify-end h-6 absolute -top-8 right-0 sm:right-6">
-      <a 
-          class="sm:inline-flex hidden items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" 
-          href="https://koenraijer.com/240504_resume.pdf"
-          aria-label="Download resume (PDF)"
-          download
-      >
-          <Download class="w-3 h-3 inline" aria-hidden="true"/>
-          Download Resume
-      </a>
-  </div>
-
   <h1 class="text-base md:text-xl mb-4 md:!leading-10">
       <!-- Name with Avatar -->
-      <button 
+      <span class="relative inline-block" on:mouseenter={() => (showAvatar = true)} on:mouseleave={() => (showAvatar = false)}>
+        <button
           on:click={handleAvatarClick}
-          on:mousemove={handleMouseMove}
-          on:mouseenter={() => avatarTooltipVisible = true}
-          on:mouseleave={() => avatarTooltipVisible = false}
-          class="relative inline-block cursor-cell"
-          aria-label="Click to cycle through avatar sizes"
-          aria-expanded={avatarTooltipVisible}
-      >
+          class="underline decoration-dotted underline-offset-2 cursor-help"
+          aria-label="Show portrait; click to cycle size"
+          aria-expanded={showAvatar}
+        >
           {info.name}
-          {#if avatarTooltipVisible}
-              <span 
-                  class="fixed z-50 rounded-full whitespace-nowrap"
-                  style="left: {tooltipX}px; top: {tooltipY}px"
-                  role="img"
-                  aria-label="Profile picture of {info.name}"
-              >
-                  <img 
-                      src={info.avatar} 
-                      alt="Profile picture of {info.name}"
-                      class="{avatarSize} rounded-full border-muted-foreground/20 border-4 transition-all" 
-                      fetchpriority="high"
-                      loading="eager"
-                      decoding="sync"
-                      aria-hidden="true"
-                  />
-              </span>
-          {/if}
-      </button>
+        </button>
+        {#if showAvatar}
+          <span class="absolute left-0 top-full mt-1 z-20 bg-popover text-popover-foreground border rounded-sm p-1 shadow-md" role="img" aria-label="Profile picture of {info.name}">
+          <span class="absolute left-3 -top-2">
+              <span class="block w-0 h-0 border-x-[6px] border-x-transparent border-b-[6px] border-b-border"></span>
+              <span class="absolute left-0 top-[2px] block w-0 h-0 border-x-[6px] border-x-transparent border-b-[6px] border-b-popover"></span>
+          </span>
+          <img
+              src={info.avatar}
+              alt="Profile picture of {info.name}"
+              class="{avatarSize} h-auto border-muted-foreground/20 border transition-all"
+              fetchpriority="high"
+              loading="eager"
+              decoding="sync"
+              aria-hidden="true"
+          />
+          </span>
+        {/if}
+      </span>
 
       ~
       psychiatry resident 
 
       <!-- Location Info -->
-      <button 
-          on:mousemove={handleMouseMove}
-          on:mouseenter={() => locationTooltipVisible = true}
-          on:mouseleave={() => locationTooltipVisible = false}
-          class="relative inline-block cursor-help"
+      <span class="relative inline-block" on:mouseenter={() => (showLocation = true)} on:mouseleave={() => (showLocation = false)}>
+        <button
+          on:click={() => (showLocation = !showLocation)}
+          class="cursor-help"
           aria-label="Location information"
-          aria-expanded={locationTooltipVisible}
-      >
-          @ Reinier van Arkel
-          {#if locationTooltipVisible}
-              <span 
-                  role="tooltip"
-                  class="fixed z-50 bg-background whitespace-nowrap duration-75 flex flex-col gap-2 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-7 text-muted-foreground hover:bg-muted transition-colors"
-                  style="left: {tooltipX}px; top: {tooltipY}px"
-              >
-                  <span class="text-xs inline-flex items-center gap-x-1">
-                      <LocateFixed class="w-4 h-4 inline" aria-hidden="true"/> 
-                      's Hertogenbosch <span class="font-mono text-xs">NL</span>
-                  </span>
+          aria-expanded={showLocation}
+        >
+          @ <span class="relative inline-block underline decoration-dotted underline-offset-2">Reinier van Arkel
+            {#if showLocation}
+              <span role="tooltip" class="absolute left-0 top-full mt-1 z-20 bg-popover text-popover-foreground whitespace-nowrap text-xs border rounded-sm px-2 py-1 shadow-md">
+                <span class="absolute left-3 -top-2">
+                  <span class="block w-0 h-0 border-x-[6px] border-x-transparent border-b-[6px] border-b-border"></span>
+                  <span class="absolute left-0 top-[2px] block w-0 h-0 border-x-[6px] border-x-transparent border-b-[6px] border-b-popover"></span>
+                </span>
+                <span class="inline-flex items-center gap-x-1">
+                  {'\'s-Hertogenbosch'} <span class="text-xs">NL</span>
+                </span>
               </span>
-          {/if}
-      </button>
+            {/if}
+          </span>
+        </button>
+      </span>
 
       <span class="text-muted-foreground/30" aria-hidden="true">/</span>
 

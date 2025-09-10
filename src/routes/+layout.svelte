@@ -184,17 +184,7 @@
                 <AnimatedLogo />
             {/if}
 
-            {#if $page.url.pathname === '/'}
-                <a 
-                    class="sm:hidden absolute inline-flex top-6 right-4 items-center gap-x-1 text-xs border rounded-full px-2 !py-0 leading-0 !my-0 h-6 text-muted-foreground hover:bg-muted transition-colors" 
-                    href="https://koenraijer.com/240504_resume.pdf"
-                    aria-label="Download resume (PDF)"
-                    download
-                >
-                    <Download class="w-3 h-3 inline" aria-hidden="true"/>
-                    Download Resume
-                </a>
-            {/if}
+            
         </nav>
     </header>
 

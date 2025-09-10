@@ -5,8 +5,8 @@ import forms from '@tailwindcss/forms';
 const plugin = require('tailwindcss/plugin')
 
 const fluidTypeConfig = {
-	fontSizeMin: 1.2,    // 18px at minimum screen size
-	fontSizeMax: 1.3,     // Slightly reduced from 1.3 to account for preferred zoom
+	fontSizeMin: 1.3,    // 18px at minimum screen size. PREV; 1.2
+	fontSizeMax: 1.4,     // Slightly reduced from 1.3 to account for preferred zoom
 	ratioMin: 1.1,         // Keeping this the same
 	ratioMax: 1.25,        // Keeping this the same
 	screenMin: 20,         // 320px minimum
@@ -73,16 +73,35 @@ const config = {
 					foreground: "hsl(var(--card-foreground) / <alpha-value>)"
 				}
 			},
-			borderRadius: {
-				lg: "var(--radius)",
-				md: "calc(var(--radius) - 2px)",
-				sm: "calc(var(--radius) - 4px)"
-			},
-			fontFamily: {
-				sans: ['"General Sans"', ...fontFamily.sans],
-				serif: ['Source Serif', ...fontFamily.serif],
-				emphasis: ['Newsreader', ...fontFamily.serif],
-			},
+            // Use slight rounding site‑wide to fit the flat document aesthetic
+            borderRadius: {
+                DEFAULT: "2px",
+                lg: "3px",
+                md: "2px",
+                sm: "1px",
+            },
+            // Remove drop‑shadows across the design; prefer borders instead
+            boxShadow: {
+                none: "none",
+                DEFAULT: "none",
+                sm: "none",
+                md: "none",
+                lg: "none",
+                xl: "none",
+                "2xl": "none",
+                inner: "none",
+            },
+            // Ensure a consistent 1px border by default
+            borderWidth: {
+                DEFAULT: "1px",
+            },
+            fontFamily: {
+                // Use Times New Roman site‑wide as the primary sans family
+                // (Tailwind preflight applies the 'sans' family to html/body by default)
+                sans: ['"Times New Roman"', 'Times', 'serif'],
+                serif: ['"Times New Roman"', 'Times', 'serif'],
+                emphasis: ['"Times New Roman"', 'Times', 'serif'],
+            },
 			screens: {
 				'screen-5xl': '1200px',
 			  },
@@ -124,7 +143,7 @@ const config = {
 					'xxs': [-2.5, 1.8],
 					'xs': [-2, 1.8],
 					'sm': [-1, 1.8],
-					'base': [0, 1.8],
+					'base': [0.3, 1.8],
 					'lg': [1, 1.8],
 					'xl': [1.5, 1.2],
 					'2xl': [3, 1.2],

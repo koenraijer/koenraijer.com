@@ -200,8 +200,6 @@
                         {@html mdToHtml(String(data.note.content))}
                     </div>
                 </div>
-            {:else}
-                <p class="text-sm text-muted-foreground">No notes matched for this book.</p>
             {/if}
         </section>
     </div>
