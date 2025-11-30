@@ -17,7 +17,7 @@ export const title = 'Koen Raijer'
 export const firstName = 'Koen'
 export const lastName = 'Raijer'
 export const name = `${firstName} ${lastName}`
-export const email = 'hello@koenraijer.com'
+export const email = 'contact.koenraijer@pm.me'
 export const avatar = '/241122_avatar.webp'
 export const bio = { 
     text: `Personal website of Koen Raijer. Psychiatry resident and researcher. Interests: personalized models of psychopathology, digital phenotyping, ambulatory assessment.`,
