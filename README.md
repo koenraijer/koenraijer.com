@@ -39,5 +39,5 @@ Under the following terms:
 
 ## 🤝 Connect With Me
 - [LinkedIn](https://www.linkedin.com/in/koen-raijer-3495a7127/)
-- [Email](mailto:hello@koenraijer.com)
+- [Email](mailto:contact.koenraijer@pm.me)
 - [GoodReads](https://www.goodreads.com/koenraijer/)
