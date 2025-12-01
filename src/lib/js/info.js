@@ -38,6 +38,7 @@ export const rabbitholes =
     'network theory',
     'rituals',
     'gnosticism',
+    'self-hosting'
 ]
 
 // Old bio's:
