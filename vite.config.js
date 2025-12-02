@@ -4,26 +4,22 @@ import { defineConfig } from 'vite';
 import { execSync } from 'child_process';
 
 // Get git commit info at build time
-function getGitCommitHash() {
+function getGitCommitInfo() {
 	try {
-		return execSync('git log -1 --format="%h"').toString().trim();
+		const output = execSync('git log -1 --format="%h|%cd" --date=format:"%m.%d"').toString().trim();
+		const [hash, date] = output.split('|');
+		return { hash, date };
 	} catch {
-		return 'unknown';
+		return { hash: 'unknown', date: '' };
 	}
 }
 
-function getGitCommitDate() {
-	try {
-		return execSync('git log -1 --format="%cd" --date=format:"%m.%d"').toString().trim();
-	} catch {
-		return '';
-	}
-}
+const gitInfo = getGitCommitInfo();
 
 export default defineConfig({
 	define: {
-		__GIT_COMMIT_HASH__: JSON.stringify(getGitCommitHash()),
-		__GIT_COMMIT_DATE__: JSON.stringify(getGitCommitDate())
+		__GIT_COMMIT_HASH__: JSON.stringify(gitInfo.hash),
+		__GIT_COMMIT_DATE__: JSON.stringify(gitInfo.date)
 	},
 	plugins: [enhancedImages(), sveltekit()]
 });
