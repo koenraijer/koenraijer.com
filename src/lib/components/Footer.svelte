@@ -11,7 +11,7 @@
 		{#if info.git_commit_hash}
 			<a
 				href={info.git_commit_url}
-				class="inline-flex items-center px-2.5 py-0.5 rounded-md text-[0.625rem] text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+				class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[0.625rem] text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
 				target="_blank"
 				rel="noopener"
 				title="Latest commit"
