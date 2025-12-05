@@ -6,7 +6,9 @@ import { execSync } from 'child_process';
 // Get git commit info at build time
 function getGitCommitInfo() {
 	try {
-		const output = execSync('git log -1 --format="%h|%cd" --date=format:"%m.%d"').toString().trim();
+		const output = execSync('git log -1 --format="%h|%cd" --date=format:"%d.%m.%y"')
+			.toString()
+			.trim();
 		const [hash, date] = output.split('|');
 		return { hash, date };
 	} catch {
