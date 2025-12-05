@@ -7,3 +7,7 @@ declare namespace App {
 	// interface Error {}
 	// interface Platform {}
 }
+
+// Global build-time constants
+declare const __GIT_COMMIT_HASH__: string;
+declare const __GIT_COMMIT_DATE__: string;
